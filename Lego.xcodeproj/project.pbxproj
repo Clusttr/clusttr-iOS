@@ -11,6 +11,8 @@
 		E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58DB29E8167F0065EEE2 /* ContentView.swift */; };
 		E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58DD29E816810065EEE2 /* Assets.xcassets */; };
 		E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58E029E816810065EEE2 /* Preview Assets.xcassets */; };
+		E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */; };
+		E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58EB29E81A880065EEE2 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E22C58DB29E8167F0065EEE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E22C58DD29E816810065EEE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E22C58E029E816810065EEE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
+		E22C58EB29E81A880065EEE2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 		E22C58D829E8167F0065EEE2 /* Lego */ = {
 			isa = PBXGroup;
 			children = (
+				E22C58EA29E8197F0065EEE2 /* Views */,
+				E22C58E729E818460065EEE2 /* Utils */,
 				E22C58D929E8167F0065EEE2 /* LegoApp.swift */,
 				E22C58DB29E8167F0065EEE2 /* ContentView.swift */,
 				E22C58DD29E816810065EEE2 /* Assets.xcassets */,
@@ -65,6 +71,22 @@
 				E22C58E029E816810065EEE2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E22C58E729E818460065EEE2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E22C58EA29E8197F0065EEE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E22C58EB29E81A880065EEE2 /* ProfileView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
+				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
 				E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */,
 				E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */,
 			);
