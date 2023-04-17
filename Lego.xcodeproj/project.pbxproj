@@ -13,6 +13,22 @@
 		E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58E029E816810065EEE2 /* Preview Assets.xcassets */; };
 		E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */; };
 		E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58EB29E81A880065EEE2 /* ProfileView.swift */; };
+		E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */; };
+		E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */; };
+		E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */; };
+		E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF929ED199F006ABEA8 /* BannerShape.swift */; };
+		E2579CFC29ED4EA3006ABEA8 /* ScreenSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CFB29ED4EA2006ABEA8 /* ScreenSize+Extension.swift */; };
+		E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CFD29ED4F22006ABEA8 /* View+TextFiled.swift */; };
+		E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CFF29ED8542006ABEA8 /* NFTCard.swift */; };
+		E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D0429ED8636006ABEA8 /* NFT.swift */; };
+		E2579D0829ED86F7006ABEA8 /* Fakery in Frameworks */ = {isa = PBXBuildFile; productRef = E2579D0729ED86F7006ABEA8 /* Fakery */; };
+		E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D0929ED87FF006ABEA8 /* Double+Extensions.swift */; };
+		E2579D0D29ED8AFF006ABEA8 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2579D0C29ED8AFF006ABEA8 /* Roboto-Regular.ttf */; };
+		E2579D0F29ED8B09006ABEA8 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2579D0E29ED8B09006ABEA8 /* Roboto-Medium.ttf */; };
+		E2579D1129ED8B14006ABEA8 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2579D1029ED8B13006ABEA8 /* Roboto-Bold.ttf */; };
+		E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1329ED8C9F006ABEA8 /* Font+Extensions.swift */; };
+		E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1529ED9452006ABEA8 /* Colors+Extensions.swift */; };
+		E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1829ED99F4006ABEA8 /* NFTGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +39,22 @@
 		E22C58E029E816810065EEE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		E22C58EB29E81A880065EEE2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShape.swift; sourceTree = "<group>"; };
+		E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
+		E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShapeViewModel.swift; sourceTree = "<group>"; };
+		E2579CF929ED199F006ABEA8 /* BannerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerShape.swift; sourceTree = "<group>"; };
+		E2579CFB29ED4EA2006ABEA8 /* ScreenSize+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScreenSize+Extension.swift"; sourceTree = "<group>"; };
+		E2579CFD29ED4F22006ABEA8 /* View+TextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TextFiled.swift"; sourceTree = "<group>"; };
+		E2579CFF29ED8542006ABEA8 /* NFTCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCard.swift; sourceTree = "<group>"; };
+		E2579D0429ED8636006ABEA8 /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
+		E2579D0929ED87FF006ABEA8 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		E2579D0C29ED8AFF006ABEA8 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		E2579D0E29ED8B09006ABEA8 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		E2579D1029ED8B13006ABEA8 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		E2579D1229ED8B62006ABEA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E2579D1329ED8C9F006ABEA8 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
+		E2579D1529ED9452006ABEA8 /* Colors+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extensions.swift"; sourceTree = "<group>"; };
+		E2579D1829ED99F4006ABEA8 /* NFTGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2579D0829ED86F7006ABEA8 /* Fakery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +88,10 @@
 		E22C58D829E8167F0065EEE2 /* Lego */ = {
 			isa = PBXGroup;
 			children = (
+				E2579D1229ED8B62006ABEA8 /* Info.plist */,
+				E2579D0B29ED8AE3006ABEA8 /* Fonts */,
+				E2579D0329ED8611006ABEA8 /* Models */,
+				E2579CF629ED191D006ABEA8 /* Shapes */,
 				E22C58EA29E8197F0065EEE2 /* Views */,
 				E22C58E729E818460065EEE2 /* Utils */,
 				E22C58D929E8167F0065EEE2 /* LegoApp.swift */,
@@ -76,7 +113,8 @@
 		E22C58E729E818460065EEE2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */,
+				E2579CF329EBEC45006ABEA8 /* Extensions */,
+				E2579CF229EBEC3A006ABEA8 /* Views */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -84,9 +122,68 @@
 		E22C58EA29E8197F0065EEE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2579D1729ED999C006ABEA8 /* Utils */,
 				E22C58EB29E81A880065EEE2 /* ProfileView.swift */,
+				E2579CFF29ED8542006ABEA8 /* NFTCard.swift */,
+				E2579D1829ED99F4006ABEA8 /* NFTGrid.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E2579CF229EBEC3A006ABEA8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2579CFB29ED4EA2006ABEA8 /* ScreenSize+Extension.swift */,
+				E2579CFD29ED4F22006ABEA8 /* View+TextFiled.swift */,
+				E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */,
+				E2579D1329ED8C9F006ABEA8 /* Font+Extensions.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E2579CF329EBEC45006ABEA8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2579D0929ED87FF006ABEA8 /* Double+Extensions.swift */,
+				E2579D1529ED9452006ABEA8 /* Colors+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2579CF629ED191D006ABEA8 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */,
+				E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */,
+				E2579CF929ED199F006ABEA8 /* BannerShape.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		E2579D0329ED8611006ABEA8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2579D0429ED8636006ABEA8 /* NFT.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E2579D0B29ED8AE3006ABEA8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E2579D0C29ED8AFF006ABEA8 /* Roboto-Regular.ttf */,
+				E2579D0E29ED8B09006ABEA8 /* Roboto-Medium.ttf */,
+				E2579D1029ED8B13006ABEA8 /* Roboto-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E2579D1729ED999C006ABEA8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +202,9 @@
 			dependencies = (
 			);
 			name = Lego;
+			packageProductDependencies = (
+				E2579D0729ED86F7006ABEA8 /* Fakery */,
+			);
 			productName = Lego;
 			productReference = E22C58D629E8167F0065EEE2 /* Lego.app */;
 			productType = "com.apple.product-type.application";
@@ -133,6 +233,9 @@
 				Base,
 			);
 			mainGroup = E22C58CD29E8167F0065EEE2;
+			packageReferences = (
+				E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */,
+			);
 			productRefGroup = E22C58D729E8167F0065EEE2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -147,6 +250,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2579D0F29ED8B09006ABEA8 /* Roboto-Medium.ttf in Resources */,
+				E2579D0D29ED8AFF006ABEA8 /* Roboto-Regular.ttf in Resources */,
+				E2579D1129ED8B14006ABEA8 /* Roboto-Bold.ttf in Resources */,
 				E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */,
 				E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */,
 			);
@@ -159,7 +265,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
+				E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */,
+				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
+				E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */,
+				E2579CFC29ED4EA3006ABEA8 /* ScreenSize+Extension.swift in Sources */,
+				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
+				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
+				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
+				E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */,
+				E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */,
+				E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */,
+				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
 				E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */,
 				E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */,
@@ -294,6 +412,7 @@
 				DEVELOPMENT_TEAM = STBR373K7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lego/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -323,6 +442,7 @@
 				DEVELOPMENT_TEAM = STBR373K7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lego/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -363,6 +483,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vadymmarkov/Fakery";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E2579D0729ED86F7006ABEA8 /* Fakery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */;
+			productName = Fakery;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E22C58CE29E8167F0065EEE2 /* Project object */;
 }

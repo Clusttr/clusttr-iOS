@@ -9,56 +9,86 @@ import SwiftUI
 
 struct ProfileView: View {
     @State var searchWord = ""
+    @State private var scrollOffset: CGPoint = .zero
+    @State private var headerHeight: CGFloat = 242
 
-    var body: some View {
-        ZStack {
-            header
-                .overlay {
-                    profileImage
-                        .scaleEffect(0.8)
-                        .padding(.bottom, 50)
-                }
-                .frame(height: 242)
-                .frame(maxHeight: .infinity, alignment: .top)
-
-            VStack {
-                Text("Benjamin Ray")
-
-                HStack {
-                    Text("4.5")
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .frame(width: 11, height: 11)
-
-                    Text("|")
-
-                    Text("92")
-                    Image(systemName: "heart.fill")
-                }
-
-                searchBar
-                    .padding(20)
-
-                Spacer()
-            }
-            .fontWeight(.semibold)
-            .foregroundColor(.white)
-            .padding(.top, 210)
-
+    var heightMultiplier: CGFloat {
+        let multiplier = 1 - (yOffset / 150)
+        if multiplier < 0.40 {
+            return 0.40
         }
-        .background(.black)
+        return multiplier
     }
 
-    var header: some View {
+    var yOffset: CGFloat {
+        if scrollOffset.y == 0 {
+            return 1
+        } else {
+            return scrollOffset.y > 200 ? 200 : scrollOffset.y
+        }
+    }
+
+    var profilePictureOffset: CGFloat {
+        if scrollOffset.y <= 0 {
+            return 1
+        } else {
+            return scrollOffset.y > 100 ? 100 : scrollOffset.y
+        }
+    }
+
+    var body: some View {
+        OffsetObservingScrollView(showsIndicators: false, offset: $scrollOffset) {
+
+            ZStack {
+                Color.black
+
+                VStack {
+                    Text("Benjamin Ray")
+
+                    HStack {
+                        Text("4.5")
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 11, height: 11)
+
+                        Text("|")
+
+                        Text("92")
+                        Image(systemName: "heart.fill")
+                    }
+
+                    searchBar
+                        .padding(20)
+
+                    NFTGrid(showBidTime: false)
+                        .padding(.bottom, 60)
+                }
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+                .padding(.top, headerHeight + 40)
+            }
+        }
+        .ignoresSafeArea()
+        .overlay {
+            bannerAndProfilePicture
+        }
+    }
+
+    var banner: some View {
         Image.banner
             .resizable()
             .ignoresSafeArea()
             .mask {
-                MyCustomShape()
+                if yOffset > 100 {
+                    Rectangle()
+                } else {
+                    BannerShape()
+                }
             }
-            .frame(height: 242)
+            .frame(height: 242 * heightMultiplier)
             .frame(maxHeight: .infinity, alignment: .top)
             .ignoresSafeArea()
+            .shadow(color: .white.opacity(0.2), radius: 10)
     }
 
     var profileImage: some View {
@@ -80,6 +110,20 @@ struct ProfileView: View {
                 .frame(width: 138, height: 138)
                 .clipShape(Circle())
         }
+    }
+
+    var bannerAndProfilePicture: some View {
+        banner
+            .overlay() {
+                profileImage
+                    .scaleEffect(0.8)
+                    .scaleEffect(heightMultiplier)
+                    .padding(.bottom, 50)
+                    .offset(x: -((UIScreen.screenWidth / 2 - 32) * (profilePictureOffset/100)))
+                    .offset(y: -((headerHeight / 2.7) * (profilePictureOffset/100)))
+            }
+            .frame(height: 242)
+            .frame(maxHeight: .infinity, alignment: .top)
     }
 
     var searchBar: some View {
@@ -109,47 +153,10 @@ struct ProfileView: View {
                 .foregroundColor(.white.opacity(0.7))
         }
     }
-
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
-    }
-}
-
-
-struct MyCustomShape: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        let width = rect.size.width
-        let height = rect.size.height
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: width, y: 0))
-        path.addLine(to: CGPoint(x: width, y: 0.6965*height))
-        path.addLine(to: CGPoint(x: 0.93407*width, y: 0.71598*height))
-        path.addCurve(to: CGPoint(x: 0.67476*width, y: 0.88187*height), control1: CGPoint(x: 0.84319*width, y: 0.74285*height), control2: CGPoint(x: 0.75547*width, y: 0.79896*height))
-        path.addLine(to: CGPoint(x: 0.61076*width, y: 0.94762*height))
-        path.addCurve(to: CGPoint(x: 0.39312*width, y: 0.93522*height), control1: CGPoint(x: 0.54238*width, y: 1.01787*height), control2: CGPoint(x: 0.45911*width, y: 1.01312*height))
-        path.addLine(to: CGPoint(x: 0.38948*width, y: 0.93091*height))
-        path.addCurve(to: CGPoint(x: 0.0689*width, y: 0.71361*height), control1: CGPoint(x: 0.29219*width, y: 0.81604*height), control2: CGPoint(x: 0.18284*width, y: 0.74193*height))
-        path.addLine(to: CGPoint(x: 0, y: 0.6965*height))
-        path.addLine(to: CGPoint(x: 0, y: 0))
-        path.closeSubpath()
-        return path
-    }
-}
-
-
-extension View {
-    func placeholder<Content: View>(
-        when shouldShow: Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View {
-
-        ZStack(alignment: alignment) {
-            placeholder().opacity(shouldShow ? 1 : 0)
-            self
-        }
     }
 }
