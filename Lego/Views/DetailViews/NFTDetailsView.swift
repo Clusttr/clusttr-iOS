@@ -12,11 +12,13 @@ struct NFTDetailsView: View {
     var nft: NFT
     let assetModelCount: Int
     @State var activeIndex: Int = 0
+    @Environment(\.dismiss) var dismiss
 
     init(nft: NFT) {
         self.nft = nft
         assetModelCount = nft.assetModels.count
     }
+
     var body: some View {
         VStack {
             if nft.assetModels.isEmpty {
@@ -37,9 +39,25 @@ struct NFTDetailsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-
-            Text("\(nft.assetModels.count)")
             Spacer()
+        }
+        .overlay {
+            VStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(12)
+                        .background(.ultraThinMaterial)
+                        .clipShape(Circle())
+                        .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 5)
+                        .padding(.top, 32)
+                        .padding(.leading, 16)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
         .ignoresSafeArea()
     }
@@ -68,7 +86,7 @@ struct NFTDetailsView: View {
                 }
             }
         }
-        .frame(width: UIScreen.screenWidth / 3)
+        .frame(width: UIScreen.screenWidth / 2.5)
     }
 
     @ViewBuilder
@@ -78,13 +96,19 @@ struct NFTDetailsView: View {
 
         Button(action: action) {
             Image(systemName: systemImage)
-                .foregroundColor(.black)
-                .padding(8)
+                .scaleEffect(0.75)
+                .foregroundColor(.white)
+                .padding(6)
                 .background {
                     Circle()
                         .fill(.black)
-                        .opacity(0.3)
+                        .opacity(0.5)
                 }
+                .overlay {
+                    Circle()
+                        .strokeBorder(Color.white.opacity(0.75), lineWidth: 1)
+                }
+                .padding(2)
         }
         .disabled(!isActive)
         .opacity(isActive ? 1 : 0.3)
