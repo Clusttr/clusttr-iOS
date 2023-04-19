@@ -16,18 +16,19 @@ struct NFT: Identifiable {
     var floorPrice: Double
     var totalVolume: Double
     var createdAt: Date
+    var assetModels: [AssetModel]
 }
 
 extension NFT {
     static var fakeData: [NFT] {
         let faker = Faker()
         return [
-            NFT(name: "Ape Club", creator: faker.name.name(), image: "House1", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12)),
-            NFT(name: "Ape Club", creator: faker.name.name(), image: "House2", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12)),
-            NFT(name: "Ape Club", creator: faker.name.name(), image: "House3", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12)),
-            NFT(name: "Ape Club", creator: faker.name.name(), image: "House4", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12)),
-            NFT(name: "Ape Club", creator: faker.name.name(), image: "House5", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12)),
-            NFT(name: "Ape Club", creator: faker.name.name(), image: "House6", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12))
+            NFT(name: "Ape Club", creator: faker.name.name(), image: "House1", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
+            NFT(name: "Ape Club", creator: faker.name.name(), image: "House2", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
+            NFT(name: "Ape Club", creator: faker.name.name(), image: "House3", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
+            NFT(name: "Ape Club", creator: faker.name.name(), image: "House4", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
+            NFT(name: "Ape Club", creator: faker.name.name(), image: "House5", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
+            NFT(name: "Ape Club", creator: faker.name.name(), image: "House6", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData)
         ]
     }
 }

@@ -15,4 +15,17 @@ extension Image {
     static var banner: Image {
         Image("Banner")
     }
+
+    static var wallpaper: Image {
+        Image("wallpaper")
+    }
+
+    //icons
+    static var home: Image {
+        Image("Home")
+    }
+
+    static var profile: Image {
+        Image("Profile")
+    }
 }

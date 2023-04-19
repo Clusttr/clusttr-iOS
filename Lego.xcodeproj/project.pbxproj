@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E217D0B129EEB4B900DE5C5F /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B029EEB4B900DE5C5F /* AssetModel.swift */; };
+		E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B229EEB77800DE5C5F /* AssetModelType.swift */; };
 		E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58D929E8167F0065EEE2 /* LegoApp.swift */; };
 		E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58DB29E8167F0065EEE2 /* ContentView.swift */; };
 		E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58DD29E816810065EEE2 /* Assets.xcassets */; };
@@ -29,9 +31,19 @@
 		E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1329ED8C9F006ABEA8 /* Font+Extensions.swift */; };
 		E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1529ED9452006ABEA8 /* Colors+Extensions.swift */; };
 		E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1829ED99F4006ABEA8 /* NFTGrid.swift */; };
+		E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1A29EDEB09006ABEA8 /* MainView.swift */; };
+		E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1C29EDEBA0006ABEA8 /* NavigationBar.swift */; };
+		E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D1E29EDEBC2006ABEA8 /* NavBarMenu.swift */; };
+		E2579D2129EDEDB1006ABEA8 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D2029EDEDB1006ABEA8 /* Color+Extensions.swift */; };
+		E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D2229EDEEF5006ABEA8 /* HomeView.swift */; };
+		E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */; };
+		E2579D2B29EEACA0006ABEA8 /* House.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2A29EEACA0006ABEA8 /* House.usdz */; };
+		E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E217D0B029EEB4B900DE5C5F /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
+		E217D0B229EEB77800DE5C5F /* AssetModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModelType.swift; sourceTree = "<group>"; };
 		E22C58D629E8167F0065EEE2 /* Lego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22C58D929E8167F0065EEE2 /* LegoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoApp.swift; sourceTree = "<group>"; };
 		E22C58DB29E8167F0065EEE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +67,14 @@
 		E2579D1329ED8C9F006ABEA8 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
 		E2579D1529ED9452006ABEA8 /* Colors+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extensions.swift"; sourceTree = "<group>"; };
 		E2579D1829ED99F4006ABEA8 /* NFTGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTGrid.swift; sourceTree = "<group>"; };
+		E2579D1A29EDEB09006ABEA8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E2579D1C29EDEBA0006ABEA8 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		E2579D1E29EDEBC2006ABEA8 /* NavBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarMenu.swift; sourceTree = "<group>"; };
+		E2579D2029EDEDB1006ABEA8 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		E2579D2229EDEEF5006ABEA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailsView.swift; sourceTree = "<group>"; };
+		E2579D2A29EEACA0006ABEA8 /* House.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = House.usdz; sourceTree = "<group>"; };
+		E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Kitchen.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +125,7 @@
 		E22C58DF29E816810065EEE2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				E2579D2929EEAC60006ABEA8 /* AssetModels */,
 				E22C58E029E816810065EEE2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -122,10 +143,13 @@
 		E22C58EA29E8197F0065EEE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2579D2629EEA96B006ABEA8 /* DetailViews */,
+				E2579D2529EEA943006ABEA8 /* Lists */,
+				E2579D2429EEA92E006ABEA8 /* Cards */,
 				E2579D1729ED999C006ABEA8 /* Utils */,
 				E22C58EB29E81A880065EEE2 /* ProfileView.swift */,
-				E2579CFF29ED8542006ABEA8 /* NFTCard.swift */,
-				E2579D1829ED99F4006ABEA8 /* NFTGrid.swift */,
+				E2579D2229EDEEF5006ABEA8 /* HomeView.swift */,
+				E2579D1A29EDEB09006ABEA8 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,6 +161,7 @@
 				E2579CFD29ED4F22006ABEA8 /* View+TextFiled.swift */,
 				E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */,
 				E2579D1329ED8C9F006ABEA8 /* Font+Extensions.swift */,
+				E2579D2029EDEDB1006ABEA8 /* Color+Extensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				E2579D0429ED8636006ABEA8 /* NFT.swift */,
+				E2579D1E29EDEBC2006ABEA8 /* NavBarMenu.swift */,
+				E217D0B029EEB4B900DE5C5F /* AssetModel.swift */,
+				E217D0B229EEB77800DE5C5F /* AssetModelType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,8 +210,42 @@
 			isa = PBXGroup;
 			children = (
 				E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */,
+				E2579D1C29EDEBA0006ABEA8 /* NavigationBar.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E2579D2429EEA92E006ABEA8 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				E2579CFF29ED8542006ABEA8 /* NFTCard.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		E2579D2529EEA943006ABEA8 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				E2579D1829ED99F4006ABEA8 /* NFTGrid.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		E2579D2629EEA96B006ABEA8 /* DetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */,
+			);
+			path = DetailViews;
+			sourceTree = "<group>";
+		};
+		E2579D2929EEAC60006ABEA8 /* AssetModels */ = {
+			isa = PBXGroup;
+			children = (
+				E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */,
+				E2579D2A29EEACA0006ABEA8 /* House.usdz */,
+			);
+			path = AssetModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +312,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2579D2B29EEACA0006ABEA8 /* House.usdz in Resources */,
 				E2579D0F29ED8B09006ABEA8 /* Roboto-Medium.ttf in Resources */,
 				E2579D0D29ED8AFF006ABEA8 /* Roboto-Regular.ttf in Resources */,
 				E2579D1129ED8B14006ABEA8 /* Roboto-Bold.ttf in Resources */,
+				E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */,
 				E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */,
 				E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */,
 			);
@@ -270,16 +334,24 @@
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
 				E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */,
 				E2579CFC29ED4EA3006ABEA8 /* ScreenSize+Extension.swift in Sources */,
+				E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */,
 				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
 				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
 				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
 				E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */,
 				E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */,
+				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,
 				E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */,
+				E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */,
+				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
+				E2579D2129EDEDB1006ABEA8 /* Color+Extensions.swift in Sources */,
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
+				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
 				E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */,
+				E217D0B129EEB4B900DE5C5F /* AssetModel.swift in Sources */,
+				E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */,
 				E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

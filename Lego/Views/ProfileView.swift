@@ -61,7 +61,7 @@ struct ProfileView: View {
                         .padding(20)
 
                     NFTGrid(showBidTime: false)
-                        .padding(.bottom, 60)
+                        .padding(.bottom, 120)
                 }
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
@@ -75,7 +75,7 @@ struct ProfileView: View {
     }
 
     var banner: some View {
-        Image.banner
+        Image.wallpaper
             .resizable()
             .ignoresSafeArea()
             .mask {
