@@ -37,40 +37,42 @@ struct ProfileView: View {
     }
 
     var body: some View {
-        OffsetObservingScrollView(showsIndicators: false, offset: $scrollOffset) {
+        NavigationStack {
+            OffsetObservingScrollView(showsIndicators: false, offset: $scrollOffset) {
 
-            ZStack {
-                Color.black
+                ZStack {
+                    Color.black
 
-                VStack {
-                    Text("Benjamin Ray")
+                    VStack {
+                        Text("Benjamin Ray")
 
-                    HStack {
-                        Text("4.5")
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .frame(width: 11, height: 11)
+                        HStack {
+                            Text("4.5")
+                            Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 11, height: 11)
 
-                        Text("|")
+                            Text("|")
 
-                        Text("92")
-                        Image(systemName: "heart.fill")
+                            Text("92")
+                            Image(systemName: "heart.fill")
+                        }
+
+                        searchBar
+                            .padding(20)
+
+                        NFTGrid(showBidTime: false)
+                            .padding(.bottom, 120)
                     }
-
-                    searchBar
-                        .padding(20)
-
-                    NFTGrid(showBidTime: false)
-                        .padding(.bottom, 120)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .padding(.top, headerHeight + 40)
                 }
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
-                .padding(.top, headerHeight + 40)
             }
+            .ignoresSafeArea()
+            .overlay {
+                bannerAndProfilePicture
         }
-        .ignoresSafeArea()
-        .overlay {
-            bannerAndProfilePicture
         }
     }
 

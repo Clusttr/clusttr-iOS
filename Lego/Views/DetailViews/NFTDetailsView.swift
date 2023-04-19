@@ -60,6 +60,7 @@ struct NFTDetailsView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
         .ignoresSafeArea()
+        .navigationBarBackButtonHidden()
     }
 
     @ViewBuilder
