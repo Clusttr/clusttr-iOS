@@ -32,7 +32,7 @@ struct NFTCard: View {
 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(spacing: 4) {
-                        Text(nft.image)
+                        Text(nft.name)
                     }
 
                     HStack {

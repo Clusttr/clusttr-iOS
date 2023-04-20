@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct LegoApp: App {
+    @State var appState: AppState = AppState()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(appState)
         }
     }
 }

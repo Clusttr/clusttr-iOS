@@ -27,7 +27,6 @@ struct NavigationBar: View {
                                     activeMenu = menu
                                     withAnimation(.easeInOut) {
                                         circleOffset = Double(activeMenu.index) * buttonWidth
-                                        print("circleOffset: ", circleOffset)
                                     }
                                 }
                         }
@@ -37,8 +36,12 @@ struct NavigationBar: View {
                             .fill(Color.accentColor)
                             .frame(width: 65, height: 65)
                             .offset(x: 2.5)
-                            .offset(x: circleOffset + 52) // the value 52 is dependant on the width of the button size
+                            .offset(x: circleOffset + 52)
+                            //the value 52 is dependant on the width of the button size
                             .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .onAppear {
+                        circleOffset = Double(activeMenu.index) * buttonWidth
                     }
                 }
                 .padding(.top, 11)
@@ -47,6 +50,10 @@ struct NavigationBar: View {
             .frame(height: 100)
             .background(Color._background)
             .cornerRadius(100)
+            .overlay {
+                RoundedRectangle(cornerRadius: 100, style: .continuous)
+                    .stroke(Color.white.opacity(0.25), lineWidth: 0.5)
+            }
 
         }
         .ignoresSafeArea()

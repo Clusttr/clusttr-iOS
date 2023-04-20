@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NFTGrid: View {
-    @State var NFTs = NFT.fakeData
+    var NFTs: [NFT]
     var showBidTime: Bool = true
 
     let columns = [GridItem(.adaptive(minimum: 150))]
@@ -29,6 +29,6 @@ struct NFTGrid: View {
 
 struct NFTList_Previews: PreviewProvider {
     static var previews: some View {
-        NFTGrid()
+        NFTGrid(NFTs: NFT.fakeData, showBidTime: true)
     }
 }

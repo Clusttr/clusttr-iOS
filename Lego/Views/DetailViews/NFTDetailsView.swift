@@ -13,6 +13,7 @@ struct NFTDetailsView: View {
     let assetModelCount: Int
     @State var activeIndex: Int = 0
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var appState: AppState
 
     init(nft: NFT) {
         self.nft = nft
@@ -61,6 +62,16 @@ struct NFTDetailsView: View {
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden()
+        .onAppear {
+            withAnimation(.easeInOut) {
+                appState.isNavBarHidden = true
+            }
+        }
+        .onDisappear {
+            withAnimation(.easeInOut) {
+                appState.isNavBarHidden = false
+            }
+        }
     }
 
     @ViewBuilder
@@ -120,5 +131,6 @@ struct NFTDetailsView: View {
 struct NFTDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NFTDetailsView(nft: NFT.fakeData[0])
+            .environmentObject(AppState())
     }
 }

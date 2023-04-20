@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State var searchWord = ""
     @State private var scrollOffset: CGPoint = .zero
     @State private var headerHeight: CGFloat = 242
+    @FocusState private var searchBarIsFocused: Bool
+
+    @ObservedObject var viewModel = ProfileViewModel()
 
     var heightMultiplier: CGFloat {
         let multiplier = 1 - (yOffset / 150)
@@ -39,7 +41,6 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             OffsetObservingScrollView(showsIndicators: false, offset: $scrollOffset) {
-
                 ZStack {
                     Color.black
 
@@ -61,19 +62,26 @@ struct ProfileView: View {
                         searchBar
                             .padding(20)
 
-                        NFTGrid(showBidTime: false)
-                            .padding(.bottom, 120)
+                        NFTGrid(NFTs: viewModel.NFTs, showBidTime: false)
+                            .padding(.bottom, 80)
                     }
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
-                    .padding(.top, headerHeight + 40)
+                    .padding(.top, headerHeight - 40)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        searchBarIsFocused = false
+                    }
                 }
             }
-            .ignoresSafeArea()
             .overlay {
                 bannerAndProfilePicture
+                    .onTapGesture {
+                        searchBarIsFocused = false
+                    }
+            }
         }
-        }
+        .ignoresSafeArea()
     }
 
     var banner: some View {
@@ -132,8 +140,9 @@ struct ProfileView: View {
         HStack {
             HStack {
                 Image(systemName: "magnifyingglass")
-                TextField("Search", text: $searchWord)
-                    .placeholder(when: searchWord.isEmpty) {
+                TextField("Search", text: $viewModel.searchWord)
+                    .focused($searchBarIsFocused)
+                    .placeholder(when: viewModel.searchWord.isEmpty) {
                         Text("Search")
                             .foregroundColor(.white.opacity(0.7))
                     }

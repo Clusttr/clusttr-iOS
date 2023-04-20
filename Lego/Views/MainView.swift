@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct MainView: View {
-    @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @State var isHidden = false
+    @AppStorage("activeMenu") var activeMenu: NavBarMenu = .profile
+    @EnvironmentObject var appState: AppState
+
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
 
     var body: some View {
         ZStack {
             TabView(selection: $activeMenu) {
-//                HomeView()
-//                    .tag(NavBarMenu.home)
-                NFTDetailsView(nft: NFT.fakeData[0])
+                HomeView()
                     .tag(NavBarMenu.home)
 
                 ProfileView()
                     .tag(NavBarMenu.profile)
             }
             NavigationBar(activeMenu: $activeMenu)
-                //.offset(y: appState.isNavBarHidden ? 150 : 0)
+                .offset(y: appState.isNavBarHidden ? 150 : 10)
         }
     }
 }
@@ -31,5 +34,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(AppState())
     }
 }
