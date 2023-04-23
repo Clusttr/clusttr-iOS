@@ -11,8 +11,8 @@ struct ProfileView: View {
     @State private var scrollOffset: CGPoint = .zero
     @State private var headerHeight: CGFloat = 242
     @FocusState private var searchBarIsFocused: Bool
-
-    @ObservedObject var viewModel = ProfileViewModel()
+    @StateObject var viewModel = ProfileViewModel()
+    @EnvironmentObject var appState: AppState
 
     var heightMultiplier: CGFloat {
         let multiplier = 1 - (yOffset / 150)
@@ -82,6 +82,11 @@ struct ProfileView: View {
             }
         }
         .ignoresSafeArea()
+        .onAppear {
+            withAnimation(.easeInOut) {
+                appState.isNavBarHidden = false
+            }
+        }
     }
 
     var banner: some View {
@@ -169,5 +174,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(AppState())
     }
 }

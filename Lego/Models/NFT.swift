@@ -9,8 +9,10 @@ import Fakery
 import Foundation
 
 struct NFT: Identifiable {
-    var id: UUID = UUID()
+    var id: Int
     var name: String
+    var location: String
+    var description: String
     var creator: String
     var image: String
     var floorPrice: Double
@@ -21,14 +23,27 @@ struct NFT: Identifiable {
 
 extension NFT {
     static var fakeData: [NFT] {
-        let faker = Faker()
         return [
-            NFT(name: "Club House", creator: faker.name.name(), image: "House1", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
-            NFT(name: "Twitter House", creator: faker.name.name(), image: "House2", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
-            NFT(name: "Kayla's Court", creator: faker.name.name(), image: "House3", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
-            NFT(name: "Faycob's Court", creator: faker.name.name(), image: "House4", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
-            NFT(name: "Kent Trench", creator: faker.name.name(), image: "House5", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData),
-            NFT(name: "Halo Reed", creator: faker.name.name(), image: "House6", floorPrice: faker.number.randomDouble(min: 10, max: 100), totalVolume: 100, createdAt: faker.date.backward(days: 12), assetModels: AssetModel.fakeData)
+            generateData(name: "Club House", image: "House1"),
+            generateData(name: "Twitter House", image: "House2"),
+            generateData(name: "Kayla's Court", image: "House3"),
+            generateData(name: "Faycob's Court", image: "House4"),
+            generateData(name: "Kent Trench", image: "House5"),
+            generateData(name: "Halo Reed", image: "House6")
         ]
+    }
+
+    private static func generateData(name: String, image: String) -> NFT {
+        let faker = Faker()
+        return NFT(id: faker.number.randomInt(min: 1, max: 25),
+                   name: name,
+                   location: faker.address.city(),
+                   description: faker.lorem.sentences(amount: 6),
+                   creator: faker.name.name(),
+                   image: image,
+                   floorPrice: faker.number.randomDouble(min: 10, max: 100),
+                   totalVolume: 100,
+                   createdAt: faker.date.backward(days: 12),
+                   assetModels: AssetModel.fakeData)
     }
 }

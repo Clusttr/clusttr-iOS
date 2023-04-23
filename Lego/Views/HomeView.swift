@@ -8,9 +8,36 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var NFTs: [NFT] = NFT.fakeData
     var body: some View {
         NavigationStack {
-            Text("Home View")
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading) {
+                    Text("Interesting Projects")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .padding(.horizontal)
+                    ProjectCarousel()
+
+                    Text("Trending")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .padding(.horizontal)
+                    NFTGrid(NFTs: NFTs)
+                        .padding(.horizontal)
+
+
+                    Text("Popular Developers")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .padding(.horizontal)
+
+                    PopularDeveloperRow()
+
+                    Spacer()
+                }
+                .padding(.bottom, 100)
+            }
         }
     }
 }
