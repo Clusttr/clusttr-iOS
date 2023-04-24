@@ -48,6 +48,37 @@ struct NFTDetailsView: View {
                     .padding(.horizontal, 24)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack {
+                            Text("Features")
+                                .font(.headline)
+                                .padding(.bottom, 2)
+
+                            Spacer()
+
+                            NavigationLink {
+                                PropertyFeatureFullList()
+                            } label: {
+                                HStack(spacing: 4) {
+                                    Text("Show More")
+                                    Image(systemName: "chevron.right")
+                                }
+                                .padding([.leading, .top, .bottom], 4)
+                                .clipShape(Rectangle())
+                                .font(.footnote)
+                                .fontWeight(.bold)
+                            }
+
+
+                        }
+
+                        feature(icon: "square.split.bottomrightquarter", name: "Areas", value: "580ft")
+                        feature(icon: "bed.double", name: "Bedrooms", value: "4")
+                        feature(icon: "shower", name: "Baths", value: "5")
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 24)
+
                     similarProperties
 
                     Spacer()
@@ -127,6 +158,20 @@ struct NFTDetailsView: View {
             }
             .padding(.vertical, 8)
         }
+    }
+
+    @ViewBuilder
+    func feature(icon: String, name: String, value: String) -> some View {
+        HStack {
+            Image(systemName: icon)
+                .opacity(0.9)
+            Text(name)
+                .opacity(0.9)
+            Spacer()
+            Text(value)
+                .fontWeight(.semibold)
+        }
+        .font(.footnote)
     }
 }
 

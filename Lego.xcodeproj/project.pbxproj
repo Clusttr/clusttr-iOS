@@ -19,6 +19,7 @@
 		E217D0C329F4464E00DE5C5F /* ProjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0C229F4464E00DE5C5F /* ProjectCard.swift */; };
 		E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0C429F53A3B00DE5C5F /* ProjectCarousel.swift */; };
 		E217D0C929F5E58C00DE5C5F /* PopularDeveloperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0C829F5E58C00DE5C5F /* PopularDeveloperRow.swift */; };
+		E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CA29F694D500DE5C5F /* PropertyFeatureFullList.swift */; };
 		E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58D929E8167F0065EEE2 /* LegoApp.swift */; };
 		E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58DB29E8167F0065EEE2 /* ContentView.swift */; };
 		E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58DD29E816810065EEE2 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		E217D0C229F4464E00DE5C5F /* ProjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCard.swift; sourceTree = "<group>"; };
 		E217D0C429F53A3B00DE5C5F /* ProjectCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCarousel.swift; sourceTree = "<group>"; };
 		E217D0C829F5E58C00DE5C5F /* PopularDeveloperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDeveloperRow.swift; sourceTree = "<group>"; };
+		E217D0CA29F694D500DE5C5F /* PropertyFeatureFullList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyFeatureFullList.swift; sourceTree = "<group>"; };
 		E22C58D629E8167F0065EEE2 /* Lego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22C58D929E8167F0065EEE2 /* LegoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoApp.swift; sourceTree = "<group>"; };
 		E22C58DB29E8167F0065EEE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				E2579D1829ED99F4006ABEA8 /* NFTGrid.swift */,
 				E217D0C429F53A3B00DE5C5F /* ProjectCarousel.swift */,
 				E217D0C829F5E58C00DE5C5F /* PopularDeveloperRow.swift */,
+				E217D0CA29F694D500DE5C5F /* PropertyFeatureFullList.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				E217D0C129F40FB000DE5C5F /* DeveloperCard.swift in Sources */,
 				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,
 				E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */,
+				E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */,
 				E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */,
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,
