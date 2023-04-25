@@ -20,6 +20,10 @@
 		E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0C429F53A3B00DE5C5F /* ProjectCarousel.swift */; };
 		E217D0C929F5E58C00DE5C5F /* PopularDeveloperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0C829F5E58C00DE5C5F /* PopularDeveloperRow.swift */; };
 		E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CA29F694D500DE5C5F /* PropertyFeatureFullList.swift */; };
+		E217D0CD29F70FB000DE5C5F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CC29F70FB000DE5C5F /* Transaction.swift */; };
+		E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CE29F7BA0A00DE5C5F /* Valuation.swift */; };
+		E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */; };
+		E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */; };
 		E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58D929E8167F0065EEE2 /* LegoApp.swift */; };
 		E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58DB29E8167F0065EEE2 /* ContentView.swift */; };
 		E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58DD29E816810065EEE2 /* Assets.xcassets */; };
@@ -66,6 +70,10 @@
 		E217D0C429F53A3B00DE5C5F /* ProjectCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCarousel.swift; sourceTree = "<group>"; };
 		E217D0C829F5E58C00DE5C5F /* PopularDeveloperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDeveloperRow.swift; sourceTree = "<group>"; };
 		E217D0CA29F694D500DE5C5F /* PropertyFeatureFullList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyFeatureFullList.swift; sourceTree = "<group>"; };
+		E217D0CC29F70FB000DE5C5F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E217D0CE29F7BA0A00DE5C5F /* Valuation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valuation.swift; sourceTree = "<group>"; };
+		E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistoryComponent.swift; sourceTree = "<group>"; };
 		E22C58D629E8167F0065EEE2 /* Lego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22C58D929E8167F0065EEE2 /* LegoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoApp.swift; sourceTree = "<group>"; };
 		E22C58DB29E8167F0065EEE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -195,6 +203,7 @@
 			children = (
 				E2579D0929ED87FF006ABEA8 /* Double+Extensions.swift */,
 				E2579D1529ED9452006ABEA8 /* Colors+Extensions.swift */,
+				E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,6 +226,8 @@
 				E217D0B029EEB4B900DE5C5F /* AssetModel.swift */,
 				E217D0B229EEB77800DE5C5F /* AssetModelType.swift */,
 				E217D0B629F0550B00DE5C5F /* LoginStatus.swift */,
+				E217D0CC29F70FB000DE5C5F /* Transaction.swift */,
+				E217D0CE29F7BA0A00DE5C5F /* Valuation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,6 +279,7 @@
 				E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */,
 				E217D0BE29F1A34000DE5C5F /* NFTDetailsViewModel.swift */,
 				E217D0BA29F17FC700DE5C5F /* ModelSceneView.swift */,
+				E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -363,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
+				E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */,
 				E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
@@ -370,10 +383,12 @@
 				E2579CFC29ED4EA3006ABEA8 /* ScreenSize+Extension.swift in Sources */,
 				E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */,
 				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
+				E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */,
 				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E217D0BB29F17FC700DE5C5F /* ModelSceneView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
+				E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */,
 				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
 				E217D0B729F0550B00DE5C5F /* LoginStatus.swift in Sources */,
 				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
@@ -388,6 +403,7 @@
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,
 				E2579D2129EDEDB1006ABEA8 /* Color+Extensions.swift in Sources */,
+				E217D0CD29F70FB000DE5C5F /* Transaction.swift in Sources */,
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,

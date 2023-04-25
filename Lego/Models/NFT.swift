@@ -19,6 +19,8 @@ struct NFT: Identifiable {
     var totalVolume: Double
     var createdAt: Date
     var assetModels: [AssetModel]
+    var transactions: [Transaction]
+    var valuations: [Valuation]
 }
 
 extension NFT {
@@ -44,6 +46,8 @@ extension NFT {
                    floorPrice: faker.number.randomDouble(min: 10, max: 100),
                    totalVolume: 100,
                    createdAt: faker.date.backward(days: 12),
-                   assetModels: AssetModel.fakeData)
+                   assetModels: AssetModel.fakeData,
+                   transactions: Transaction.data,
+                   valuations: Valuation.data)
     }
 }

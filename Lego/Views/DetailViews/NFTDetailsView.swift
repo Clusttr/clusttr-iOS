@@ -5,6 +5,7 @@
 //  Created by Matthew Chukwuemeka on 18/04/2023.
 //
 
+import Charts
 import SwiftUI
 import SceneKit
 
@@ -68,8 +69,6 @@ struct NFTDetailsView: View {
                                 .font(.footnote)
                                 .fontWeight(.bold)
                             }
-
-
                         }
 
                         feature(icon: "square.split.bottomrightquarter", name: "Areas", value: "580ft")
@@ -78,6 +77,8 @@ struct NFTDetailsView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
+
+                    PriceHistoryComponent(transactions: nft.transactions, valuations: nft.valuations)
 
                     similarProperties
 
@@ -181,3 +182,5 @@ struct NFTDetailsView_Previews: PreviewProvider {
             .environmentObject(AppState())
     }
 }
+
+
