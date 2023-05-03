@@ -24,6 +24,7 @@
 		E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CE29F7BA0A00DE5C5F /* Valuation.swift */; };
 		E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */; };
 		E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */; };
+		E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */; };
 		E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58D929E8167F0065EEE2 /* LegoApp.swift */; };
 		E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58DB29E8167F0065EEE2 /* ContentView.swift */; };
 		E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58DD29E816810065EEE2 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		E217D0CE29F7BA0A00DE5C5F /* Valuation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valuation.swift; sourceTree = "<group>"; };
 		E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistoryComponent.swift; sourceTree = "<group>"; };
+		E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNFTView.swift; sourceTree = "<group>"; };
 		E22C58D629E8167F0065EEE2 /* Lego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22C58D929E8167F0065EEE2 /* LegoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoApp.swift; sourceTree = "<group>"; };
 		E22C58DB29E8167F0065EEE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				E217D0BE29F1A34000DE5C5F /* NFTDetailsViewModel.swift */,
 				E217D0BA29F17FC700DE5C5F /* ModelSceneView.swift */,
 				E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */,
+				E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */,
 				E217D0C929F5E58C00DE5C5F /* PopularDeveloperRow.swift in Sources */,
 				E217D0C129F40FB000DE5C5F /* DeveloperCard.swift in Sources */,
+				E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */,
 				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,
 				E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */,
 				E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */,
@@ -548,8 +552,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -578,8 +582,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

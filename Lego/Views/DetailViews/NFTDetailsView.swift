@@ -12,6 +12,7 @@ import SceneKit
 struct NFTDetailsView: View {
     var nft: NFT
     let assetModelCount: Int
+    @State var showBuySheet: Bool = false
     @StateObject var viewModel = NFTDetailsViewModel()
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appState: AppState
@@ -90,7 +91,7 @@ struct NFTDetailsView: View {
             VStack {
                 Spacer()
                 Button {
-
+                    showBuySheet = true
                 } label: {
                     Text("Buy Shares")
                         .fontWeight(.bold)
@@ -109,6 +110,7 @@ struct NFTDetailsView: View {
                 dismissButton
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding(.top)
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden()
@@ -116,6 +118,10 @@ struct NFTDetailsView: View {
             withAnimation(.easeInOut) {
                 appState.isNavBarHidden = true
             }
+        }
+        .sheet(isPresented: $showBuySheet) {
+            PurchaseNFTView(pricePerShare: nft.floorPrice, availableShare: 928)
+                .presentationDetents([.height(420)])
         }
     }
 
