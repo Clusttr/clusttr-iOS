@@ -55,6 +55,8 @@
 		E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */; };
 		E2579D2B29EEACA0006ABEA8 /* House.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2A29EEACA0006ABEA8 /* House.usdz */; };
 		E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */; };
+		E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */; };
+		E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA032A095E33005C9F01 /* DismissButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,8 @@
 		E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailsView.swift; sourceTree = "<group>"; };
 		E2579D2A29EEACA0006ABEA8 /* House.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = House.usdz; sourceTree = "<group>"; };
 		E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Kitchen.usdz; sourceTree = "<group>"; };
+		E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperProfileView.swift; sourceTree = "<group>"; };
+		E282BA032A095E33005C9F01 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,12 +180,11 @@
 		E22C58EA29E8197F0065EEE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E282BA022A095BF6005C9F01 /* ProfileViews */,
 				E2579D2629EEA96B006ABEA8 /* DetailViews */,
 				E2579D2529EEA943006ABEA8 /* Lists */,
 				E2579D2429EEA92E006ABEA8 /* Cards */,
 				E2579D1729ED999C006ABEA8 /* Utils */,
-				E22C58EB29E81A880065EEE2 /* ProfileView.swift */,
-				E217D0B829F06B5200DE5C5F /* ProfileViewModel.swift */,
 				E2579D2229EDEEF5006ABEA8 /* HomeView.swift */,
 				E2579D1A29EDEB09006ABEA8 /* MainView.swift */,
 			);
@@ -249,6 +252,7 @@
 			children = (
 				E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */,
 				E2579D1C29EDEBA0006ABEA8 /* NavigationBar.swift */,
+				E282BA032A095E33005C9F01 /* DismissButton.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -294,6 +298,16 @@
 				E2579D2A29EEACA0006ABEA8 /* House.usdz */,
 			);
 			path = AssetModels;
+			sourceTree = "<group>";
+		};
+		E282BA022A095BF6005C9F01 /* ProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				E22C58EB29E81A880065EEE2 /* ProfileView.swift */,
+				E217D0B829F06B5200DE5C5F /* ProfileViewModel.swift */,
+				E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */,
+			);
+			path = ProfileViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */,
 				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
 				E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */,
 				E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */,
@@ -402,6 +417,7 @@
 				E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */,
 				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,
 				E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */,
+				E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */,
 				E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */,
 				E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */,
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,

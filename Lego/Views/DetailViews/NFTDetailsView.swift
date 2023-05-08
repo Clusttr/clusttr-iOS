@@ -14,7 +14,7 @@ struct NFTDetailsView: View {
     let assetModelCount: Int
     @State var showBuySheet: Bool = false
     @StateObject var viewModel = NFTDetailsViewModel()
-    @Environment(\.dismiss) var dismiss
+//    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appState: AppState
 
     init(nft: NFT) {
@@ -107,7 +107,7 @@ struct NFTDetailsView: View {
         }
         .overlay {
             VStack {
-                dismissButton
+                DismissButton()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(.top)
@@ -123,26 +123,6 @@ struct NFTDetailsView: View {
             PurchaseNFTView(pricePerShare: nft.floorPrice, availableShare: 928)
                 .presentationDetents([.height(420)])
         }
-    }
-
-    var dismissButton: some View {
-        Button {
-            dismiss()
-            withAnimation(.easeInOut) {
-                appState.isNavBarHidden = false
-            }
-        } label: {
-            Image(systemName: "chevron.left")
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .padding(12)
-                .background(.ultraThinMaterial)
-                .clipShape(Circle())
-                .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 5)
-                .padding(.top, 32)
-                .padding(.leading, 16)
-        }
-
     }
 
     var similarProperties: some View {

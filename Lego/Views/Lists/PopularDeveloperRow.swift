@@ -12,7 +12,11 @@ struct PopularDeveloperRow: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(0 ..< 5) { item in
-                    DeveloperCard()
+                    NavigationLink {
+                        DeveloperProfileView()
+                    } label: {
+                        DeveloperCard()
+                    }
                 }
             }
             .padding(.horizontal, 20)
