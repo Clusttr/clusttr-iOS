@@ -14,7 +14,6 @@ struct NFTDetailsView: View {
     let assetModelCount: Int
     @State var showBuySheet: Bool = false
     @StateObject var viewModel = NFTDetailsViewModel()
-//    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appState: AppState
 
     init(nft: NFT) {
