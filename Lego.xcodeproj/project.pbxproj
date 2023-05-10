@@ -57,6 +57,8 @@
 		E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */; };
 		E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */; };
 		E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA032A095E33005C9F01 /* DismissButton.swift */; };
+		E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3942A0B8B56009C710C /* TransactionList.swift */; };
+		E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3962A0B8D50009C710C /* TransactionItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,8 @@
 		E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Kitchen.usdz; sourceTree = "<group>"; };
 		E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperProfileView.swift; sourceTree = "<group>"; };
 		E282BA032A095E33005C9F01 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		E2A3E3942A0B8B56009C710C /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
+		E2A3E3962A0B8D50009C710C /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +268,7 @@
 				E217D0BC29F192C800DE5C5F /* TinyNFTCards.swift */,
 				E217D0C029F40FB000DE5C5F /* DeveloperCard.swift */,
 				E217D0C229F4464E00DE5C5F /* ProjectCard.swift */,
+				E2A3E3962A0B8D50009C710C /* TransactionItem.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				E217D0C429F53A3B00DE5C5F /* ProjectCarousel.swift */,
 				E217D0C829F5E58C00DE5C5F /* PopularDeveloperRow.swift */,
 				E217D0CA29F694D500DE5C5F /* PropertyFeatureFullList.swift */,
+				E2A3E3942A0B8B56009C710C /* TransactionList.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -421,8 +427,10 @@
 				E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */,
 				E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */,
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
+				E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,
 				E2579D2129EDEDB1006ABEA8 /* Color+Extensions.swift in Sources */,
+				E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */,
 				E217D0CD29F70FB000DE5C5F /* Transaction.swift in Sources */,
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,

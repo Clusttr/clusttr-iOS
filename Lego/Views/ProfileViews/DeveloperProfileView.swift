@@ -82,11 +82,10 @@ struct DeveloperProfileView: View {
                     case false:
                         VStack {
                             PriceHistoryComponent(transactions: Transaction.data, valuations: Valuation.data)
-                            Text("Transaction list")
+                            TransactionList()
                         }
                         .padding(.top)
                     }
-
 
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -97,6 +96,8 @@ struct DeveloperProfileView: View {
             .padding(.bottom, 45)
         }
         .ignoresSafeArea()
+        .foregroundColor(.white)
+        .background(Color._background)
         .navigationBarBackButtonHidden()
         .onAppear {
             withAnimation(.easeInOut) {
