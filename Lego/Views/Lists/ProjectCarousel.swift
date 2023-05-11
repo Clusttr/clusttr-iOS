@@ -11,8 +11,12 @@ struct ProjectCarousel: View {
     var body: some View {
         TabView {
             ForEach(0 ..< 5) { item in
-                ProjectCard()
-                    .padding(.horizontal)
+                NavigationLink {
+                    ProjectDetailsView(project: .data[0])
+                } label: {
+                    ProjectCard()
+                        .padding(.horizontal)
+                }
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
