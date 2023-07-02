@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    var isActive: Bool = true
     var onClickMenu: () -> Void
     @State private var scrollOffset: CGPoint = .zero
     @State private var headerHeight: CGFloat = 242
@@ -145,10 +146,11 @@ struct ProfileView: View {
                     onClickMenu()
                 } label: {
                     Image(systemName: "line.3.horizontal")
-                        .fontWeight(.bold)
+                        .fontWeight(.black)
                         .foregroundColor(.white)
                         .padding(.trailing, 16)
                 }
+                .opacity(isActive ? 1 : 0)
             }
     }
 

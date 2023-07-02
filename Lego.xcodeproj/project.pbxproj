@@ -61,6 +61,7 @@
 		E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3962A0B8D50009C710C /* TransactionItem.swift */; };
 		E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */; };
 		E2A5DDFA2A519E1700E8E930 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */; };
+		E2A5DDFC2A51AC1200E8E930 /* ProfileMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		E2A3E3962A0B8D50009C710C /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
 		E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */,
+				E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				E217D0C329F4464E00DE5C5F /* ProjectCard.swift in Sources */,
 				E2A5DDFA2A519E1700E8E930 /* ProfileScreen.swift in Sources */,
 				E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */,
+				E2A5DDFC2A51AC1200E8E930 /* ProfileMenuView.swift in Sources */,
 				E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
