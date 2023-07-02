@@ -60,6 +60,7 @@
 		E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3942A0B8B56009C710C /* TransactionList.swift */; };
 		E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3962A0B8D50009C710C /* TransactionItem.swift */; };
 		E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */; };
+		E2A5DDFA2A519E1700E8E930 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		E2A3E3942A0B8B56009C710C /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		E2A3E3962A0B8D50009C710C /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
+		E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		E22C58EA29E8197F0065EEE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2A5DDF82A519DF000E8E930 /* Screens */,
 				E282BA022A095BF6005C9F01 /* ProfileViews */,
 				E2579D2629EEA96B006ABEA8 /* DetailViews */,
 				E2579D2529EEA943006ABEA8 /* Lists */,
@@ -319,6 +322,14 @@
 			path = ProfileViews;
 			sourceTree = "<group>";
 		};
+		E2A5DDF82A519DF000E8E930 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -443,6 +454,7 @@
 				E217D0BF29F1A34000DE5C5F /* NFTDetailsViewModel.swift in Sources */,
 				E217D0B129EEB4B900DE5C5F /* AssetModel.swift in Sources */,
 				E217D0C329F4464E00DE5C5F /* ProjectCard.swift in Sources */,
+				E2A5DDFA2A519E1700E8E930 /* ProfileScreen.swift in Sources */,
 				E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */,
 				E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */,
 			);

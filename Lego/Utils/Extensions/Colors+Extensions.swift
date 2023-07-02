@@ -15,4 +15,12 @@ extension Color {
     static var _gray2: Color {
         Color("Gray2")
     }
+
+    static var _gray800: Color {
+        Color("Gray800")
+    }
+
+    static var _accent: Color {
+        Color("Accent")
+    }
 }

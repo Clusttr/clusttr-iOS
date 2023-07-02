@@ -22,7 +22,7 @@ struct MainView: View {
                 HomeView()
                     .tag(NavBarMenu.home)
 
-                ProfileView()
+                ProfileScreen()
                     .tag(NavBarMenu.profile)
             }
             NavigationBar(activeMenu: $activeMenu)

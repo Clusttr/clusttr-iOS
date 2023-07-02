@@ -11,9 +11,38 @@ struct ProjectDetailsView: View {
     var project: Project
     var nfts = NFT.fakeData
     @EnvironmentObject var appState: AppState
+    @State private var scrollOffset: CGPoint = .zero
     
     var smallDescription: String {
         String(project.description.prefix(300))
+    }
+
+    var heightMultiplier: CGFloat {
+        let value = 1 - (scrollOffset.y / 150)
+        if value < 0 {
+            return 0
+        }
+        return value
+    }
+
+    func wallpaperHeight(height: CGFloat) -> CGFloat {
+        return height * heightMultiplier
+    }
+
+    var opacity: CGFloat {
+        return (1 * heightMultiplier)
+    }
+
+    var navBarHeight: CGFloat {
+        let height = 100.0
+        if heightMultiplier > 0.3 {
+            return 0
+        }
+        return height * (1 - heightMultiplier)
+    }
+
+    var navBarOpacity: CGFloat {
+        1 * (1 - heightMultiplier)
     }
 
     var body: some View {
@@ -21,14 +50,16 @@ struct ProjectDetailsView: View {
             Image.wallpaper
                 .resizable()
                 .frame(maxWidth: .infinity)
-                .frame(height: 340)
+                .frame(height: wallpaperHeight(height: 340))
                 .frame(maxHeight: .infinity, alignment: .top)
+                .opacity(opacity)
 
             LinearGradient(colors: [Color.clear, Color.black], startPoint: .top, endPoint: .bottom)
-                .frame(height: 350)
+                .frame(height: wallpaperHeight(height: 350))
                 .frame(maxHeight: .infinity, alignment: .top)
+                .opacity(opacity)
 
-            ScrollView(showsIndicators: false) {
+            OffsetObservingScrollView(showsIndicators: false, offset: $scrollOffset) {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack(alignment: .top) {
                         VStack(alignment: .leading) {
@@ -75,12 +106,12 @@ struct ProjectDetailsView: View {
                         HStack {
                             VStack {
                                 Text("Budget")
-                                Text(project.budget, format: .currency(code: "USD"))
+                                Text("$10m")//project.budget, format: .currency(code: "USD"))
                             }
 
                             VStack {
                                 Text("Amount Invested")
-                                Text(project.budget, format: .currency(code: "USD"))
+                                Text("$6.45m")//project.amountInvested, format: .currency(code: "USD"))
                             }
                         }
                         VStack {
@@ -111,6 +142,22 @@ struct ProjectDetailsView: View {
                 .padding(.top, 270)
             }
 
+            HStack(alignment: .bottom) {
+                Text(project.title)
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .lineLimit(1)
+                    .padding(.bottom, 22)
+                    .frame(width: UIScreen.screenWidth * 0.6)
+//                    .background(.white)
+            }
+            .foregroundColor(Color.white)
+            .frame(height: navBarHeight, alignment: .bottom)
+            .frame(maxWidth: .infinity)
+            .background(.ultraThinMaterial)
+            .frame(maxHeight: .infinity, alignment: .top)
+            .opacity(navBarOpacity)
+
             DismissButton()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 .padding(.top)
@@ -129,6 +176,7 @@ struct ProjectDetailsView: View {
 struct ProjectDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ProjectDetailsView(project: .data[0])
+            .environmentObject(AppState())
     }
 }
 
