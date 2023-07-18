@@ -76,6 +76,7 @@ struct ProfileView: View {
                     }
                 }
             }
+            .background(Color._background)
             .overlay {
                 bannerAndProfilePicture
                     .onTapGesture {

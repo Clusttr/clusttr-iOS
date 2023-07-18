@@ -51,29 +51,39 @@ struct ProfileScreen: View {
         .background(Color._grey800)
     }
 
+    var profileView: ProfileView {
+        ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
+    }
+
+    var walletView: WalletView {
+        WalletView(isActive: !showMenu, onClickMenu: toggleMenu)
+    }
+
     var mainView: some View {
-        VStack {
-            switch selectedMenu {
-            case .profile:
-                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
-            case .wallet:
-                WalletView(isActive: !showMenu, onClickMenu: toggleMenu)
-            case .verifyIdentity:
-                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
-            case .banks:
-                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
-            case .security:
-                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
-            case .referralAndEarn:
-                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
-            case .support:
-                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
-            }
+        ZStack {
+            profileView
+                .opacity(opacity(menu: .profile))
+            walletView
+                .opacity(opacity(menu: .wallet))
+            profileView
+                .opacity(opacity(menu: .verifyIdentity))
+            profileView
+                .opacity(opacity(menu: .banks))
+            profileView
+                .opacity(opacity(menu: .security))
+            profileView
+                .opacity(opacity(menu: .referralAndEarn))
+            profileView
+                .opacity(opacity(menu: .security))
         }
     }
 
+    func opacity(menu: ProfileMenu) -> Double {
+        menu == selectedMenu ? 1 : 0
+    }
+
     func toggleMenu() {
-        withAnimation(.spring()) {
+        withAnimation {
             showMenu.toggle()
         }
     }

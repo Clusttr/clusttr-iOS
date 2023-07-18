@@ -64,7 +64,7 @@
 		E2A5DDFC2A51AC1200E8E930 /* ProfileMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */; };
 		E2A884782A65CE5700B68A93 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = E2A884772A65CE5700B68A93 /* Solana */; };
 		E2A8847B2A65D5AF00B68A93 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8847A2A65D5AF00B68A93 /* WalletView.swift */; };
-		E2DED9F72A65EA35002399A8 /* BenefactorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRow.swift */; };
+		E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,7 +125,7 @@
 		E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuView.swift; sourceTree = "<group>"; };
 		E2A8847A2A65D5AF00B68A93 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
-		E2DED9F62A65EA35002399A8 /* BenefactorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRow.swift; sourceTree = "<group>"; };
+		E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,7 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				E2A8847A2A65D5AF00B68A93 /* WalletView.swift */,
-				E2DED9F62A65EA35002399A8 /* BenefactorRow.swift */,
+				E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -452,7 +452,7 @@
 				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
 				E217D0B729F0550B00DE5C5F /* LoginStatus.swift in Sources */,
 				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
-				E2DED9F72A65EA35002399A8 /* BenefactorRow.swift in Sources */,
+				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
 				E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */,
 				E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */,
 				E217D0C929F5E58C00DE5C5F /* PopularDeveloperRow.swift in Sources */,

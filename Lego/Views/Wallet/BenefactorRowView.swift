@@ -10,7 +10,7 @@ import SwiftUI
 struct BenefactorRow: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 16) {
+            HStack(spacing: 18) {
                 Image(systemName: "plus")
                     .font(.system(size: 24, design: .rounded))
                     .fontWeight(.semibold)
@@ -32,23 +32,24 @@ struct BenefactorRow: View {
     }
 
     func benefactor() -> some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 6) {
             Image.ape
                 .resizable()
-                .frame(width: 45, height: 45)
+                .frame(width: 30, height: 30)
                 .clipShape(Circle())
 
             VStack(spacing: 0) {
                 Text("Mike")
-                    .font(.caption2)
-                    .fontWeight(.bold)
-                    .foregroundColor(._grey100)
+                    .fontWeight(.black)
                 Text("0x123A...456x")
-                    .font(.caption2)
-                    .foregroundColor(._grey100)
+                    .fontWeight(.bold)
             }
+            .font(.caption2)
+            .foregroundColor(._grey100)
+            .scaleEffect(0.85)
+            .opacity(0.5)
         }
-        .frame(width: 96, height: 120)
+        .frame(width: 85, height: 100)
         .background(Color._grey800)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .overlay {
