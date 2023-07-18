@@ -9,17 +9,18 @@ import SwiftUI
 
 struct ProfileMenuView: View {
     let menuList: [ProfileMenu] = ProfileMenu.allCases
+    @Binding var selectedMenu: ProfileMenu
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 0) {
             ForEach(menuList) { menu in
                 VStack(alignment: .trailing) {
                     HStack {
                         Text(menu.title)
-                            .foregroundColor(Color._grey100)
+                            .foregroundColor(menu == selectedMenu ? Color._background : Color._grey100)
 
                         menu.icon
-                            .foregroundColor(Color._grey100)
+                            .foregroundColor(menu == selectedMenu ? Color._background : Color._grey100)
                     }
                     .font(.caption)
                     .fontWeight(.semibold)
@@ -29,6 +30,18 @@ struct ProfileMenuView: View {
                         .background(Color._grey)
                         .opacity(0.35)
                 }
+                .contentShape(Rectangle())
+                .padding(.top, 20)
+                .background {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color._grey100)
+                        .opacity(menu == selectedMenu ? 1 : 0)
+                }
+                .onTapGesture {
+                    withAnimation {
+                        selectedMenu = menu
+                    }
+                }
             }
         }
     }
@@ -36,13 +49,14 @@ struct ProfileMenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileMenuView()
+        ProfileMenuView(selectedMenu: .constant(.profile))
             .background(Color._background)
     }
 }
 
 enum ProfileMenu: CaseIterable, Identifiable {
     case profile
+    case wallet
     case verifyIdentity
     case banks
     case security
@@ -55,6 +69,8 @@ enum ProfileMenu: CaseIterable, Identifiable {
         switch self {
         case .profile:
             return "Profile"
+        case .wallet:
+            return "wallet"
         case .verifyIdentity:
             return "Verify Identity"
         case .banks:
@@ -75,6 +91,8 @@ extension ProfileMenu {
         switch self {
         case .profile:
             return Image(systemName: "person.fill")
+        case .wallet:
+            return Image(systemName: "creditcard.fill")
         case .verifyIdentity:
             return Image(systemName: "person.fill.checkmark")
         case .banks:

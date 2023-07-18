@@ -20,6 +20,10 @@ extension Color {
         Color("Grey100")
     }
 
+    static var _grey700: Color {
+        Color("Grey700")
+    }
+
     static var _grey800: Color {
         Color("Grey800")
     }

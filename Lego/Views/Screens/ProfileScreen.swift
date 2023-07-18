@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileScreen: View {
     @EnvironmentObject var appState: AppState
     @State var showMenu = false
+    @State var selectedMenu: ProfileMenu = .profile
     
     var body: some View {
         ZStack {
@@ -25,7 +26,12 @@ struct ProfileScreen: View {
                 }
                 .padding(.trailing)
 
-                ProfileMenuView()
+                ProfileMenuView(selectedMenu: $selectedMenu)
+                    .onChange(of: selectedMenu) { _ in
+                        withAnimation(.spring().delay(0.15)) {
+                            showMenu = false
+                        }
+                    }
                     .frame(width: 180)
                     .padding(.top, 60)
 
@@ -34,16 +40,36 @@ struct ProfileScreen: View {
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.top, 60)
 
-            ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
+            mainView
                 .cornerRadius(showMenu ? 20 : 0)
                 .scaleEffect(showMenu ? 0.8 : 1)
                 .offset(x: showMenu ? -180 : 0, y: showMenu ? 20 : 0)
-                .rotationEffect(.degrees(showMenu ? 1 : 0))
                 .rotation3DEffect(.degrees(showMenu ? 30 : 0), axis: (x: 0, y: 100, z: 0))
                 .ignoresSafeArea()
                 .shadow(color: Color.white.opacity(0.2), radius: 20, x: -10, y: 10)
         }
         .background(Color._grey800)
+    }
+
+    var mainView: some View {
+        VStack {
+            switch selectedMenu {
+            case .profile:
+                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
+            case .wallet:
+                WalletView(isActive: !showMenu, onClickMenu: toggleMenu)
+            case .verifyIdentity:
+                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
+            case .banks:
+                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
+            case .security:
+                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
+            case .referralAndEarn:
+                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
+            case .support:
+                ProfileView(isActive: !showMenu, onClickMenu: toggleMenu)
+            }
+        }
     }
 
     func toggleMenu() {
