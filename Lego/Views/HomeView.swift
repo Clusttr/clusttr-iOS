@@ -31,7 +31,6 @@ struct HomeView: View {
                         .font(.headline)
                         .fontWeight(.bold)
                         .padding(.horizontal)
-
                     PopularDeveloperRow()
 
                     Spacer()

@@ -13,20 +13,7 @@ struct SignInView: View {
 
     var body: some View {
         VStack {
-            VStack(alignment: .leading, spacing: 12) {
-                Spacer()
-                Text("Sign in to your\naccount")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .fontDesign(.rounded)
-                Text("Welcome back")
-                    .fontWeight(.light)
-            }
-            .padding(.horizontal, 24)
-            .padding(.bottom, 40)
-            .frame(height: 300)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color._grey)
+            AuthHeaderView(title: "Sign in to your\naccount", subtitle: "Welcome back")
 
             VStack(spacing: 24) {
 
@@ -59,19 +46,7 @@ struct SignInView: View {
 
             Spacer()
 
-            Button(action: login) {
-                Text("LOGIN")
-                    .multilineTextAlignment(.center)
-                    .fontWeight(.medium)
-                    .fontDesign(.rounded)
-                    .frame(height: 50)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .foregroundColor(Color._background)
-                    .background {
-                        LinearGradient(colors: [Color._accent.opacity(0.9), Color.pink.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    }
-                    .cornerRadius(12)
-            }
+            ActionButton(title: "LOGIN", action: login)
             .padding(24)
         }
         .background(Color._background)

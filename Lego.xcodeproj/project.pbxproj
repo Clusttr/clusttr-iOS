@@ -33,6 +33,11 @@
 		E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58EB29E81A880065EEE2 /* ProfileView.swift */; };
 		E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E02A753B7D0053FD28 /* SignUpView.swift */; };
 		E24363E32A753BA50053FD28 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E22A753BA50053FD28 /* SignInView.swift */; };
+		E24363E52A7554D00053FD28 /* RegisterWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E42A7554D00053FD28 /* RegisterWalletView.swift */; };
+		E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E62A7557E10053FD28 /* AuthHeaderView.swift */; };
+		E24363EA2A7567D10053FD28 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E92A7567D10053FD28 /* ActionButton.swift */; };
+		E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363EB2A75BDCD0053FD28 /* BaseView.swift */; };
+		E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363ED2A75BE350053FD28 /* OnboardingView.swift */; };
 		E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */; };
 		E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */; };
 		E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */; };
@@ -97,6 +102,12 @@
 		E22C58EB29E81A880065EEE2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E24363E02A753B7D0053FD28 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E24363E22A753BA50053FD28 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		E24363E42A7554D00053FD28 /* RegisterWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWalletView.swift; sourceTree = "<group>"; };
+		E24363E62A7557E10053FD28 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
+		E24363E92A7567D10053FD28 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		E24363EB2A75BDCD0053FD28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		E24363ED2A75BE350053FD28 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShape.swift; sourceTree = "<group>"; };
 		E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
 		E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShapeViewModel.swift; sourceTree = "<group>"; };
@@ -200,6 +211,7 @@
 		E22C58EA29E8197F0065EEE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E24363E82A7567B30053FD28 /* Components */,
 				E24363DF2A753B290053FD28 /* Auth */,
 				E2A884792A65D57D00B68A93 /* Wallet */,
 				E2A5DDF82A519DF000E8E930 /* Screens */,
@@ -210,6 +222,7 @@
 				E2579D1729ED999C006ABEA8 /* Utils */,
 				E2579D2229EDEEF5006ABEA8 /* HomeView.swift */,
 				E2579D1A29EDEB09006ABEA8 /* MainView.swift */,
+				E24363EB2A75BDCD0053FD28 /* BaseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,8 +232,19 @@
 			children = (
 				E24363E02A753B7D0053FD28 /* SignUpView.swift */,
 				E24363E22A753BA50053FD28 /* SignInView.swift */,
+				E24363E42A7554D00053FD28 /* RegisterWalletView.swift */,
+				E24363E62A7557E10053FD28 /* AuthHeaderView.swift */,
+				E24363ED2A75BE350053FD28 /* OnboardingView.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		E24363E82A7567B30053FD28 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E24363E92A7567D10053FD28 /* ActionButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E2579CF229EBEC3A006ABEA8 /* Views */ = {
@@ -272,6 +296,7 @@
 		E2579D0B29ED8AE3006ABEA8 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */,
 				E2579D0C29ED8AFF006ABEA8 /* Roboto-Regular.ttf */,
 				E2579D0E29ED8B09006ABEA8 /* Roboto-Medium.ttf */,
 				E2579D1029ED8B13006ABEA8 /* Roboto-Bold.ttf */,
@@ -459,8 +484,10 @@
 				E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */,
 				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E217D0BB29F17FC700DE5C5F /* ModelSceneView.swift in Sources */,
+				E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
+				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
 				E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */,
@@ -478,6 +505,7 @@
 				E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */,
 				E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */,
 				E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */,
+				E24363E52A7554D00053FD28 /* RegisterWalletView.swift in Sources */,
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
 				E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,
@@ -485,6 +513,8 @@
 				E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */,
 				E217D0CD29F70FB000DE5C5F /* Transaction.swift in Sources */,
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
+				E24363EA2A7567D10053FD28 /* ActionButton.swift in Sources */,
+				E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */,
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
 				E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */,

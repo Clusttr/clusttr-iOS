@@ -10,14 +10,18 @@ import SwiftUI
 extension Font {
 
     static func roboto(size: CGFloat) -> Font {
-        .custom("Roboto-Regular.ttf", size: size)
+        .custom("Roboto-Regular", size: size)
     }
 
     static func robotoBold(size: CGFloat) -> Font {
-        .custom("Roboto-Bold.ttf", size: size)
+        .custom("Roboto-Bold", size: size)
     }
 
     static func robotoMedium(size: CGFloat) -> Font {
-        .custom("Roboto-Medium.ttf", size: size)
+        .custom("Roboto-Medium", size: size)
+    }
+
+    static func pacifico(size: CGFloat) -> Font {
+        .custom("Pacifico-Regular", size: size)
     }
 }
