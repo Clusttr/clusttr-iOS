@@ -74,6 +74,9 @@
 		E2A8847B2A65D5AF00B68A93 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8847A2A65D5AF00B68A93 /* WalletView.swift */; };
 		E2BCAC352A77E06900A14654 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC342A77E06900A14654 /* Developer.swift */; };
 		E2BCAC372A77E08900A14654 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC362A77E08900A14654 /* Project.swift */; };
+		E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC382A7821E700A14654 /* MenuItemView.swift */; };
+		E2BCAC3C2A78249400A14654 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC3B2A78249400A14654 /* Menu.swift */; };
+		E2BCAC3E2A7824BD00A14654 /* ProfileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC3D2A7824BD00A14654 /* ProfileMenu.swift */; };
 		E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +148,9 @@
 		E2A8847A2A65D5AF00B68A93 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		E2BCAC342A77E06900A14654 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		E2BCAC362A77E08900A14654 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		E2BCAC382A7821E700A14654 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		E2BCAC3B2A78249400A14654 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		E2BCAC3D2A7824BD00A14654 /* ProfileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenu.swift; sourceTree = "<group>"; };
 		E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +293,7 @@
 		E2579D0329ED8611006ABEA8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E2BCAC3A2A78247F00A14654 /* Menu */,
 				E2579D0429ED8636006ABEA8 /* NFT.swift */,
 				E2579D1E29EDEBC2006ABEA8 /* NavBarMenu.swift */,
 				E217D0B029EEB4B900DE5C5F /* AssetModel.swift */,
@@ -382,6 +389,7 @@
 			children = (
 				E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */,
 				E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */,
+				E2BCAC382A7821E700A14654 /* MenuItemView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -393,6 +401,15 @@
 				E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		E2BCAC3A2A78247F00A14654 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCAC3B2A78249400A14654 /* Menu.swift */,
+				E2BCAC3D2A7824BD00A14654 /* ProfileMenu.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,9 +522,11 @@
 				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
 				E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */,
 				E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */,
+				E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */,
 				E217D0C929F5E58C00DE5C5F /* PopularDeveloperRow.swift in Sources */,
 				E217D0C129F40FB000DE5C5F /* DeveloperCard.swift in Sources */,
 				E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */,
+				E2BCAC3E2A7824BD00A14654 /* ProfileMenu.swift in Sources */,
 				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,
 				E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */,
 				E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */,
@@ -528,6 +547,7 @@
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
 				E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */,
+				E2BCAC3C2A78249400A14654 /* Menu.swift in Sources */,
 				E217D0BF29F1A34000DE5C5F /* NFTDetailsViewModel.swift in Sources */,
 				E217D0B129EEB4B900DE5C5F /* AssetModel.swift in Sources */,
 				E217D0C329F4464E00DE5C5F /* ProjectCard.swift in Sources */,
