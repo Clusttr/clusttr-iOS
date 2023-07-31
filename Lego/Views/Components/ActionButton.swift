@@ -9,20 +9,29 @@ import SwiftUI
 
 struct ActionButton: View {
     var title: String
-    var action: () -> Void
+    var action: (() -> Void)?
+
+    var mainContent: some View {
+        Text(title)
+            .multilineTextAlignment(.center)
+            .fontWeight(.medium)
+            .fontDesign(.rounded)
+            .frame(height: 50)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .foregroundColor(Color._background)
+            .background {
+                LinearGradient(colors: [Color._accent.opacity(0.9), Color.pink.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing)
+            }
+            .cornerRadius(12)
+    }
+
     var body: some View {
-        Button(action: action) {
-            Text(title)
-                .multilineTextAlignment(.center)
-                .fontWeight(.medium)
-                .fontDesign(.rounded)
-                .frame(height: 50)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .foregroundColor(Color._background)
-                .background {
-                    LinearGradient(colors: [Color._accent.opacity(0.9), Color.pink.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing)
-                }
-                .cornerRadius(12)
+        if let action = action {
+            Button(action: action) {
+                mainContent
+            }
+        } else {
+            mainContent
         }
     }
 }

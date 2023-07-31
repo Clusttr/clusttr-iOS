@@ -9,7 +9,7 @@ import Foundation
 import Fakery
 
 typealias Address = String
-struct Transaction: Identifiable {
+struct Transaction: Identifiable, Codable {
     var id: UUID
     var createdAt: Date
     var amount: Double

@@ -10,6 +10,7 @@ import SwiftUI
 struct SignInView: View {
     @State var email: String = ""
     @State var password: String = ""
+    @State var navigate = false
 
     var body: some View {
         VStack {
@@ -43,13 +44,23 @@ struct SignInView: View {
             .padding()
             .padding(.top, 40)
             .foregroundColor(Color._grey2)
-
+            
             Spacer()
 
-            ActionButton(title: "LOGIN", action: login)
+            NavigationLink(value: "") {
+                ActionButton(title: "LOGIN")
+            }
             .padding(24)
         }
         .background(Color._background)
+        .navigationBarBackButtonHidden(true)
+        .navigationDestination(for: String.self) { _ in
+            RegisterWalletView()
+        }
+        .overlay(alignment: .topLeading) {
+            DismissButton()
+                .offset(y: -24)
+        }
     }
 
     func login() {

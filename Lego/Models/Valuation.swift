@@ -8,7 +8,7 @@
 import Foundation
 import Fakery
 
-struct Valuation: Identifiable {
+struct Valuation: Identifiable, Codable {
     var id: UUID
     var amount: Double
     var createdAt: Date

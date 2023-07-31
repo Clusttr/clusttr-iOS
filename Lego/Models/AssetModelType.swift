@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AssetModelType {
+enum AssetModelType: Codable {
     case usdz
     case image
 }

@@ -8,32 +8,56 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    var body: some View {
-        VStack {
-            Spacer()
-            VStack {
-                Text("Welcome to")
-                    .fontWeight(.light)
-                    .foregroundColor(Color._grey100)
-                Text("Clusttr")
-                    .font(.pacifico(size: 50))
-                    .foregroundColor(Color._grey100)
-            }
-            Spacer()
+    enum Path: View {
+        case signIn
+        case signUp
 
-            VStack(spacing: 18) {
-                ActionButton(title: "GET STARTED") { }
-                ActionButton(title: "LOG IN") { }
+        var body: some View {
+            switch self {
+            case .signIn:
+                SignInView()
+            case .signUp:
+                SignUpView()
             }
-            .padding(.horizontal)
         }
-        .frame(maxWidth: .infinity)
-        .background(Color._background)
+    }
+
+    var body: some View {
+        NavigationStack{
+            VStack {
+                Spacer()
+                VStack {
+                    Text("Welcome to")
+                        .fontWeight(.ultraLight)
+                        .foregroundColor(Color._grey100)
+                    Text("Clusttr")
+                        .font(.pacifico(size: 60))
+                        .foregroundColor(Color._grey100)
+                }
+                Spacer()
+
+                VStack(spacing: 18) {
+
+                    NavigationLink(value: Path.signUp, label: {ActionButton(title: "GET STARTED")})
+
+                    NavigationLink(value: Path.signIn, label: {ActionButton(title: "LOG IN")})
+                }
+                .padding(.horizontal, 24)
+                .padding(.bottom, 24)
+            }
+            .frame(maxWidth: .infinity)
+            .background(Color._background)
+            .navigationDestination(for: Path.self) { path in
+                path
+            }
+        }
     }
 }
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        NavigationStack {
+            OnboardingView()
+        }
     }
 }

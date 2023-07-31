@@ -62,10 +62,6 @@ struct PriceHistoryComponent: View {
             }
             .frame(height: 300)
             .padding(.top, 16)
-            .onAppear {
-                print(transactionAverage)
-                print(valuationAverage)
-            }
         }
         .padding(.horizontal, 24)
     }

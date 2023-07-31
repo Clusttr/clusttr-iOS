@@ -57,10 +57,16 @@ struct SignUpView: View {
 
             Spacer()
 
-            ActionButton(title: "CREATE ACCOUNT", action: signup)
+            NavigationLink(destination: {RegisterWalletView()},
+                           label: {ActionButton(title: "CREATE ACCOUNT")})
             .padding(24)
         }
         .background(Color._background)
+        .navigationBarBackButtonHidden(true)
+        .overlay(alignment: .topLeading) {
+            DismissButton()
+                .offset(y: -24)
+        }
     }
 
     func signup() {

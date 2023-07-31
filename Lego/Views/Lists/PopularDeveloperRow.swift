@@ -10,11 +10,9 @@ import SwiftUI
 struct PopularDeveloperRow: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(0 ..< 5) { item in
-                    NavigationLink {
-                        DeveloperProfileView()
-                    } label: {
+            HStack(spacing: 16) {
+                ForEach(0 ..< 5) { _ in
+                    NavigationLink(value: Developer()) {
                         DeveloperCard()
                     }
                 }
@@ -27,6 +25,12 @@ struct PopularDeveloperRow: View {
 
 struct PopularDeveloperRow_Previews: PreviewProvider {
     static var previews: some View {
-        PopularDeveloperRow()
+        NavigationStack {
+            PopularDeveloperRow()
+                .navigationDestination(for: Developer.self) { _ in
+                    DeveloperProfileView()
+                }
+        }
+        .environmentObject(AppState())
     }
 }

@@ -7,14 +7,27 @@
 
 import SwiftUI
 
+enum AuthState: String {
+    case loggedOut
+    case loggedIn
+}
+
 struct BaseView: View {
+    @EnvironmentObject var appState: AppState
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        switch appState.loginState {
+        case .loggedOut:
+            OnboardingView()
+        case .loggedIn:
+            MainView()
+        }
     }
 }
 
 struct BaseView_Previews: PreviewProvider {
     static var previews: some View {
         BaseView()
+            .environmentObject(AppState())
     }
 }

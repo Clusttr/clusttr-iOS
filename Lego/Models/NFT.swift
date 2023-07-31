@@ -8,7 +8,7 @@
 import Fakery
 import Foundation
 
-struct NFT: Identifiable {
+struct NFT: Identifiable, Codable {
     var id: Int
     var name: String
     var location: String
@@ -23,21 +23,33 @@ struct NFT: Identifiable {
     var valuations: [Valuation]
 }
 
+extension NFT: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
+extension NFT: Equatable {
+    static func == (lhs: NFT, rhs: NFT) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 extension NFT {
     static var fakeData: [NFT] {
         return [
-            generateData(name: "Club House", image: "House1"),
-            generateData(name: "Twitter House", image: "House2"),
-            generateData(name: "Kayla's Court", image: "House3"),
-            generateData(name: "Faycob's Court", image: "House4"),
-            generateData(name: "Kent Trench", image: "House5"),
-            generateData(name: "Halo Reed", image: "House6")
+            generateData(id: 0, name: "Club House", image: "House1"),
+            generateData(id: 1, name: "Twitter House", image: "House2"),
+            generateData(id: 2, name: "Kayla's Court", image: "House3"),
+            generateData(id: 3, name: "Faycob's Court", image: "House4"),
+            generateData(id: 4, name: "Kent Trench", image: "House5"),
+            generateData(id: 5, name: "Halo Reed", image: "House6")
         ]
     }
 
-    private static func generateData(name: String, image: String) -> NFT {
+    private static func generateData(id: Int, name: String, image: String) -> NFT {
         let faker = Faker()
-        return NFT(id: faker.number.randomInt(min: 1, max: 25),
+        return NFT(id: id,
                    name: name,
                    location: faker.address.city(),
                    description: faker.lorem.sentences(amount: 6),

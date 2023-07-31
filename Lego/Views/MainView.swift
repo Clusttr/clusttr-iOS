@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var isHidden = false
-    @AppStorage("activeMenu") var activeMenu: NavBarMenu = .profile
+    @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @EnvironmentObject var appState: AppState
 
     init() {
@@ -28,6 +28,7 @@ struct MainView: View {
             NavigationBar(activeMenu: $activeMenu)
                 .offset(y: appState.isNavBarHidden ? 150 : 10)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -9,7 +9,8 @@ import Solana
 import SwiftUI
 
 struct RegisterWalletView: View {
-    @ObservedObject var viewModel = RegisterWalletViewModel()
+    @StateObject var viewModel = RegisterWalletViewModel()
+    @EnvironmentObject var appState: AppState
 
     let columns = [
         GridItem(.flexible()),
@@ -24,7 +25,7 @@ struct RegisterWalletView: View {
             VStack {
                 //Seed phrase
                 LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(viewModel.seedPhrase, id: \.self) { phrase in
+                    ForEach(Array(viewModel.seedPhrase.enumerated()), id: \.0) { _, phrase in
                         Text(phrase)
                             .font(.footnote)
                             .foregroundColor(Color._grey100)
@@ -61,10 +62,21 @@ struct RegisterWalletView: View {
             .padding(.top, 30)
 
             Spacer()
-            ActionButton(title: "Continue", action: {})
+//            ActionButton(title: "Continue", action: {appState.loginState = .loggedIn})
+
+            NavigationLink(value: 1) { ActionButton(title: "Continue") }
                 .padding(24)
         }
         .background(Color._background)
+        .navigationBarBackButtonHidden(true)
+        .navigationDestination(for: Int.self) {_ in MainView()}
+        .overlay(alignment: .topLeading) {
+            DismissButton()
+                .offset(y: -24)
+        }
+        .task {
+            viewModel.generateKeyPair()
+        }
     }
 
     func copy() {
@@ -74,7 +86,7 @@ struct RegisterWalletView: View {
     func paste() {
         let seedPhrase = UIPasteboard.general.string?.split(separator: " ")
             .compactMap { String($0) }
-        guard let seedPhrase = seedPhrase else { return }
+        guard let seedPhrase = seedPhrase, seedPhrase.count > 24 else { return }
         viewModel.seedPhrase = seedPhrase
     }
 }
@@ -82,6 +94,7 @@ struct RegisterWalletView: View {
 struct RegisterWalletView_Previews: PreviewProvider {
     static var previews: some View {
         RegisterWalletView()
+            .environmentObject(AppState())
     }
 }
 
@@ -89,12 +102,11 @@ class RegisterWalletViewModel: ObservableObject {
 
     @Published var seedPhrase: [String] = []
 
-    init() {
-        generateKeyPair()
-    }
+    init() { }
 
     func generateKeyPair() {
         let mnemonic = Mnemonic()
         seedPhrase = mnemonic.phrase
+        print(seedPhrase)
     }
 }

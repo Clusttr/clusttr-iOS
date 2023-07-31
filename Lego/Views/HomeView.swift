@@ -9,33 +9,49 @@ import SwiftUI
 
 struct HomeView: View {
     @State var NFTs: [NFT] = NFT.fakeData
+    @EnvironmentObject var appState: AppState
+
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading) {
-                    Text("Interesting Projects")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
-                    ProjectCarousel()
+                VStack(spacing: 40) {
 
-                    Text("Trending")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
-                    NFTGrid(NFTs: NFTs)
-                        .padding(.horizontal)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Interesting Projects")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .padding(.horizontal)
+                        ProjectCarousel()
+                    }
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Popular Developers")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .padding(.horizontal)
+                        PopularDeveloperRow()
+                    }
 
 
-                    Text("Popular Developers")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
-                    PopularDeveloperRow()
-
-                    Spacer()
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Trending")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .padding(.horizontal)
+                        NFTGrid(NFTs: NFTs)
+                    }
                 }
                 .padding(.bottom, 100)
+            }
+            .onAppear {appState.loginState = .loggedIn }
+            .navigationDestination(for: NFT.self) { nft in
+                NFTDetailsView(nft: nft)
+            }
+            .navigationDestination(for: Developer.self) { _ in
+                DeveloperProfileView()
+            }
+            .navigationDestination(for: Project.self) { project in
+                ProjectDetailsView(project: project)
             }
         }
     }
@@ -44,5 +60,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(AppState())
     }
 }

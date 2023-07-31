@@ -21,9 +21,10 @@ struct AuthHeaderView: View {
                 .fontWeight(.light)
         }
         .padding(.horizontal, 24)
-        .padding(.bottom, 40)
-        .frame(height: 240)
+        .padding(.bottom, 20)
+        .frame(height: 220)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .foregroundColor(Color._background)
         .background(Color._grey)
     }
 }
