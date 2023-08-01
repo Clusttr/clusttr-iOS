@@ -62,10 +62,9 @@ struct RegisterWalletView: View {
             .padding(.top, 30)
 
             Spacer()
-//            ActionButton(title: "Continue", action: {appState.loginState = .loggedIn})
-
-            NavigationLink(value: 1) { ActionButton(title: "Continue") }
-                .padding(24)
+            ActionButton(title: "Continue",
+                         action: {appState.loginState = .loggedIn})
+            .padding(24)
         }
         .background(Color._background)
         .navigationBarBackButtonHidden(true)

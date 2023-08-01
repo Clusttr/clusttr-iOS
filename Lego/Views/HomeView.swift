@@ -43,7 +43,6 @@ struct HomeView: View {
                 }
                 .padding(.bottom, 100)
             }
-            .onAppear {appState.loginState = .loggedIn }
             .navigationDestination(for: NFT.self) { nft in
                 NFTDetailsView(nft: nft)
             }
