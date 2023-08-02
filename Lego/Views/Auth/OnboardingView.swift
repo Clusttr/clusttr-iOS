@@ -8,22 +8,10 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    enum Path: View {
-        case signIn
-        case signUp
-
-        var body: some View {
-            switch self {
-            case .signIn:
-                SignInView()
-            case .signUp:
-                SignUpView()
-            }
-        }
-    }
+    @EnvironmentObject var appState: AppState
 
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $appState.authPath){
             VStack {
                 Spacer()
                 VStack {
@@ -38,16 +26,16 @@ struct OnboardingView: View {
 
                 VStack(spacing: 18) {
 
-                    NavigationLink(value: Path.signUp, label: {ActionButton(title: "GET STARTED")})
+                    NavigationLink(value: AuthPath.signUp, label: {ActionButton(title: "GET STARTED")})
 
-                    NavigationLink(value: Path.signIn, label: {ActionButton(title: "LOG IN")})
+                    NavigationLink(value: AuthPath.signIn, label: {ActionButton(title: "LOG IN")})
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 24)
             }
             .frame(maxWidth: .infinity)
             .background(Color._background)
-            .navigationDestination(for: Path.self) { path in
+            .navigationDestination(for: AuthPath.self) { path in
                 path
             }
         }
@@ -59,5 +47,6 @@ struct OnboardingView_Previews: PreviewProvider {
         NavigationStack {
             OnboardingView()
         }
+        .environmentObject(AppState())
     }
 }

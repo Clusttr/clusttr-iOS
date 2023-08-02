@@ -77,6 +77,9 @@
 		E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC382A7821E700A14654 /* MenuItemView.swift */; };
 		E2BCAC3C2A78249400A14654 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC3B2A78249400A14654 /* Menu.swift */; };
 		E2BCAC3E2A7824BD00A14654 /* ProfileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC3D2A7824BD00A14654 /* ProfileMenu.swift */; };
+		E2BCAC402A7AC50200A14654 /* CreateWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */; };
+		E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC412A7AC83E00A14654 /* AddressView.swift */; };
+		E2BCAC442A7AE35C00A14654 /* AuthPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC432A7AE35B00A14654 /* AuthPath.swift */; };
 		E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +154,9 @@
 		E2BCAC382A7821E700A14654 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		E2BCAC3B2A78249400A14654 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		E2BCAC3D2A7824BD00A14654 /* ProfileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenu.swift; sourceTree = "<group>"; };
+		E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletView.swift; sourceTree = "<group>"; };
+		E2BCAC412A7AC83E00A14654 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		E2BCAC432A7AE35B00A14654 /* AuthPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPath.swift; sourceTree = "<group>"; };
 		E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +252,7 @@
 				E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */,
 				E24363E62A7557E10053FD28 /* AuthHeaderView.swift */,
 				E24363ED2A75BE350053FD28 /* OnboardingView.swift */,
+				E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -254,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				E24363E92A7567D10053FD28 /* ActionButton.swift */,
+				E2BCAC412A7AC83E00A14654 /* AddressView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 		E2579D0329ED8611006ABEA8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E2BCAC462A7AE46100A14654 /* Path */,
 				E2BCAC3A2A78247F00A14654 /* Menu */,
 				E2579D0429ED8636006ABEA8 /* NFT.swift */,
 				E2579D1E29EDEBC2006ABEA8 /* NavBarMenu.swift */,
@@ -310,6 +319,7 @@
 		E2579D0B29ED8AE3006ABEA8 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E2BCAC452A7AE43200A14654 /* Path */,
 				E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */,
 				E2579D0C29ED8AFF006ABEA8 /* Roboto-Regular.ttf */,
 				E2579D0E29ED8B09006ABEA8 /* Roboto-Medium.ttf */,
@@ -412,6 +422,21 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		E2BCAC452A7AE43200A14654 /* Path */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Path;
+			sourceTree = "<group>";
+		};
+		E2BCAC462A7AE46100A14654 /* Path */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCAC432A7AE35B00A14654 /* AuthPath.swift */,
+			);
+			path = Path;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,12 +529,14 @@
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
 				E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */,
 				E2579CFC29ED4EA3006ABEA8 /* ScreenSize+Extension.swift in Sources */,
+				E2BCAC442A7AE35C00A14654 /* AuthPath.swift in Sources */,
 				E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */,
 				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
 				E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */,
 				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E217D0BB29F17FC700DE5C5F /* ModelSceneView.swift in Sources */,
 				E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */,
+				E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
 				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
@@ -525,6 +552,7 @@
 				E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */,
 				E217D0C929F5E58C00DE5C5F /* PopularDeveloperRow.swift in Sources */,
 				E217D0C129F40FB000DE5C5F /* DeveloperCard.swift in Sources */,
+				E2BCAC402A7AC50200A14654 /* CreateWalletView.swift in Sources */,
 				E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */,
 				E2BCAC3E2A7824BD00A14654 /* ProfileMenu.swift in Sources */,
 				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,

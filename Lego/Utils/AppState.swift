@@ -12,6 +12,7 @@ class AppState: ObservableObject {
     @Published var isNavBarHidden = false
     @Published var loginState: AuthState = .loggedOut
     @Published public var path: [NFT] = []
+    @Published public var authPath: [AuthPath] = []
 
     init() {
         restoreState()
