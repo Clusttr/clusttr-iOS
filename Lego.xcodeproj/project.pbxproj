@@ -33,7 +33,7 @@
 		E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58EB29E81A880065EEE2 /* ProfileView.swift */; };
 		E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E02A753B7D0053FD28 /* SignUpView.swift */; };
 		E24363E32A753BA50053FD28 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E22A753BA50053FD28 /* SignInView.swift */; };
-		E24363E52A7554D00053FD28 /* RegisterWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E42A7554D00053FD28 /* RegisterWalletView.swift */; };
+		E24363E52A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */; };
 		E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E62A7557E10053FD28 /* AuthHeaderView.swift */; };
 		E24363EA2A7567D10053FD28 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E92A7567D10053FD28 /* ActionButton.swift */; };
 		E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363EB2A75BDCD0053FD28 /* BaseView.swift */; };
@@ -108,7 +108,7 @@
 		E22C58EB29E81A880065EEE2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E24363E02A753B7D0053FD28 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E24363E22A753BA50053FD28 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		E24363E42A7554D00053FD28 /* RegisterWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWalletView.swift; sourceTree = "<group>"; };
+		E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWalletWithMnemonicView.swift; sourceTree = "<group>"; };
 		E24363E62A7557E10053FD28 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		E24363E92A7567D10053FD28 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		E24363EB2A75BDCD0053FD28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 			children = (
 				E24363E02A753B7D0053FD28 /* SignUpView.swift */,
 				E24363E22A753BA50053FD28 /* SignInView.swift */,
-				E24363E42A7554D00053FD28 /* RegisterWalletView.swift */,
+				E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */,
 				E24363E62A7557E10053FD28 /* AuthHeaderView.swift */,
 				E24363ED2A75BE350053FD28 /* OnboardingView.swift */,
 			);
@@ -532,7 +532,7 @@
 				E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */,
 				E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */,
 				E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */,
-				E24363E52A7554D00053FD28 /* RegisterWalletView.swift in Sources */,
+				E24363E52A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift in Sources */,
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
 				E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,

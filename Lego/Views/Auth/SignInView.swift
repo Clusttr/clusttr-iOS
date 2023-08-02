@@ -55,7 +55,7 @@ struct SignInView: View {
         .background(Color._background)
         .navigationBarBackButtonHidden(true)
         .navigationDestination(for: String.self) { _ in
-            RegisterWalletView()
+            RegisterWalletWithMnemonicView()
         }
         .overlay(alignment: .topLeading) {
             DismissButton()

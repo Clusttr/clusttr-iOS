@@ -57,12 +57,16 @@ struct SignUpView: View {
 
             Spacer()
 
-            NavigationLink(destination: {RegisterWalletView()},
-                           label: {ActionButton(title: "CREATE ACCOUNT")})
+            NavigationLink(value: "") {
+                ActionButton(title: "CREATE ACCOUNT")
+            }
             .padding(24)
         }
         .background(Color._background)
         .navigationBarBackButtonHidden(true)
+        .navigationDestination(for: String.self) { _ in
+            RegisterWalletWithMnemonicView()
+        }
         .overlay(alignment: .topLeading) {
             DismissButton()
                 .offset(y: -24)

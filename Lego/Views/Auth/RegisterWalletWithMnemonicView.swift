@@ -8,8 +8,8 @@
 import Solana
 import SwiftUI
 
-struct RegisterWalletView: View {
-    @StateObject var viewModel = RegisterWalletViewModel()
+struct RegisterWalletWithMnemonicView: View {
+    @StateObject var viewModel = RegisterWalletWithMnemonicViewModel()
     @EnvironmentObject var appState: AppState
 
     let columns = [
@@ -90,14 +90,14 @@ struct RegisterWalletView: View {
     }
 }
 
-struct RegisterWalletView_Previews: PreviewProvider {
+struct RegisterWalletWithMnemonicView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterWalletView()
+        RegisterWalletWithMnemonicView()
             .environmentObject(AppState())
     }
 }
 
-class RegisterWalletViewModel: ObservableObject {
+class RegisterWalletWithMnemonicViewModel: ObservableObject {
 
     @Published var seedPhrase: [String] = []
 
