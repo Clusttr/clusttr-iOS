@@ -43,8 +43,10 @@ struct CreateWalletView: View {
                 }
                 Spacer()
 
-                ActionButton(title: "CREATE WALLET", action: next)
-                    .padding(24)
+                NavigationLink(value: AuthPath.setupPin) {
+                    ActionButton(title: "CREATE WALLET")
+                }
+                .padding(24)
             }
         }
         .background(Color._background)

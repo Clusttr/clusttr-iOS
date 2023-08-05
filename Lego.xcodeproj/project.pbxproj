@@ -39,6 +39,8 @@
 		E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363EB2A75BDCD0053FD28 /* BaseView.swift */; };
 		E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363ED2A75BE350053FD28 /* OnboardingView.swift */; };
 		E24363F52A7644920053FD28 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */; };
+		E24AE4CE2A7ECE6900FE2903 /* OTPField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */; };
+		E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AE4CF2A7ED33800FE2903 /* OTPView.swift */; };
 		E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */; };
 		E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */; };
 		E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */; };
@@ -80,6 +82,9 @@
 		E2BCAC402A7AC50200A14654 /* CreateWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */; };
 		E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC412A7AC83E00A14654 /* AddressView.swift */; };
 		E2BCAC442A7AE35C00A14654 /* AuthPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC432A7AE35B00A14654 /* AuthPath.swift */; };
+		E2BCAC4A2A7B17E900A14654 /* OTPFormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC492A7B17E900A14654 /* OTPFormFieldView.swift */; };
+		E2BCAC4C2A7B1C5000A14654 /* SetupPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */; };
+		E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */; };
 		E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +122,8 @@
 		E24363EB2A75BDCD0053FD28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E24363ED2A75BE350053FD28 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPField.swift; sourceTree = "<group>"; };
+		E24AE4CF2A7ED33800FE2903 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShape.swift; sourceTree = "<group>"; };
 		E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
 		E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShapeViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +164,9 @@
 		E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletView.swift; sourceTree = "<group>"; };
 		E2BCAC412A7AC83E00A14654 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		E2BCAC432A7AE35B00A14654 /* AuthPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPath.swift; sourceTree = "<group>"; };
+		E2BCAC492A7B17E900A14654 /* OTPFormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPFormFieldView.swift; sourceTree = "<group>"; };
+		E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPinView.swift; sourceTree = "<group>"; };
+		E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
 		E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -253,6 +263,7 @@
 				E24363E62A7557E10053FD28 /* AuthHeaderView.swift */,
 				E24363ED2A75BE350053FD28 /* OnboardingView.swift */,
 				E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */,
+				E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -260,6 +271,7 @@
 		E24363E82A7567B30053FD28 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E2BCAC4D2A7B1DA400A14654 /* OTP */,
 				E24363E92A7567D10053FD28 /* ActionButton.swift */,
 				E2BCAC412A7AC83E00A14654 /* AddressView.swift */,
 			);
@@ -437,6 +449,17 @@
 			path = Path;
 			sourceTree = "<group>";
 		};
+		E2BCAC4D2A7B1DA400A14654 /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCAC492A7B17E900A14654 /* OTPFormFieldView.swift */,
+				E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */,
+				E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */,
+				E24AE4CF2A7ED33800FE2903 /* OTPView.swift */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -523,6 +546,7 @@
 			files = (
 				E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */,
 				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
+				E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */,
 				E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */,
 				E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
@@ -536,17 +560,20 @@
 				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E217D0BB29F17FC700DE5C5F /* ModelSceneView.swift in Sources */,
 				E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */,
+				E2BCAC4A2A7B17E900A14654 /* OTPFormFieldView.swift in Sources */,
 				E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
 				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
+				E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */,
 				E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */,
 				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
 				E217D0B729F0550B00DE5C5F /* LoginStatus.swift in Sources */,
 				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
 				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
+				E24AE4CE2A7ECE6900FE2903 /* OTPField.swift in Sources */,
 				E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */,
 				E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */,
 				E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */,
@@ -564,6 +591,7 @@
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
 				E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,
+				E2BCAC4C2A7B1C5000A14654 /* SetupPinView.swift in Sources */,
 				E2579D2129EDEDB1006ABEA8 /* Color+Extensions.swift in Sources */,
 				E2BCAC352A77E06900A14654 /* Developer.swift in Sources */,
 				E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */,

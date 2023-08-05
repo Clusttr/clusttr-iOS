@@ -11,6 +11,7 @@ enum AuthPath: Hashable {
     case createWallet(forSignUp: Bool)
     case signIn
     case signUp
+    case setupPin
 }
 
 import SwiftUI
@@ -25,6 +26,8 @@ extension AuthPath: View {
             SignInView()
         case .signUp:
             SignUpView()
+        case .setupPin:
+            SetupPinView()
         }
     }
 }
