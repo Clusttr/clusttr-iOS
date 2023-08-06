@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct CreateWalletView: View {
-    var forSignUp: Bool
     @StateObject var viewModel = CreateWalletViewModel()
+    @EnvironmentObject var appState: AppState
+
+    var forSignUp: Bool {
+        appState.authPath.first == AuthPath.signUp
+    }
+
 
     var pasteMessage: String {
         if forSignUp {
@@ -43,8 +48,9 @@ struct CreateWalletView: View {
                 }
                 Spacer()
 
-                NavigationLink(value: AuthPath.setupPin) {
-                    ActionButton(title: "CREATE WALLET")
+                ActionButton(title: "Done", disabled: false) {
+                    appState.authPath = []
+                    appState.loginState = .loggedIn
                 }
                 .padding(24)
             }
@@ -76,7 +82,8 @@ struct CreateWalletView: View {
 
 struct CreateWalletView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateWalletView(forSignUp: false)
+        CreateWalletView()
+            .environmentObject(AppState())
     }
 }
 

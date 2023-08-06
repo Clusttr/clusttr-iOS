@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SetupPinView: View {
     @State private var pin = ""
-    @EnvironmentObject var appState: AppState
 
     var body: some View {
         VStack {
@@ -29,9 +28,8 @@ struct SetupPinView: View {
 
             Spacer()
 
-            ActionButton(title: "Done", disabled: pin.count < 4) {
-                appState.authPath = []
-                appState.loginState = .loggedIn
+            NavigationLink(value: AuthPath.createWallet) {
+                ActionButton(title: "DONE")
             }
             .padding(24)
         }

@@ -8,7 +8,7 @@
 import Foundation
 
 enum AuthPath: Hashable {
-    case createWallet(forSignUp: Bool)
+    case createWallet
     case signIn
     case signUp
     case setupPin
@@ -20,8 +20,8 @@ extension AuthPath: View {
 
     var body: some View {
         switch self {
-        case .createWallet(let forSignup):
-            CreateWalletView(forSignUp: forSignup)
+        case .createWallet:
+            CreateWalletView()
         case .signIn:
             SignInView()
         case .signUp:

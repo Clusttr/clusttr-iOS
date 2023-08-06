@@ -47,7 +47,7 @@ struct SignInView: View {
             
             Spacer()
 
-            NavigationLink(value: AuthPath.createWallet(forSignUp: false)) {
+            NavigationLink(value: AuthPath.setupPin) {
                 ActionButton(title: "LOGIN")
             }
             .padding(24)
@@ -71,5 +71,6 @@ struct SignInView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
+            .environmentObject(AppState())
     }
 }

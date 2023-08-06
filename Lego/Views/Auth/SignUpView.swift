@@ -57,7 +57,7 @@ struct SignUpView: View {
 
             Spacer()
 
-            NavigationLink(value: AuthPath.createWallet(forSignUp: true)) {
+            NavigationLink(value: AuthPath.setupPin) {
                 ActionButton(title: "CREATE ACCOUNT")
             }
             .padding(24)

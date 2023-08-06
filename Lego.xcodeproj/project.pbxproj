@@ -25,6 +25,8 @@
 		E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */; };
 		E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */; };
 		E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */; };
+		E22483252A801FD000AF893C /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22483242A801FD000AF893C /* KeyChain.swift */; };
+		E22483282A8025BB00AF893C /* KeyChain+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22483272A8025BB00AF893C /* KeyChain+Extensions.swift */; };
 		E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58D929E8167F0065EEE2 /* LegoApp.swift */; };
 		E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58DB29E8167F0065EEE2 /* ContentView.swift */; };
 		E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58DD29E816810065EEE2 /* Assets.xcassets */; };
@@ -107,6 +109,8 @@
 		E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistoryComponent.swift; sourceTree = "<group>"; };
 		E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNFTView.swift; sourceTree = "<group>"; };
+		E22483242A801FD000AF893C /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		E22483272A8025BB00AF893C /* KeyChain+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyChain+Extensions.swift"; sourceTree = "<group>"; };
 		E22C58D629E8167F0065EEE2 /* Lego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22C58D929E8167F0065EEE2 /* LegoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoApp.swift; sourceTree = "<group>"; };
 		E22C58DB29E8167F0065EEE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -183,6 +187,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E22483262A80237200AF893C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E22483242A801FD000AF893C /* KeyChain.swift */,
+				E22483272A8025BB00AF893C /* KeyChain+Extensions.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		E22C58CD29E8167F0065EEE2 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +241,7 @@
 		E22C58E729E818460065EEE2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E22483262A80237200AF893C /* Storage */,
 				E2579CF329EBEC45006ABEA8 /* Extensions */,
 				E2579CF229EBEC3A006ABEA8 /* Views */,
 				E217D0B429F054C100DE5C5F /* AppState.swift */,
@@ -257,13 +271,13 @@
 		E24363DF2A753B290053FD28 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				E24363E62A7557E10053FD28 /* AuthHeaderView.swift */,
+				E24363ED2A75BE350053FD28 /* OnboardingView.swift */,
 				E24363E02A753B7D0053FD28 /* SignUpView.swift */,
 				E24363E22A753BA50053FD28 /* SignInView.swift */,
 				E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */,
-				E24363E62A7557E10053FD28 /* AuthHeaderView.swift */,
-				E24363ED2A75BE350053FD28 /* OnboardingView.swift */,
-				E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */,
 				E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */,
+				E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -564,6 +578,7 @@
 				E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
+				E22483282A8025BB00AF893C /* KeyChain+Extensions.swift in Sources */,
 				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
@@ -611,6 +626,7 @@
 				E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */,
 				E2A5DDFC2A51AC1200E8E930 /* ProfileMenuView.swift in Sources */,
 				E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */,
+				E22483252A801FD000AF893C /* KeyChain.swift in Sources */,
 				E2A8847B2A65D5AF00B68A93 /* WalletView.swift in Sources */,
 				E24363E32A753BA50053FD28 /* SignInView.swift in Sources */,
 			);
