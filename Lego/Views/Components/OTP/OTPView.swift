@@ -22,8 +22,9 @@ struct OTPView: View {
             ForEach(Array(viewModel.arr.enumerated()), id: \.0) { index, _ in
                 OTPField(focus: index == 2) { text in
                     viewModel.arr[index] = text
-                    pin = String(viewModel.arr.joined())
-//                    print(viewModel.arr)
+                    DispatchQueue.main.async {
+                        pin = String(viewModel.arr.joined())
+                    }
                 }
             }
         }
@@ -33,6 +34,8 @@ struct OTPView: View {
 struct OTPView_Previews: PreviewProvider {
     static var previews: some View {
         OTPView(.constant(""), size: 6)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color._background)
     }
 }
 
@@ -41,7 +44,6 @@ class OTPViewModel: ObservableObject {
 
     init(size: Int) {
         arr = [String](repeating: "", count: size)
-        print("re-init")
     }
 }
 

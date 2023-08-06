@@ -22,6 +22,7 @@ struct OTPField: View {
     var body: some View {
         TextField("", text: $text)
             .font(.headline)
+            .foregroundColor(Color._grey100)
             .multilineTextAlignment(.center)
             .keyboardType(.numberPad)
             .onReceive(Just(text)) { _ in
@@ -45,5 +46,7 @@ struct OTPField: View {
 struct OTPField_Previews: PreviewProvider {
     static var previews: some View {
         OTPField(focus: true) { _ in }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color._background)
     }
 }

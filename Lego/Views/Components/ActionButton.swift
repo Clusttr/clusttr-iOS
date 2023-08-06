@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ActionButton: View {
     var title: String
+    var disabled = false
     var action: (() -> Void)?
 
     var mainContent: some View {
@@ -21,6 +22,7 @@ struct ActionButton: View {
             .foregroundColor(Color._background)
             .background {
                 LinearGradient(colors: [Color._accent.opacity(0.9), Color.pink.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .opacity(disabled ? 0.5 : 1)
             }
             .cornerRadius(12)
     }
@@ -30,6 +32,7 @@ struct ActionButton: View {
             Button(action: action) {
                 mainContent
             }
+            .disabled(disabled)
         } else {
             mainContent
         }
