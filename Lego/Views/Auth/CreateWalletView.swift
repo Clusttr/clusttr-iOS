@@ -48,7 +48,9 @@ struct CreateWalletView: View {
                 }
                 Spacer()
 
-                ActionButton(title: "Done", disabled: false) {
+                ActionButton(title: "Done", disabled: viewModel.account == nil) {
+                    guard let account = viewModel.account else { return }
+                    KeyChain.set(key: .SECRET_KEY, value: account.secretKey.base64EncodedString())
                     appState.authPath = []
                     appState.loginState = .loggedIn
                 }
@@ -69,7 +71,11 @@ struct CreateWalletView: View {
     }
 
     func paste() {
-        guard let secretKey = UIPasteboard.general.string, secretKey.count > 24  else { return }
+        guard let secretKey = UIPasteboard.general.string, secretKey.isValidPrivateKey()  else {
+            print("Not a valid secret key")
+            return
+
+        }
         guard let secretKeyData = Data(base64Encoded: secretKey) else { return }
         guard let hotAccount = HotAccount(secretKey: secretKeyData) else { return }
         viewModel.account = hotAccount

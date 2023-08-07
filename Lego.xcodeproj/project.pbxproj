@@ -26,7 +26,8 @@
 		E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */; };
 		E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */; };
 		E22483252A801FD000AF893C /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22483242A801FD000AF893C /* KeyChain.swift */; };
-		E22483282A8025BB00AF893C /* KeyChain+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22483272A8025BB00AF893C /* KeyChain+Extensions.swift */; };
+		E224832A2A804C8900AF893C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22483292A804C8900AF893C /* String+Extensions.swift */; };
+		E224832D2A8077FF00AF893C /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E224832C2A8077FF00AF893C /* KeychainSwift */; };
 		E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58D929E8167F0065EEE2 /* LegoApp.swift */; };
 		E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58DB29E8167F0065EEE2 /* ContentView.swift */; };
 		E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58DD29E816810065EEE2 /* Assets.xcassets */; };
@@ -110,7 +111,7 @@
 		E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistoryComponent.swift; sourceTree = "<group>"; };
 		E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNFTView.swift; sourceTree = "<group>"; };
 		E22483242A801FD000AF893C /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
-		E22483272A8025BB00AF893C /* KeyChain+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyChain+Extensions.swift"; sourceTree = "<group>"; };
+		E22483292A804C8900AF893C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		E22C58D629E8167F0065EEE2 /* Lego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22C58D929E8167F0065EEE2 /* LegoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoApp.swift; sourceTree = "<group>"; };
 		E22C58DB29E8167F0065EEE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E224832D2A8077FF00AF893C /* KeychainSwift in Frameworks */,
 				E2A884782A65CE5700B68A93 /* Solana in Frameworks */,
 				E2579D0829ED86F7006ABEA8 /* Fakery in Frameworks */,
 			);
@@ -191,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				E22483242A801FD000AF893C /* KeyChain.swift */,
-				E22483272A8025BB00AF893C /* KeyChain+Extensions.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -310,6 +311,7 @@
 				E2579D0929ED87FF006ABEA8 /* Double+Extensions.swift */,
 				E2579D1529ED9452006ABEA8 /* Colors+Extensions.swift */,
 				E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */,
+				E22483292A804C8900AF893C /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -493,6 +495,7 @@
 			packageProductDependencies = (
 				E2579D0729ED86F7006ABEA8 /* Fakery */,
 				E2A884772A65CE5700B68A93 /* Solana */,
+				E224832C2A8077FF00AF893C /* KeychainSwift */,
 			);
 			productName = Lego;
 			productReference = E22C58D629E8167F0065EEE2 /* Lego.app */;
@@ -525,6 +528,7 @@
 			packageReferences = (
 				E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */,
 				E2A884762A65CE5700B68A93 /* XCRemoteSwiftPackageReference "Solana" */,
+				E224832B2A8077FF00AF893C /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = E22C58D729E8167F0065EEE2 /* Products */;
 			projectDirPath = "";
@@ -562,6 +566,7 @@
 				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
 				E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */,
 				E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */,
+				E224832A2A804C8900AF893C /* String+Extensions.swift in Sources */,
 				E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
@@ -578,7 +583,6 @@
 				E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
-				E22483282A8025BB00AF893C /* KeyChain+Extensions.swift in Sources */,
 				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
@@ -833,6 +837,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E224832B2A8077FF00AF893C /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 		E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vadymmarkov/Fakery";
@@ -852,6 +864,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E224832C2A8077FF00AF893C /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E224832B2A8077FF00AF893C /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
 		E2579D0729ED86F7006ABEA8 /* Fakery */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */;
