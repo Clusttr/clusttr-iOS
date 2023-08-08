@@ -11,7 +11,6 @@ struct MainView: View {
     @State var isHidden = false
     @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @EnvironmentObject var appState: AppState
-//    @StateObject var viewModel = MainViewModel()
 
     init() {
         UITabBar.appearance().isHidden = true
@@ -30,10 +29,6 @@ struct MainView: View {
                 .offset(y: appState.isNavBarHidden ? 150 : 10)
         }
         .navigationBarBackButtonHidden(true)
-        .onAppear {
-            let pin = KeyChain.get(key: .PIN)
-            print(pin)
-        }
     }
 }
 
@@ -43,15 +38,3 @@ struct MainView_Previews: PreviewProvider {
             .environmentObject(AppState())
     }
 }
-
-//class MainViewModel: ObservableObject {
-//    init() {
-////        let xchain = KeyChain.load(key: "PIN")
-////        if let receivedData = KeyChain.load(key: "PIN") {
-////            let result = String(decoding:receivedData, as: UTF32.self)//receivedData.to(type: String.self)
-////            print("result: ", result)
-////        } else {
-////            print("wahala")
-////        }
-//    }
-//}

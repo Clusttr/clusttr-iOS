@@ -49,8 +49,10 @@ struct CreateWalletView: View {
                 Spacer()
 
                 ActionButton(title: "Done", disabled: viewModel.account == nil) {
+                    // save user secret to keychain
                     guard let account = viewModel.account else { return }
-                    KeyChain.set(key: .SECRET_KEY, value: account.secretKey.base64EncodedString())
+                    KeyChain.set(key: .SECRET_KEY, value: account.secretKey.toHexString())
+                    // navigatie to home screen
                     appState.authPath = []
                     appState.loginState = .loggedIn
                 }
@@ -76,7 +78,7 @@ struct CreateWalletView: View {
             return
 
         }
-        guard let secretKeyData = Data(base64Encoded: secretKey) else { return }
+        let secretKeyData = Data(hex: secretKey)
         guard let hotAccount = HotAccount(secretKey: secretKeyData) else { return }
         viewModel.account = hotAccount
     }
