@@ -18,7 +18,8 @@ struct AddressView: View {
 
     init(publicKey: PublicKey?) {
         key = ""
-        key = getShort(address: publicKey?.base58EncodedString)
+        guard let publicKey = publicKey else { return }
+        key = publicKey.short(numOfSymbolsRevealed: 4)
     }
 
     init(account: HotAccount) {

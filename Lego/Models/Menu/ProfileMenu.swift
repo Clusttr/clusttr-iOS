@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum ProfileMenu: Menu, CaseIterable, Identifiable {
+enum ProfileMenu: String, Menu, CaseIterable, Identifiable {
     case profile
     case wallet
     case verifyIdentity

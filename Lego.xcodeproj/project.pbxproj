@@ -255,7 +255,6 @@
 			children = (
 				E24363E82A7567B30053FD28 /* Components */,
 				E24363DF2A753B290053FD28 /* Auth */,
-				E2A884792A65D57D00B68A93 /* Wallet */,
 				E2A5DDF82A519DF000E8E930 /* Screens */,
 				E282BA022A095BF6005C9F01 /* ProfileViews */,
 				E2579D2629EEA96B006ABEA8 /* DetailViews */,
@@ -415,6 +414,7 @@
 		E282BA022A095BF6005C9F01 /* ProfileViews */ = {
 			isa = PBXGroup;
 			children = (
+				E2A884792A65D57D00B68A93 /* Wallet */,
 				E22C58EB29E81A880065EEE2 /* ProfileView.swift */,
 				E217D0B829F06B5200DE5C5F /* ProfileViewModel.swift */,
 				E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */,

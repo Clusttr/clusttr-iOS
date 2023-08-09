@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileScreen: View {
     @EnvironmentObject var appState: AppState
     @State var showMenu = false
-    @State var selectedMenu: ProfileMenu = .profile
+    @AppStorage("activeProfileMenu") var selectedMenu: ProfileMenu = .profile
     
     var body: some View {
         ZStack {
