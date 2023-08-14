@@ -51,7 +51,8 @@ struct CreateWalletView: View {
                 ActionButton(title: "Done", disabled: viewModel.account == nil) {
                     // save user secret to keychain
                     guard let account = viewModel.account else { return }
-                    KeyChain.set(key: .SECRET_KEY, value: account.secretKey.toHexString())
+                    KeyChain.set(key: .SECRET_KEY, value: account.secretKey)
+
                     // navigatie to home screen
                     appState.authPath = []
                     appState.loginState = .loggedIn

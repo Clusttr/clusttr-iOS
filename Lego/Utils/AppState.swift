@@ -7,10 +7,13 @@
 
 import Combine
 import Foundation
+import Solana
 
 class AppState: ObservableObject {
     @Published var isNavBarHidden = false
     @Published var loginState: AuthState = .loggedOut
+
+    //MARK: Paths
     @Published public var path: [NFT] = []
     @Published public var authPath: [AuthPath] = []
 
@@ -31,6 +34,5 @@ class AppState: ObservableObject {
                 UserDefaults.standard.setValue(state.rawValue, forKey: "AUTH_STATE")
             }
             .store(in: &cancelBag)
-
     }
 }

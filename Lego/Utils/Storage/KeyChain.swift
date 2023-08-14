@@ -20,8 +20,17 @@ struct KeyChain {
         keychain.set(value, forKey: key.rawValue)
     }
 
+    @discardableResult
+    public static func set(key: KeyChainConst, value: Data) -> Bool {
+        keychain.set(value, forKey: key.rawValue)
+    }
+
     public static func get(key: KeyChainConst) -> String? {
         keychain.get(key.rawValue)
+    }
+
+    public static func get(key: KeyChainConst) -> Data? {
+        keychain.getData(key.rawValue)
     }
 }
 

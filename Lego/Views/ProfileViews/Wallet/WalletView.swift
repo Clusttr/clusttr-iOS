@@ -11,7 +11,11 @@ import Solana
 struct WalletView: View {
     var isActive: Bool
     var onClickMenu: () -> Void
-    @StateObject var viewModel = WalletViewModel()
+    @EnvironmentObject var accountManager: AccountManager
+
+    var account: HotAccount {
+        accountManager.account
+    }
 
     var body: some View {
         VStack {
@@ -27,7 +31,7 @@ struct WalletView: View {
                 }
                 .foregroundColor(Color._grey100)
 
-                AddressView(publicKey: viewModel.publicKey)
+                AddressView(publicKey: account.publicKey)
             }
 
             HStack(spacing: 30) {
@@ -75,9 +79,6 @@ struct WalletView: View {
             }
             .padding(.top, 44)
         }
-        .task {
-            await viewModel.getSolanaBalance()
-        }
     }
 
     func tractionButton(systemName: String, title: String) -> some View {
@@ -99,46 +100,40 @@ struct WalletView_Previews: PreviewProvider {
         WalletView(isActive: true, onClickMenu: {})
             .background(Color._background)
             .ignoresSafeArea()
+            .environmentObject(AccountManager(.dev))
     }
 }
 
-class WalletViewModel: ObservableObject {
+//        let secretKey = account.secretKey
+//        let publicKey = account.publicKey
+//
+//        let publicKeyString = publicKey.base58EncodedString
+//
+//        let secretByte = secretKey.bytes
+//        let secretKeyString = Base58.encode(secretByte)
+//        print(secretKeyString)
+//        print(publicKeyString)
+//
+//        let nByte = Base58.decode(secretKeyString)
+//        let nData = Data(nByte)
+//
+//
+//        let data = Data(secretKeyString.utf8)
+//        print(data)
+//        let reAccount = HotAccount(secretKey: nData)
+//        print(reAccount?.publicKey.base58EncodedString)
 
-    @Published var publicKey: PublicKey?
+        // **********************************
 
-    init() {
-        setupAccount()
-    }
+//        let secret = account.base58EncodedString
+//        print("secret key: \(secret)")
+//        let data = secret.base58EncodedData
+//        print("data: \(data)")
+//        let reAccount = HotAccount(secretKey: data)
+//        print(reAccount?.base58EncodedString)
+//
 
-    func setupAccount() {
-        guard let secretKey = KeyChain.get(key: .SECRET_KEY) else {
-            print("no secret key")
-            return
-        }
-
-        guard let account = HotAccount(secretKey: Data(hex: secretKey)) else { return }
-
-        publicKey = account.publicKey
-
-    }
-
-    func getSolanaBalance() async {
-        guard let publicKey = publicKey else { return }
-
-        // get sol Balance
-        let endpoint = RPCEndpoint.devnetSolana
-        let router = NetworkingRouter(endpoint: endpoint)
-        let solana = Solana(router: router)
-
-        do {
-            let info: BufferInfo<AccountInfo> = try await solana.api.getAccountInfo(account: publicKey.base58EncodedString, decodedTo: AccountInfo.self)
-            print(info)
-            print(info.lamports)
-            print(info.lamports.convertToBalance(decimals: 9))
-        } catch {
-            print(error.localizedDescription)
-        }
-
-    }
-
-}
+//        let myData = mySecret.base58EncodedData
+//        let myAccount = HotAccount(secretKey: myData)!
+//        print("my public address: \(myAccount.publicKey.base58EncodedString)")
+//        print("my secret key: \(myAccount.base58EncodedString)")
