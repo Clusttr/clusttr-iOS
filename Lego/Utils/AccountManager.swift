@@ -15,6 +15,7 @@ class AccountManager: ObservableObject {
     @Published var balance: Lamports = Lamports(0)
 
     @Published var cancelBag = Set<AnyCancellable>()
+    @Published var usdcPubKey: PublicKey?
 
     var publicKeyURL: URL {
         URL(string: "https://solscan.io/account/\(account.publicKey.base58EncodedString)")!
@@ -29,7 +30,7 @@ class AccountManager: ObservableObject {
         let envSecretKey = ProcessInfo.processInfo.environment["secret_key"]!
         self.account = (env == .prod) ? try! AccountFactory().account : AccountFactoryDemo(secretKey: envSecretKey).account
 
-        let endpoint = RPCEndpoint.mainnetBetaSolana
+        let endpoint = RPCEndpoint.devnetSolana
         let router = NetworkingRouter(endpoint: endpoint)
         self.solana = Solana(router: router)
 
@@ -40,23 +41,61 @@ class AccountManager: ObservableObject {
         $account
             .sink { account in
                 self.setBalance()
+                self.setUSDCAssociateAccount()
             }.store(in: &cancelBag)
     }
 
+    //MARK: Set Sol Balance
     func setBalance() {
         Task {
             do {
-                let balance = try await getSolBalance()
+                let balance = try await solana.api.getBalance(account: account.publicKey.base58EncodedString)
+                let lamports = Lamports(balance)
                 DispatchQueue.main.async {
-                    self.balance = balance
-                    print(balance.convertToBalance(decimals: 9))
+                    self.balance = lamports
                 }
             } catch {
-                //throw some error account not valid
+                print(error)
+            }
+        }
+    }
+
+
+    //MARK: Associate Token Account
+    private let USDC_PUBLIC_KEY = PublicKey(string: "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU")!
+    func setUSDCAssociateAccount() {
+        Task {
+            do {
+                let (_, publicKey) = try await solana.action.getOrCreateAssociatedTokenAccount(owner: account.publicKey,
+                                                                                               tokenMint: USDC_PUBLIC_KEY,
+                                                                                               payer: account)
+                DispatchQueue.main.async {
+                    self.usdcPubKey = publicKey
+                    self.setUSDCBalance()
+                }
+            } catch {
                 print(error.localizedDescription)
             }
         }
     }
+
+    //MARK: Set usdc Balance
+    @Published var usdcBalance: TokenAccountBalance?
+    func setUSDCBalance() {
+        guard let usdcPubKey = usdcPubKey else { return }
+
+        Task {
+            do {
+                let balance = try await solana.api.getTokenAccountBalance(pubkey: usdcPubKey.base58EncodedString)
+                DispatchQueue.main.async {
+                    self.usdcBalance = balance
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
     func getSolBalance() async throws -> Lamports {
         let accountInfo: BufferInfo<AccountInfo> = try await solana.api.getAccountInfo(account: account.publicKey.base58EncodedString)
         return accountInfo.lamports

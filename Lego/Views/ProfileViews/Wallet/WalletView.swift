@@ -22,9 +22,10 @@ struct WalletView: View {
         VStack {
             VStack(spacing: 8) {
                 HStack(alignment: .bottom, spacing:2) {
-                    Text("$120,000")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
+                    Text(accountManager.usdcBalance?.uiAmount ?? 0,
+                         format: .currency(code: "usd"))
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
 
                     Button {
                         showAccountInfo.toggle()
@@ -113,37 +114,3 @@ struct WalletView_Previews: PreviewProvider {
             .environmentObject(AccountManager(.dev))
     }
 }
-
-//        let secretKey = account.secretKey
-//        let publicKey = account.publicKey
-//
-//        let publicKeyString = publicKey.base58EncodedString
-//
-//        let secretByte = secretKey.bytes
-//        let secretKeyString = Base58.encode(secretByte)
-//        print(secretKeyString)
-//        print(publicKeyString)
-//
-//        let nByte = Base58.decode(secretKeyString)
-//        let nData = Data(nByte)
-//
-//
-//        let data = Data(secretKeyString.utf8)
-//        print(data)
-//        let reAccount = HotAccount(secretKey: nData)
-//        print(reAccount?.publicKey.base58EncodedString)
-
-        // **********************************
-
-//        let secret = account.base58EncodedString
-//        print("secret key: \(secret)")
-//        let data = secret.base58EncodedData
-//        print("data: \(data)")
-//        let reAccount = HotAccount(secretKey: data)
-//        print(reAccount?.base58EncodedString)
-//
-
-//        let myData = mySecret.base58EncodedData
-//        let myAccount = HotAccount(secretKey: myData)!
-//        print("my public address: \(myAccount.publicKey.base58EncodedString)")
-//        print("my secret key: \(myAccount.base58EncodedString)")
