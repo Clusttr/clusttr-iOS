@@ -11,6 +11,7 @@ import Solana
 struct WalletView: View {
     var isActive: Bool
     var onClickMenu: () -> Void
+    @State var showAccountInfo = false
     @EnvironmentObject var accountManager: AccountManager
 
     var account: HotAccount {
@@ -25,9 +26,18 @@ struct WalletView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
 
-                    Image(systemName: "info.circle")
-                        .font(.caption)
-                        .fontWeight(.medium)
+                    Button {
+                        showAccountInfo.toggle()
+                    } label: {
+                        Image(systemName: "info.circle")
+                            .font(.caption)
+                            .fontWeight(.medium)
+                    }
+                    .popover(isPresented: $showAccountInfo) {
+                        AccountInfoView()
+                            .presentationDetents([.fraction(0.2)])
+                    }
+
                 }
                 .foregroundColor(Color._grey100)
 
