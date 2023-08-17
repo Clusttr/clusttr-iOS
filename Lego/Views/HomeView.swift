@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var NFTs: [NFT] = NFT.fakeData
+    @StateObject var viewModel = HomeViewModel()
     @EnvironmentObject var appState: AppState
 
     var body: some View {
@@ -38,7 +38,7 @@ struct HomeView: View {
                             .font(.headline)
                             .fontWeight(.bold)
                             .padding(.horizontal)
-                        NFTGrid(NFTs: NFTs)
+                        NFTGrid(NFTs: viewModel.nfts)
                     }
                 }
                 .padding(.bottom, 100)
@@ -52,13 +52,37 @@ struct HomeView: View {
             .navigationDestination(for: Project.self) { project in
                 ProjectDetailsView(project: project)
             }
+            .task {
+                viewModel.fetchNFTs()
+            }
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        let viewModel = HomeViewModel(NFTServiceDouble())
+        return HomeView(viewModel: viewModel)
             .environmentObject(AppState())
+    }
+}
+
+class HomeViewModel: ObservableObject {
+    @Published var nfts: [NFT] = []
+    let nftService: INFTService
+
+    init(_ nftService: INFTService = NFTService()) {
+        self.nftService = nftService
+    }
+
+    @MainActor
+    func fetchNFTs() {
+        Task {
+            do {
+                self.nfts = try await nftService.fetchNFts()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

@@ -13,20 +13,26 @@ struct NFTCard: View {
 
     var body: some View {
         ZStack {
-            Image(nft.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 150, height: 200)
+            AsyncImage(url: URL(string: nft.image)!) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+
+            } placeholder: {
+                Image(systemName: "photo")
+            }
+            .frame(width: 150, height: 200)
+
 
             VStack(alignment: .leading) {
-                Text(nft.createdAt, style: .relative)
-                    .font(.roboto(size: 12))
-                    .padding(EdgeInsets(top: 3, leading: 5, bottom: 4, trailing: 7))
-                    .background(Color._grey2)
-                    .cornerRadius(50)
-                    .padding(.top, 7)
-                    .padding(.leading, 6)
-                    .opacity(showBidTime ? 1 : 0)
+//                Text(nft.createdAt, style: .relative)
+//                    .font(.roboto(size: 12))
+//                    .padding(EdgeInsets(top: 3, leading: 5, bottom: 4, trailing: 7))
+//                    .background(Color._grey2)
+//                    .cornerRadius(50)
+//                    .padding(.top, 7)
+//                    .padding(.leading, 6)
+//                    .opacity(showBidTime ? 1 : 0)
 
                 Spacer()
 

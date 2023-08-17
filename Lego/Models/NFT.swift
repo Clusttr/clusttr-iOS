@@ -9,10 +9,10 @@ import Fakery
 import Foundation
 
 struct NFT: Identifiable, Codable {
-    var id: Int
+    var id: String
     var name: String
-    var location: String
     var description: String
+    var location: String
     var creator: String
     var image: String
     var floorPrice: Double
@@ -21,6 +21,23 @@ struct NFT: Identifiable, Codable {
     var assetModels: [AssetModel]
     var transactions: [Transaction]
     var valuations: [Valuation]
+}
+
+extension NFT {
+    init(nft: NFTModel) {
+        self.id = nft.id
+        self.name = nft.metadata.name
+        self.description = nft.metadata.description
+        self.location = "8th Street Lane"
+        self.creator = nft.metadata.properties.creators.first?.address ?? "no creator"
+        self.image = nft.metadata.image
+        self.floorPrice = 10.6
+        self.totalVolume = 72.1
+        self.createdAt = Date()
+        self.assetModels = AssetModel.fakeData
+        self.transactions = Transaction.data
+        self.valuations = Valuation.data
+    }
 }
 
 extension NFT: Hashable {
@@ -38,21 +55,20 @@ extension NFT: Equatable {
 extension NFT {
     static var fakeData: [NFT] {
         return [
-            generateData(id: 0, name: "Club House", image: "House1"),
-            generateData(id: 1, name: "Twitter House", image: "House2"),
-            generateData(id: 2, name: "Kayla's Court", image: "House3"),
-            generateData(id: 3, name: "Faycob's Court", image: "House4"),
-            generateData(id: 4, name: "Kent Trench", image: "House5"),
-            generateData(id: 5, name: "Halo Reed", image: "House6")
+            generateData(id: UUID().uuidString, name: "Club House", image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSjQTOgrQKGJZPZbpTQSAP18wB-Zoc_XB3J6e4dVHq8OHOMn6gj"),
+            generateData(id: UUID().uuidString, name: "Twitter House", image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRZJ8awhuWhiqwRb_H8xEh6SaFcll2D2c-1ye4ZK03fgwzxUz9P"),
+            generateData(id: UUID().uuidString, name: "Kayla's Court", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6xk-B2-mOoQUwrPW76NT4n5n_vQbIBenGFKZ08nXxgxtoyLA7"),
+            generateData(id: UUID().uuidString, name: "Faycob's Court", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQvRYx7n54UyrJyEMhYUSahdBVyAqb48qQTaYeGXhuuU6W5XkL4"),
+            generateData(id: UUID().uuidString, name: "Kent Trench", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTDpAfHsKkATQsKzH-_PFVM_YO841SdodKjFScCDzj8yU9KwZVB"),
+            generateData(id: UUID().uuidString, name: "Halo Reed", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRFIqpupgi5b-lrmy2QInZsDnXcc61DATWWQ_0bL3hfeJ-Oth3n")
         ]
     }
 
-    private static func generateData(id: Int, name: String, image: String) -> NFT {
+    private static func generateData(id: String, name: String, image: String) -> NFT {
         let faker = Faker()
         return NFT(id: id,
                    name: name,
-                   location: faker.address.city(),
-                   description: faker.lorem.sentences(amount: 6),
+                   description: faker.lorem.sentences(amount: 6), location: faker.address.city(),
                    creator: faker.name.name(),
                    image: image,
                    floorPrice: faker.number.randomDouble(min: 10, max: 100),

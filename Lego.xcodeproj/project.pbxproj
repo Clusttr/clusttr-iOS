@@ -74,6 +74,11 @@
 		E295A20C2A8A94AA00DCDC64 /* HotAccount+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295A20B2A8A94AA00DCDC64 /* HotAccount+Extensions.swift */; };
 		E295A20E2A8A956700DCDC64 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295A20D2A8A956700DCDC64 /* AccountManager.swift */; };
 		E295A2102A8B5B6600DCDC64 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295A20F2A8B5B6600DCDC64 /* AccountInfoView.swift */; };
+		E295D6872A8E8065006C26EC /* CrossMintAPI.com.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D6862A8E8065006C26EC /* CrossMintAPI.com.swift */; };
+		E295D68A2A8E85DD006C26EC /* NFTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D6892A8E85DD006C26EC /* NFTModel.swift */; };
+		E295D68D2A8EC083006C26EC /* NFTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D68C2A8EC083006C26EC /* NFTService.swift */; };
+		E295D6902A8ED0B2006C26EC /* DeveloperWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D68F2A8ED0B2006C26EC /* DeveloperWelcomeView.swift */; };
+		E295D6922A8ED0C5006C26EC /* CreateNFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D6912A8ED0C5006C26EC /* CreateNFTView.swift */; };
 		E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3942A0B8B56009C710C /* TransactionList.swift */; };
 		E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3962A0B8D50009C710C /* TransactionItem.swift */; };
 		E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */; };
@@ -163,6 +168,11 @@
 		E295A20B2A8A94AA00DCDC64 /* HotAccount+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HotAccount+Extensions.swift"; sourceTree = "<group>"; };
 		E295A20D2A8A956700DCDC64 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		E295A20F2A8B5B6600DCDC64 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
+		E295D6862A8E8065006C26EC /* CrossMintAPI.com.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossMintAPI.com.swift; sourceTree = "<group>"; };
+		E295D6892A8E85DD006C26EC /* NFTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTModel.swift; sourceTree = "<group>"; };
+		E295D68C2A8EC083006C26EC /* NFTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTService.swift; sourceTree = "<group>"; };
+		E295D68F2A8ED0B2006C26EC /* DeveloperWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperWelcomeView.swift; sourceTree = "<group>"; };
+		E295D6912A8ED0C5006C26EC /* CreateNFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNFTView.swift; sourceTree = "<group>"; };
 		E2A3E3942A0B8B56009C710C /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		E2A3E3962A0B8D50009C710C /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
@@ -224,6 +234,7 @@
 		E22C58D829E8167F0065EEE2 /* Lego */ = {
 			isa = PBXGroup;
 			children = (
+				E295D6852A8E8020006C26EC /* Services */,
 				E2579D1229ED8B62006ABEA8 /* Info.plist */,
 				E2579D0B29ED8AE3006ABEA8 /* Fonts */,
 				E2579D0329ED8611006ABEA8 /* Models */,
@@ -263,6 +274,7 @@
 		E22C58EA29E8197F0065EEE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E295D68E2A8EC3E6006C26EC /* Developer */,
 				E24363E82A7567B30053FD28 /* Components */,
 				E24363DF2A753B290053FD28 /* Auth */,
 				E282BA022A095BF6005C9F01 /* ProfileViews */,
@@ -443,6 +455,41 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
+		E295D6852A8E8020006C26EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E295D68B2A8EC050006C26EC /* NFT */,
+				E295D6882A8E85CA006C26EC /* Models */,
+				E295D6862A8E8065006C26EC /* CrossMintAPI.com.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E295D6882A8E85CA006C26EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E295D6892A8E85DD006C26EC /* NFTModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E295D68B2A8EC050006C26EC /* NFT */ = {
+			isa = PBXGroup;
+			children = (
+				E295D68C2A8EC083006C26EC /* NFTService.swift */,
+			);
+			path = NFT;
+			sourceTree = "<group>";
+		};
+		E295D68E2A8EC3E6006C26EC /* Developer */ = {
+			isa = PBXGroup;
+			children = (
+				E295D68F2A8ED0B2006C26EC /* DeveloperWelcomeView.swift */,
+				E295D6912A8ED0C5006C26EC /* CreateNFTView.swift */,
+			);
+			path = Developer;
+			sourceTree = "<group>";
+		};
 		E2A884792A65D57D00B68A93 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +626,7 @@
 				E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */,
 				E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */,
 				E224832A2A804C8900AF893C /* String+Extensions.swift in Sources */,
+				E295D68A2A8E85DD006C26EC /* NFTModel.swift in Sources */,
 				E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
@@ -592,7 +640,9 @@
 				E217D0BB29F17FC700DE5C5F /* ModelSceneView.swift in Sources */,
 				E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */,
 				E2BCAC4A2A7B17E900A14654 /* OTPFormFieldView.swift in Sources */,
+				E295D6902A8ED0B2006C26EC /* DeveloperWelcomeView.swift in Sources */,
 				E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */,
+				E295D6922A8ED0C5006C26EC /* CreateNFTView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
 				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
@@ -604,6 +654,7 @@
 				E217D0B729F0550B00DE5C5F /* LoginStatus.swift in Sources */,
 				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
 				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
+				E295D6872A8E8065006C26EC /* CrossMintAPI.com.swift in Sources */,
 				E24AE4CE2A7ECE6900FE2903 /* OTPField.swift in Sources */,
 				E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */,
 				E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */,
@@ -642,6 +693,7 @@
 				E217D0BF29F1A34000DE5C5F /* NFTDetailsViewModel.swift in Sources */,
 				E217D0B129EEB4B900DE5C5F /* AssetModel.swift in Sources */,
 				E217D0C329F4464E00DE5C5F /* ProjectCard.swift in Sources */,
+				E295D68D2A8EC083006C26EC /* NFTService.swift in Sources */,
 				E2A5DDFA2A519E1700E8E930 /* ProfileScreen.swift in Sources */,
 				E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */,
 				E2A5DDFC2A51AC1200E8E930 /* ProfileMenuView.swift in Sources */,
