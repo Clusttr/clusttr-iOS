@@ -26,6 +26,9 @@ struct MainView: View {
 
                 ProfileScreen()
                     .tag(NavBarMenu.profile)
+
+                CreateNFTView()
+                    .tag(NavBarMenu.developer)
             }
             NavigationBar(activeMenu: $activeMenu)
                 .offset(y: appState.isNavBarHidden ? 150 : 10)
@@ -39,6 +42,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(AppState())
-            .environmentObject(AccountManager(.dev))
+            .environmentObject(AccountManager(.prod))
     }
 }

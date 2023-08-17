@@ -28,4 +28,8 @@ extension Image {
     static var profile: Image {
         Image("Profile")
     }
+
+    static var helmet: Image {
+        Image(systemName: "archivebox")//Image("Helmet")
+    }
 }

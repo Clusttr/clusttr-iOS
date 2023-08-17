@@ -13,6 +13,7 @@ enum NavBarMenu: String, Identifiable, CaseIterable {
 //    case plus
 //    case discovery
     case profile
+    case developer
 
     var id: String {
         self.rawValue
@@ -30,6 +31,8 @@ enum NavBarMenu: String, Identifiable, CaseIterable {
 //            return 3
         case .profile:
             return 1
+        case .developer:
+            return 2
         }
     }
 }
