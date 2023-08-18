@@ -68,6 +68,7 @@
 		E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */; };
 		E2579D2B29EEACA0006ABEA8 /* House.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2A29EEACA0006ABEA8 /* House.usdz */; };
 		E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */; };
+		E27445AA2A9022910092C6AD /* construction_progress.json in Resources */ = {isa = PBXBuildFile; fileRef = E27445A92A9022910092C6AD /* construction_progress.json */; };
 		E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */; };
 		E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA032A095E33005C9F01 /* DismissButton.swift */; };
 		E295A20A2A8761FA00DCDC64 /* AccountFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295A2092A8761FA00DCDC64 /* AccountFactory.swift */; };
@@ -79,13 +80,19 @@
 		E295D68D2A8EC083006C26EC /* NFTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D68C2A8EC083006C26EC /* NFTService.swift */; };
 		E295D6902A8ED0B2006C26EC /* DeveloperWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D68F2A8ED0B2006C26EC /* DeveloperWelcomeView.swift */; };
 		E295D6922A8ED0C5006C26EC /* CreateNFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D6912A8ED0C5006C26EC /* CreateNFTView.swift */; };
+		E295D6942A8F55FE006C26EC /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D6932A8F55FD006C26EC /* DeveloperView.swift */; };
 		E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3942A0B8B56009C710C /* TransactionList.swift */; };
 		E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3962A0B8D50009C710C /* TransactionItem.swift */; };
 		E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */; };
 		E2A5DDFA2A519E1700E8E930 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */; };
 		E2A5DDFC2A51AC1200E8E930 /* ProfileMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */; };
+		E2A7D2612A8F927C00F885C3 /* DeveloperPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7D2602A8F927C00F885C3 /* DeveloperPath.swift */; };
+		E2A7D2632A8FE7AA00F885C3 /* NFTImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7D2622A8FE7AA00F885C3 /* NFTImagePicker.swift */; };
+		E2A7D2662A9010E600F885C3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E2A7D2652A9010E600F885C3 /* Lottie */; };
+		E2A7D2682A901D8500F885C3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7D2672A901D8500F885C3 /* LottieView.swift */; };
 		E2A884782A65CE5700B68A93 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = E2A884772A65CE5700B68A93 /* Solana */; };
 		E2A8847B2A65D5AF00B68A93 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8847A2A65D5AF00B68A93 /* WalletView.swift */; };
+		E2BC01FB2A902CBF00337693 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = E2BC01FA2A902CBF00337693 /* AlertToast */; };
 		E2BCAC352A77E06900A14654 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC342A77E06900A14654 /* Developer.swift */; };
 		E2BCAC372A77E08900A14654 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC362A77E08900A14654 /* Project.swift */; };
 		E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC382A7821E700A14654 /* MenuItemView.swift */; };
@@ -162,6 +169,7 @@
 		E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailsView.swift; sourceTree = "<group>"; };
 		E2579D2A29EEACA0006ABEA8 /* House.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = House.usdz; sourceTree = "<group>"; };
 		E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Kitchen.usdz; sourceTree = "<group>"; };
+		E27445A92A9022910092C6AD /* construction_progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = construction_progress.json; sourceTree = "<group>"; };
 		E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperProfileView.swift; sourceTree = "<group>"; };
 		E282BA032A095E33005C9F01 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		E295A2092A8761FA00DCDC64 /* AccountFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFactory.swift; sourceTree = "<group>"; };
@@ -173,11 +181,15 @@
 		E295D68C2A8EC083006C26EC /* NFTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTService.swift; sourceTree = "<group>"; };
 		E295D68F2A8ED0B2006C26EC /* DeveloperWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperWelcomeView.swift; sourceTree = "<group>"; };
 		E295D6912A8ED0C5006C26EC /* CreateNFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNFTView.swift; sourceTree = "<group>"; };
+		E295D6932A8F55FD006C26EC /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
 		E2A3E3942A0B8B56009C710C /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		E2A3E3962A0B8D50009C710C /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
 		E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuView.swift; sourceTree = "<group>"; };
+		E2A7D2602A8F927C00F885C3 /* DeveloperPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPath.swift; sourceTree = "<group>"; };
+		E2A7D2622A8FE7AA00F885C3 /* NFTImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTImagePicker.swift; sourceTree = "<group>"; };
+		E2A7D2672A901D8500F885C3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		E2A8847A2A65D5AF00B68A93 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		E2BCAC342A77E06900A14654 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		E2BCAC362A77E08900A14654 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -201,6 +213,8 @@
 				E224832D2A8077FF00AF893C /* KeychainSwift in Frameworks */,
 				E2A884782A65CE5700B68A93 /* Solana in Frameworks */,
 				E2579D0829ED86F7006ABEA8 /* Fakery in Frameworks */,
+				E2BC01FB2A902CBF00337693 /* AlertToast in Frameworks */,
+				E2A7D2662A9010E600F885C3 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +248,7 @@
 		E22C58D829E8167F0065EEE2 /* Lego */ = {
 			isa = PBXGroup;
 			children = (
+				E2A7D2692A90202300F885C3 /* LottieFiles */,
 				E295D6852A8E8020006C26EC /* Services */,
 				E2579D1229ED8B62006ABEA8 /* Info.plist */,
 				E2579D0B29ED8AE3006ABEA8 /* Fonts */,
@@ -309,6 +324,8 @@
 				E2BCAC4D2A7B1DA400A14654 /* OTP */,
 				E24363E92A7567D10053FD28 /* ActionButton.swift */,
 				E2BCAC412A7AC83E00A14654 /* AddressView.swift */,
+				E2A7D2622A8FE7AA00F885C3 /* NFTImagePicker.swift */,
+				E2A7D2672A901D8500F885C3 /* LottieView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -486,8 +503,17 @@
 			children = (
 				E295D68F2A8ED0B2006C26EC /* DeveloperWelcomeView.swift */,
 				E295D6912A8ED0C5006C26EC /* CreateNFTView.swift */,
+				E295D6932A8F55FD006C26EC /* DeveloperView.swift */,
 			);
 			path = Developer;
+			sourceTree = "<group>";
+		};
+		E2A7D2692A90202300F885C3 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E27445A92A9022910092C6AD /* construction_progress.json */,
+			);
+			path = LottieFiles;
 			sourceTree = "<group>";
 		};
 		E2A884792A65D57D00B68A93 /* Wallet */ = {
@@ -520,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				E2BCAC432A7AE35B00A14654 /* AuthPath.swift */,
+				E2A7D2602A8F927C00F885C3 /* DeveloperPath.swift */,
 			);
 			path = Path;
 			sourceTree = "<group>";
@@ -555,6 +582,8 @@
 				E2579D0729ED86F7006ABEA8 /* Fakery */,
 				E2A884772A65CE5700B68A93 /* Solana */,
 				E224832C2A8077FF00AF893C /* KeychainSwift */,
+				E2A7D2652A9010E600F885C3 /* Lottie */,
+				E2BC01FA2A902CBF00337693 /* AlertToast */,
 			);
 			productName = Lego;
 			productReference = E22C58D629E8167F0065EEE2 /* Lego.app */;
@@ -588,6 +617,8 @@
 				E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */,
 				E2A884762A65CE5700B68A93 /* XCRemoteSwiftPackageReference "Solana" */,
 				E224832B2A8077FF00AF893C /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				E2A7D2642A9010E600F885C3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = E22C58D729E8167F0065EEE2 /* Products */;
 			projectDirPath = "";
@@ -610,6 +641,7 @@
 				E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */,
 				E24363F52A7644920053FD28 /* Pacifico-Regular.ttf in Resources */,
 				E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */,
+				E27445AA2A9022910092C6AD /* construction_progress.json in Resources */,
 				E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,10 +661,14 @@
 				E295D68A2A8E85DD006C26EC /* NFTModel.swift in Sources */,
 				E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
+				E2A7D2632A8FE7AA00F885C3 /* NFTImagePicker.swift in Sources */,
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
 				E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */,
+				E2A7D2682A901D8500F885C3 /* LottieView.swift in Sources */,
 				E2579CFC29ED4EA3006ABEA8 /* ScreenSize+Extension.swift in Sources */,
+				E2A7D2612A8F927C00F885C3 /* DeveloperPath.swift in Sources */,
 				E2BCAC442A7AE35C00A14654 /* AuthPath.swift in Sources */,
+				E295D6942A8F55FE006C26EC /* DeveloperView.swift in Sources */,
 				E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */,
 				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
 				E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */,
@@ -921,12 +957,28 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		E2A7D2642A9010E600F885C3 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		E2A884762A65CE5700B68A93 /* XCRemoteSwiftPackageReference "Solana" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/metaplex-foundation/Solana.Swift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
+			};
+		};
+		E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -942,10 +994,20 @@
 			package = E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */;
 			productName = Fakery;
 		};
+		E2A7D2652A9010E600F885C3 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2A7D2642A9010E600F885C3 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		E2A884772A65CE5700B68A93 /* Solana */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E2A884762A65CE5700B68A93 /* XCRemoteSwiftPackageReference "Solana" */;
 			productName = Solana;
+		};
+		E2BC01FA2A902CBF00337693 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

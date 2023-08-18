@@ -74,6 +74,8 @@ struct NavigationBar: View {
             Image.profile
         case .developer:
             Image.helmet
+                .foregroundColor(Color._grey2)
+                .font(.title)
         }
     }
 }

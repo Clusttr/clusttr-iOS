@@ -12,7 +12,7 @@ struct MainView: View {
     @State var isHidden = false
     @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @EnvironmentObject var appState: AppState
-    @StateObject var accountManager = AccountManager(.prod)
+    @StateObject var accountManager = AccountManager(.dev)
 
     init() {
         UITabBar.appearance().isHidden = true
@@ -27,7 +27,7 @@ struct MainView: View {
                 ProfileScreen()
                     .tag(NavBarMenu.profile)
 
-                CreateNFTView()
+                DeveloperView()
                     .tag(NavBarMenu.developer)
             }
             NavigationBar(activeMenu: $activeMenu)
@@ -42,6 +42,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(AppState())
-            .environmentObject(AccountManager(.prod))
+            .environmentObject(AccountManager(.dev))
     }
 }

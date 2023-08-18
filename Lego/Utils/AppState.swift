@@ -16,6 +16,7 @@ class AppState: ObservableObject {
     //MARK: Paths
     @Published public var path: [NFT] = []
     @Published public var authPath: [AuthPath] = []
+    @Published public var developerPath: [DeveloperPath] = []
 
     init() {
         restoreState()

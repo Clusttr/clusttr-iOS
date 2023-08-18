@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct DeveloperWelcomeView: View {
+    @EnvironmentObject var appState: AppState
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Tokenise your first asset")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color._grey100)
+
+            ActionButton(title: "Next") {
+                appState.developerPath.append(DeveloperPath.createNFT)
+            }
+
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color._background)
     }
 }
 
 struct DeveloperWelcomeView_Previews: PreviewProvider {
     static var previews: some View {
         DeveloperWelcomeView()
+            .background(Color._background)
     }
 }
