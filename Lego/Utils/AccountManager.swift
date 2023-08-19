@@ -18,7 +18,11 @@ class AccountManager: ObservableObject {
     @Published var usdcPubKey: PublicKey?
 
     var publicKeyURL: URL {
-        URL(string: "https://solscan.io/account/\(account.publicKey.base58EncodedString)")!
+        URL(string: "https://solscan.io/account/\(account.publicKey.base58EncodedString)=devnet")!
+    }
+
+    func assetURL(mintHash: PublicKey) -> URL {
+        URL(string: "https://solscan.io/token/\(mintHash.base58EncodedString)?cluster=devnet")!
     }
 
     enum env {

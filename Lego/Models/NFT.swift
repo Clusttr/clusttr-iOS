@@ -7,9 +7,12 @@
 
 import Fakery
 import Foundation
+import Solana
 
 struct NFT: Identifiable, Codable {
     var id: String
+    var mintHash: PublicKey
+    var owner: PublicKey
     var name: String
     var description: String
     var location: String
@@ -26,6 +29,8 @@ struct NFT: Identifiable, Codable {
 extension NFT {
     init(nft: NFTModel) {
         self.id = nft.id
+        self.mintHash = PublicKey(string: nft.onChain.mintHash)!
+        self.owner = PublicKey(string: nft.onChain.owner)!
         self.name = nft.metadata.name
         self.description = nft.metadata.description
         self.location = "8th Street Lane"
@@ -67,6 +72,8 @@ extension NFT {
     private static func generateData(id: String, name: String, image: String) -> NFT {
         let faker = Faker()
         return NFT(id: id,
+                   mintHash: PublicKey(string: "9oxUFdEKQuALyLM4p8djGSbH19P9ihBiKeyDgFDubtzq")!,
+                   owner: PublicKey(string: "DpmMV7knnwZcBeLXv9dX3fCHA8jCw7SA7Lzq4dvj1NR3")!,
                    name: name,
                    description: faker.lorem.sentences(amount: 6), location: faker.address.city(),
                    creator: faker.name.name(),
