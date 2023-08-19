@@ -25,9 +25,10 @@ struct NFTImagePicker: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color.red)
-                            .blur(radius: 30)
+                            .blur(radius: 10)
                             .opacity(0.75)
                         image
+                            .aspectRatio(contentMode: .fit)
                     }
                 } placeholder: {
                     ProgressView()

@@ -12,6 +12,7 @@ import SwiftUI
 struct CreateNFTView: View {
     @StateObject var viewModel: CreateNFTViewModel = CreateNFTViewModel()
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var accountManager: AccountManager
 
     var body: some View {
         VStack(spacing: 24) {
@@ -70,7 +71,7 @@ struct CreateNFTView: View {
             Spacer()
 
             ActionButton(title: "Submit", disabled: viewModel.disableButton) {
-                viewModel.submit()
+                viewModel.submit(userPublicKey: accountManager.account.publicKey.base58EncodedString)
             }
             .padding(.horizontal)
 
@@ -103,61 +104,24 @@ struct CreateNFTView: View {
         .toast(isPresenting: $viewModel.isShowingMessage) {
             AlertToast(displayMode: .alert, type: .complete(Color.green), title: "Mint Successful")
         }
+        .toast(isPresenting: $viewModel.isShowingError) {
+            AlertToast(displayMode: .alert, type: .error(Color.red), title: viewModel.error?.localizedDescription )
+        }
     }
 
     func dismissView() {
         appState.developerPath = []
+        appState.isNavBarHidden = false
     }
 }
 
 struct CreateNFTView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateNFTView()
-            .background(Color._background)
-            .environmentObject(AppState())
-    }
-}
-
-class CreateNFTViewModel: ObservableObject {
-    @Published var isLoading = false
-    @Published var isShowingMessage = false
-    @Published var imageURL: String = ""
-    @Published var name: String = ""
-    @Published var description: String = ""
-    let DESCRIPTION_LIMIT = 60
-    var descriptionCount: Int {
-        description.count
-    }
-
-    var dismissView: (() -> Void)?
-
-    var disableButton: Bool {
-        imageURL.isEmpty || name.isEmpty || description.isEmpty
-    }
-
-    func lineLimit() {
-        if description.count > DESCRIPTION_LIMIT {
-            description = String(description.prefix(DESCRIPTION_LIMIT))
-        }
-    }
-
-    func submit() {
-        isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.isLoading = false
-            self.clearForm()
-            self.isShowingMessage = true
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.isShowingMessage = false
-                self.dismissView?()
-            }
-        }
-    }
-
-    func clearForm() {
-        imageURL = ""
-        name = ""
-        description = ""
+        let viewModel = CreateNFTViewModel(nftService: NFTServiceDouble())
+        viewModel.imageURL = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRZJ8awhuWhiqwRb_H8xEh6SaFcll2D2c-1ye4ZK03fgwzxUz9P"
+        return CreateNFTView(viewModel: viewModel)
+                .background(Color._background)
+                .environmentObject(AppState())
+                .environmentObject(AccountManager(.dev))
     }
 }

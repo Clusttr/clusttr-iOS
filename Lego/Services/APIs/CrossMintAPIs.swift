@@ -1,5 +1,5 @@
 //
-//  CrossMintAPI.com.swift
+//  CrossMintAPIs.swift
 //  Lego
 //
 //  Created by Matthew Chukwuemeka on 17/08/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CrossMintAPI {
+struct CrossMintAPIs {
     let baseURL = "https://staging.crossmint.com"
     let nftCollectionId: String = "779b12ed-d76b-4c5e-8c1b-2995e2b736dc"
     let headers = [
@@ -25,6 +25,20 @@ struct CrossMintAPI {
 
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         let decode = try JSONDecoder().decode([NFTModel].self, from: data)
+        return decode
+    }
+
+    func mintNFT(params: CreateNFTParams) async throws -> NFTStatus {
+        let paramsData = try JSONEncoder().encode(params)
+        let url = URL(string: "\(baseURL)/api/2022-06-09/collections/\(nftCollectionId)/nfts")!
+
+        var urlRequest = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        urlRequest.allHTTPHeaderFields = headers
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = paramsData
+
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let decode = try JSONDecoder().decode(NFTStatus.self, from: data)
         return decode
     }
 }

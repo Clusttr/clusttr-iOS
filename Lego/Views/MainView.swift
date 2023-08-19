@@ -12,7 +12,7 @@ struct MainView: View {
     @State var isHidden = false
     @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @EnvironmentObject var appState: AppState
-    @StateObject var accountManager = AccountManager(.dev)
+    @StateObject var accountManager = AccountManager(.prod)
 
     init() {
         UITabBar.appearance().isHidden = true
