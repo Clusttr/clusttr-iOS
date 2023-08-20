@@ -14,8 +14,8 @@ struct NFTDetailsView: View {
     let assetModelCount: Int
     @State var showBuySheet: Bool = false
     @StateObject var viewModel = NFTDetailsViewModel()
-//    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var accountManager: AccountManager
 
     init(nft: NFT) {
         self.nft = nft
@@ -33,11 +33,14 @@ struct NFTDetailsView: View {
                             Group {
                                 Text(nft.name)
                                     .font(.largeTitle)
-                                + Text(" #\(nft.id)")
-                                    .font(.title2)
-                                    .fontWeight(.medium)
                             }
                             .frame(width: UIScreen.screenWidth * 2/3, alignment: .leading)
+
+                            Link(destination: accountManager.assetURL(mintHash: nft.mintHash), label: {
+                                Text(" #\(nft.mintHash.short(numOfSymbolsRevealed: 4)) view on solscan")
+                                    .font(.caption2)
+                                    .fontWeight(.medium)
+                            })
 
                             Text(nft.location)
                                 .font(.caption)
@@ -166,6 +169,7 @@ struct NFTDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NFTDetailsView(nft: NFT.fakeData[0])
             .environmentObject(AppState())
+            .environmentObject(AccountManager(.dev))
     }
 }
 

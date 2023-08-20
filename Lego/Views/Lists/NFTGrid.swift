@@ -10,15 +10,14 @@ import SwiftUI
 struct NFTGrid: View {
     var NFTs: [NFT]
     var showBidTime: Bool = true
+    @EnvironmentObject var appState: AppState
 
     let columns = [GridItem(.adaptive(minimum: 150))]
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: columns, spacing: 20) {
-                ForEach(NFTs) { nft in
-                    NavigationLink {
-                        NFTDetailsView(nft: nft)
-                    } label: {
+                ForEach(NFTs, id: \.id) { nft in
+                    NavigationLink(value: nft) {
                         NFTCard(nft: nft, showBidTime: showBidTime)
                     }
                 }
@@ -29,6 +28,12 @@ struct NFTGrid: View {
 
 struct NFTList_Previews: PreviewProvider {
     static var previews: some View {
-        NFTGrid(NFTs: NFT.fakeData, showBidTime: true)
+        NavigationStack {
+            NFTGrid(NFTs: NFT.fakeData, showBidTime: true)
+                .navigationDestination(for: NFT.self) { nft in
+                    NFTDetailsView(nft: nft)
+                }
+        }
+        .environmentObject(AppState())
     }
 }

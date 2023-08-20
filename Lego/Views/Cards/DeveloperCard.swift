@@ -12,13 +12,13 @@ struct DeveloperCard: View {
         VStack(spacing: 0) {
             Image.wallpaper
                 .resizable()
-                .frame(height: 90)
-            Color.black.opacity(0.8)
+                .frame(height: 65)
+            Color._grey800.opacity(0.8)
                 .overlay {
                     VStack(alignment: .leading) {
                         Image.ape
                             .resizable()
-                            .frame(width: 50, height: 50)
+                            .frame(width: 35, height: 35)
                             .cornerRadius(10)
                             .overlay {
                                 RoundedRectangle(cornerRadius: 10)
@@ -26,8 +26,8 @@ struct DeveloperCard: View {
                             }
                             .padding(.leading, 18)
                         Text("Kayla's Court")
-                            .font(.callout)
-                            .fontWeight(.semibold)
+                            .font(.footnote)
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal, 16)
@@ -36,7 +36,7 @@ struct DeveloperCard: View {
                     .offset(y: -20)
                 }
         }
-        .frame(width: 220, height: 160, alignment: .top)
+        .frame(width: 160, height: 120, alignment: .top)
         .cornerRadius(20)
         .overlay {
             RoundedRectangle(cornerRadius: 20)

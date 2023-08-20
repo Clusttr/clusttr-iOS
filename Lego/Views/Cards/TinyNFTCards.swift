@@ -11,13 +11,19 @@ struct TinyNFTCards: View {
     var nft: NFT
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image(nft.image)
-                .resizable()
-                .overlay {
-                    LinearGradient(colors: [.clear, .black.opacity(0.7)], startPoint: .top, endPoint: .bottom)
-                }
+            AsyncImage(url: URL(string: nft.image)!) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
 
-            Text("#\(nft.id)")
+            } placeholder: {
+                Image(systemName: "photo")
+            }
+            .overlay {
+                LinearGradient(colors: [.clear, .black.opacity(0.7)], startPoint: .top, endPoint: .bottom)
+            }
+
+            Text("#\(nft.mintHash.short(numOfSymbolsRevealed: 2))")
                 .font(.footnote)
                 .fontWeight(.bold)
                 .foregroundColor(.white.opacity(0.8))

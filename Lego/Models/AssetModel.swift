@@ -8,7 +8,7 @@
 import Foundation
 import Fakery
 
-struct AssetModel: Identifiable {
+struct AssetModel: Identifiable, Codable {
     let id: UUID
     let title: String
     let url: String

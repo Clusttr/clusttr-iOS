@@ -19,7 +19,10 @@ struct PriceHistoryComponent: View {
                 Spacer()
 
                 NavigationLink {
-                    Text("History here")
+                    ScrollView(showsIndicators: false) {
+                        TransactionList()
+                    }
+                    .background(Color._background)
                 } label: {
                     HStack(spacing: 4) {
                         Text("Price History")
@@ -59,10 +62,6 @@ struct PriceHistoryComponent: View {
             }
             .frame(height: 300)
             .padding(.top, 16)
-            .onAppear {
-                print(transactionAverage)
-                print(valuationAverage)
-            }
         }
         .padding(.horizontal, 24)
     }

@@ -12,9 +12,11 @@ struct DeveloperProfileView: View {
     @State var nfts = NFT.fakeData
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appState: AppState
-    
-    var description: String {
-        Faker().lorem.sentences(amount: 12)
+    @State var showItems = true
+    var description: String
+
+    init() {
+        description = Faker().lorem.sentences(amount: 12)
     }
 
     var body: some View {
@@ -51,23 +53,40 @@ struct DeveloperProfileView: View {
                 VStack(alignment: .leading) {
                     bio
 
-                    //MARK: Projects
-                    VStack(alignment: .leading) {
-                        Text("Projects")
-                            .font(.headline)
-                            .padding(.leading, 8)
-                        ProjectCarousel()
-                    }
-                    .padding(.top, 20)
+                    VStack(spacing: 2) {
+                        HStack(spacing: 24) {
+                            Spacer()
+                            Button {
+                                showItems = true
+                            } label: {
+                                Text("Items")
+                            }
+                            .opacity(showItems ? 1 : 0.6)
 
-                    //MARK: Assets
-                    VStack(alignment: .leading) {
-                        Text("Assets")
-                            .font(.headline)
-                            .padding(.leading, 8)
-                        NFTGrid(NFTs: nfts)
+                            Button {
+                                showItems = false
+                            } label: {
+                                Text("Activity")
+                            }
+                            .opacity(showItems ? 0.6 : 1)
+                            Spacer()
+                        }
+                        .fontWeight(.bold)
+                        Divider()
                     }
-                    .padding(.top, 20)
+                    .padding(.top)
+
+                    switch showItems {
+                    case true:
+                        itemsSection
+                    case false:
+                        VStack {
+                            PriceHistoryComponent(transactions: Transaction.data, valuations: Valuation.data)
+                            TransactionList()
+                        }
+                        .padding(.top)
+                    }
+
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 8)
@@ -77,11 +96,35 @@ struct DeveloperProfileView: View {
             .padding(.bottom, 45)
         }
         .ignoresSafeArea()
+        .foregroundColor(.white)
+        .background(Color._background)
         .navigationBarBackButtonHidden()
         .onAppear {
             withAnimation(.easeInOut) {
                 appState.isNavBarHidden = true
             }
+        }
+    }
+
+    var itemsSection: some View {
+        VStack {
+            //MARK: Projects
+            VStack(alignment: .leading) {
+                Text("Projects")
+                    .font(.headline)
+                    .padding(.leading, 8)
+                ProjectCarousel()
+            }
+            .padding(.top, 20)
+
+            //MARK: Assets
+            VStack(alignment: .leading) {
+                Text("Assets")
+                    .font(.headline)
+                    .padding(.leading, 8)
+                NFTGrid(NFTs: nfts)
+            }
+            .padding(.top, 20)
         }
     }
 
@@ -150,4 +193,18 @@ struct DeveloperProfileView_Previews: PreviewProvider {
         DeveloperProfileView()
             .environmentObject(AppState())
     }
+}
+
+
+struct ContentXView: View {
+    let user: User
+    var body: some View {
+        Text(user.name)
+    }
+}
+
+struct User: CustomStringConvertible {
+    var description: String
+
+    var name: String
 }

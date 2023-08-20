@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Solana
 
 struct MainView: View {
     @State var isHidden = false
-    @AppStorage("activeMenu") var activeMenu: NavBarMenu = .profile
+    @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @EnvironmentObject var appState: AppState
+    @StateObject var accountManager = AccountManager(.prod)
 
     init() {
         UITabBar.appearance().isHidden = true
@@ -22,12 +24,17 @@ struct MainView: View {
                 HomeView()
                     .tag(NavBarMenu.home)
 
-                ProfileView()
+                ProfileScreen()
                     .tag(NavBarMenu.profile)
+
+                DeveloperView()
+                    .tag(NavBarMenu.developer)
             }
             NavigationBar(activeMenu: $activeMenu)
                 .offset(y: appState.isNavBarHidden ? 150 : 10)
         }
+        .navigationBarBackButtonHidden(true)
+        .environmentObject(accountManager)
     }
 }
 
@@ -35,5 +42,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(AppState())
+            .environmentObject(AccountManager(.dev))
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    var isActive: Bool = true
+    var onClickMenu: () -> Void
     @State private var scrollOffset: CGPoint = .zero
     @State private var headerHeight: CGFloat = 242
     @FocusState private var searchBarIsFocused: Bool
@@ -74,6 +76,7 @@ struct ProfileView: View {
                     }
                 }
             }
+            .background(Color._background)
             .overlay {
                 bannerAndProfilePicture
                     .onTapGesture {
@@ -139,6 +142,17 @@ struct ProfileView: View {
             }
             .frame(height: 242)
             .frame(maxHeight: .infinity, alignment: .top)
+            .overlay(alignment: .topTrailing) {
+                Button {
+                    onClickMenu()
+                } label: {
+                    Image(systemName: "line.3.horizontal")
+                        .fontWeight(.black)
+                        .foregroundColor(.white)
+                        .padding(.trailing, 16)
+                }
+                .opacity(isActive ? 1 : 0)
+            }
     }
 
     var searchBar: some View {
@@ -173,7 +187,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(onClickMenu: {})
             .environmentObject(AppState())
     }
 }
