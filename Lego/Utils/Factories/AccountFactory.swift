@@ -8,37 +8,29 @@
 import Foundation
 import Solana
 
-protocol IAccountFactory {
-    var account: HotAccount { get }
-}
-
 struct AccountFactory: IAccountFactory {
-
-    let account: HotAccount
+    private let secretKey: Data
 
     init() throws {
         guard let key: Data = KeyChain.get(key: .SECRET_KEY) else {
             throw AccountError.invalidSecretKey
         }
+        self.secretKey = key
+    }
 
-        guard let account = HotAccount(secretKey: key) else {
-            throw AccountError.invalidSecretData
-        }
-        self.account = account
+    func getAccount() throws -> HotAccount {
+        return try getAccount(secretKey: secretKey)
     }
 }
 
 struct AccountFactoryDemo: IAccountFactory {
-    let account: HotAccount
+    private let secretKey: Data
 
-    init(secretKey: String) {
-        let data = secretKey.base58EncodedData
-        self.account = HotAccount(secretKey: data) ?? HotAccount()!
+    init(secretKey: String = ProcessInfo.processInfo.environment["secret_key"] ?? "") {
+        self.secretKey = secretKey.base58EncodedData
     }
-}
 
-
-enum AccountError: Error {
-    case invalidSecretKey
-    case invalidSecretData
+    func getAccount() throws -> HotAccount {
+        return try getAccount(secretKey: secretKey)
+    }
 }

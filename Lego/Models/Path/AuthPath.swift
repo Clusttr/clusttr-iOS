@@ -12,6 +12,7 @@ enum AuthPath: Hashable {
     case signIn
     case signUp
     case setupPin
+    case web3AuthLogin
 }
 
 import SwiftUI
@@ -28,6 +29,8 @@ extension AuthPath: View {
             SignUpView()
         case .setupPin:
             SetupPinView()
+        case .web3AuthLogin:
+            Web3AuthLoginView()
         }
     }
 }

@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import Solana
 
-enum AuthState: String {
+enum AuthState: String, Codable {
     case loggedOut
     case loggedIn
 }

@@ -26,9 +26,9 @@ struct OnboardingView: View {
 
                 VStack(spacing: 18) {
 
-                    NavigationLink(value: AuthPath.signUp, label: {ActionButton(title: "GET STARTED")})
+//                    NavigationLink(value: AuthPath.signUp, label: {ActionButton(title: "GET STARTED")})
 
-                    NavigationLink(value: AuthPath.signIn, label: {ActionButton(title: "LOG IN")})
+                    NavigationLink(value: AuthPath.web3AuthLogin, label: {ActionButton(title: "LOG IN")})
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 24)

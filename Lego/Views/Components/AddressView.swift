@@ -34,21 +34,25 @@ struct AddressView: View {
         return "\(prefix)...\(suffix)"
     }
     var body: some View {
-        Text(key)
-            .font(.caption)
-            .foregroundColor(._grey100)
-            .padding(.vertical, 6)
-            .padding(.horizontal, 16)
-            .background {
-                LinearGradient(colors: [Color._grey.opacity(0.25),
-                                        Color.pink.opacity(0.7),
-                                        Color.orange.opacity(0.5),
-                                        Color._grey100.opacity(0.25)],
-                               startPoint: .topLeading,
-                               endPoint: .bottomTrailing)
-                .opacity(0.3)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-            }
+        HStack {
+            Text(key)
+                .font(.caption)
+                .foregroundColor(._grey100)
+            Image(systemName: "square.on.square")
+                .foregroundColor(._grey100)
+        }
+        .padding(.vertical, 6)
+        .padding(.horizontal, 16)
+        .background {
+            LinearGradient(colors: [Color._grey.opacity(0.25),
+                                    Color.pink.opacity(0.7),
+                                    Color.orange.opacity(0.5),
+                                    Color._grey100.opacity(0.25)],
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
+            .opacity(0.3)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+        }
     }
 }
 

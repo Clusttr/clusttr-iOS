@@ -7,19 +7,36 @@
 
 import Foundation
 import Combine
+import Solana
 
 class ProfileViewModel: ObservableObject {
-    @Published var NFTs: [NFT] = []
+    @Published var nfts: [NFT] = []
     @Published var searchWord = ""
-    let dataSource: [NFT] = NFT.fakeData
+    let nftService: INFTService
     var subscription = Set<AnyCancellable>()
 
-    init() {
-        $searchWord
-            .sink { [weak self] searchWord in
-                guard let self = self else { return }
-                self.NFTs = searchWord.isEmpty ? self.dataSource : self.dataSource.filter{ $0.name.contains(searchWord) }
+    init(_ nftService: INFTService = NFTService()) {
+        self.nftService = nftService
+        //$searchWord
+        //.sink { [weak self] searchWord in
+        //    guard let self = self else { return }
+        //    self.nfts = searchWord.isEmpty ? self.dataSource : self.dataSource.filter{ $0.name.contains(searchWord) }
+        //}
+        //.store(in: &subscription)
+    }
+
+
+    @MainActor
+    func fetchNFTs(userPublicKey: PublicKey) {
+        Task {
+            do {
+                let result = try await nftService.fetchNFts()
+                self.nfts = result.filter({ nft in
+                    nft.owner == userPublicKey
+                })
+            } catch {
+                print(error.localizedDescription)
             }
-            .store(in: &subscription)
+        }
     }
 }

@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Solana
 
 struct CreateWalletView: View {
     @StateObject var viewModel = CreateWalletViewModel()
     @EnvironmentObject var appState: AppState
+    @State var error: Error?
 
     var forSignUp: Bool {
         appState.authPath.first == AuthPath.signUp
@@ -75,11 +77,11 @@ struct CreateWalletView: View {
 
     func paste() {
         guard let secretKey = UIPasteboard.general.string, secretKey.isValidPrivateKey()  else {
-            print("Not a valid secret key")
+            self.error = AccountError.invalidSecretKey
             return
 
         }
-        let secretKeyData = Data(hex: secretKey)
+        let secretKeyData = Data(hexString: secretKey)
         guard let hotAccount = HotAccount(secretKey: secretKeyData) else { return }
         viewModel.account = hotAccount
     }

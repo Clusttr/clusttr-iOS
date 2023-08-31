@@ -38,3 +38,11 @@ public enum KeyChainConst: String {
     case PIN = "PIN"
     case SECRET_KEY = "PRIVATE_KEY"
 }
+
+import Web3Auth
+extension KeyChain {
+
+    public static func set(key: KeyChainConst, value: Web3AuthState) {
+        
+    }
+}

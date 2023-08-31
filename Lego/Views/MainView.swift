@@ -12,7 +12,6 @@ struct MainView: View {
     @State var isHidden = false
     @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @EnvironmentObject var appState: AppState
-    @StateObject var accountManager = AccountManager(.prod)
 
     init() {
         UITabBar.appearance().isHidden = true
@@ -34,7 +33,7 @@ struct MainView: View {
                 .offset(y: appState.isNavBarHidden ? 150 : 10)
         }
         .navigationBarBackButtonHidden(true)
-        .environmentObject(accountManager)
+        .environmentObject(AccountManager(accountFactory: try! AccountFactory()))
     }
 }
 
@@ -42,6 +41,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(AppState())
-            .environmentObject(AccountManager(.dev))
+            .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
     }
 }

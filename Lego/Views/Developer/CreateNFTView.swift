@@ -122,6 +122,6 @@ struct CreateNFTView_Previews: PreviewProvider {
         return CreateNFTView(viewModel: viewModel)
                 .background(Color._background)
                 .environmentObject(AppState())
-                .environmentObject(AccountManager(.dev))
+                .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
     }
 }

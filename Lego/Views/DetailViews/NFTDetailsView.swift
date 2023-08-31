@@ -169,7 +169,7 @@ struct NFTDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NFTDetailsView(nft: NFT.fakeData[0])
             .environmentObject(AppState())
-            .environmentObject(AccountManager(.dev))
+            .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
     }
 }
 
