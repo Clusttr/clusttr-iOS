@@ -37,6 +37,7 @@ struct KeyChain {
 public enum KeyChainConst: String {
     case PIN = "PIN"
     case SECRET_KEY = "PRIVATE_KEY"
+    case ACCESS_TOKEN = "ACCESS_TOKEN"
 }
 
 import Web3Auth
