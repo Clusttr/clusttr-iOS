@@ -22,7 +22,7 @@ extension URLSession {
         case unknown
     }
 
-    public func request<T: Codable>(path: String, httpMethod: HttpMethod) async throws -> T {
+    public func request<T: Codable>(path: String, httpMethod: HttpMethod, body: Data? = nil) async throws -> T {
         guard let url = ClusttrAPIs.baseURL?.appending(path: path) else {
             throw APIError.invalidURL
         }
@@ -32,11 +32,12 @@ extension URLSession {
         urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.addValue("Bearer \(ClusttrAPIs.getAccessToken())", forHTTPHeaderField: "Authorization")
+        urlRequest.httpBody = body
 
         do {
             let (data, urlResponse) = try await data(for: urlRequest)
-            let result = try JSONDecoder().decode(T.self, from: data)
             try manageHttpResponse(urlResponse)
+            let result = try JSONDecoder().decode(T.self, from: data)
             return result
 
         } catch DecodingError.dataCorrupted {

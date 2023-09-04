@@ -44,9 +44,7 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            OnboardingView()
-        }
-        .environmentObject(AppState())
+        OnboardingView()
+            .environmentObject(AppState())
     }
 }

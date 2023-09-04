@@ -31,7 +31,7 @@ struct SetupPinView: View {
 
             ActionButton(title: "DONE", disabled: pin.count < 4) {
                 KeyChain.set(key: .PIN, value: pin)
-                appState.authPath.append(.createWallet)
+//                appState.authPath.append(.createWallet)
             }
             .padding(24)
         }

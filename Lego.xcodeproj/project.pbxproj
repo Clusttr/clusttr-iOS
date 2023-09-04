@@ -88,11 +88,19 @@
 		E295D6902A8ED0B2006C26EC /* DeveloperWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D68F2A8ED0B2006C26EC /* DeveloperWelcomeView.swift */; };
 		E295D6922A8ED0C5006C26EC /* CreateNFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D6912A8ED0C5006C26EC /* CreateNFTView.swift */; };
 		E295D6942A8F55FE006C26EC /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D6932A8F55FD006C26EC /* DeveloperView.swift */; };
+		E29C72372AA4E04500C05222 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C72362AA4E04500C05222 /* AccountService.swift */; };
+		E29C72392AA4F39D00C05222 /* RegisterAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C72382AA4F39D00C05222 /* RegisterAccountView.swift */; };
 		E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3942A0B8B56009C710C /* TransactionList.swift */; };
 		E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3962A0B8D50009C710C /* TransactionItem.swift */; };
 		E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */; };
 		E2A509B52AA164B500C10E56 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A509B42AA164B500C10E56 /* URLSession+Extensions.swift */; };
 		E2A509B72AA1658A00C10E56 /* ClusttrAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A509B62AA1658A00C10E56 /* ClusttrAPIs.swift */; };
+		E2A509BB2AA2400000C10E56 /* SetupPinAndAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A509BA2AA2400000C10E56 /* SetupPinAndAccountView.swift */; };
+		E2A509BF2AA24BF200C10E56 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A509BE2AA24BF200C10E56 /* loading.json */; };
+		E2A509C12AA257F700C10E56 /* LoadingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A509C02AA257F700C10E56 /* LoadingModifier.swift */; };
+		E2A509C52AA29CA500C10E56 /* AuthResultDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A509C42AA29CA500C10E56 /* AuthResultDTO.swift */; };
+		E2A509C72AA29D3700C10E56 /* TestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A509C62AA29D3700C10E56 /* TestDTO.swift */; };
+		E2A509C92AA29D6C00C10E56 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A509C82AA29D6C00C10E56 /* LoginDTO.swift */; };
 		E2A5DDFA2A519E1700E8E930 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */; };
 		E2A5DDFC2A51AC1200E8E930 /* ProfileMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */; };
 		E2A7D2612A8F927C00F885C3 /* DeveloperPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7D2602A8F927C00F885C3 /* DeveloperPath.swift */; };
@@ -202,11 +210,19 @@
 		E295D68F2A8ED0B2006C26EC /* DeveloperWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperWelcomeView.swift; sourceTree = "<group>"; };
 		E295D6912A8ED0C5006C26EC /* CreateNFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNFTView.swift; sourceTree = "<group>"; };
 		E295D6932A8F55FD006C26EC /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
+		E29C72362AA4E04500C05222 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		E29C72382AA4F39D00C05222 /* RegisterAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountView.swift; sourceTree = "<group>"; };
 		E2A3E3942A0B8B56009C710C /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		E2A3E3962A0B8D50009C710C /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
 		E2A509B42AA164B500C10E56 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		E2A509B62AA1658A00C10E56 /* ClusttrAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusttrAPIs.swift; sourceTree = "<group>"; };
+		E2A509BA2AA2400000C10E56 /* SetupPinAndAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPinAndAccountView.swift; sourceTree = "<group>"; };
+		E2A509BE2AA24BF200C10E56 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		E2A509C02AA257F700C10E56 /* LoadingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingModifier.swift; sourceTree = "<group>"; };
+		E2A509C42AA29CA500C10E56 /* AuthResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResultDTO.swift; sourceTree = "<group>"; };
+		E2A509C62AA29D3700C10E56 /* TestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDTO.swift; sourceTree = "<group>"; };
+		E2A509C82AA29D6C00C10E56 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
 		E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuView.swift; sourceTree = "<group>"; };
 		E2A7D2602A8F927C00F885C3 /* DeveloperPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPath.swift; sourceTree = "<group>"; };
@@ -260,7 +276,9 @@
 		E20DC3FD2AA0DF18001BBD61 /* Clusttr */ = {
 			isa = PBXGroup;
 			children = (
+				E2A509C22AA29BF200C10E56 /* DTOs */,
 				E20DC3FF2AA0DF73001BBD61 /* AuthService.swift */,
+				E29C72362AA4E04500C05222 /* AccountService.swift */,
 			);
 			path = Clusttr;
 			sourceTree = "<group>";
@@ -361,6 +379,8 @@
 				E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */,
 				E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */,
 				E28BDA0B2A9E52D30083EF0B /* Web3AuthLoginView.swift */,
+				E2A509BA2AA2400000C10E56 /* SetupPinAndAccountView.swift */,
+				E29C72382AA4F39D00C05222 /* RegisterAccountView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -518,6 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				E28BDA112A9E6B5F0083EF0B /* ActionButtonModifier.swift */,
+				E2A509C02AA257F700C10E56 /* LoadingModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -581,9 +602,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E2A509C22AA29BF200C10E56 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				E2A509C32AA29C8A00C10E56 /* Results */,
+				E2A509C62AA29D3700C10E56 /* TestDTO.swift */,
+				E2A509C82AA29D6C00C10E56 /* LoginDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		E2A509C32AA29C8A00C10E56 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				E2A509C42AA29CA500C10E56 /* AuthResultDTO.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
 		E2A7D2692A90202300F885C3 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				E2A509BE2AA24BF200C10E56 /* loading.json */,
 				E27445A92A9022910092C6AD /* construction_progress.json */,
 			);
 			path = LottieFiles;
@@ -729,6 +769,7 @@
 				E2579D0F29ED8B09006ABEA8 /* Roboto-Medium.ttf in Resources */,
 				E2579D0D29ED8AFF006ABEA8 /* Roboto-Regular.ttf in Resources */,
 				E2579D1129ED8B14006ABEA8 /* Roboto-Bold.ttf in Resources */,
+				E2A509BF2AA24BF200C10E56 /* loading.json in Resources */,
 				E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */,
 				E24363F52A7644920053FD28 /* Pacifico-Regular.ttf in Resources */,
 				E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */,
@@ -751,9 +792,12 @@
 				E20DC3FC2AA0D12B001BBD61 /* Data+Extensions.swift in Sources */,
 				E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */,
 				E224832A2A804C8900AF893C /* String+Extensions.swift in Sources */,
+				E2A509C92AA29D6C00C10E56 /* LoginDTO.swift in Sources */,
 				E295D68A2A8E85DD006C26EC /* NFTModel.swift in Sources */,
 				E2579D0A29ED87FF006ABEA8 /* Double+Extensions.swift in Sources */,
 				E2A509B52AA164B500C10E56 /* URLSession+Extensions.swift in Sources */,
+				E2A509C52AA29CA500C10E56 /* AuthResultDTO.swift in Sources */,
+				E2A509C12AA257F700C10E56 /* LoadingModifier.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
 				E2A7D2632A8FE7AA00F885C3 /* NFTImagePicker.swift in Sources */,
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
@@ -782,10 +826,12 @@
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
 				E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */,
+				E29C72392AA4F39D00C05222 /* RegisterAccountView.swift in Sources */,
 				E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */,
 				E2BC02032A90CC5B00337693 /* CreateNFTViewModel.swift in Sources */,
 				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
 				E217D0B729F0550B00DE5C5F /* LoginStatus.swift in Sources */,
+				E2A509BB2AA2400000C10E56 /* SetupPinAndAccountView.swift in Sources */,
 				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
 				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
 				E295D6872A8E8065006C26EC /* CrossMintAPIs.swift in Sources */,
@@ -798,6 +844,7 @@
 				E217D0C129F40FB000DE5C5F /* DeveloperCard.swift in Sources */,
 				E2BCAC402A7AC50200A14654 /* CreateWalletView.swift in Sources */,
 				E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */,
+				E2A509C72AA29D3700C10E56 /* TestDTO.swift in Sources */,
 				E2BCAC3E2A7824BD00A14654 /* ProfileMenu.swift in Sources */,
 				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,
 				E20DC4002AA0DF73001BBD61 /* AuthService.swift in Sources */,
@@ -823,6 +870,7 @@
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
 				E2BCAC372A77E08900A14654 /* Project.swift in Sources */,
 				E24363EA2A7567D10053FD28 /* ActionButton.swift in Sources */,
+				E29C72372AA4E04500C05222 /* AccountService.swift in Sources */,
 				E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */,
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
 				E2B3CC492A9F7F1D00CDAD94 /* LocalStorage.swift in Sources */,

@@ -10,11 +10,12 @@ import SwiftUI
 
 struct LottieView: UIViewRepresentable {
     let name: String
+    let size: CGSize
     let loopMode: LottieLoopMode
 
     func makeUIView(context: Context) -> some UIView {
         let animationView = LottieAnimationView(name: name)
-        animationView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        animationView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = loopMode
         animationView.animationSpeed = 2
@@ -29,6 +30,8 @@ struct LottieView: UIViewRepresentable {
 
 struct LottieView_Previews: PreviewProvider {
     static var previews: some View {
-        LottieView(name: "construction_progress", loopMode: .loop)
+        LottieView(name: "construction_progress",
+                   size: CGSize(width: 100, height: 100),
+                   loopMode: .loop)
     }
 }

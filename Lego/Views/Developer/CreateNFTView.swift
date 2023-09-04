@@ -89,13 +89,15 @@ struct CreateNFTView: View {
         }
         .blur(radius: viewModel.isLoading ? 5 : 0)
         .overlay {
-            if viewModel.isLoading {
+            if !viewModel.isLoading {
                 ZStack {
                     Rectangle()
                         .opacity(0.3)
                         .blur(radius: 30)
-                    LottieView(name: "construction_progress", loopMode: .loop)
-                        .scaleEffect(0.25)
+                    LottieView(name: "construction_progress",
+                               size: CGSize(width: 100, height: 100),
+                               loopMode: .loop)
+                    .scaleEffect(0.25)
                 }
             } else {
                 EmptyView()

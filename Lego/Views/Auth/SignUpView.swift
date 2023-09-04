@@ -57,10 +57,10 @@ struct SignUpView: View {
 
             Spacer()
 
-            NavigationLink(value: AuthPath.setupPin) {
-                ActionButton(title: "CREATE ACCOUNT")
-            }
-            .padding(24)
+//            NavigationLink(value: AuthPath.signUp) {
+//                ActionButton(title: "CREATE ACCOUNT")
+//            }
+//            .padding(24)
         }
         .background(Color._background)
         .navigationBarBackButtonHidden(true)

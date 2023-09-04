@@ -8,22 +8,52 @@
 import Foundation
 import Web3Auth
 
-struct TestDTO: Codable, CustomDebugStringConvertible {
-    let message: String
-
-    var debugDescription: String {
-        message
-    }
+protocol IAuthService {
+    func login(idToken: String, pin: String) async throws -> AuthResultDTO
+    func web3Login() async throws -> (secretKey: Data, user: User)
 }
 
-struct AuthService {
+struct AuthService: IAuthService {
 
     static func test() async throws -> TestDTO {
         return try await URLSession.shared.request(path: ClusttrAPIs.hello, httpMethod: .get)
     }
 
-    func signUp(idToken: String) {
-        //let egg = Web3Auth.getEd25519PrivKey(web3Auth)
-        //let value =web3Auth.userInfo?.idToken
+    func login(idToken: String, pin: String) async throws -> AuthResultDTO {
+        let data = try JSONEncoder().encode(LoginDTO(idToken: idToken, pin: pin))
+        return try await URLSession.shared.request(path: ClusttrAPIs.login, httpMethod: .post, body: data)
+    }
+
+    func web3Login() async throws -> (secretKey: Data, user: User) {
+        let web3Auth = await Web3Auth(
+            W3AInitParams(
+                clientId: "BEhMD-p5PB698Z1pqW_5yAyIitFw5XbmzuHVojraZ6N2XKdtmbLiGZ_O0A5rv0kOyFX5DqvYf7MvClCt6LZ75qQ",
+                network: .testnet
+            )
+        )
+
+        let result = try await web3Auth.login(W3ALoginParams(loginProvider: .APPLE, curve: .ED25519))
+        guard let userInfo = result.userInfo else {
+            throw APIError.noUserCredential
+        }
+        return (Data(hexString: web3Auth.getEd25519PrivKey()), User(user: userInfo))
+    }
+}
+
+struct AuthServiceDouble: IAuthService {
+    var isNewUser: Bool?
+
+    func login(idToken: String, pin: String) async throws -> AuthResultDTO {
+        let isNewUser = self.isNewUser ?? Bool.random()
+        try? await Task.sleep(for: .seconds(3))
+        return AuthResultDTO.demo(isNewUser: isNewUser)
+    }
+
+    func web3Login() async throws -> (secretKey: Data, user: User) {
+        try? await Task.sleep(for: .seconds(3))
+        guard let secretKey = ProcessInfo.processInfo.environment[KeyChainConst.SECRET_KEY.rawValue] else {
+            throw AccountError.invalidSecretKey
+        }
+        return (Data(hexString: secretKey), User.demo())
     }
 }
