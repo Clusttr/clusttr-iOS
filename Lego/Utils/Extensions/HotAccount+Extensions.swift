@@ -10,9 +10,7 @@ import Solana
 
 extension HotAccount {
     var base58EncodedSecretKeyString: String {
-        let bytes = secretKey.bytes
-        let string = Base58.encode(bytes)
-        return string
+        return secretKey.base58EncodedString
     }
 }
 
@@ -21,5 +19,13 @@ extension String {
         let bytes = Base58.decode(self)
         let data = Data(bytes)
         return data
+    }
+}
+
+extension Data {
+    var base58EncodedString: String {
+        let bytes = self.bytes
+        let string = Base58.encode(bytes)
+        return string
     }
 }

@@ -18,21 +18,24 @@ class AppState: ObservableObject {
     @Published public var authPath: [AuthPath] = []
     @Published public var developerPath: [DeveloperPath] = []
 
+    @Published var cancelBag = Set<AnyCancellable>()
+
     init() {
         restoreState()
         observeAuthState()
     }
 
     func restoreState() {
-        let value = UserDefaults.standard.string(forKey: "AUTH_STATE") ?? ""
-        loginState = AuthState(rawValue: value) ?? AuthState.loggedOut
+        loginState = LocalStorage.get(key: .authState) ?? .loggedOut
     }
 
-    @Published var cancelBag = Set<AnyCancellable>()
     func observeAuthState() {
         $loginState
             .sink { state in
-                UserDefaults.standard.setValue(state.rawValue, forKey: "AUTH_STATE")
+                if case .loggedOut = state {
+                    LocalStorage.clearAllData()
+                }
+                LocalStorage.save(key: .authState, value: state)
             }
             .store(in: &cancelBag)
     }

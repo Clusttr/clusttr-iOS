@@ -47,10 +47,10 @@ struct SignInView: View {
             
             Spacer()
 
-            NavigationLink(value: AuthPath.setupPin) {
-                ActionButton(title: "LOGIN")
-            }
-            .padding(24)
+//            NavigationLink(value: AuthPath.signIn) {
+//                ActionButton(title: "LOGIN")
+//            }
+//            .padding(24)
         }
         .background(Color._background)
         .navigationBarBackButtonHidden(true)

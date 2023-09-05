@@ -15,6 +15,15 @@ struct LegoApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(appState)
+                .task {
+                    do {
+                        let message = try await AuthService.test()
+                        print(message)
+                    } catch {
+                        print(error)
+                        print(error.localizedDescription)
+                    }
+                }
         }
     }
 }

@@ -43,5 +43,6 @@ struct NFTServiceDouble: INFTService {
 }
 
 enum APIError: Error {
+    case noUserCredential
     case unknown
 }

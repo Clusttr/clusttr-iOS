@@ -6,22 +6,24 @@
 //
 
 import SwiftUI
+import Solana
 
 struct CreateWalletView: View {
     @StateObject var viewModel = CreateWalletViewModel()
     @EnvironmentObject var appState: AppState
+    @State var error: Error?
 
-    var forSignUp: Bool {
-        appState.authPath.first == AuthPath.signUp
-    }
+//    var forSignUp: Bool {
+//        appState.authPath.first == AuthPath.signUp
+//    }
 
 
     var pasteMessage: String {
-        if forSignUp {
-            return "Do you have a secret key you would rather use?\nclick here to paste"
-        } else {
+//        if forSignUp {
+//            return "Do you have a secret key you would rather use?\nclick here to paste"
+//        } else {
             return "Click here to paste your secret key"
-        }
+//        }
     }
 
     var body: some View {
@@ -67,19 +69,19 @@ struct CreateWalletView: View {
                 .offset(y: -24)
         }
         .task {
-            if forSignUp {
-                viewModel.account = HotAccount()
-            }
+//            if forSignUp {
+//                viewModel.account = HotAccount()
+//            }
         }
     }
 
     func paste() {
         guard let secretKey = UIPasteboard.general.string, secretKey.isValidPrivateKey()  else {
-            print("Not a valid secret key")
+            self.error = AccountError.invalidSecretKey
             return
 
         }
-        let secretKeyData = Data(hex: secretKey)
+        let secretKeyData = Data(hexString: secretKey)
         guard let hotAccount = HotAccount(secretKey: secretKeyData) else { return }
         viewModel.account = hotAccount
     }

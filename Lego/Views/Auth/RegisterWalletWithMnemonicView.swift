@@ -106,6 +106,5 @@ class RegisterWalletWithMnemonicViewModel: ObservableObject {
     func generateKeyPair() {
         let mnemonic = Mnemonic()
         seedPhrase = mnemonic.phrase
-        print(seedPhrase)
     }
 }

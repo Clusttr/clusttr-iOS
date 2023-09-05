@@ -35,6 +35,15 @@ struct KeyChain {
 }
 
 public enum KeyChainConst: String {
+    case ACCESS_TOKEN = "ACCESS_TOKEN"
     case PIN = "PIN"
-    case SECRET_KEY = "PRIVATE_KEY"
+    case SECRET_KEY = "SECRET_KEY"
+}
+
+import Web3Auth
+extension KeyChain {
+
+    public static func set(key: KeyChainConst, value: Web3AuthState) {
+        
+    }
 }

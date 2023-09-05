@@ -15,6 +15,7 @@ struct ProfileView: View {
     @FocusState private var searchBarIsFocused: Bool
     @StateObject var viewModel = ProfileViewModel()
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var accountManger: AccountManager
 
     var heightMultiplier: CGFloat {
         let multiplier = 1 - (yOffset / 150)
@@ -49,22 +50,23 @@ struct ProfileView: View {
                     VStack {
                         Text("Benjamin Ray")
 
-                        HStack {
-                            Text("4.5")
-                            Image(systemName: "star.fill")
-                                .resizable()
-                                .frame(width: 11, height: 11)
-
-                            Text("|")
-
-                            Text("92")
-                            Image(systemName: "heart.fill")
-                        }
+//                        HStack {
+//                            Text("4.5")
+//                            Image(systemName: "star.fill")
+//                                .resizable()
+//                                .frame(width: 11, height: 11)
+//
+//                            Text("|")
+//
+//                            Text("92")
+//                            Image(systemName: "heart.fill")
+//                        }
+                        AddressView(publicKey: accountManger.account.publicKey)
 
                         searchBar
                             .padding(20)
 
-                        NFTGrid(NFTs: viewModel.NFTs, showBidTime: false)
+                        NFTGrid(NFTs: viewModel.nfts, showBidTime: false)
                             .padding(.bottom, 80)
                     }
                     .fontWeight(.semibold)
@@ -89,6 +91,9 @@ struct ProfileView: View {
             withAnimation(.easeInOut) {
                 appState.isNavBarHidden = false
             }
+        }
+        .task {
+            viewModel.fetchNFTs(userPublicKey: accountManger.account.publicKey)
         }
     }
 
@@ -187,7 +192,8 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(onClickMenu: {})
+        ProfileView(onClickMenu: {}, viewModel: ProfileViewModel(NFTServiceDouble()))
             .environmentObject(AppState())
+            .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
     }
 }

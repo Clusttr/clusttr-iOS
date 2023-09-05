@@ -202,9 +202,3 @@ struct ContentXView: View {
         Text(user.name)
     }
 }
-
-struct User: CustomStringConvertible {
-    var description: String
-
-    var name: String
-}

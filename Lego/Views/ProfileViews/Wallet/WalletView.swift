@@ -111,6 +111,6 @@ struct WalletView_Previews: PreviewProvider {
         WalletView(isActive: true, onClickMenu: {})
             .background(Color._background)
             .ignoresSafeArea()
-            .environmentObject(AccountManager(.dev))
+            .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
     }
 }

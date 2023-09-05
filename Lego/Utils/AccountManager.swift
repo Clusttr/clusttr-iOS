@@ -10,12 +10,14 @@ import Foundation
 import Solana
 
 class AccountManager: ObservableObject {
+    @Published var user: User!
     @Published var account: HotAccount
     @Published var solana: Solana
     @Published var balance: Lamports = Lamports(0)
+    @Published var usdcPubKey: PublicKey?
+    @Published var error: Error?
 
     @Published var cancelBag = Set<AnyCancellable>()
-    @Published var usdcPubKey: PublicKey?
 
     var publicKeyURL: URL {
         URL(string: "https://solscan.io/account/\(account.publicKey.base58EncodedString)=devnet")!
@@ -30,15 +32,17 @@ class AccountManager: ObservableObject {
         case prod
     }
 
-    init(_ env: env) {
-        let envSecretKey = ProcessInfo.processInfo.environment["secret_key"]!
-        self.account = (env == .prod) ? try! AccountFactory().account : AccountFactoryDemo(secretKey: envSecretKey).account
-
+    init(accountFactory: IAccountFactory) {
+        account = try! accountFactory.getAccount()
         let endpoint = RPCEndpoint.devnetSolana
         let router = NetworkingRouter(endpoint: endpoint)
         self.solana = Solana(router: router)
 
         observeAccount()
+    }
+
+    func setHotAccount() {
+        
     }
 
     func observeAccount() {
