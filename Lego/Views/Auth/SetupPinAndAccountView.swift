@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Solana
 
 struct SetupPinAndAccountView: View {
     @ObservedObject var viewModel: SetupPinAndAccountViewModel
@@ -91,7 +92,8 @@ class SetupPinAndAccountViewModel: ObservableObject {
     @MainActor
     func login(idToken: String) async throws -> AuthResultDTO {
         isLoading = true
-        let result = try await authService.login(idToken: idToken, pin: pin)
+        let publicKey = HotAccount(secretKey: secretKey)!.publicKey.base58EncodedString
+        let result = try await authService.login(idToken: idToken, publicKey: publicKey, pin: pin)
         LocalStorage.save(key: .user, value: user)
         KeyChain.set(key: .SECRET_KEY, value: secretKey)
         KeyChain.set(key: .ACCESS_TOKEN, value: result.token)

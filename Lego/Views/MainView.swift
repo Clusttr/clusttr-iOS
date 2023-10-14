@@ -20,7 +20,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $activeMenu) {
-                HomeView()
+                HomeViewV2()
                     .tag(NavBarMenu.home)
 
                 ProfileScreen()

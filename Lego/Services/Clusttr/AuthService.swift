@@ -9,7 +9,7 @@ import Foundation
 import Web3Auth
 
 protocol IAuthService {
-    func login(idToken: String, pin: String) async throws -> AuthResultDTO
+    func login(idToken: String, publicKey: String, pin: String) async throws -> AuthResultDTO
     func web3Login() async throws -> (secretKey: Data, user: User)
 }
 
@@ -19,8 +19,8 @@ struct AuthService: IAuthService {
         return try await URLSession.shared.request(path: ClusttrAPIs.hello, httpMethod: .get)
     }
 
-    func login(idToken: String, pin: String) async throws -> AuthResultDTO {
-        let data = try JSONEncoder().encode(LoginDTO(idToken: idToken, pin: pin))
+    func login(idToken: String, publicKey: String, pin: String) async throws -> AuthResultDTO {
+        let data = try JSONEncoder().encode(LoginDTO(idToken: idToken, publicKey: publicKey, pin: pin))
         return try await URLSession.shared.request(path: ClusttrAPIs.login, httpMethod: .post, body: data)
     }
 
@@ -43,7 +43,7 @@ struct AuthService: IAuthService {
 struct AuthServiceDouble: IAuthService {
     var isNewUser: Bool?
 
-    func login(idToken: String, pin: String) async throws -> AuthResultDTO {
+    func login(idToken: String, publicKey: String, pin: String) async throws -> AuthResultDTO {
         let isNewUser = self.isNewUser ?? Bool.random()
         try? await Task.sleep(for: .seconds(3))
         return AuthResultDTO.demo(isNewUser: isNewUser)

@@ -32,4 +32,12 @@ extension Image {
     static var helmet: Image {
         Image(systemName: "archivebox")//Image("Helmet")
     }
+
+    static var ellipseMenu: Image {
+        Image("EllipseMenu")
+    }
+
+    static var search: Image {
+        Image(systemName: "magnifyingglass")
+    }
 }

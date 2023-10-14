@@ -48,7 +48,7 @@ struct ProfileView: View {
                     Color.black
 
                     VStack {
-                        Text("Benjamin Ray")
+                        Text(viewModel.user?.name ?? "")
 
 //                        HStack {
 //                            Text("4.5")
@@ -93,6 +93,7 @@ struct ProfileView: View {
             }
         }
         .task {
+            viewModel.fetchUserProfile()
             viewModel.fetchNFTs(userPublicKey: accountManger.account.publicKey)
         }
     }
@@ -127,11 +128,17 @@ struct ProfileView: View {
                     Circle()
                         .stroke(Color.white.opacity(0.2), lineWidth: 1)
                 }
-            Image
-                .ape
-                .resizable()
-                .frame(width: 138, height: 138)
-                .clipShape(Circle())
+            AsyncImage(url: URL(string: viewModel.user?.profileImage ?? ""), content: { image in
+                image
+                    .resizable()
+                    .frame(width: 138, height: 138)
+                    .clipShape(Circle())
+            }, placeholder: {
+                Circle()
+                    .frame(width: 138, height: 138)
+                    .foregroundColor(.gray)
+            })
+
         }
     }
 
@@ -192,7 +199,8 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(onClickMenu: {}, viewModel: ProfileViewModel(NFTServiceDouble()))
+        ProfileView(onClickMenu: {}, viewModel: ProfileViewModel(userService: UserServiceDouble(),
+                                                                 nftService: NFTServiceDouble()))
             .environmentObject(AppState())
             .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
     }
