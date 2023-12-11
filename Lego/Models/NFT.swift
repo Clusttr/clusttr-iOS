@@ -24,6 +24,9 @@ struct NFT: Identifiable, Codable {
     var assetModels: [AssetModel]
     var transactions: [Transaction]
     var valuations: [Valuation]
+    var bedroom: Double?
+    var bathrooms: Double?
+    var area: Double?
 }
 
 extension NFT {

@@ -24,3 +24,12 @@ extension AssetModel {
         ]
     }()
 }
+
+extension AssetModel {
+    init(file: FileDTO) {
+        self.id = UUID()
+        self.title = ""
+        self.url = file.uri
+        self.type = file.mime == "usdz" ? .usdz : .image
+    }
+}

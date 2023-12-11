@@ -35,7 +35,7 @@ struct TokenCard: View {
                         .shadow(color: Color.black.opacity(0.2), radius: 5, y: 2)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer()
-                    Text("$\(String(format: "%.2f", token.floorPrice))")
+                    Text("$\(token.floorPrice.kmFormatted)")
                         .font(.system(size: 22))
                         .fontWeight(.bold)
                         .shadow(color: Color.black.opacity(0.2), radius: 5, y: 2)

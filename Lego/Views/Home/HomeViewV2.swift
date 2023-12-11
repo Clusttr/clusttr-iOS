@@ -27,7 +27,6 @@ struct HomeViewV2: View {
                                 .clipShape(Circle())
                         }
 
-
                         Spacer()
 
                         Button {
@@ -77,18 +76,16 @@ struct HomeViewV2: View {
             .background(Color._background)
             .navigationDestination(for: NFT.self) { nft in
                 NFTDetailsView(nft: nft)
+            }
         }
+        .task {
+            await viewModel.fetchRecentToken()
         }
     }
 }
 
 struct HomeViewV2_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewV2()
+        HomeViewV2(viewModel: HomeViewModelV2(assetService: AssetServiceDouble()))
     }
-}
-
-class HomeViewModelV2: ObservableObject {
-
-    @Published var nfts: [NFT] = NFT.fakeData
 }

@@ -59,7 +59,9 @@ struct SetupPinAndAccountView: View {
                 }
 
             } catch {
+                print(error.localizedDescription)
                 viewModel.error = error
+                viewModel.isLoading = false
             }
         }
     }

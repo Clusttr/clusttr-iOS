@@ -132,6 +132,9 @@
 		E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */; };
 		E2E9385B2ADA948D0045E20E /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385A2ADA948C0045E20E /* UserDTO.swift */; };
 		E2E9385D2ADA95740045E20E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385C2ADA95740045E20E /* UserService.swift */; };
+		E2E9385F2ADAA1650045E20E /* HomeViewModelV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */; };
+		E2E938612ADAA3640045E20E /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938602ADAA3640045E20E /* TokenService.swift */; };
+		E2E938632ADADB570045E20E /* AssetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938622ADADB570045E20E /* AssetDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +259,9 @@
 		E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRowView.swift; sourceTree = "<group>"; };
 		E2E9385A2ADA948C0045E20E /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		E2E9385C2ADA95740045E20E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelV2.swift; sourceTree = "<group>"; };
+		E2E938602ADAA3640045E20E /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		E2E938622ADADB570045E20E /* AssetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +296,7 @@
 				E20DC3FF2AA0DF73001BBD61 /* AuthService.swift */,
 				E29C72362AA4E04500C05222 /* AccountService.swift */,
 				E2E9385C2ADA95740045E20E /* UserService.swift */,
+				E2E938602ADAA3640045E20E /* TokenService.swift */,
 			);
 			path = Clusttr;
 			sourceTree = "<group>";
@@ -610,6 +617,7 @@
 			isa = PBXGroup;
 			children = (
 				E29C723B2AAF9F4400C05222 /* HomeViewV2.swift */,
+				E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */,
 				E263122A2AB069DA000FCEB4 /* TokenCard.swift */,
 				E263122C2AB06D10000FCEB4 /* TokenCategoryPicker.swift */,
 			);
@@ -631,6 +639,7 @@
 				E2A509C62AA29D3700C10E56 /* TestDTO.swift */,
 				E2A509C82AA29D6C00C10E56 /* LoginDTO.swift */,
 				E2E9385A2ADA948C0045E20E /* UserDTO.swift */,
+				E2E938622ADADB570045E20E /* AssetDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -808,6 +817,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E938612ADAA3640045E20E /* TokenService.swift in Sources */,
 				E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */,
 				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
 				E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */,
@@ -823,6 +833,7 @@
 				E2A509C12AA257F700C10E56 /* LoadingModifier.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
 				E2A7D2632A8FE7AA00F885C3 /* NFTImagePicker.swift in Sources */,
+				E2E938632ADADB570045E20E /* AssetDTO.swift in Sources */,
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
 				E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */,
 				E2A7D2682A901D8500F885C3 /* LottieView.swift in Sources */,
@@ -835,6 +846,7 @@
 				E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */,
 				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
 				E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */,
+				E2E9385F2ADAA1650045E20E /* HomeViewModelV2.swift in Sources */,
 				E2BC02002A90B21000337693 /* NFTStatus.swift in Sources */,
 				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E217D0BB29F17FC700DE5C5F /* ModelSceneView.swift in Sources */,
@@ -1056,12 +1068,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matthew.Lego;
+				PRODUCT_BUNDLE_IDENTIFIER = io.clusttr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1088,12 +1101,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matthew.Lego;
+				PRODUCT_BUNDLE_IDENTIFIER = io.clusttr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

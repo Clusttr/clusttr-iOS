@@ -36,7 +36,7 @@ struct NavigationBar: View {
                             .fill(Color.accentColor)
                             .frame(width: 65, height: 65)
                             .offset(x: 2.5)
-                            .offset(x: circleOffset + 24) //52
+                            .offset(x: circleOffset + 52) //52 //24->3
                             //the value 52 is dependant on the width of the button size
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -72,10 +72,10 @@ struct NavigationBar: View {
 //            Image.home
         case .profile:
             Image.profile
-        case .developer:
-            Image.helmet
-                .foregroundColor(Color._grey2)
-                .font(.title)
+//        case .developer:
+//            Image.helmet
+//                .foregroundColor(Color._grey2)
+//                .font(.title)
         }
     }
 }
