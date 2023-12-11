@@ -12,8 +12,6 @@ struct SetupPinAndAccountView: View {
     @ObservedObject var viewModel: SetupPinAndAccountViewModel
     @EnvironmentObject var appState: AppState
 
-
-    
     var body: some View {
         VStack {
             AuthHeaderView(title: "Setup Pin", subtitle: "Extra security for every transaction")
@@ -43,6 +41,7 @@ struct SetupPinAndAccountView: View {
                 .offset(y: -24)
         }
         .loading(viewModel.isLoading, loaderType: .regular)
+
     }
 
     func login() {
@@ -89,6 +88,32 @@ class SetupPinAndAccountViewModel: ObservableObject {
         self.user = user
         self.secretKey = secretKey
         self.authService = authService
+
+        registerAccount()
+    }
+
+    func registerAccount() {
+        Task {
+            guard await !isKeyRegistered() else {
+                print("account is registered")
+                return
+            }
+            print("Call register account")
+            // call register account program
+        }
+    }
+
+    func isKeyRegistered() async -> Bool {
+        do {
+            guard let account = HotAccount(secretKey: secretKey) else {
+                throw AccountError.invalidSecretData
+            }
+            let accountInfo = try await AccountManager.getAccountInfo(publicKey: account.publicKey.base58EncodedString)
+            return accountInfo != nil
+        } catch {
+            self.error = error
+            return false
+        }
     }
 
     @MainActor
