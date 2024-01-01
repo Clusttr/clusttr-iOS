@@ -14,6 +14,9 @@ class HomeViewModelV2: ObservableObject {
 
     init(assetService: IAssetService = AssetService()) {
         self.assetService = assetService
+        Task {
+            try? await AccountManager.tryOutProgram()
+        }
     }
 
     @MainActor

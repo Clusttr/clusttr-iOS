@@ -38,6 +38,7 @@
 		E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58E029E816810065EEE2 /* Preview Assets.xcassets */; };
 		E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */; };
 		E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58EB29E81A880065EEE2 /* ProfileView.swift */; };
+		E236D9E12B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236D9E02B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift */; };
 		E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E02A753B7D0053FD28 /* SignUpView.swift */; };
 		E24363E32A753BA50053FD28 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E22A753BA50053FD28 /* SignInView.swift */; };
 		E24363E52A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */; };
@@ -169,6 +170,7 @@
 		E22C58E029E816810065EEE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		E22C58EB29E81A880065EEE2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E236D9E02B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPinAndAccountViewModel.swift; sourceTree = "<group>"; };
 		E24363E02A753B7D0053FD28 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E24363E22A753BA50053FD28 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWalletWithMnemonicView.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */,
 				E28BDA0B2A9E52D30083EF0B /* Web3AuthLoginView.swift */,
 				E2A509BA2AA2400000C10E56 /* SetupPinAndAccountView.swift */,
+				E236D9E02B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift */,
 				E29C72382AA4F39D00C05222 /* RegisterAccountView.swift */,
 			);
 			path = Auth;
@@ -900,6 +903,7 @@
 				E2BCAC4C2A7B1C5000A14654 /* SetupPinView.swift in Sources */,
 				E2579D2129EDEDB1006ABEA8 /* Color+Extensions.swift in Sources */,
 				E2BCAC352A77E06900A14654 /* Developer.swift in Sources */,
+				E236D9E12B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift in Sources */,
 				E295A20C2A8A94AA00DCDC64 /* HotAccount+Extensions.swift in Sources */,
 				E295A2102A8B5B6600DCDC64 /* AccountInfoView.swift in Sources */,
 				E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */,

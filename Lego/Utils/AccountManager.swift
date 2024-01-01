@@ -118,4 +118,14 @@ class AccountManager: ObservableObject {
             .api.getAccountInfo(account: publicKey)
         return accountInfo.data.value
     }
+
+    static func tryOutProgram() async throws {
+        let solana = Self.getSolana()
+        let programs = try await solana.api.getProgramAccounts(publicKey: "SwaPpA9LAaLfeLi3a68M4DjnLqgtticKg6CnyNwgAC8", decodedTo: TokenSwapInfo.self)//"4ghb7LAzcmr5PYNkz2tgyEsPHB7Q7vHtiRfLDiFNoDj6")
+//        let program = programs.first
+//        print(program.pubkey)
+//        print(program.account)
+        let firstAccount = programs.first.unsafelyUnwrapped.account.data.value
+        print(programs)
+    }
 }
