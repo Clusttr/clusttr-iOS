@@ -11,8 +11,6 @@ struct SetupPinAndAccountView: View {
     @ObservedObject var viewModel: SetupPinAndAccountViewModel
     @EnvironmentObject var appState: AppState
 
-
-    
     var body: some View {
         VStack {
             AuthHeaderView(title: "Setup Pin", subtitle: "Extra security for every transaction")
@@ -42,6 +40,7 @@ struct SetupPinAndAccountView: View {
                 .offset(y: -24)
         }
         .loading(viewModel.isLoading, loaderType: .regular)
+
     }
 
     func login() {
@@ -58,7 +57,9 @@ struct SetupPinAndAccountView: View {
                 }
 
             } catch {
+                print(error.localizedDescription)
                 viewModel.error = error
+                viewModel.isLoading = false
             }
         }
     }
@@ -72,32 +73,3 @@ struct SetupPinAndAccountView_Previews: PreviewProvider {
     }
 }
 
-
-class SetupPinAndAccountViewModel: ObservableObject {
-    let user: User
-    let secretKey: Data
-    let authService: IAuthService
-
-    @Published var pin = ""
-    @Published var isLoading = false
-    @Published var error: Error?
-
-    init(user: User, secretKey: Data, authService: IAuthService = AuthService()) {
-        self.user = user
-        self.secretKey = secretKey
-        self.authService = authService
-    }
-
-    @MainActor
-    func login(idToken: String) async throws -> AuthResultDTO {
-        isLoading = true
-        let result = try await authService.login(idToken: idToken, pin: pin)
-        LocalStorage.save(key: .user, value: user)
-        KeyChain.set(key: .SECRET_KEY, value: secretKey)
-        KeyChain.set(key: .ACCESS_TOKEN, value: result.token)
-        KeyChain.set(key: .PIN, value: pin)
-
-        isLoading = false
-        return result
-    }
-}

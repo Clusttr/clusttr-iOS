@@ -9,5 +9,6 @@ import Foundation
 
 struct LoginDTO: Codable {
     let idToken: String
+    let publicKey: String
     let pin: String
 }

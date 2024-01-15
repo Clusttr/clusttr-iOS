@@ -26,8 +26,13 @@ struct AccountFactory: IAccountFactory {
 struct AccountFactoryDemo: IAccountFactory {
     private let secretKey: Data
 
-    init(secretKey: String = ProcessInfo.processInfo.environment["secret_key"] ?? "") {
-        self.secretKey = secretKey.base58EncodedData
+    init(secretKey: String = "") {
+        var secret: String = secretKey
+        #if DEBUG
+            secret = ProcessInfo.processInfo.environment["SECRET_KEY"] ?? ""
+        #endif
+        print(secretKey)
+        self.secretKey = secret.base58EncodedData
     }
 
     func getAccount() throws -> HotAccount {

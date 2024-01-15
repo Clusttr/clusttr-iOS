@@ -38,6 +38,7 @@
 		E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58E029E816810065EEE2 /* Preview Assets.xcassets */; };
 		E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */; };
 		E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58EB29E81A880065EEE2 /* ProfileView.swift */; };
+		E236D9E12B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236D9E02B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift */; };
 		E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E02A753B7D0053FD28 /* SignUpView.swift */; };
 		E24363E32A753BA50053FD28 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E22A753BA50053FD28 /* SignInView.swift */; };
 		E24363E52A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */; };
@@ -72,6 +73,8 @@
 		E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */; };
 		E2579D2B29EEACA0006ABEA8 /* House.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2A29EEACA0006ABEA8 /* House.usdz */; };
 		E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */; };
+		E263122B2AB069DA000FCEB4 /* TokenCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263122A2AB069DA000FCEB4 /* TokenCard.swift */; };
+		E263122D2AB06D10000FCEB4 /* TokenCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263122C2AB06D10000FCEB4 /* TokenCategoryPicker.swift */; };
 		E27445AA2A9022910092C6AD /* construction_progress.json in Resources */ = {isa = PBXBuildFile; fileRef = E27445A92A9022910092C6AD /* construction_progress.json */; };
 		E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */; };
 		E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA032A095E33005C9F01 /* DismissButton.swift */; };
@@ -90,6 +93,7 @@
 		E295D6942A8F55FE006C26EC /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295D6932A8F55FD006C26EC /* DeveloperView.swift */; };
 		E29C72372AA4E04500C05222 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C72362AA4E04500C05222 /* AccountService.swift */; };
 		E29C72392AA4F39D00C05222 /* RegisterAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C72382AA4F39D00C05222 /* RegisterAccountView.swift */; };
+		E29C723C2AAF9F4500C05222 /* HomeViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C723B2AAF9F4400C05222 /* HomeViewV2.swift */; };
 		E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3942A0B8B56009C710C /* TransactionList.swift */; };
 		E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3962A0B8D50009C710C /* TransactionItem.swift */; };
 		E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */; };
@@ -127,6 +131,11 @@
 		E2BCAC4C2A7B1C5000A14654 /* SetupPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */; };
 		E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */; };
 		E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */; };
+		E2E9385B2ADA948D0045E20E /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385A2ADA948C0045E20E /* UserDTO.swift */; };
+		E2E9385D2ADA95740045E20E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385C2ADA95740045E20E /* UserService.swift */; };
+		E2E9385F2ADAA1650045E20E /* HomeViewModelV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */; };
+		E2E938612ADAA3640045E20E /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938602ADAA3640045E20E /* TokenService.swift */; };
+		E2E938632ADADB570045E20E /* AssetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938622ADADB570045E20E /* AssetDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +170,7 @@
 		E22C58E029E816810065EEE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E22C58E829E8185E0065EEE2 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		E22C58EB29E81A880065EEE2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E236D9E02B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPinAndAccountViewModel.swift; sourceTree = "<group>"; };
 		E24363E02A753B7D0053FD28 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E24363E22A753BA50053FD28 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E24363E42A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWalletWithMnemonicView.swift; sourceTree = "<group>"; };
@@ -195,6 +205,8 @@
 		E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailsView.swift; sourceTree = "<group>"; };
 		E2579D2A29EEACA0006ABEA8 /* House.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = House.usdz; sourceTree = "<group>"; };
 		E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Kitchen.usdz; sourceTree = "<group>"; };
+		E263122A2AB069DA000FCEB4 /* TokenCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCard.swift; sourceTree = "<group>"; };
+		E263122C2AB06D10000FCEB4 /* TokenCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCategoryPicker.swift; sourceTree = "<group>"; };
 		E27445A92A9022910092C6AD /* construction_progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = construction_progress.json; sourceTree = "<group>"; };
 		E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperProfileView.swift; sourceTree = "<group>"; };
 		E282BA032A095E33005C9F01 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
@@ -212,6 +224,7 @@
 		E295D6932A8F55FD006C26EC /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
 		E29C72362AA4E04500C05222 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		E29C72382AA4F39D00C05222 /* RegisterAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountView.swift; sourceTree = "<group>"; };
+		E29C723B2AAF9F4400C05222 /* HomeViewV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewV2.swift; sourceTree = "<group>"; };
 		E2A3E3942A0B8B56009C710C /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		E2A3E3962A0B8D50009C710C /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		E2A3E3982A0BE9FF009C710C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
@@ -246,6 +259,11 @@
 		E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPinView.swift; sourceTree = "<group>"; };
 		E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
 		E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRowView.swift; sourceTree = "<group>"; };
+		E2E9385A2ADA948C0045E20E /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		E2E9385C2ADA95740045E20E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelV2.swift; sourceTree = "<group>"; };
+		E2E938602ADAA3640045E20E /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		E2E938622ADADB570045E20E /* AssetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +297,8 @@
 				E2A509C22AA29BF200C10E56 /* DTOs */,
 				E20DC3FF2AA0DF73001BBD61 /* AuthService.swift */,
 				E29C72362AA4E04500C05222 /* AccountService.swift */,
+				E2E9385C2ADA95740045E20E /* UserService.swift */,
+				E2E938602ADAA3640045E20E /* TokenService.swift */,
 			);
 			path = Clusttr;
 			sourceTree = "<group>";
@@ -353,6 +373,7 @@
 		E22C58EA29E8197F0065EEE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E29C723A2AAF9F2900C05222 /* Home */,
 				E295D68E2A8EC3E6006C26EC /* Developer */,
 				E24363E82A7567B30053FD28 /* Components */,
 				E24363DF2A753B290053FD28 /* Auth */,
@@ -380,6 +401,7 @@
 				E2BCAC3F2A7AC50200A14654 /* CreateWalletView.swift */,
 				E28BDA0B2A9E52D30083EF0B /* Web3AuthLoginView.swift */,
 				E2A509BA2AA2400000C10E56 /* SetupPinAndAccountView.swift */,
+				E236D9E02B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift */,
 				E29C72382AA4F39D00C05222 /* RegisterAccountView.swift */,
 			);
 			path = Auth;
@@ -594,6 +616,17 @@
 			path = Developer;
 			sourceTree = "<group>";
 		};
+		E29C723A2AAF9F2900C05222 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E29C723B2AAF9F4400C05222 /* HomeViewV2.swift */,
+				E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */,
+				E263122A2AB069DA000FCEB4 /* TokenCard.swift */,
+				E263122C2AB06D10000FCEB4 /* TokenCategoryPicker.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		E2A509B32AA1648E00C10E56 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +641,8 @@
 				E2A509C32AA29C8A00C10E56 /* Results */,
 				E2A509C62AA29D3700C10E56 /* TestDTO.swift */,
 				E2A509C82AA29D6C00C10E56 /* LoginDTO.swift */,
+				E2E9385A2ADA948C0045E20E /* UserDTO.swift */,
+				E2E938622ADADB570045E20E /* AssetDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -785,6 +820,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E938612ADAA3640045E20E /* TokenService.swift in Sources */,
 				E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */,
 				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
 				E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */,
@@ -800,6 +836,7 @@
 				E2A509C12AA257F700C10E56 /* LoadingModifier.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
 				E2A7D2632A8FE7AA00F885C3 /* NFTImagePicker.swift in Sources */,
+				E2E938632ADADB570045E20E /* AssetDTO.swift in Sources */,
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
 				E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */,
 				E2A7D2682A901D8500F885C3 /* LottieView.swift in Sources */,
@@ -812,6 +849,7 @@
 				E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */,
 				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
 				E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */,
+				E2E9385F2ADAA1650045E20E /* HomeViewModelV2.swift in Sources */,
 				E2BC02002A90B21000337693 /* NFTStatus.swift in Sources */,
 				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E217D0BB29F17FC700DE5C5F /* ModelSceneView.swift in Sources */,
@@ -823,8 +861,10 @@
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
 				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
+				E29C723C2AAF9F4500C05222 /* HomeViewV2.swift in Sources */,
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
+				E263122D2AB06D10000FCEB4 /* TokenCategoryPicker.swift in Sources */,
 				E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */,
 				E29C72392AA4F39D00C05222 /* RegisterAccountView.swift in Sources */,
 				E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */,
@@ -835,6 +875,7 @@
 				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
 				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
 				E295D6872A8E8065006C26EC /* CrossMintAPIs.swift in Sources */,
+				E263122B2AB069DA000FCEB4 /* TokenCard.swift in Sources */,
 				E28BDA0C2A9E52D30083EF0B /* Web3AuthLoginView.swift in Sources */,
 				E24AE4CE2A7ECE6900FE2903 /* OTPField.swift in Sources */,
 				E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */,
@@ -856,11 +897,13 @@
 				E295A20A2A8761FA00DCDC64 /* AccountFactory.swift in Sources */,
 				E24363E52A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift in Sources */,
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
+				E2E9385B2ADA948D0045E20E /* UserDTO.swift in Sources */,
 				E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,
 				E2BCAC4C2A7B1C5000A14654 /* SetupPinView.swift in Sources */,
 				E2579D2129EDEDB1006ABEA8 /* Color+Extensions.swift in Sources */,
 				E2BCAC352A77E06900A14654 /* Developer.swift in Sources */,
+				E236D9E12B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift in Sources */,
 				E295A20C2A8A94AA00DCDC64 /* HotAccount+Extensions.swift in Sources */,
 				E295A2102A8B5B6600DCDC64 /* AccountInfoView.swift in Sources */,
 				E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */,
@@ -875,6 +918,7 @@
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
 				E2B3CC492A9F7F1D00CDAD94 /* LocalStorage.swift in Sources */,
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
+				E2E9385D2ADA95740045E20E /* UserService.swift in Sources */,
 				E295A20E2A8A956700DCDC64 /* AccountManager.swift in Sources */,
 				E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */,
 				E2BCAC3C2A78249400A14654 /* Menu.swift in Sources */,
@@ -1021,17 +1065,20 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lego/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Clusttr;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matthew.Lego;
+				PRODUCT_BUNDLE_IDENTIFIER = io.clusttr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1051,17 +1098,20 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lego/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Clusttr;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matthew.Lego;
+				PRODUCT_BUNDLE_IDENTIFIER = io.clusttr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

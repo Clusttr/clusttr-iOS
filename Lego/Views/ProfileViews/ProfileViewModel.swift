@@ -10,12 +10,15 @@ import Combine
 import Solana
 
 class ProfileViewModel: ObservableObject {
+    @Published var user: User?
     @Published var nfts: [NFT] = []
     @Published var searchWord = ""
     let nftService: INFTService
+    let userService: IUserService
     var subscription = Set<AnyCancellable>()
 
-    init(_ nftService: INFTService = NFTService()) {
+    init(userService: IUserService = UserService(), nftService: INFTService = NFTService()) {
+        self.userService = userService
         self.nftService = nftService
         //$searchWord
         //.sink { [weak self] searchWord in
@@ -34,6 +37,19 @@ class ProfileViewModel: ObservableObject {
                 self.nfts = result.filter({ nft in
                     nft.owner == userPublicKey
                 })
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    @MainActor
+    func fetchUserProfile() {
+        Task {
+            do {
+                let res = try await userService.fetchUser()
+                self.user = User(name: res.name, email: res.email, profileImage: res.profileImage)
+                print(user)
             } catch {
                 print(error.localizedDescription)
             }

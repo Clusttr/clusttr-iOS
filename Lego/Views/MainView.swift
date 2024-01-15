@@ -20,20 +20,23 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $activeMenu) {
-                HomeView()
+                HomeViewV2()
                     .tag(NavBarMenu.home)
 
                 ProfileScreen()
                     .tag(NavBarMenu.profile)
 
-                DeveloperView()
-                    .tag(NavBarMenu.developer)
+//                DeveloperView()
+//                    .tag(NavBarMenu.developer)
             }
             NavigationBar(activeMenu: $activeMenu)
                 .offset(y: appState.isNavBarHidden ? 150 : 10)
         }
         .navigationBarBackButtonHidden(true)
         .environmentObject(AccountManager(accountFactory: try! AccountFactory()))
+        .task {
+            print(ClusttrAPIs.getAccessToken())
+        }
     }
 }
 

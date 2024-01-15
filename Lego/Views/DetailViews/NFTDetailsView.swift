@@ -26,7 +26,7 @@ struct NFTDetailsView: View {
         ZStack {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 24) {
-                    ModelSceneView(assetModels: nft.assetModels)
+                    ModelSceneView()//assetModels: nft.assetModels.filter{ $0.type == .usdz})
 
                     VStack(alignment: .leading, spacing: 16) {
                         VStack(alignment: .leading, spacing: 2) {
@@ -75,9 +75,9 @@ struct NFTDetailsView: View {
                             }
                         }
 
-                        feature(icon: "square.split.bottomrightquarter", name: "Areas", value: "580ft")
-                        feature(icon: "bed.double", name: "Bedrooms", value: "4")
-                        feature(icon: "shower", name: "Baths", value: "5")
+                        feature(icon: "square.split.bottomrightquarter", name: "Areas", value: "\(nft.area ?? 0)ft")
+                        feature(icon: "bed.double", name: "Bedrooms", value: "\(nft.bedroom ?? 0)")
+                        feature(icon: "shower", name: "Baths", value: "\(nft.bathrooms ?? 0)")
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
@@ -123,7 +123,7 @@ struct NFTDetailsView: View {
             }
         }
         .sheet(isPresented: $showBuySheet) {
-            PurchaseNFTView(pricePerShare: nft.floorPrice, availableShare: 928)
+            PurchaseNFTView(pricePerShare: nft.floorPrice / nft.totalVolume, availableShare: Int(nft.totalVolume))
                 .presentationDetents([.height(420)])
         }
     }

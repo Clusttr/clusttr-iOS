@@ -34,11 +34,14 @@ class AccountManager: ObservableObject {
 
     init(accountFactory: IAccountFactory) {
         account = try! accountFactory.getAccount()
-        let endpoint = RPCEndpoint.devnetSolana
-        let router = NetworkingRouter(endpoint: endpoint)
-        self.solana = Solana(router: router)
+        self.solana = Self.getSolana()
 
         observeAccount()
+    }
+    static func getSolana() -> Solana {
+        let endpoint = RPCEndpoint.devnetSolana
+        let router = NetworkingRouter(endpoint: endpoint)
+        return Solana(router: router)
     }
 
     func setHotAccount() {
@@ -67,7 +70,6 @@ class AccountManager: ObservableObject {
             }
         }
     }
-
 
     //MARK: Associate Token Account
     private let USDC_PUBLIC_KEY = PublicKey(string: "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU")!
@@ -104,8 +106,26 @@ class AccountManager: ObservableObject {
         }
     }
 
+    //MARK: get sol balance
     func getSolBalance() async throws -> Lamports {
         let accountInfo: BufferInfo<AccountInfo> = try await solana.api.getAccountInfo(account: account.publicKey.base58EncodedString)
         return accountInfo.lamports
+    }
+
+    //MARK: get account info
+    static func getAccountInfo(publicKey: String) async throws -> AccountInfo? {
+        let accountInfo: BufferInfo<AccountInfo> = try await Self.getSolana()
+            .api.getAccountInfo(account: publicKey)
+        return accountInfo.data.value
+    }
+
+    static func tryOutProgram() async throws {
+        let solana = Self.getSolana()
+        let programs = try await solana.api.getProgramAccounts(publicKey: "SwaPpA9LAaLfeLi3a68M4DjnLqgtticKg6CnyNwgAC8", decodedTo: TokenSwapInfo.self)//"4ghb7LAzcmr5PYNkz2tgyEsPHB7Q7vHtiRfLDiFNoDj6")
+//        let program = programs.first
+//        print(program.pubkey)
+//        print(program.account)
+        let firstAccount = programs.first.unsafelyUnwrapped.account.data.value
+        print(programs)
     }
 }
