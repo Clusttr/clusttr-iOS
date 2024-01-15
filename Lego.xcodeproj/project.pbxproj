@@ -32,6 +32,7 @@
 		E22483252A801FD000AF893C /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22483242A801FD000AF893C /* KeyChain.swift */; };
 		E224832A2A804C8900AF893C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22483292A804C8900AF893C /* String+Extensions.swift */; };
 		E224832D2A8077FF00AF893C /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E224832C2A8077FF00AF893C /* KeychainSwift */; };
+		E2290DB32B42E05200D5A403 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2290DB22B42E05200D5A403 /* RoundButton.swift */; };
 		E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58D929E8167F0065EEE2 /* LegoApp.swift */; };
 		E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22C58DB29E8167F0065EEE2 /* ContentView.swift */; };
 		E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22C58DD29E816810065EEE2 /* Assets.xcassets */; };
@@ -163,6 +164,7 @@
 		E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNFTView.swift; sourceTree = "<group>"; };
 		E22483242A801FD000AF893C /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		E22483292A804C8900AF893C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		E2290DB22B42E05200D5A403 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		E22C58D629E8167F0065EEE2 /* Lego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22C58D929E8167F0065EEE2 /* LegoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoApp.swift; sourceTree = "<group>"; };
 		E22C58DB29E8167F0065EEE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */,
 				E2579D1C29EDEBA0006ABEA8 /* NavigationBar.swift */,
 				E282BA032A095E33005C9F01 /* DismissButton.swift */,
+				E2290DB22B42E05200D5A403 /* RoundButton.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -862,6 +865,7 @@
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
 				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
 				E29C723C2AAF9F4500C05222 /* HomeViewV2.swift in Sources */,
+				E2290DB32B42E05200D5A403 /* RoundButton.swift in Sources */,
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
 				E263122D2AB06D10000FCEB4 /* TokenCategoryPicker.swift in Sources */,

@@ -8,6 +8,7 @@
 import Charts
 import SwiftUI
 import SceneKit
+import QuickLook
 
 struct NFTDetailsView: View {
     var nft: NFT
@@ -16,6 +17,8 @@ struct NFTDetailsView: View {
     @StateObject var viewModel = NFTDetailsViewModel()
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var accountManager: AccountManager
+
+    @State var url: URL?
 
     init(nft: NFT) {
         self.nft = nft
@@ -109,8 +112,15 @@ struct NFTDetailsView: View {
 
         }
         .overlay {
-            VStack {
+            HStack(alignment: .bottom) {
                 DismissButton()
+                Spacer()
+                RoundButton(systemName: "cube.transparent") {
+                    url = Bundle.main.url(forResource: "Kitchen", withExtension: "usdz")
+                }
+                    .padding(.trailing)
+                    .quickLookPreview($url)
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(.top)
