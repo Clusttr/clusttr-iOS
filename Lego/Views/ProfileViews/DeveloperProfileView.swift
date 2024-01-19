@@ -81,7 +81,7 @@ struct DeveloperProfileView: View {
                         itemsSection
                     case false:
                         VStack {
-                            PriceHistoryComponent(transactions: Transaction.data, valuations: Valuation.data)
+                            PriceHistoryComponent(transactions: cTransaction.data, valuations: Valuation.data)
                             TransactionList()
                         }
                         .padding(.top)

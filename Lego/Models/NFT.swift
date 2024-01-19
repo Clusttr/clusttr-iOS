@@ -22,7 +22,7 @@ struct NFT: Identifiable, Codable {
     var totalVolume: Double
     var createdAt: Date
     var assetModels: [AssetModel]
-    var transactions: [Transaction]
+    var transactions: [cTransaction]
     var valuations: [Valuation]
     var bedroom: Double?
     var bathrooms: Double?
@@ -43,7 +43,7 @@ extension NFT {
         self.totalVolume = 72.1
         self.createdAt = Date()
         self.assetModels = AssetModel.fakeData
-        self.transactions = Transaction.data
+        self.transactions = cTransaction.data
         self.valuations = Valuation.data
     }
 }
@@ -85,7 +85,7 @@ extension NFT {
                    totalVolume: 100,
                    createdAt: faker.date.backward(days: 12),
                    assetModels: AssetModel.fakeData,
-                   transactions: Transaction.data,
+                   transactions: cTransaction.data,
                    valuations: Valuation.data)
     }
 }

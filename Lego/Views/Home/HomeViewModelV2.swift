@@ -15,7 +15,9 @@ class HomeViewModelV2: ObservableObject {
     init(assetService: IAssetService = AssetService()) {
         self.assetService = assetService
         Task {
-            try? await AccountManager.tryOutProgram()
+//            try? await AccountManager.tryOutProgram()
+            let account = HotAccount()
+            try? await AccountManager.tryAccountManager(newAccount: account!)
         }
     }
 
@@ -36,7 +38,7 @@ class HomeViewModelV2: ObservableObject {
                     totalVolume: 50, //asset.supply,
                     createdAt: Date(),
                     assetModels: asset.files.map{ AssetModel(file: $0) },
-                    transactions: Transaction.data,
+                    transactions: cTransaction.data,
                     valuations: Valuation.data,
                     bedroom: Double(asset.attribute.first(where: {$0.traitType == "bedroom"})?.value ?? "0"),
                     bathrooms: Double(asset.attribute.first(where: {$0.traitType == "bathrooms"})?.value ?? "0"),

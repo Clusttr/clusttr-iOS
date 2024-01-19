@@ -8,6 +8,8 @@
 import Combine
 import Foundation
 import Solana
+import Generated
+import struct Solana.Transaction
 
 class AccountManager: ObservableObject {
     @Published var user: User!
@@ -125,7 +127,52 @@ class AccountManager: ObservableObject {
 //        let program = programs.first
 //        print(program.pubkey)
 //        print(program.account)
-        let firstAccount = programs.first.unsafelyUnwrapped.account.data.value
+        let _ = programs.first.unsafelyUnwrapped.account.data.value
         print(programs)
+    }
+
+    static func tryAccountManager(newAccount: HotAccount) async throws{
+        let solana = Self.getSolana()
+        //"4ghb7LAzcmr5PYNkz2tgyEsPHB7Q7vHtiRfLDiFNoDj6"
+        let RENT_VAULT = "rent_vault"
+        let programId = Generated.PROGRAM_ID
+        let programAddress = PublicKey.findProgramAddress(seeds: [Data(RENT_VAULT.utf8)], programId: programId!)
+        let recentBlockhash = try! await solana.api.getRecentBlockhash()
+
+
+
+        switch programAddress {
+        case .success(let pda):
+            let secret = ""
+            guard let account = HotAccount(secretKey: secret.base58EncodedData) else {
+                throw AccountError.invalidSecretData
+            }
+
+            let secret2 = ProcessInfo.processInfo.environment["SECRET_KEY"] ?? ""
+            print(secret2)
+            print(account.publicKey)
+            print(account.publicKey.base58EncodedString)
+
+            let txInstruction = createRegisterNewAccountInstruction(accounts: RegisterNewAccountInstructionAccounts(newAccount: newAccount.publicKey, rentVault: pda.0))
+            var tx = Transaction(feePayer: account.publicKey, instructions: [txInstruction], recentBlockhash: recentBlockhash)
+            tx.sign(signers: [account, newAccount])
+//            tx.partialSign(signers: [newAccount])
+            let txSerialize: Result<Data, Error> = tx.serialize()
+
+
+            switch txSerialize {
+            case .success(let data):
+                let txString = data.base64EncodedString()
+                solana.api.sendTransaction(serializedTransaction: txString) { result in
+                    print(result)
+                }
+            case .failure(let error):
+                print("Serialize erro")
+            }
+
+        case .failure(let failure):
+            print("Failed PDA")
+        }
+
     }
 }

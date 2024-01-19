@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,7 +24,7 @@
 		E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0C429F53A3B00DE5C5F /* ProjectCarousel.swift */; };
 		E217D0C929F5E58C00DE5C5F /* PopularDeveloperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0C829F5E58C00DE5C5F /* PopularDeveloperRow.swift */; };
 		E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CA29F694D500DE5C5F /* PropertyFeatureFullList.swift */; };
-		E217D0CD29F70FB000DE5C5F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CC29F70FB000DE5C5F /* Transaction.swift */; };
+		E217D0CD29F70FB000DE5C5F /* cTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CC29F70FB000DE5C5F /* cTransaction.swift */; };
 		E217D0CF29F7BA0A00DE5C5F /* Valuation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0CE29F7BA0A00DE5C5F /* Valuation.swift */; };
 		E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */; };
 		E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */; };
@@ -137,6 +137,7 @@
 		E2E9385F2ADAA1650045E20E /* HomeViewModelV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */; };
 		E2E938612ADAA3640045E20E /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938602ADAA3640045E20E /* TokenService.swift */; };
 		E2E938632ADADB570045E20E /* AssetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938622ADADB570045E20E /* AssetDTO.swift */; };
+		E2FA206A2B5911E500979123 /* Generated in Frameworks */ = {isa = PBXBuildFile; productRef = E2FA20692B5911E500979123 /* Generated */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,7 +158,7 @@
 		E217D0C429F53A3B00DE5C5F /* ProjectCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCarousel.swift; sourceTree = "<group>"; };
 		E217D0C829F5E58C00DE5C5F /* PopularDeveloperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDeveloperRow.swift; sourceTree = "<group>"; };
 		E217D0CA29F694D500DE5C5F /* PropertyFeatureFullList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyFeatureFullList.swift; sourceTree = "<group>"; };
-		E217D0CC29F70FB000DE5C5F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E217D0CC29F70FB000DE5C5F /* cTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cTransaction.swift; sourceTree = "<group>"; };
 		E217D0CE29F7BA0A00DE5C5F /* Valuation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valuation.swift; sourceTree = "<group>"; };
 		E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistoryComponent.swift; sourceTree = "<group>"; };
@@ -275,6 +276,7 @@
 			files = (
 				E224832D2A8077FF00AF893C /* KeychainSwift in Frameworks */,
 				E28BDA0F2A9E5BFC0083EF0B /* Web3Auth in Frameworks */,
+				E2FA206A2B5911E500979123 /* Generated in Frameworks */,
 				E2A884782A65CE5700B68A93 /* Solana in Frameworks */,
 				E2579D0829ED86F7006ABEA8 /* Fakery in Frameworks */,
 				E2BC01FB2A902CBF00337693 /* AlertToast in Frameworks */,
@@ -466,7 +468,7 @@
 				E217D0B029EEB4B900DE5C5F /* AssetModel.swift */,
 				E217D0B229EEB77800DE5C5F /* AssetModelType.swift */,
 				E217D0B629F0550B00DE5C5F /* LoginStatus.swift */,
-				E217D0CC29F70FB000DE5C5F /* Transaction.swift */,
+				E217D0CC29F70FB000DE5C5F /* cTransaction.swift */,
 				E217D0CE29F7BA0A00DE5C5F /* Valuation.swift */,
 				E2BCAC342A77E06900A14654 /* Developer.swift */,
 				E2BCAC362A77E08900A14654 /* Project.swift */,
@@ -752,6 +754,7 @@
 				E2A7D2652A9010E600F885C3 /* Lottie */,
 				E2BC01FA2A902CBF00337693 /* AlertToast */,
 				E28BDA0E2A9E5BFC0083EF0B /* Web3Auth */,
+				E2FA20692B5911E500979123 /* Generated */,
 			);
 			productName = Lego;
 			productReference = E22C58D629E8167F0065EEE2 /* Lego.app */;
@@ -788,6 +791,7 @@
 				E2A7D2642A9010E600F885C3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				E28BDA0D2A9E5BFC0083EF0B /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */,
+				E2FA20682B5911E500979123 /* XCLocalSwiftPackageReference "../../../RustroverProjects/clusttr/account-manager/src/generated" */,
 			);
 			productRefGroup = E22C58D729E8167F0065EEE2 /* Products */;
 			projectDirPath = "";
@@ -912,7 +916,7 @@
 				E295A2102A8B5B6600DCDC64 /* AccountInfoView.swift in Sources */,
 				E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */,
 				E2B3CC472A9F5B1A00CDAD94 /* User.swift in Sources */,
-				E217D0CD29F70FB000DE5C5F /* Transaction.swift in Sources */,
+				E217D0CD29F70FB000DE5C5F /* cTransaction.swift in Sources */,
 				E20DC3F72AA0D082001BBD61 /* IAccountFactory.swift in Sources */,
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
 				E2BCAC372A77E08900A14654 /* Project.swift in Sources */,
@@ -1081,7 +1085,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.clusttr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1114,7 +1118,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.clusttr.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1145,6 +1149,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E2FA20682B5911E500979123 /* XCLocalSwiftPackageReference "../../../RustroverProjects/clusttr/account-manager/src/generated" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../RustroverProjects/clusttr/account-manager/src/generated";
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		E224832B2A8077FF00AF893C /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
@@ -1227,6 +1238,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		E2FA20692B5911E500979123 /* Generated */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Generated;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
