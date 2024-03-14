@@ -12,6 +12,7 @@ struct PurchaseNFTView: View {
     var serviceChargePercentage: Double = 0.025
     var pricePerShare: Double
     var availableShare: Int
+    var onPurchase: (Int) -> Void
     @State var units: String = ""
 
     var unitsInteger: Int {
@@ -103,7 +104,7 @@ struct PurchaseNFTView: View {
             }
 
             Button {
-
+                onPurchase(Int(units) ?? 0)
             } label: {
                 Text("Buy")
                     .font(.headline)
@@ -126,6 +127,7 @@ struct PurchaseNFTView: View {
 
 struct PurchaseNFTView_Previews: PreviewProvider {
     static var previews: some View {
-        PurchaseNFTView(pricePerShare: 172, availableShare: 928)
+        PurchaseNFTView(pricePerShare: 172, availableShare: 928, onPurchase: {_ in })
     }
 }
+

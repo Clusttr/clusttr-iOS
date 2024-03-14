@@ -133,7 +133,7 @@ struct NFTDetailsView: View {
             }
         }
         .sheet(isPresented: $showBuySheet) {
-            PurchaseNFTView(pricePerShare: nft.floorPrice / nft.totalVolume, availableShare: Int(nft.totalVolume))
+            PurchaseNFTView(pricePerShare: nft.floorPrice / nft.totalVolume, availableShare: Int(nft.totalVolume), onPurchase: purchase)
                 .presentationDetents([.height(420)])
         }
     }
@@ -173,6 +173,18 @@ struct NFTDetailsView: View {
         }
         .font(.footnote)
     }
+
+    func purchase(units: Int) {
+        Task {
+            do {
+                let tx = try await nft.generateBuyInstruction(units: units, accountManager: accountManager)
+                let txString = try await accountManager.sendTransaction(transaction: tx)
+                print(txString)
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
 
 struct NFTDetailsView_Previews: PreviewProvider {
@@ -182,5 +194,3 @@ struct NFTDetailsView_Previews: PreviewProvider {
             .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
     }
 }
-
-

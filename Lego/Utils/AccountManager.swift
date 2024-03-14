@@ -8,7 +8,8 @@
 import Combine
 import Foundation
 import Solana
-import Generated
+//import Generated
+import InventoryProgram
 import struct Solana.Transaction
 
 class AccountManager: ObservableObject {
@@ -131,48 +132,81 @@ class AccountManager: ObservableObject {
         print(programs)
     }
 
-    static func tryAccountManager(newAccount: HotAccount) async throws{
+//    static func tryAccountManager(newAccount: HotAccount) async throws{
+//        let solana = Self.getSolana()
+//        //"4ghb7LAzcmr5PYNkz2tgyEsPHB7Q7vHtiRfLDiFNoDj6"
+//        let RENT_VAULT = "rent_vault"
+//        let programId = Generated.PROGRAM_ID
+//        let programAddress = PublicKey.findProgramAddress(seeds: [Data(RENT_VAULT.utf8)], programId: programId!)
+//        let recentBlockhash = try! await solana.api.getRecentBlockhash()
+//
+//
+//
+//        switch programAddress {
+//        case .success(let pda):
+//            let secret = "3VXnem4KDbvF1Z7eCZuF7z5sVrmWwTvUkVW1Est9YXjvzZmoNKA8BxVq6z5bQgFbYJFw6hVa8TWxrVT8TpS4osyo"
+//            guard let account = HotAccount(secretKey: secret.base58EncodedData) else {
+//                throw AccountError.invalidSecretData
+//            }
+//
+//            let secret2 = ProcessInfo.processInfo.environment["SECRET_KEY"] ?? ""
+//            print(secret2)
+//            print(account.publicKey)
+//            print(account.publicKey.base58EncodedString)
+//
+//            // NA HEREusdc
+//            let txInstruction = createRegisterNewAccountInstruction(accounts: RegisterNewAccountInstructionAccounts(newAccount: newAccount.publicKey, rentVault: pda.0))
+//            var tx = Transaction(feePayer: account.publicKey, instructions: [txInstruction], recentBlockhash: recentBlockhash)
+//            tx.sign(signers: [account, newAccount])
+////            tx.partialSign(signers: [newAccount])
+//            let txSerialize: Result<Data, Error> = tx.serialize()
+//
+//
+//            switch txSerialize {
+//            case .success(let data):
+//                let txString = data.base64EncodedString()
+//                solana.api.sendTransaction(serializedTransaction: txString) { result in
+//                    print(result)
+//                }
+//            case .failure(let error):
+//                print("Serialize erro")
+//            }
+//
+//        case .failure(let failure):
+//            print("Failed PDA")
+//        }
+//
+//    }
+
+    func getATA(tokenMint: PublicKey, user: PublicKey? = nil) async throws -> PublicKey {
+        let solana = AccountManager.getSolana()
+//        Task {
+//            solana.action.getOrCreateAssociatedTokenAccount(owner: account.publicKey, tokenMint: tokenMint, payer: account) { result in
+//                switch result {
+//                case .success(let result):
+//                    return result.associatedTokenAddress
+//                case .failure(let error):
+//                    return error
+//                }
+//            }
+//        }
+        let result = try await solana.action.getOrCreateAssociatedTokenAccount(owner: user ?? account.publicKey, tokenMint: tokenMint, payer: account)
+        return result.associatedTokenAddress
+    }
+
+    func sendTransaction(transaction: TransactionInstruction) async throws -> String {
         let solana = Self.getSolana()
-        //"4ghb7LAzcmr5PYNkz2tgyEsPHB7Q7vHtiRfLDiFNoDj6"
-        let RENT_VAULT = "rent_vault"
-        let programId = Generated.PROGRAM_ID
-        let programAddress = PublicKey.findProgramAddress(seeds: [Data(RENT_VAULT.utf8)], programId: programId!)
-        let recentBlockhash = try! await solana.api.getRecentBlockhash()
-
-
-
-        switch programAddress {
-        case .success(let pda):
-            let secret = ""
-            guard let account = HotAccount(secretKey: secret.base58EncodedData) else {
-                throw AccountError.invalidSecretData
-            }
-
-            let secret2 = ProcessInfo.processInfo.environment["SECRET_KEY"] ?? ""
-            print(secret2)
-            print(account.publicKey)
-            print(account.publicKey.base58EncodedString)
-
-            let txInstruction = createRegisterNewAccountInstruction(accounts: RegisterNewAccountInstructionAccounts(newAccount: newAccount.publicKey, rentVault: pda.0))
-            var tx = Transaction(feePayer: account.publicKey, instructions: [txInstruction], recentBlockhash: recentBlockhash)
-            tx.sign(signers: [account, newAccount])
-//            tx.partialSign(signers: [newAccount])
-            let txSerialize: Result<Data, Error> = tx.serialize()
-
-
-            switch txSerialize {
-            case .success(let data):
-                let txString = data.base64EncodedString()
-                solana.api.sendTransaction(serializedTransaction: txString) { result in
-                    print(result)
-                }
-            case .failure(let error):
-                print("Serialize erro")
-            }
-
-        case .failure(let failure):
-            print("Failed PDA")
+        let recentBlockhash = try await solana.api.getRecentBlockhash()
+        var tx = Transaction(feePayer: account.publicKey, recentBlockhash: recentBlockhash)
+        _ = tx.sign(signers: [account])
+        let txResult = tx.serialize()
+        switch txResult {
+        case .success(let data):
+            let txString = data.base64EncodedString()
+            let result = try await solana.api.sendTransaction(serializedTransaction: txString)
+            return result
+        case .failure(let err):
+            throw err
         }
-
     }
 }

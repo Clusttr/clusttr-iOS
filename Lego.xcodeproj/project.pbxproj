@@ -50,6 +50,8 @@
 		E24363F52A7644920053FD28 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */; };
 		E24AE4CE2A7ECE6900FE2903 /* OTPField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */; };
 		E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AE4CF2A7ED33800FE2903 /* OTPView.swift */; };
+		E24FAA272BA17542003CF17B /* InventoryProgram in Frameworks */ = {isa = PBXBuildFile; productRef = E24FAA262BA17542003CF17B /* InventoryProgram */; };
+		E24FAA332BA2E011003CF17B /* NFT+Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA322BA2E011003CF17B /* NFT+Transactions.swift */; };
 		E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */; };
 		E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */; };
 		E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */; };
@@ -137,7 +139,6 @@
 		E2E9385F2ADAA1650045E20E /* HomeViewModelV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */; };
 		E2E938612ADAA3640045E20E /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938602ADAA3640045E20E /* TokenService.swift */; };
 		E2E938632ADADB570045E20E /* AssetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938622ADADB570045E20E /* AssetDTO.swift */; };
-		E2FA206A2B5911E500979123 /* Generated in Frameworks */ = {isa = PBXBuildFile; productRef = E2FA20692B5911E500979123 /* Generated */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +185,31 @@
 		E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPField.swift; sourceTree = "<group>"; };
 		E24AE4CF2A7ED33800FE2903 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		E24FAA082BA17483003CF17B /* addAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAsset.swift; sourceTree = "<group>"; };
+		E24FAA092BA17483003CF17B /* buyAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buyAsset.swift; sourceTree = "<group>"; };
+		E24FAA0A2BA17483003CF17B /* updateAssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateAssetInfo.swift; sourceTree = "<group>"; };
+		E24FAA0B2BA17483003CF17B /* closeInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = closeInventory.swift; sourceTree = "<group>"; };
+		E24FAA0C2BA17483003CF17B /* initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialize.swift; sourceTree = "<group>"; };
+		E24FAA0D2BA17483003CF17B /* withdrawAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withdrawAsset.swift; sourceTree = "<group>"; };
+		E24FAA0E2BA17483003CF17B /* createInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createInventory.swift; sourceTree = "<group>"; };
+		E24FAA102BA17483003CF17B /* AssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInfo.swift; sourceTree = "<group>"; };
+		E24FAA112BA17483003CF17B /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		E24FAA122BA17483003CF17B /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		E24FAA142BA17483003CF17B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		E24FAA172BA17494003CF17B /* addAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAsset.swift; sourceTree = "<group>"; };
+		E24FAA182BA17494003CF17B /* buyAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buyAsset.swift; sourceTree = "<group>"; };
+		E24FAA192BA17494003CF17B /* updateAssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateAssetInfo.swift; sourceTree = "<group>"; };
+		E24FAA1A2BA17494003CF17B /* closeInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = closeInventory.swift; sourceTree = "<group>"; };
+		E24FAA1B2BA17494003CF17B /* initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialize.swift; sourceTree = "<group>"; };
+		E24FAA1C2BA17494003CF17B /* withdrawAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withdrawAsset.swift; sourceTree = "<group>"; };
+		E24FAA1D2BA17494003CF17B /* createInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createInventory.swift; sourceTree = "<group>"; };
+		E24FAA1F2BA17494003CF17B /* AssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInfo.swift; sourceTree = "<group>"; };
+		E24FAA202BA17494003CF17B /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		E24FAA212BA17494003CF17B /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		E24FAA232BA17494003CF17B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		E24FAA242BA1750B003CF17B /* Inventory */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Inventory; sourceTree = "<group>"; };
+		E24FAA252BA1752F003CF17B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = Inventory/Package.swift; sourceTree = "<group>"; };
+		E24FAA322BA2E011003CF17B /* NFT+Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+Transactions.swift"; sourceTree = "<group>"; };
 		E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShape.swift; sourceTree = "<group>"; };
 		E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
 		E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShapeViewModel.swift; sourceTree = "<group>"; };
@@ -276,10 +302,10 @@
 			files = (
 				E224832D2A8077FF00AF893C /* KeychainSwift in Frameworks */,
 				E28BDA0F2A9E5BFC0083EF0B /* Web3Auth in Frameworks */,
-				E2FA206A2B5911E500979123 /* Generated in Frameworks */,
 				E2A884782A65CE5700B68A93 /* Solana in Frameworks */,
 				E2579D0829ED86F7006ABEA8 /* Fakery in Frameworks */,
 				E2BC01FB2A902CBF00337693 /* AlertToast in Frameworks */,
+				E24FAA272BA17542003CF17B /* InventoryProgram in Frameworks */,
 				E2A7D2662A9010E600F885C3 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +347,7 @@
 			children = (
 				E22C58D829E8167F0065EEE2 /* Lego */,
 				E22C58D729E8167F0065EEE2 /* Products */,
+				E24FAA052BA17482003CF17B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -423,6 +450,101 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		E24FAA052BA17482003CF17B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA252BA1752F003CF17B /* Package.swift */,
+				E24FAA242BA1750B003CF17B /* Inventory */,
+				E24FAA152BA17494003CF17B /* InventoryProgram */,
+				E24FAA062BA17483003CF17B /* InventoryProgram */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E24FAA062BA17483003CF17B /* InventoryProgram */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA072BA17483003CF17B /* instructions */,
+				E24FAA0F2BA17483003CF17B /* accounts */,
+				E24FAA122BA17483003CF17B /* Program.swift */,
+				E24FAA132BA17483003CF17B /* errors */,
+			);
+			path = InventoryProgram;
+			sourceTree = "<group>";
+		};
+		E24FAA072BA17483003CF17B /* instructions */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA082BA17483003CF17B /* addAsset.swift */,
+				E24FAA092BA17483003CF17B /* buyAsset.swift */,
+				E24FAA0A2BA17483003CF17B /* updateAssetInfo.swift */,
+				E24FAA0B2BA17483003CF17B /* closeInventory.swift */,
+				E24FAA0C2BA17483003CF17B /* initialize.swift */,
+				E24FAA0D2BA17483003CF17B /* withdrawAsset.swift */,
+				E24FAA0E2BA17483003CF17B /* createInventory.swift */,
+			);
+			path = instructions;
+			sourceTree = "<group>";
+		};
+		E24FAA0F2BA17483003CF17B /* accounts */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA102BA17483003CF17B /* AssetInfo.swift */,
+				E24FAA112BA17483003CF17B /* Inventory.swift */,
+			);
+			path = accounts;
+			sourceTree = "<group>";
+		};
+		E24FAA132BA17483003CF17B /* errors */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA142BA17483003CF17B /* Error.swift */,
+			);
+			path = errors;
+			sourceTree = "<group>";
+		};
+		E24FAA152BA17494003CF17B /* InventoryProgram */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA162BA17494003CF17B /* instructions */,
+				E24FAA1E2BA17494003CF17B /* accounts */,
+				E24FAA212BA17494003CF17B /* Program.swift */,
+				E24FAA222BA17494003CF17B /* errors */,
+			);
+			path = InventoryProgram;
+			sourceTree = "<group>";
+		};
+		E24FAA162BA17494003CF17B /* instructions */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA172BA17494003CF17B /* addAsset.swift */,
+				E24FAA182BA17494003CF17B /* buyAsset.swift */,
+				E24FAA192BA17494003CF17B /* updateAssetInfo.swift */,
+				E24FAA1A2BA17494003CF17B /* closeInventory.swift */,
+				E24FAA1B2BA17494003CF17B /* initialize.swift */,
+				E24FAA1C2BA17494003CF17B /* withdrawAsset.swift */,
+				E24FAA1D2BA17494003CF17B /* createInventory.swift */,
+			);
+			path = instructions;
+			sourceTree = "<group>";
+		};
+		E24FAA1E2BA17494003CF17B /* accounts */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA1F2BA17494003CF17B /* AssetInfo.swift */,
+				E24FAA202BA17494003CF17B /* Inventory.swift */,
+			);
+			path = accounts;
+			sourceTree = "<group>";
+		};
+		E24FAA222BA17494003CF17B /* errors */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA232BA17494003CF17B /* Error.swift */,
+			);
+			path = errors;
+			sourceTree = "<group>";
+		};
 		E2579CF229EBEC3A006ABEA8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +586,7 @@
 				E2BCAC462A7AE46100A14654 /* Path */,
 				E2BCAC3A2A78247F00A14654 /* Menu */,
 				E2579D0429ED8636006ABEA8 /* NFT.swift */,
+				E24FAA322BA2E011003CF17B /* NFT+Transactions.swift */,
 				E2579D1E29EDEBC2006ABEA8 /* NavBarMenu.swift */,
 				E217D0B029EEB4B900DE5C5F /* AssetModel.swift */,
 				E217D0B229EEB77800DE5C5F /* AssetModelType.swift */,
@@ -754,7 +877,7 @@
 				E2A7D2652A9010E600F885C3 /* Lottie */,
 				E2BC01FA2A902CBF00337693 /* AlertToast */,
 				E28BDA0E2A9E5BFC0083EF0B /* Web3Auth */,
-				E2FA20692B5911E500979123 /* Generated */,
+				E24FAA262BA17542003CF17B /* InventoryProgram */,
 			);
 			productName = Lego;
 			productReference = E22C58D629E8167F0065EEE2 /* Lego.app */;
@@ -921,6 +1044,7 @@
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
 				E2BCAC372A77E08900A14654 /* Project.swift in Sources */,
 				E24363EA2A7567D10053FD28 /* ActionButton.swift in Sources */,
+				E24FAA332BA2E011003CF17B /* NFT+Transactions.swift in Sources */,
 				E29C72372AA4E04500C05222 /* AccountService.swift in Sources */,
 				E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */,
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
@@ -1214,6 +1338,10 @@
 			package = E224832B2A8077FF00AF893C /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
 		};
+		E24FAA262BA17542003CF17B /* InventoryProgram */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InventoryProgram;
+		};
 		E2579D0729ED86F7006ABEA8 /* Fakery */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */;
@@ -1238,10 +1366,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
-		};
-		E2FA20692B5911E500979123 /* Generated */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Generated;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

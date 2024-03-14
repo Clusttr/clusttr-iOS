@@ -12,11 +12,11 @@ import Solana
 struct NFT: Identifiable, Codable {
     var id: String
     var mintHash: PublicKey
-    var owner: PublicKey
+    var owner: PublicKey?
     var name: String
     var description: String
     var location: String
-    var creator: String
+    var creator: PublicKey
     var image: String
     var floorPrice: Double
     var totalVolume: Double
@@ -33,11 +33,11 @@ extension NFT {
     init(nft: NFTModel) {
         self.id = nft.id
         self.mintHash = PublicKey(string: nft.onChain.mintHash)!
-        self.owner = PublicKey(string: nft.onChain.owner)!
+        self.owner = nil
         self.name = nft.metadata.name
         self.description = nft.metadata.description
         self.location = "8th Street Lane"
-        self.creator = nft.metadata.properties.creators.first?.address ?? "no creator"
+        self.creator = PublicKey(string: nft.metadata.properties.creators.first?.address ?? "no creator")!
         self.image = nft.metadata.image
         self.floorPrice = 10.6
         self.totalVolume = 72.1
@@ -45,6 +45,26 @@ extension NFT {
         self.assetModels = AssetModel.fakeData
         self.transactions = cTransaction.data
         self.valuations = Valuation.data
+    }
+
+    init(_ asset: AssetDTO) {
+        self.id = asset.id
+        self.mintHash = PublicKey(string: asset.id)!
+        self.owner = nil
+        self.name = asset.name
+        self.description = asset.description
+        self.location = asset.attribute.first(where: {$0.traitType == "address"})?.value ?? ""
+        self.creator = PublicKey(string: "9831HW6Ljt8knNaN6r6JEzyiey939A2me3JsdMymmz5J")!
+        self.image = asset.image
+        self.floorPrice = prices.randomElement()!
+        self.totalVolume = 50 //asset.supply,
+        self.createdAt = Date()
+        self.assetModels = asset.files.map{ AssetModel(file: $0) }
+        self.transactions = cTransaction.data
+        self.valuations = Valuation.data
+        self.bedroom = Double(asset.attribute.first(where: {$0.traitType == "bedroom"})?.value ?? "0")
+        self.bathrooms = Double(asset.attribute.first(where: {$0.traitType == "bathrooms"})?.value ?? "0")
+        self.area = Double(asset.attribute.first(where: {$0.traitType == "area"})?.value ?? "0")
     }
 }
 
@@ -79,7 +99,7 @@ extension NFT {
                    owner: PublicKey(string: "DpmMV7knnwZcBeLXv9dX3fCHA8jCw7SA7Lzq4dvj1NR3")!,
                    name: name,
                    description: faker.lorem.sentences(amount: 6), location: faker.address.city(),
-                   creator: faker.name.name(),
+                   creator: PublicKey(string: "9831HW6Ljt8knNaN6r6JEzyiey939A2me3JsdMymmz5J")!,
                    image: image,
                    floorPrice: faker.number.randomDouble(min: 10, max: 100),
                    totalVolume: 100,
