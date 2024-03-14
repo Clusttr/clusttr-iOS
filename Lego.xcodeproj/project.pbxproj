@@ -52,6 +52,10 @@
 		E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AE4CF2A7ED33800FE2903 /* OTPView.swift */; };
 		E24FAA272BA17542003CF17B /* InventoryProgram in Frameworks */ = {isa = PBXBuildFile; productRef = E24FAA262BA17542003CF17B /* InventoryProgram */; };
 		E24FAA332BA2E011003CF17B /* NFT+Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA322BA2E011003CF17B /* NFT+Transactions.swift */; };
+		E24FAA352BA32BFD003CF17B /* TransactionUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA342BA32BFD003CF17B /* TransactionUtility.swift */; };
+		E24FAA372BA349FF003CF17B /* AccountUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA362BA349FF003CF17B /* AccountUtility.swift */; };
+		E24FAA3B2BA350E5003CF17B /* SuccessModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA3A2BA350E5003CF17B /* SuccessModifier.swift */; };
+		E24FAA3D2BA373CC003CF17B /* ErrorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA3C2BA373CC003CF17B /* ErrorModifier.swift */; };
 		E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */; };
 		E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */; };
 		E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */; };
@@ -210,6 +214,10 @@
 		E24FAA242BA1750B003CF17B /* Inventory */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Inventory; sourceTree = "<group>"; };
 		E24FAA252BA1752F003CF17B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = Inventory/Package.swift; sourceTree = "<group>"; };
 		E24FAA322BA2E011003CF17B /* NFT+Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+Transactions.swift"; sourceTree = "<group>"; };
+		E24FAA342BA32BFD003CF17B /* TransactionUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionUtility.swift; sourceTree = "<group>"; };
+		E24FAA362BA349FF003CF17B /* AccountUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUtility.swift; sourceTree = "<group>"; };
+		E24FAA3A2BA350E5003CF17B /* SuccessModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModifier.swift; sourceTree = "<group>"; };
+		E24FAA3C2BA373CC003CF17B /* ErrorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModifier.swift; sourceTree = "<group>"; };
 		E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShape.swift; sourceTree = "<group>"; };
 		E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
 		E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShapeViewModel.swift; sourceTree = "<group>"; };
@@ -397,6 +405,8 @@
 				E2579CF229EBEC3A006ABEA8 /* Views */,
 				E217D0B429F054C100DE5C5F /* AppState.swift */,
 				E295A20D2A8A956700DCDC64 /* AccountManager.swift */,
+				E24FAA342BA32BFD003CF17B /* TransactionUtility.swift */,
+				E24FAA362BA349FF003CF17B /* AccountUtility.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -689,6 +699,8 @@
 			children = (
 				E28BDA112A9E6B5F0083EF0B /* ActionButtonModifier.swift */,
 				E2A509C02AA257F700C10E56 /* LoadingModifier.swift */,
+				E24FAA3A2BA350E5003CF17B /* SuccessModifier.swift */,
+				E24FAA3C2BA373CC003CF17B /* ErrorModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -976,6 +988,7 @@
 				E2BCAC442A7AE35C00A14654 /* AuthPath.swift in Sources */,
 				E2BC01FE2A90B09100337693 /* CreateNFTParams.swift in Sources */,
 				E295D6942A8F55FE006C26EC /* DeveloperView.swift in Sources */,
+				E24FAA3D2BA373CC003CF17B /* ErrorModifier.swift in Sources */,
 				E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */,
 				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
 				E217D0D129F7C03400DE5C5F /* Date+Extensions.swift in Sources */,
@@ -986,6 +999,7 @@
 				E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */,
 				E2BCAC4A2A7B17E900A14654 /* OTPFormFieldView.swift in Sources */,
 				E295D6902A8ED0B2006C26EC /* DeveloperWelcomeView.swift in Sources */,
+				E24FAA3B2BA350E5003CF17B /* SuccessModifier.swift in Sources */,
 				E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */,
 				E295D6922A8ED0C5006C26EC /* CreateNFTView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
@@ -1016,6 +1030,7 @@
 				E217D0C129F40FB000DE5C5F /* DeveloperCard.swift in Sources */,
 				E2BCAC402A7AC50200A14654 /* CreateWalletView.swift in Sources */,
 				E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */,
+				E24FAA372BA349FF003CF17B /* AccountUtility.swift in Sources */,
 				E2A509C72AA29D3700C10E56 /* TestDTO.swift in Sources */,
 				E2BCAC3E2A7824BD00A14654 /* ProfileMenu.swift in Sources */,
 				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,
@@ -1052,6 +1067,7 @@
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
 				E2E9385D2ADA95740045E20E /* UserService.swift in Sources */,
 				E295A20E2A8A956700DCDC64 /* AccountManager.swift in Sources */,
+				E24FAA352BA32BFD003CF17B /* TransactionUtility.swift in Sources */,
 				E22C58DC29E8167F0065EEE2 /* ContentView.swift in Sources */,
 				E2BCAC3C2A78249400A14654 /* Menu.swift in Sources */,
 				E217D0BF29F1A34000DE5C5F /* NFTDetailsViewModel.swift in Sources */,

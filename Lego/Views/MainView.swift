@@ -33,7 +33,8 @@ struct MainView: View {
                 .offset(y: appState.isNavBarHidden ? 150 : 10)
         }
         .navigationBarBackButtonHidden(true)
-        .environmentObject(AccountManager(accountFactory: try! AccountFactory()))
+        .environmentObject(AccountManager(accountFactory: try! AccountFactory(),
+                                          transactionUtility: TransactionUtility(), accountUtility: AccountUtility()))
         .task {
             print(ClusttrAPIs.getAccessToken())
         }
@@ -44,6 +45,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(AppState())
-            .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
+            .environmentObject(AccountManager.mock())
     }
 }
