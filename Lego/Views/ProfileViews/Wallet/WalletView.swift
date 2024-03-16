@@ -42,6 +42,7 @@ struct WalletView: View {
                     }
                     .popover(isPresented: $showSendScreen, content: {
                         AddressPickerView(isShowing: $showSendScreen)
+                            .environmentObject(accountManager)
                     })
 
                 }

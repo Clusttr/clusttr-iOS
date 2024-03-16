@@ -75,9 +75,12 @@ struct EnterAmountView: View {
             }
             .padding(.top, 60)
             Spacer()
-            ActionButton(title: "Continue") {
-                navPath.append("")
+            NavigationLink {
+                ConfirmTransactionView(navPath: $navPath, isShowing: $isShowing, amount: Double(amount) ?? 0.0, receiver: pubKey)
+            } label: {
+                ActionButton(title: "Continue")
             }
+
         }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

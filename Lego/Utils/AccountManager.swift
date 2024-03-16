@@ -17,7 +17,7 @@ class AccountManager: ObservableObject {
     @Published var account: HotAccount
     @Published var solana: Solana
     @Published var balance: Lamports = Lamports(0)
-    @Published var usdcPubKey: PublicKey?
+    @Published var usdcPubKey = PublicKey(string: "9831HW6Ljt8knNaN6r6JEzyiey939A2me3JsdMymmz5J")!
     @Published var error: Error?
 
     @Published var cancelBag = Set<AnyCancellable>()
@@ -100,8 +100,6 @@ class AccountManager: ObservableObject {
     //MARK: Set usdc Balance
     @Published var usdcBalance: TokenAccountBalance?
     func setUSDCBalance() {
-        guard let usdcPubKey = usdcPubKey else { return }
-
         Task {
             do {
                 let balance = try await solana.api.getTokenAccountBalance(pubkey: usdcPubKey.base58EncodedString)
@@ -128,19 +126,19 @@ class AccountManager: ObservableObject {
     }
 
     func sendToken(to destination: PublicKey, amount: UInt64, decimals: UInt64, mint: PublicKey) async throws -> String {
-        return try await solana.action.sendSPLTokens(mintAddress: mint.base58EncodedString,
-                                    decimals: 6,
-                                    from: account.publicKey.base58EncodedString,
-                                    to: destination.base58EncodedString,
-                                    amount: amount,
-                                    payer: account)
+        return try await transactionManager.sendToken(to: destination,
+                                                      amount: amount,
+                                                      decimals: decimals,
+                                                      mint: mint,
+                                                      userAccount: account)
     }
 
     func sendUSDC(to destination: PublicKey, amount: Double) async throws -> String {
-        return try await sendToken(to: destination,
-                                   amount: UInt64(amount),
-                                   decimals: UInt64(amount),
-                                   mint: usdcPubKey!)
+        return try await transactionManager.sendToken(to: destination,
+                                                      amount: UInt64(amount),
+                                                      decimals: UInt64(amount),
+                                                      mint: usdcPubKey,
+                                                      userAccount: account)
     }
 
 

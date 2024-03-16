@@ -69,7 +69,7 @@ struct ConfirmTransactionView: View {
                 Button {
 
                 } label: {
-                    Text("View on Solscan")
+                    Text("View tx:" + getShort(address: sendTx) + "on Solscan")
                 }
 
             }
@@ -78,13 +78,22 @@ struct ConfirmTransactionView: View {
             .opacity(sendTx == nil ? 0 : 1)
 
             HStack(spacing: 24) {
-                OutlineButton(title: "Deny")
-                ActionButton(title: "Approve")
+                if sendTx == nil {
+                    OutlineButton(title: "Deny") {
+                        isShowing = false
+                    }
+                }
+
+                ActionButton(title: sendTx == nil ? "Send" : "Done",
+                             action: sendTx == nil ? sendToken : done)
             }
             .padding(24)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color._background)
+        .navigationBarHidden(true)
+        .loading(isLoading)
+        .error($error)
     }
 
     func sendToken() {
@@ -92,15 +101,24 @@ struct ConfirmTransactionView: View {
         Task {
             do {
                 let tx = try await accountManager.sendUSDC(to: receiver, amount: amount)
-                withAnimation {
-                    sendTx = tx
-                }
+                sendTx = tx
                 isLoading = false
             } catch {
                 self.error = ClusttrError.failedTransaction
                 isLoading = false
             }
         }
+    }
+
+    func done() {
+        isShowing = false
+    }
+
+    private func getShort(address: String?) -> String {
+        guard let address = address else { return "..."}
+        let prefix = address.prefix(5)
+        let suffix = address.suffix(5)
+        return "\(prefix)...\(suffix)"
     }
 }
 
