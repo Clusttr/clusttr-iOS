@@ -56,6 +56,8 @@
 		E24FAA372BA349FF003CF17B /* AccountUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA362BA349FF003CF17B /* AccountUtility.swift */; };
 		E24FAA3B2BA350E5003CF17B /* SuccessModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA3A2BA350E5003CF17B /* SuccessModifier.swift */; };
 		E24FAA3D2BA373CC003CF17B /* ErrorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA3C2BA373CC003CF17B /* ErrorModifier.swift */; };
+		E24FAA3F2BA450D5003CF17B /* AddressPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA3E2BA450D5003CF17B /* AddressPickerView.swift */; };
+		E24FAA422BA4861D003CF17B /* EnterAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FAA412BA4861C003CF17B /* EnterAmountView.swift */; };
 		E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */; };
 		E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */; };
 		E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */; };
@@ -137,6 +139,8 @@
 		E2BCAC4A2A7B17E900A14654 /* OTPFormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC492A7B17E900A14654 /* OTPFormFieldView.swift */; };
 		E2BCAC4C2A7B1C5000A14654 /* SetupPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */; };
 		E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */; };
+		E2C327872BA5E83A0010E14B /* ConfirmTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C327862BA5E83A0010E14B /* ConfirmTransactionView.swift */; };
+		E2C327892BA5EB450010E14B /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C327882BA5EB450010E14B /* OutlineButton.swift */; };
 		E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */; };
 		E2E9385B2ADA948D0045E20E /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385A2ADA948C0045E20E /* UserDTO.swift */; };
 		E2E9385D2ADA95740045E20E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385C2ADA95740045E20E /* UserService.swift */; };
@@ -218,6 +222,8 @@
 		E24FAA362BA349FF003CF17B /* AccountUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUtility.swift; sourceTree = "<group>"; };
 		E24FAA3A2BA350E5003CF17B /* SuccessModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModifier.swift; sourceTree = "<group>"; };
 		E24FAA3C2BA373CC003CF17B /* ErrorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModifier.swift; sourceTree = "<group>"; };
+		E24FAA3E2BA450D5003CF17B /* AddressPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressPickerView.swift; sourceTree = "<group>"; };
+		E24FAA412BA4861C003CF17B /* EnterAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountView.swift; sourceTree = "<group>"; };
 		E2579CEF29EB46CA006ABEA8 /* AdjustableBannerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShape.swift; sourceTree = "<group>"; };
 		E2579CF429EBEC93006ABEA8 /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
 		E2579CF729ED195B006ABEA8 /* AdjustableBannerShapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustableBannerShapeViewModel.swift; sourceTree = "<group>"; };
@@ -295,6 +301,8 @@
 		E2BCAC492A7B17E900A14654 /* OTPFormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPFormFieldView.swift; sourceTree = "<group>"; };
 		E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPinView.swift; sourceTree = "<group>"; };
 		E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
+		E2C327862BA5E83A0010E14B /* ConfirmTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionView.swift; sourceTree = "<group>"; };
+		E2C327882BA5EB450010E14B /* OutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineButton.swift; sourceTree = "<group>"; };
 		E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRowView.swift; sourceTree = "<group>"; };
 		E2E9385A2ADA948C0045E20E /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		E2E9385C2ADA95740045E20E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -453,6 +461,7 @@
 			children = (
 				E2BCAC4D2A7B1DA400A14654 /* OTP */,
 				E24363E92A7567D10053FD28 /* ActionButton.swift */,
+				E2C327882BA5EB450010E14B /* OutlineButton.swift */,
 				E2BCAC412A7AC83E00A14654 /* AddressView.swift */,
 				E2A7D2622A8FE7AA00F885C3 /* NFTImagePicker.swift */,
 				E2A7D2672A901D8500F885C3 /* LottieView.swift */,
@@ -553,6 +562,16 @@
 				E24FAA232BA17494003CF17B /* Error.swift */,
 			);
 			path = errors;
+			sourceTree = "<group>";
+		};
+		E24FAA402BA485EA003CF17B /* SendFlow */ = {
+			isa = PBXGroup;
+			children = (
+				E24FAA3E2BA450D5003CF17B /* AddressPickerView.swift */,
+				E24FAA412BA4861C003CF17B /* EnterAmountView.swift */,
+				E2C327862BA5E83A0010E14B /* ConfirmTransactionView.swift */,
+			);
+			path = SendFlow;
 			sourceTree = "<group>";
 		};
 		E2579CF229EBEC3A006ABEA8 /* Views */ = {
@@ -807,6 +826,7 @@
 		E2A884792A65D57D00B68A93 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				E24FAA402BA485EA003CF17B /* SendFlow */,
 				E2A8847A2A65D5AF00B68A93 /* WalletView.swift */,
 				E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */,
 				E295A20F2A8B5B6600DCDC64 /* AccountInfoView.swift */,
@@ -1021,8 +1041,10 @@
 				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
 				E295D6872A8E8065006C26EC /* CrossMintAPIs.swift in Sources */,
 				E263122B2AB069DA000FCEB4 /* TokenCard.swift in Sources */,
+				E2C327892BA5EB450010E14B /* OutlineButton.swift in Sources */,
 				E28BDA0C2A9E52D30083EF0B /* Web3AuthLoginView.swift in Sources */,
 				E24AE4CE2A7ECE6900FE2903 /* OTPField.swift in Sources */,
+				E24FAA422BA4861D003CF17B /* EnterAmountView.swift in Sources */,
 				E2579D1629ED9452006ABEA8 /* Colors+Extensions.swift in Sources */,
 				E2579D0529ED8636006ABEA8 /* NFT.swift in Sources */,
 				E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */,
@@ -1059,6 +1081,7 @@
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
 				E2BCAC372A77E08900A14654 /* Project.swift in Sources */,
 				E24363EA2A7567D10053FD28 /* ActionButton.swift in Sources */,
+				E24FAA3F2BA450D5003CF17B /* AddressPickerView.swift in Sources */,
 				E24FAA332BA2E011003CF17B /* NFT+Transactions.swift in Sources */,
 				E29C72372AA4E04500C05222 /* AccountService.swift in Sources */,
 				E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */,
@@ -1080,6 +1103,7 @@
 				E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */,
 				E22483252A801FD000AF893C /* KeyChain.swift in Sources */,
 				E2A8847B2A65D5AF00B68A93 /* WalletView.swift in Sources */,
+				E2C327872BA5E83A0010E14B /* ConfirmTransactionView.swift in Sources */,
 				E24363E32A753BA50053FD28 /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

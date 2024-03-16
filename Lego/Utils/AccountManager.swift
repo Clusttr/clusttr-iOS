@@ -127,6 +127,22 @@ class AccountManager: ObservableObject {
         return accountInfo.data.value
     }
 
+    func sendToken(to destination: PublicKey, amount: UInt64, decimals: UInt64, mint: PublicKey) async throws -> String {
+        return try await solana.action.sendSPLTokens(mintAddress: mint.base58EncodedString,
+                                    decimals: 6,
+                                    from: account.publicKey.base58EncodedString,
+                                    to: destination.base58EncodedString,
+                                    amount: amount,
+                                    payer: account)
+    }
+
+    func sendUSDC(to destination: PublicKey, amount: Double) async throws -> String {
+        return try await sendToken(to: destination,
+                                   amount: UInt64(amount),
+                                   decimals: UInt64(amount),
+                                   mint: usdcPubKey!)
+    }
+
 
     func getATA(tokenMint: PublicKey, user: PublicKey? = nil) async throws -> PublicKey {
         try await accountUtility.getATA(tokenMint: tokenMint, user: user, userAccount: account)

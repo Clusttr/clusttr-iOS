@@ -12,7 +12,9 @@ struct WalletView: View {
     var isActive: Bool
     var onClickMenu: () -> Void
     @State var showAccountInfo = false
+    @State var showSendScreen = false
     @EnvironmentObject var accountManager: AccountManager
+    @State private var navPath = NavigationPath()
 
     var account: HotAccount {
         accountManager.account
@@ -38,6 +40,9 @@ struct WalletView: View {
                         AccountInfoView()
                             .presentationDetents([.fraction(0.2)])
                     }
+                    .popover(isPresented: $showSendScreen, content: {
+                        AddressPickerView(isShowing: $showSendScreen)
+                    })
 
                 }
                 .foregroundColor(Color._grey100)
@@ -47,9 +52,13 @@ struct WalletView: View {
 
             HStack(spacing: 30) {
                 Spacer()
-                tractionButton(systemName: "square.and.arrow.down", title: "Top up")
-                tractionButton(systemName: "square.and.arrow.up", title: "Withdraw")
-                tractionButton(systemName: "rectangle.portrait.and.arrow.right", title: "Send")
+                transactionButton(systemName: "square.and.arrow.down", title: "Top up") {}
+                transactionButton(systemName: "square.and.arrow.up", title: "Withdraw") {
+                    navPath.append("Hello World")
+                }
+                transactionButton(systemName: "rectangle.portrait.and.arrow.right", title: "Send") {
+                    showSendScreen = true
+                }
                 Spacer()
             }
             .padding(.top, 45)
@@ -90,19 +99,22 @@ struct WalletView: View {
             }
             .padding(.top, 44)
         }
+
     }
 
-    func tractionButton(systemName: String, title: String) -> some View {
-        VStack(spacing: 2) {
-            Image(systemName: systemName)
-                .frame(width: 37, height: 37)
-                .background(Color._grey700)
-                .clipShape(Circle())
-            Text(title)
-                .font(.caption2)
-                .fontWeight(.semibold)
+    func transactionButton(systemName: String, title: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            VStack(spacing: 2) {
+                Image(systemName: systemName)
+                    .frame(width: 37, height: 37)
+                    .background(Color._grey700)
+                    .clipShape(Circle())
+                Text(title)
+                    .font(.caption2)
+                    .fontWeight(.semibold)
+            }
+            .foregroundColor(._grey100)
         }
-        .foregroundColor(._grey100)
     }
 }
 
