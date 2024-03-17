@@ -12,36 +12,35 @@ struct EnterAmountView: View {
     enum FocusedField {
         case amount
     }
-
+    
     @Binding var navPath: NavigationPath
     @Binding var isShowing: Bool
     var pubKey: PublicKey
     var tokenBalance = 40_000
     @State var amount = ""
     @FocusState private var focusedField: FocusedField?
-
+    
     var body: some View {
         VStack {
-            VStack {
-                HStack {
-                    Button {
-                        navPath.removeLast()
-                    } label: {
-                        Image(systemName: "arrow.backward")
-                    }
-                    Spacer()
-                    Text("Send USD to")
-                    Spacer()
+            HStack {
+                Button {
+                    navPath.removeLast()
+                } label: {
+                    Image(systemName: "arrow.backward")
                 }
-                .foregroundColor(Color._grey100)
-                .fontWeight(.medium)
+                Spacer()
+                Text("Send USD to")
+                Spacer()
             }
+            .foregroundColor(Color._grey100)
+            .fontWeight(.medium)
             .padding(.horizontal, 16)
             .padding(.top, 24)
-
+            
+            
             VStack(spacing: 60) {
                 AddressView(publicKey: pubKey)
-
+                
                 HStack {
                     TextField(text: $amount) {
                         Text("0")
@@ -62,7 +61,7 @@ struct EnterAmountView: View {
                 .onAppear{
                     focusedField = .amount
                 }
-
+                
                 Button(action: setMax) {
                     Text("Max: 40,000.0 USD")
                         .foregroundStyle(Color.white)
@@ -80,14 +79,14 @@ struct EnterAmountView: View {
             } label: {
                 ActionButton(title: "Continue")
             }
-
+            
         }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color._background)
-
+        
     }
-
+    
     func setMax() {
         amount = tokenBalance.formatted()
     }

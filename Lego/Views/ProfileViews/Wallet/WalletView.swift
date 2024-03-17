@@ -13,6 +13,7 @@ struct WalletView: View {
     var onClickMenu: () -> Void
     @State var showAccountInfo = false
     @State var showSendScreen = false
+    @State var showReceiveScreen = false
     @EnvironmentObject var accountManager: AccountManager
     @State private var navPath = NavigationPath()
 
@@ -40,11 +41,6 @@ struct WalletView: View {
                         AccountInfoView()
                             .presentationDetents([.fraction(0.2)])
                     }
-                    .popover(isPresented: $showSendScreen, content: {
-                        AddressPickerView(isShowing: $showSendScreen)
-                            .environmentObject(accountManager)
-                    })
-
                 }
                 .foregroundColor(Color._grey100)
 
@@ -53,7 +49,9 @@ struct WalletView: View {
 
             HStack(spacing: 30) {
                 Spacer()
-                transactionButton(systemName: "square.and.arrow.down", title: "Top up") {}
+                transactionButton(systemName: "square.and.arrow.down", title: "Top up") {
+                    showReceiveScreen = true
+                }
                 transactionButton(systemName: "square.and.arrow.up", title: "Withdraw") {
                     navPath.append("Hello World")
                 }
@@ -63,6 +61,13 @@ struct WalletView: View {
                 Spacer()
             }
             .padding(.top, 45)
+            .popover(isPresented: $showSendScreen, content: {
+                AddressPickerView(isShowing: $showSendScreen)
+                    .environmentObject(accountManager)
+            })
+            .popover(isPresented: $showReceiveScreen) {
+                ReceiveTokenView(isShowing: $showReceiveScreen)
+            }
 
             VStack {
                 HStack {

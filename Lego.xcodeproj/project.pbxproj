@@ -141,6 +141,8 @@
 		E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */; };
 		E2C327872BA5E83A0010E14B /* ConfirmTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C327862BA5E83A0010E14B /* ConfirmTransactionView.swift */; };
 		E2C327892BA5EB450010E14B /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C327882BA5EB450010E14B /* OutlineButton.swift */; };
+		E2C3278B2BA6D4F00010E14B /* ReceiveTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3278A2BA6D4F00010E14B /* ReceiveTokenView.swift */; };
+		E2C3278D2BA6DE1D0010E14B /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3278C2BA6DE1D0010E14B /* QRCodeGenerator.swift */; };
 		E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */; };
 		E2E9385B2ADA948D0045E20E /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385A2ADA948C0045E20E /* UserDTO.swift */; };
 		E2E9385D2ADA95740045E20E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385C2ADA95740045E20E /* UserService.swift */; };
@@ -303,6 +305,8 @@
 		E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
 		E2C327862BA5E83A0010E14B /* ConfirmTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionView.swift; sourceTree = "<group>"; };
 		E2C327882BA5EB450010E14B /* OutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineButton.swift; sourceTree = "<group>"; };
+		E2C3278A2BA6D4F00010E14B /* ReceiveTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveTokenView.swift; sourceTree = "<group>"; };
+		E2C3278C2BA6DE1D0010E14B /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorRowView.swift; sourceTree = "<group>"; };
 		E2E9385A2ADA948C0045E20E /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		E2E9385C2ADA95740045E20E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -649,6 +653,7 @@
 				E2579D1C29EDEBA0006ABEA8 /* NavigationBar.swift */,
 				E282BA032A095E33005C9F01 /* DismissButton.swift */,
 				E2290DB22B42E05200D5A403 /* RoundButton.swift */,
+				E2C3278C2BA6DE1D0010E14B /* QRCodeGenerator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -826,6 +831,7 @@
 		E2A884792A65D57D00B68A93 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				E2C3278A2BA6D4F00010E14B /* ReceiveTokenView.swift */,
 				E24FAA402BA485EA003CF17B /* SendFlow */,
 				E2A8847A2A65D5AF00B68A93 /* WalletView.swift */,
 				E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */,
@@ -1006,6 +1012,7 @@
 				E20DC3F92AA0D0D2001BBD61 /* AccountError.swift in Sources */,
 				E2A7D2612A8F927C00F885C3 /* DeveloperPath.swift in Sources */,
 				E2BCAC442A7AE35C00A14654 /* AuthPath.swift in Sources */,
+				E2C3278B2BA6D4F00010E14B /* ReceiveTokenView.swift in Sources */,
 				E2BC01FE2A90B09100337693 /* CreateNFTParams.swift in Sources */,
 				E295D6942A8F55FE006C26EC /* DeveloperView.swift in Sources */,
 				E24FAA3D2BA373CC003CF17B /* ErrorModifier.swift in Sources */,
@@ -1086,6 +1093,7 @@
 				E29C72372AA4E04500C05222 /* AccountService.swift in Sources */,
 				E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */,
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
+				E2C3278D2BA6DE1D0010E14B /* QRCodeGenerator.swift in Sources */,
 				E2B3CC492A9F7F1D00CDAD94 /* LocalStorage.swift in Sources */,
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
 				E2E9385D2ADA95740045E20E /* UserService.swift in Sources */,
