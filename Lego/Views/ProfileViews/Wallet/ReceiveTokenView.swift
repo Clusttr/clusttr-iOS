@@ -36,6 +36,7 @@ struct ReceiveTokenView: View {
                 Image(uiImage: accountManager.account.publicKey.generateQRCode())
                     .resizable()
                     .frame(width: 200, height: 200)
+                    .cornerRadius(8)
                 AddressView(account: accountManager.account)
                     .padding(.top, 32)
             }
@@ -43,6 +44,16 @@ struct ReceiveTokenView: View {
 
 
             Spacer()
+
+            Button {
+                //request airdrop
+            } label: {
+                Text("Click to request $10 airdrop")
+                    .font(.footnote)
+                    .bold()
+                    .foregroundStyle(Color._grey2)
+            }
+
             HStack(spacing: 24) {
                 ActionButton(title: "COPY") {
                     UIPasteboard.general.string = accountManager.account.publicKey.base58EncodedString
@@ -58,9 +69,6 @@ struct ReceiveTokenView: View {
                         )
                         .foregroundColor(._grey100)
                 }
-
-
-
             }
             .padding(24)
         }
@@ -68,7 +76,7 @@ struct ReceiveTokenView: View {
         .foregroundColor(._grey100)
         .background(Color._background)
         .toast(isPresenting: $showingCopyToast) {
-            AlertToast(displayMode: .hud, type: .complete(Color.green), title: "Copied Address")
+            AlertToast(displayMode: .banner(.pop), type: .complete(Color.green), title: "Copied Address")
         }
     }
 }
@@ -76,4 +84,10 @@ struct ReceiveTokenView: View {
 #Preview {
     ReceiveTokenView(isShowing: .constant(true))
         .environmentObject(AccountManager.mock())
+}
+
+class ReceiveTokenViewModel: ObservableObject {
+
+    func airdrop() {
+    }
 }
