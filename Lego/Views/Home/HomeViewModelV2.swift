@@ -14,36 +14,13 @@ class HomeViewModelV2: ObservableObject {
 
     init(assetService: IAssetService = AssetService()) {
         self.assetService = assetService
-        Task {
-            try? await AccountManager.tryOutProgram()
-        }
     }
 
     @MainActor
     func fetchRecentToken() async {
         do {
             let assets = try await assetService.fetchAssets()
-            nfts = assets.map { asset in
-                NFT(id: asset.id,
-                    mintHash: PublicKey(string: asset.id)!,
-                    owner: PublicKey(string: asset.id)!,
-                    name: asset.name,
-                    description: asset.description,
-                    location: asset.attribute.first(where: {$0.traitType == "address"})?.value ?? "",
-                    creator: "",
-                    image: asset.image,
-                    floorPrice: prices.randomElement()!,
-                    totalVolume: 50, //asset.supply,
-                    createdAt: Date(),
-                    assetModels: asset.files.map{ AssetModel(file: $0) },
-                    transactions: Transaction.data,
-                    valuations: Valuation.data,
-                    bedroom: Double(asset.attribute.first(where: {$0.traitType == "bedroom"})?.value ?? "0"),
-                    bathrooms: Double(asset.attribute.first(where: {$0.traitType == "bathrooms"})?.value ?? "0"),
-                    area: Double(asset.attribute.first(where: {$0.traitType == "area"})?.value ?? "0")
-                )
-            }
-            print(nfts)
+            nfts = assets.map { NFT($0) }
         } catch {
             print(error.localizedDescription)
         }

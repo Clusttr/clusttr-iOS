@@ -19,6 +19,9 @@ struct NFTDetailsView: View {
     @EnvironmentObject var accountManager: AccountManager
 
     @State var url: URL?
+    @State var isLoading = false
+    @State var showSuccess = false
+    @State var error: ClusttrError?
 
     init(nft: NFT) {
         self.nft = nft
@@ -133,9 +136,12 @@ struct NFTDetailsView: View {
             }
         }
         .sheet(isPresented: $showBuySheet) {
-            PurchaseNFTView(pricePerShare: nft.floorPrice / nft.totalVolume, availableShare: Int(nft.totalVolume))
+            PurchaseNFTView(pricePerShare: nft.floorPrice / nft.totalVolume, availableShare: Int(nft.totalVolume), onPurchase: purchase)
                 .presentationDetents([.height(420)])
         }
+        .loading(isLoading, loaderType: .regular)
+        .success($showSuccess)
+        .error($error)
     }
 
     var similarProperties: some View {
@@ -173,14 +179,33 @@ struct NFTDetailsView: View {
         }
         .font(.footnote)
     }
+
+    func purchase(units: Int) {
+        withAnimation(.linear) {
+            isLoading = true
+            showBuySheet = false
+        }
+
+        Task {
+            do {
+                let tx = try await nft.generateBuyInstruction(units: units, accountManager: accountManager)
+                let txString = try await accountManager.sendTransaction(transaction: tx)
+                showSuccess = true
+                print(txString)
+                isLoading = false
+                showSuccess = true
+            } catch {
+                isLoading = false
+                self.error = ClusttrError.failedTransaction
+            }
+        }
+    }
 }
 
 struct NFTDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NFTDetailsView(nft: NFT.fakeData[0])
             .environmentObject(AppState())
-            .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
+            .environmentObject(AccountManager.mock())
     }
 }
-
-

@@ -8,16 +8,22 @@
 import Combine
 import Foundation
 import Solana
+//import Generated
+import InventoryProgram
+import struct Solana.Transaction
 
 class AccountManager: ObservableObject {
     @Published var user: User!
     @Published var account: HotAccount
     @Published var solana: Solana
     @Published var balance: Lamports = Lamports(0)
-    @Published var usdcPubKey: PublicKey?
+    @Published var usdcPubKey = PublicKey(string: "9831HW6Ljt8knNaN6r6JEzyiey939A2me3JsdMymmz5J")!
     @Published var error: Error?
 
     @Published var cancelBag = Set<AnyCancellable>()
+
+    var transactionManager: ITransactionUtility
+    var accountUtility: IAccountUtility
 
     var publicKeyURL: URL {
         URL(string: "https://solscan.io/account/\(account.publicKey.base58EncodedString)=devnet")!
@@ -32,9 +38,11 @@ class AccountManager: ObservableObject {
         case prod
     }
 
-    init(accountFactory: IAccountFactory) {
+    init(accountFactory: IAccountFactory, transactionUtility: ITransactionUtility, accountUtility: IAccountUtility) {
         account = try! accountFactory.getAccount()
         self.solana = Self.getSolana()
+        self.transactionManager = transactionUtility
+        self.accountUtility = accountUtility
 
         observeAccount()
     }
@@ -92,8 +100,6 @@ class AccountManager: ObservableObject {
     //MARK: Set usdc Balance
     @Published var usdcBalance: TokenAccountBalance?
     func setUSDCBalance() {
-        guard let usdcPubKey = usdcPubKey else { return }
-
         Task {
             do {
                 let balance = try await solana.api.getTokenAccountBalance(pubkey: usdcPubKey.base58EncodedString)
@@ -119,13 +125,34 @@ class AccountManager: ObservableObject {
         return accountInfo.data.value
     }
 
-    static func tryOutProgram() async throws {
-        let solana = Self.getSolana()
-        let programs = try await solana.api.getProgramAccounts(publicKey: "SwaPpA9LAaLfeLi3a68M4DjnLqgtticKg6CnyNwgAC8", decodedTo: TokenSwapInfo.self)//"4ghb7LAzcmr5PYNkz2tgyEsPHB7Q7vHtiRfLDiFNoDj6")
-//        let program = programs.first
-//        print(program.pubkey)
-//        print(program.account)
-        let firstAccount = programs.first.unsafelyUnwrapped.account.data.value
-        print(programs)
+    func sendToken(to destination: PublicKey, amount: UInt64, decimals: UInt64, mint: PublicKey) async throws -> String {
+        return try await transactionManager.sendToken(to: destination,
+                                                      amount: amount,
+                                                      decimals: decimals,
+                                                      mint: mint,
+                                                      userAccount: account)
+    }
+
+    func sendUSDC(to destination: PublicKey, amount: Double) async throws -> String {
+        return try await transactionManager.sendToken(to: destination,
+                                                      amount: UInt64(amount),
+                                                      decimals: UInt64(amount),
+                                                      mint: usdcPubKey,
+                                                      userAccount: account)
+    }
+
+
+    func getATA(tokenMint: PublicKey, user: PublicKey? = nil) async throws -> PublicKey {
+        try await accountUtility.getATA(tokenMint: tokenMint, user: user, userAccount: account)
+    }
+
+    func sendTransaction(transaction: TransactionInstruction) async throws -> String {
+        try await transactionManager.sendTransaction(transaction, userAccount: account)
+    }
+
+    static func mock() -> AccountManager {
+        AccountManager(accountFactory: AccountFactoryDemo(),
+                       transactionUtility: TransactionUtilityDouble(),
+                       accountUtility: AccountUtilityDouble())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct PriceHistoryComponent: View {
-    var transactions: [Transaction]
+    var transactions: [cTransaction]
     var valuations: [Valuation]
     var body: some View {
         VStack {
@@ -69,6 +69,6 @@ struct PriceHistoryComponent: View {
 
 struct PriceHistoryComponent_Previews: PreviewProvider {
     static var previews: some View {
-        PriceHistoryComponent(transactions: Transaction.data, valuations: Valuation.data)
+        PriceHistoryComponent(transactions: cTransaction.data, valuations: Valuation.data)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import Fakery
 
 typealias Address = String
-struct Transaction: Identifiable, Codable {
+struct cTransaction: Identifiable, Codable {
     var id: UUID
     var createdAt: Date
     var amount: Double
@@ -19,7 +19,7 @@ struct Transaction: Identifiable, Codable {
 //    var assetId: Int
 }
 
-extension Array where Element == Transaction {
+extension Array where Element == cTransaction {
 
     func yearlyAveragePrice() -> [Int: Double] {
         var yearToAverage: [Int: Double] = [:]
@@ -40,17 +40,17 @@ extension Array where Element == Transaction {
     }
 }
 
-extension Transaction {
-    static var data: [Transaction] {
+extension cTransaction {
+    static var data: [cTransaction] {
         let faker = Faker()
         let address1 = "0x32CbB3b2Fc1d659876e2F3B57c824EE072Ad42aC"
         let address2 = "0x95b36E1655775B733B2026B482725c5E40ada620"
         return [
-            Transaction(id: UUID(), createdAt: faker.date.backward(days: 1200), amount: 56_000, from: address1, to: address2),
-            Transaction(id: UUID(), createdAt: faker.date.backward(days: 800), amount: 71_000, from: address1, to: address2),
-            Transaction(id: UUID(), createdAt: faker.date.backward(days: 600), amount: 80_000, from: address1, to: address2),
-            Transaction(id: UUID(), createdAt: faker.date.backward(days: 350), amount: 93_000, from: address1, to: address2),
-            Transaction(id: UUID(), createdAt: faker.date.backward(days: 100), amount: 102_000, from: address1, to: address2),
+            cTransaction(id: UUID(), createdAt: faker.date.backward(days: 1200), amount: 56_000, from: address1, to: address2),
+            cTransaction(id: UUID(), createdAt: faker.date.backward(days: 800), amount: 71_000, from: address1, to: address2),
+            cTransaction(id: UUID(), createdAt: faker.date.backward(days: 600), amount: 80_000, from: address1, to: address2),
+            cTransaction(id: UUID(), createdAt: faker.date.backward(days: 350), amount: 93_000, from: address1, to: address2),
+            cTransaction(id: UUID(), createdAt: faker.date.backward(days: 100), amount: 102_000, from: address1, to: address2),
         ]
     }
 }

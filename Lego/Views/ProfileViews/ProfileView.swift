@@ -202,6 +202,6 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView(onClickMenu: {}, viewModel: ProfileViewModel(userService: UserServiceDouble(),
                                                                  nftService: NFTServiceDouble()))
             .environmentObject(AppState())
-            .environmentObject(AccountManager(accountFactory: AccountFactoryDemo()))
+            .environmentObject(AccountManager.mock())
     }
 }

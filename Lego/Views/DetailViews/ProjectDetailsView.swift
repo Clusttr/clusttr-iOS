@@ -134,7 +134,7 @@ struct ProjectDetailsView: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
 
-                    PriceHistoryComponent(transactions: Transaction.data, valuations: Valuation.data)
+                    PriceHistoryComponent(transactions: cTransaction.data, valuations: Valuation.data)
 
                     NFTGrid(NFTs: nfts, showBidTime: true)
 
