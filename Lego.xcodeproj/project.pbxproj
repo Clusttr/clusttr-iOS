@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -195,28 +195,6 @@
 		E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPField.swift; sourceTree = "<group>"; };
 		E24AE4CF2A7ED33800FE2903 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
-		E24FAA082BA17483003CF17B /* addAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAsset.swift; sourceTree = "<group>"; };
-		E24FAA092BA17483003CF17B /* buyAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buyAsset.swift; sourceTree = "<group>"; };
-		E24FAA0A2BA17483003CF17B /* updateAssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateAssetInfo.swift; sourceTree = "<group>"; };
-		E24FAA0B2BA17483003CF17B /* closeInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = closeInventory.swift; sourceTree = "<group>"; };
-		E24FAA0C2BA17483003CF17B /* initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialize.swift; sourceTree = "<group>"; };
-		E24FAA0D2BA17483003CF17B /* withdrawAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withdrawAsset.swift; sourceTree = "<group>"; };
-		E24FAA0E2BA17483003CF17B /* createInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createInventory.swift; sourceTree = "<group>"; };
-		E24FAA102BA17483003CF17B /* AssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInfo.swift; sourceTree = "<group>"; };
-		E24FAA112BA17483003CF17B /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		E24FAA122BA17483003CF17B /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
-		E24FAA142BA17483003CF17B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		E24FAA172BA17494003CF17B /* addAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAsset.swift; sourceTree = "<group>"; };
-		E24FAA182BA17494003CF17B /* buyAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buyAsset.swift; sourceTree = "<group>"; };
-		E24FAA192BA17494003CF17B /* updateAssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateAssetInfo.swift; sourceTree = "<group>"; };
-		E24FAA1A2BA17494003CF17B /* closeInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = closeInventory.swift; sourceTree = "<group>"; };
-		E24FAA1B2BA17494003CF17B /* initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialize.swift; sourceTree = "<group>"; };
-		E24FAA1C2BA17494003CF17B /* withdrawAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withdrawAsset.swift; sourceTree = "<group>"; };
-		E24FAA1D2BA17494003CF17B /* createInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createInventory.swift; sourceTree = "<group>"; };
-		E24FAA1F2BA17494003CF17B /* AssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInfo.swift; sourceTree = "<group>"; };
-		E24FAA202BA17494003CF17B /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		E24FAA212BA17494003CF17B /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
-		E24FAA232BA17494003CF17B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		E24FAA242BA1750B003CF17B /* Inventory */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Inventory; sourceTree = "<group>"; };
 		E24FAA252BA1752F003CF17B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = Inventory/Package.swift; sourceTree = "<group>"; };
 		E24FAA322BA2E011003CF17B /* NFT+Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+Transactions.swift"; sourceTree = "<group>"; };
@@ -478,94 +456,8 @@
 			children = (
 				E24FAA252BA1752F003CF17B /* Package.swift */,
 				E24FAA242BA1750B003CF17B /* Inventory */,
-				E24FAA152BA17494003CF17B /* InventoryProgram */,
-				E24FAA062BA17483003CF17B /* InventoryProgram */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E24FAA062BA17483003CF17B /* InventoryProgram */ = {
-			isa = PBXGroup;
-			children = (
-				E24FAA072BA17483003CF17B /* instructions */,
-				E24FAA0F2BA17483003CF17B /* accounts */,
-				E24FAA122BA17483003CF17B /* Program.swift */,
-				E24FAA132BA17483003CF17B /* errors */,
-			);
-			path = InventoryProgram;
-			sourceTree = "<group>";
-		};
-		E24FAA072BA17483003CF17B /* instructions */ = {
-			isa = PBXGroup;
-			children = (
-				E24FAA082BA17483003CF17B /* addAsset.swift */,
-				E24FAA092BA17483003CF17B /* buyAsset.swift */,
-				E24FAA0A2BA17483003CF17B /* updateAssetInfo.swift */,
-				E24FAA0B2BA17483003CF17B /* closeInventory.swift */,
-				E24FAA0C2BA17483003CF17B /* initialize.swift */,
-				E24FAA0D2BA17483003CF17B /* withdrawAsset.swift */,
-				E24FAA0E2BA17483003CF17B /* createInventory.swift */,
-			);
-			path = instructions;
-			sourceTree = "<group>";
-		};
-		E24FAA0F2BA17483003CF17B /* accounts */ = {
-			isa = PBXGroup;
-			children = (
-				E24FAA102BA17483003CF17B /* AssetInfo.swift */,
-				E24FAA112BA17483003CF17B /* Inventory.swift */,
-			);
-			path = accounts;
-			sourceTree = "<group>";
-		};
-		E24FAA132BA17483003CF17B /* errors */ = {
-			isa = PBXGroup;
-			children = (
-				E24FAA142BA17483003CF17B /* Error.swift */,
-			);
-			path = errors;
-			sourceTree = "<group>";
-		};
-		E24FAA152BA17494003CF17B /* InventoryProgram */ = {
-			isa = PBXGroup;
-			children = (
-				E24FAA162BA17494003CF17B /* instructions */,
-				E24FAA1E2BA17494003CF17B /* accounts */,
-				E24FAA212BA17494003CF17B /* Program.swift */,
-				E24FAA222BA17494003CF17B /* errors */,
-			);
-			path = InventoryProgram;
-			sourceTree = "<group>";
-		};
-		E24FAA162BA17494003CF17B /* instructions */ = {
-			isa = PBXGroup;
-			children = (
-				E24FAA172BA17494003CF17B /* addAsset.swift */,
-				E24FAA182BA17494003CF17B /* buyAsset.swift */,
-				E24FAA192BA17494003CF17B /* updateAssetInfo.swift */,
-				E24FAA1A2BA17494003CF17B /* closeInventory.swift */,
-				E24FAA1B2BA17494003CF17B /* initialize.swift */,
-				E24FAA1C2BA17494003CF17B /* withdrawAsset.swift */,
-				E24FAA1D2BA17494003CF17B /* createInventory.swift */,
-			);
-			path = instructions;
-			sourceTree = "<group>";
-		};
-		E24FAA1E2BA17494003CF17B /* accounts */ = {
-			isa = PBXGroup;
-			children = (
-				E24FAA1F2BA17494003CF17B /* AssetInfo.swift */,
-				E24FAA202BA17494003CF17B /* Inventory.swift */,
-			);
-			path = accounts;
-			sourceTree = "<group>";
-		};
-		E24FAA222BA17494003CF17B /* errors */ = {
-			isa = PBXGroup;
-			children = (
-				E24FAA232BA17494003CF17B /* Error.swift */,
-			);
-			path = errors;
 			sourceTree = "<group>";
 		};
 		E24FAA402BA485EA003CF17B /* SendFlow */ = {
@@ -952,7 +844,6 @@
 				E2A7D2642A9010E600F885C3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				E28BDA0D2A9E5BFC0083EF0B /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */,
-				E2FA20682B5911E500979123 /* XCLocalSwiftPackageReference "../../../RustroverProjects/clusttr/account-manager/src/generated" */,
 			);
 			productRefGroup = E22C58D729E8167F0065EEE2 /* Products */;
 			projectDirPath = "";
@@ -1321,13 +1212,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		E2FA20682B5911E500979123 /* XCLocalSwiftPackageReference "../../../RustroverProjects/clusttr/account-manager/src/generated" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../RustroverProjects/clusttr/account-manager/src/generated";
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		E224832B2A8077FF00AF893C /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
