@@ -8,7 +8,6 @@
 import Combine
 import Foundation
 import Solana
-//import Generated
 import InventoryProgram
 import struct Solana.Transaction
 
