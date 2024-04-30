@@ -26,7 +26,7 @@ struct WalletView: View {
             VStack(spacing: 8) {
                 HStack(alignment: .bottom, spacing:2) {
                     Text(accountManager.usdcBalance?.uiAmount ?? 0,
-                         format: .currency(code: "usd"))
+                         format: .currency(code: "USD"))
                     .font(.largeTitle)
                     .fontWeight(.bold)
 

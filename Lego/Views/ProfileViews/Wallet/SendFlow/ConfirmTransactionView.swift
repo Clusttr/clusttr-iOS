@@ -45,7 +45,7 @@ struct ConfirmTransactionView: View {
                     .fontWeight(.medium)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                Text("200 USD")
+                Text("\(amount) USD")
                     .foregroundStyle(Color.white)
                     .font(.largeTitle)
                     .fontWeight(.heavy)

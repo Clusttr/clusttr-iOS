@@ -79,12 +79,11 @@ class AccountManager: ObservableObject {
     }
 
     //MARK: Associate Token Account
-    private let USDC_PUBLIC_KEY = PublicKey(string: "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU")!
     func setUSDCAssociateAccount() {
         Task {
             do {
                 let (_, publicKey) = try await solana.action.getOrCreateAssociatedTokenAccount(owner: account.publicKey,
-                                                                                               tokenMint: USDC_PUBLIC_KEY,
+                                                                                               tokenMint: PublicKey.USDC,
                                                                                                payer: account)
                 DispatchQueue.main.async {
                     self.usdcPubKey = publicKey
@@ -92,6 +91,7 @@ class AccountManager: ObservableObject {
                 }
             } catch {
                 print(error.localizedDescription)
+                self.setUSDCBalance()
             }
         }
     }
@@ -154,4 +154,8 @@ class AccountManager: ObservableObject {
                        transactionUtility: TransactionUtilityDouble(),
                        accountUtility: AccountUtilityDouble())
     }
+}
+
+extension PublicKey {
+    static let USDC = PublicKey(string: "3es74o8wDr3e78opFkQttaaAbnjsUewM62QLPx2cxZmM")!
 }
