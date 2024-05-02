@@ -10,7 +10,7 @@ import Solana
 
 protocol ITransactionUtility {
     func sendTransaction(_ transaction: TransactionInstruction, userAccount: HotAccount) async throws -> String
-    func sendToken(to destination: PublicKey, amount: UInt64, decimals: UInt64, mint: PublicKey, userAccount: Account) async throws -> String
+    func sendToken(from: PublicKey, to destination: PublicKey, amount: Double, decimals: UInt8, mint: PublicKey, payer: Account) async throws -> String
 }
 
 class TransactionUtility: ITransactionUtility {
@@ -31,24 +31,26 @@ class TransactionUtility: ITransactionUtility {
         }
     }
 
-    func sendToken(to destination: PublicKey, amount: UInt64, decimals: UInt64, mint: PublicKey, userAccount: Account) async throws -> String {
+    func sendToken(from: PublicKey,to destination: PublicKey, amount: Double, decimals: UInt8, mint: PublicKey, payer: Account) async throws -> String {
         let solana = AccountManager.getSolana()
         return try await solana.action.sendSPLTokens(mintAddress: mint.base58EncodedString,
-                                    decimals: 6,
-                                    from: userAccount.publicKey.base58EncodedString,
-                                    to: destination.base58EncodedString,
-                                    amount: amount,
-                                    payer: userAccount)
+                                                     decimals: Decimals(decimals),
+                                                     from: from.base58EncodedString,
+                                                     to: destination.base58EncodedString,
+                                                     amount: UInt64(amount),
+                                                     allowUnfundedRecipient: true,
+                                                     payer: payer)
     }
 }
 
 class TransactionUtilityDouble: ITransactionUtility {
+    
     func sendTransaction(_ transaction: TransactionInstruction, userAccount: HotAccount) async throws -> String {
         try? await Task.sleep(for: .seconds(3))
         return "someFakeTransactionHash-1234"
     }
 
-    func sendToken(to destination: PublicKey, amount: UInt64, decimals: UInt64, mint: PublicKey, userAccount: Account) async throws -> String {
+    func sendToken(from: PublicKey, to destination: PublicKey, amount: Double, decimals: UInt8, mint: PublicKey, payer: Account) async throws -> String {
         try? await Task.sleep(for: .seconds(3))
         return "someFakeTransactionHash-1234"
     }

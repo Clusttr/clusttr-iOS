@@ -12,6 +12,7 @@ struct AddressPickerView: View {
     @Binding var isShowing: Bool
     @State var pubkey = ""
     @State private var navPath = NavigationPath()
+    
     var body: some View {
         NavigationStack(path: $navPath) {
             VStack {

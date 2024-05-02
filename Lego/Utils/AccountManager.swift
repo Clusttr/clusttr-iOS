@@ -32,6 +32,10 @@ class AccountManager: ObservableObject {
         URL(string: "https://solscan.io/token/\(mintHash.base58EncodedString)?cluster=devnet")!
     }
 
+    func txURL(tx: String) -> URL {
+        URL(string: "https://solscan.io/tx/\(tx)?cluster=devnet")!
+    }
+
     enum env {
         case dev
         case prod
@@ -79,12 +83,11 @@ class AccountManager: ObservableObject {
     }
 
     //MARK: Associate Token Account
-    private let USDC_PUBLIC_KEY = PublicKey(string: "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU")!
     func setUSDCAssociateAccount() {
         Task {
             do {
                 let (_, publicKey) = try await solana.action.getOrCreateAssociatedTokenAccount(owner: account.publicKey,
-                                                                                               tokenMint: USDC_PUBLIC_KEY,
+                                                                                               tokenMint: PublicKey.USDC,
                                                                                                payer: account)
                 DispatchQueue.main.async {
                     self.usdcPubKey = publicKey
@@ -92,6 +95,7 @@ class AccountManager: ObservableObject {
                 }
             } catch {
                 print(error.localizedDescription)
+                self.setUSDCBalance()
             }
         }
     }
@@ -124,20 +128,15 @@ class AccountManager: ObservableObject {
         return accountInfo.data.value
     }
 
-    func sendToken(to destination: PublicKey, amount: UInt64, decimals: UInt64, mint: PublicKey) async throws -> String {
-        return try await transactionManager.sendToken(to: destination,
+    func sendUSDC(to destination: PublicKey, amount: Double) async throws -> String {
+        guard let usdcBalance = usdcBalance, let decimals = usdcBalance.decimals else { return "fail"} // throw error instead
+        let amount = amount * (pow(10, Double(decimals)))
+        return try await transactionManager.sendToken(from: usdcPubKey,
+                                                      to: destination,
                                                       amount: amount,
                                                       decimals: decimals,
-                                                      mint: mint,
-                                                      userAccount: account)
-    }
-
-    func sendUSDC(to destination: PublicKey, amount: Double) async throws -> String {
-        return try await transactionManager.sendToken(to: destination,
-                                                      amount: UInt64(amount),
-                                                      decimals: UInt64(amount),
-                                                      mint: usdcPubKey,
-                                                      userAccount: account)
+                                                      mint: PublicKey.USDC,
+                                                      payer: account)
     }
 
 
@@ -153,5 +152,60 @@ class AccountManager: ObservableObject {
         AccountManager(accountFactory: AccountFactoryDemo(),
                        transactionUtility: TransactionUtilityDouble(),
                        accountUtility: AccountUtilityDouble())
+    }
+}
+
+extension PublicKey {
+    static let USDC = PublicKey(string: "3es74o8wDr3e78opFkQttaaAbnjsUewM62QLPx2cxZmM")!
+}
+
+
+@available(iOS 13.0, *)
+@available(macOS 10.15, *)
+public extension Action {
+    func sendSPLTokens(
+        mintAddress: String,
+        decimals: Decimals,
+        from fromPublicKey: String,
+        to destinationAddress: String,
+        amount: UInt64,
+        allowUnfundedRecipient: Bool = false,
+        payer: Account
+    ) async throws -> TransactionID {
+        try await withCheckedThrowingContinuation { c in
+            self.sendSPLTokens(
+                mintAddress: mintAddress,
+                from: fromPublicKey,
+                to: destinationAddress,
+                amount: amount,
+                allowUnfundedRecipient: allowUnfundedRecipient,
+                payer: payer,
+                onComplete: c.resume(with:)
+            )
+        }
+    }
+}
+
+public extension TokenAccountBalance {
+    init() {
+        let balance = TokenAmountBal(amount: "100_000_000", decimals: 6)
+        let encoder = JSONEncoder()
+        let value = try! encoder.encode(balance)
+        try! self.init(from: value as! Decoder)
+    }
+}
+
+struct TokenAmountBal: Codable, Hashable, Equatable {
+    let uiAmount: Float64?
+    let amount: String
+    let decimals: UInt8?
+    let uiAmountString: String?
+
+    init(amount: String, decimals: UInt8?) {
+        self.amount = amount
+        self.decimals = decimals
+        let amountUI = Double(amount)! / (pow(10, Double(decimals!)))
+        self.uiAmount = amountUI
+        self.uiAmountString = "\(amountUI)"
     }
 }
