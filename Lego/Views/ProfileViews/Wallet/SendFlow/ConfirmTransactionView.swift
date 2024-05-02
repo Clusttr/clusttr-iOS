@@ -12,7 +12,7 @@ struct ConfirmTransactionView: View {
     @Binding var navPath: NavigationPath
     @Binding var isShowing: Bool
     var amount: Double
-    var receiver: PublicKey
+    var destination: PublicKey
 
     @State var sendTx: String?
     @State var error: ClusttrError?
@@ -45,7 +45,7 @@ struct ConfirmTransactionView: View {
                     .fontWeight(.medium)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                Text("\(amount) USD")
+                Text(amount, format: .currency(code: "USD"))
                     .foregroundStyle(Color.white)
                     .font(.largeTitle)
                     .fontWeight(.heavy)
@@ -54,7 +54,7 @@ struct ConfirmTransactionView: View {
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
 
-                AddressView(publicKey: receiver)
+                AddressView(publicKey: destination)
             }
             .padding(.horizontal, 24)
             .padding(.top, 32)
@@ -66,15 +66,14 @@ struct ConfirmTransactionView: View {
             VStack {
                 Text("Transaction Successful")
 
-                Button {
-
-                } label: {
+                Link(destination: accountManager.txURL(tx: sendTx ?? ""), label: {
                     Text("View tx:" + getShort(address: sendTx) + "on Solscan")
-                }
 
+                })
             }
             .foregroundColor(Color._grey100)
-            .font(.caption)
+            .font(.caption2)
+            .fontWeight(.medium)
             .opacity(sendTx == nil ? 0 : 1)
 
             HStack(spacing: 24) {
@@ -100,9 +99,10 @@ struct ConfirmTransactionView: View {
         isLoading = true
         Task {
             do {
-                let tx = try await accountManager.sendUSDC(to: receiver, amount: amount)
+                let tx = try await accountManager.sendUSDC(to: destination, amount: amount)
                 sendTx = tx
                 isLoading = false
+                accountManager.setUSDCBalance()
             } catch {
                 self.error = ClusttrError.failedTransaction
                 isLoading = false
@@ -126,7 +126,7 @@ struct ConfirmTransactionView: View {
     ConfirmTransactionView(navPath: .constant(NavigationPath()),
                            isShowing: .constant(true),
                            amount: 100.07,
-                           receiver: PublicKey(string:"DEVwHJ57QMPPArD2CyjboMbdWvjEMjXRigYpaUNDTD7o")!
+                           destination: PublicKey(string:"DEVwHJ57QMPPArD2CyjboMbdWvjEMjXRigYpaUNDTD7o")!
     )
     .environmentObject(AccountManager.mock())
 }

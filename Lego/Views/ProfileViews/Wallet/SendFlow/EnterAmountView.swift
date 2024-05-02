@@ -65,7 +65,7 @@ struct EnterAmountView: View {
 
 
                 Button(action: setMax) {
-                    Text("Max: \(String(describing: accountManager.usdcBalance?.amount ?? "0")) USD")
+                    Text("Max: \(String(describing: accountManager.usdcBalance?.uiAmountString ?? "0")) USD")
                         .foregroundStyle(Color.white)
                         .fontWeight(.medium)
                         .padding(.vertical, 12)
@@ -77,12 +77,13 @@ struct EnterAmountView: View {
             .padding(.top, 60)
             Spacer()
             NavigationLink {
-                ConfirmTransactionView(navPath: $navPath, isShowing: $isShowing, amount: Double(amount) ?? 0.0, receiver: pubKey)
+                ConfirmTransactionView(navPath: $navPath, isShowing: $isShowing, amount: Double(amount) ?? 0.0, destination: pubKey)
             } label: {
-                ActionButton(title: "Continue")
+                ActionButton(title: "Continue", disabled: isContinueDisabled)
             }
             .padding(.horizontal)
             .padding(.bottom)
+            .disabled(isContinueDisabled)
 
         }
         .navigationBarHidden(true)
@@ -94,6 +95,13 @@ struct EnterAmountView: View {
     func setMax() {
         amount = tokenBalance.formatted()
     }
+
+    var isContinueDisabled: Bool {
+        guard let amount = Double(amount) else { return true }
+        guard amount != 0 else { return  true }
+        guard amount <= accountManager.usdcBalance?.uiAmount ?? 0 else { return true }
+        return false
+    }
 }
 
 #Preview {
@@ -102,3 +110,4 @@ struct EnterAmountView: View {
                     pubKey: PublicKey(string: "9831HW6Ljt8knNaN6r6JEzyiey939A2me3JsdMymmz5J")!)
     .environmentObject(AccountManager.mock())
 }
+
