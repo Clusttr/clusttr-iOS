@@ -10,6 +10,7 @@ import Solana
 
 class HomeViewModelV2: ObservableObject {
     @Published var nfts: [NFT] = []
+    @Published var bookmarkedNfts: [String] = []
     private let assetService: IAssetService
 
     init(assetService: IAssetService = AssetService()) {
@@ -20,7 +21,21 @@ class HomeViewModelV2: ObservableObject {
     func fetchRecentToken() async {
         do {
             let assets = try await assetService.fetchAssets()
-            nfts = assets.map { NFT($0) }
+            nfts = assets.map {
+                var value = NFT($0)
+                value.isBookmarked = bookmarkedNfts.contains(value.id)
+                return value
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    @MainActor
+    func fetchBookmarkedAssets() async {
+        do {
+            let bookmarkedAssets = try await assetService.getBookmarkedAssets()
+            bookmarkedNfts = bookmarkedAssets
         } catch {
             print(error.localizedDescription)
         }

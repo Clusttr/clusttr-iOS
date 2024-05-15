@@ -27,4 +27,7 @@ struct ClusttrAPIs {
 
     //MARK: USER
     static let user = "/user"
+
+    //MARK: BOOKMARK
+    static let bookmark = "/bookmark"
 }

@@ -13,6 +13,7 @@ extension URLSession {
         case get = "GET"
         case post = "POST"
         case put = "PUT"
+        case delete = "DELETE"
     }
 
     public enum APIError: Error {

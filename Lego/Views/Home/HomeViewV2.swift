@@ -79,6 +79,7 @@ struct HomeViewV2: View {
             }
         }
         .task {
+            await viewModel.fetchBookmarkedAssets()
             await viewModel.fetchRecentToken()
         }
     }
