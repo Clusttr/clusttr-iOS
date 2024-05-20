@@ -34,7 +34,7 @@ class HomeViewModelV2: ObservableObject {
     @MainActor
     func fetchBookmarkedAssets() async {
         do {
-            let bookmarkedAssets = try await assetService.getBookmarkedAssets()
+            let bookmarkedAssets = try await assetService.fetchBookmarkedAssets()
             bookmarkedNfts = bookmarkedAssets
         } catch {
             print(error.localizedDescription)

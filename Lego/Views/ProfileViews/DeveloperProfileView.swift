@@ -122,7 +122,7 @@ struct DeveloperProfileView: View {
                 Text("Assets")
                     .font(.headline)
                     .padding(.leading, 8)
-                NFTGrid(NFTs: nfts)
+                NFTGrid(NFTs: nfts.map(\.id))
             }
             .padding(.top, 20)
         }

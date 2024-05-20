@@ -9,7 +9,7 @@ import Foundation
 
 protocol IAssetService {
     func fetchAssets() async throws -> [AssetDTO]
-    func getBookmarkedAssets() async throws -> [String]
+    func fetchBookmarkedAssets() async throws -> [String]
     func bookmark(id: String) async throws -> String
     func unbookmark(id: String) async throws -> String
 }
@@ -19,7 +19,7 @@ struct AssetService: IAssetService {
         return try await URLSession.shared.request(path: ClusttrAPIs.recentAsset, httpMethod: .get)
     }
 
-    func getBookmarkedAssets() async throws -> [String] {
+    func fetchBookmarkedAssets() async throws -> [String] {
         return try await URLSession.shared.request(path: ClusttrAPIs.bookmark, httpMethod: .get)
     }
 
@@ -40,7 +40,7 @@ struct AssetServiceDouble: IAssetService {
         return [AssetDTO.demo()]
     }
 
-    func getBookmarkedAssets() async throws -> [String] {
+    func fetchBookmarkedAssets() async throws -> [String] {
         try? await Task.sleep(for: .seconds(3))
         return ["random-asset-pubkey"]
     }

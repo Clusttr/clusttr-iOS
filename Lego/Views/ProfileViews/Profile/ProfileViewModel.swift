@@ -28,21 +28,6 @@ class ProfileViewModel: ObservableObject {
         //.store(in: &subscription)
     }
 
-
-    @MainActor
-    func fetchNFTs(userPublicKey: PublicKey) {
-        Task {
-            do {
-                let result = try await nftService.fetchNFts()
-                self.nfts = result.filter({ nft in
-                    nft.owner == userPublicKey
-                })
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-
     @MainActor
     func fetchUserProfile() {
         Task {

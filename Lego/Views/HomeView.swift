@@ -38,7 +38,7 @@ struct HomeView: View {
                             .font(.headline)
                             .fontWeight(.bold)
                             .padding(.horizontal)
-                        NFTGrid(NFTs: viewModel.nfts)
+                        NFTGrid(NFTs: viewModel.nfts.map(\.id))
                     }
                 }
                 .padding(.bottom, 100)

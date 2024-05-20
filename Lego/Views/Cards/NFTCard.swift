@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct NFTCard: View {
-    var nft: NFT
-    var showBidTime: Bool = true
+    var vm: NFTCardViewModel
 
     var body: some View {
         ZStack {
-            AsyncImage(url: URL(string: nft.image)!) { image in
+            AsyncImage(url: URL(string: vm.image)!) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -25,29 +24,20 @@ struct NFTCard: View {
 
 
             VStack(alignment: .leading) {
-//                Text(nft.createdAt, style: .relative)
-//                    .font(.roboto(size: 12))
-//                    .padding(EdgeInsets(top: 3, leading: 5, bottom: 4, trailing: 7))
-//                    .background(Color._grey2)
-//                    .cornerRadius(50)
-//                    .padding(.top, 7)
-//                    .padding(.leading, 6)
-//                    .opacity(showBidTime ? 1 : 0)
-
                 Spacer()
 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(spacing: 4) {
-                        Text(nft.name)
+                        Text(vm.name)
                     }
 
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("FLOOR")
+                            Text("PRICE")
                                 .font(.robotoMedium(size: 8))
                                 .foregroundColor(._grey)
 
-                            Text("\(nft.floorPrice.roundUpString(1)) ETH")
+                            Text(vm.price, format: .number)
                         }
 
                         Spacer()
@@ -57,7 +47,7 @@ struct NFTCard: View {
                                 .font(.robotoMedium(size: 8))
                                 .foregroundColor(._grey)
 
-                            Text("\(nft.totalVolume.roundUpString(1)) ETH")
+                            Text(vm.amount, format: .currency(code: "USD"))
                         }
                     }
                 }
@@ -81,6 +71,37 @@ struct NFTCard: View {
 
 struct NFTCard_Previews: PreviewProvider {
     static var previews: some View {
-        NFTCard(nft: .fakeData[0])
+        NFTCard(vm: NFTCardViewModel(assetId: ""))
     }
+}
+
+import Solana
+class NFTCardViewModel: ObservableObject {
+    let assetId: String
+    @Published var name: String = ""
+    @Published var image: String = Image.placeholder
+    @Published var price: Double = 0.0
+    @Published var amount: Int = 0
+
+    let assetService: IAssetService
+
+    init(assetId: String, assetService: IAssetService = AssetService()) {
+        self.assetId = assetId
+        self.assetService = assetService
+    }
+
+    init(asset: AssetDTO, assetService: IAssetService = AssetService()) {
+        self.assetId = asset.id
+        self.name = asset.name
+        self.amount = 1200
+        self.assetService = assetService
+    }
+
+    func fetchAsset() {
+        //let asset = assetService
+    }
+}
+
+extension Image {
+    static let placeholder = "https://sunrisedaycamp.org/wp-content/uploads/2020/10/placeholder.png"
 }

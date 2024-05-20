@@ -12,8 +12,13 @@ struct MainView: View {
     @State var isHidden = false
     @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @EnvironmentObject var appState: AppState
+    let accountManager: AccountManager
 
-    init() {
+    init(accountManger: AccountManager = AccountManager(accountFactory: try! AccountFactory(),
+                                                        transactionUtility: TransactionUtility(),
+                                                        accountUtility: AccountUtility())) 
+    {
+        self.accountManager = accountManger
         UITabBar.appearance().isHidden = true
     }
 
@@ -33,8 +38,7 @@ struct MainView: View {
                 .offset(y: appState.isNavBarHidden ? 150 : 10)
         }
         .navigationBarBackButtonHidden(true)
-        .environmentObject(AccountManager(accountFactory: try! AccountFactory(),
-                                          transactionUtility: TransactionUtility(), accountUtility: AccountUtility()))
+        .environmentObject(accountManager)
         .task {
             print(ClusttrAPIs.getAccessToken())
         }
@@ -43,8 +47,8 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(accountManger: AccountManager.mock())
             .environmentObject(AppState())
-            .environmentObject(AccountManager.mock())
+//            .environmentObject(AccountManager.mock())
     }
 }
