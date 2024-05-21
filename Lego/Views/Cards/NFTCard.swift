@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NFTCard: View {
-    var vm: NFTCardViewModel
+    @StateObject var vm: NFTCardViewModel
 
     var body: some View {
         ZStack {
@@ -66,12 +66,17 @@ struct NFTCard: View {
             RoundedRectangle(cornerRadius: 20)
                 .strokeBorder(.white.opacity(0.25), lineWidth: 1)
         }
+        .task {
+            await vm.fetchAsset()
+        }
     }
 }
 
 struct NFTCard_Previews: PreviewProvider {
     static var previews: some View {
-        NFTCard(vm: NFTCardViewModel(assetId: ""))
+        NFTCard(vm: NFTCardViewModel(assetId: "", assetService: AssetServiceDouble()))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color._grey800)
     }
 }
 
@@ -93,12 +98,20 @@ class NFTCardViewModel: ObservableObject {
     init(asset: AssetDTO, assetService: IAssetService = AssetService()) {
         self.assetId = asset.id
         self.name = asset.name
+        self.image = asset.image
         self.amount = 1200
         self.assetService = assetService
     }
 
-    func fetchAsset() {
-        //let asset = assetService
+    func fetchAsset() async {
+        do {
+            let asset = try await assetService.fetchAsset(id: assetId)
+            self.image = asset.image
+            self.price = 120
+            self.amount = 389
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 

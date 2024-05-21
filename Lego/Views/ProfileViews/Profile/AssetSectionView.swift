@@ -15,12 +15,6 @@ struct AssetSectionView: View {
 
     var onSearchBarFocused: (Bool) -> Void
 
-//    init(vm: AssetSectionViewModel = AssetSectionViewModel(),
-//         onSearchBarFocused: @escaping (Bool) -> Void) {
-//        self.onSearchBarFocused = onSearchBarFocused
-//        self.vm = vm
-//    }
-
     var body: some View {
         VStack(spacing: 0) {
             searchBar
@@ -93,47 +87,4 @@ struct AssetSectionView: View {
                                                assetService: AssetServiceDouble())) {_ in }
         .background(Color._grey800)
         .environmentObject(AccountManager.mock())
-}
-
-
-import Solana
-
-class AssetSectionViewModel: ObservableObject {
-    @Published var nfts: [String] = []
-    @Published var bookmarkedNFTs: [String] = []
-    @Published var searchWord = ""
-    let nftService: INFTService
-    let assetService: IAssetService
-
-    init(nftService: INFTService = NFTService(),
-         assetService: IAssetService = AssetService())
-    {
-        self.nftService = nftService
-        self.assetService = assetService
-    }
-
-    @MainActor
-    func fetchNFTs(userPublicKey: PublicKey) async {
-        do {
-            let result = try await nftService.fetchNFts()
-            self.nfts = result.filter({ nft in
-                nft.owner == userPublicKey
-            }).map(\.id)
-        } catch {
-            print(error.localizedDescription)
-        }
-//        DispatchQueue.main.async {
-//            self.nfts = ["", "b"]
-//        }
-    }
-
-    @MainActor
-    func fetchBookmarkedNFT() async {
-        do {
-            let result = try await assetService.fetchBookmarkedAssets()
-            self.bookmarkedNFTs = result
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
 }

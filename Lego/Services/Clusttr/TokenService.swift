@@ -8,6 +8,7 @@
 import Foundation
 
 protocol IAssetService {
+    func fetchAsset(id: String) async throws -> AssetDTO
     func fetchAssets() async throws -> [AssetDTO]
     func fetchBookmarkedAssets() async throws -> [String]
     func bookmark(id: String) async throws -> String
@@ -15,6 +16,11 @@ protocol IAssetService {
 }
 
 struct AssetService: IAssetService {
+    func fetchAsset(id: String) async throws -> AssetDTO {
+        let url = ClusttrAPIs.asset + "/" + id
+        return try await URLSession.shared.request(path: url, httpMethod: .get)
+    }
+
     func fetchAssets() async throws -> [AssetDTO]{
         return try await URLSession.shared.request(path: ClusttrAPIs.recentAsset, httpMethod: .get)
     }
@@ -35,6 +41,10 @@ struct AssetService: IAssetService {
 }
 
 struct AssetServiceDouble: IAssetService {
+    func fetchAsset(id: String) async throws -> AssetDTO {
+        try? await Task.sleep(for: .seconds(3))
+        return AssetDTO.demo()
+    }
     func fetchAssets() async throws -> [AssetDTO] {
         try? await Task.sleep(for: .seconds(3))
         return [AssetDTO.demo()]

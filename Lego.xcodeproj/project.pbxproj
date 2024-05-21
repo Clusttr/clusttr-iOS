@@ -48,6 +48,7 @@
 		E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363EB2A75BDCD0053FD28 /* BaseView.swift */; };
 		E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24363ED2A75BE350053FD28 /* OnboardingView.swift */; };
 		E24363F52A7644920053FD28 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */; };
+		E24ADCC42BFB8B280053B39D /* AssetSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24ADCC32BFB8B280053B39D /* AssetSectionViewModel.swift */; };
 		E24AE4CE2A7ECE6900FE2903 /* OTPField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */; };
 		E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24AE4CF2A7ED33800FE2903 /* OTPView.swift */; };
 		E24FAA272BA17542003CF17B /* InventoryProgram in Frameworks */ = {isa = PBXBuildFile; productRef = E24FAA262BA17542003CF17B /* InventoryProgram */; };
@@ -195,6 +196,7 @@
 		E24363EB2A75BDCD0053FD28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E24363ED2A75BE350053FD28 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E24363F42A76374A0053FD28 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		E24ADCC32BFB8B280053B39D /* AssetSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSectionViewModel.swift; sourceTree = "<group>"; };
 		E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPField.swift; sourceTree = "<group>"; };
 		E24AE4CF2A7ED33800FE2903 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		E24FAA242BA1750B003CF17B /* Inventory */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Inventory; sourceTree = "<group>"; };
@@ -794,6 +796,7 @@
 				E217D0B829F06B5200DE5C5F /* ProfileViewModel.swift */,
 				E2BEDEA22BF7F4DE00CFCC07 /* NFTGridTabBar.swift */,
 				E2BEDEA52BF8328A00CFCC07 /* AssetSectionView.swift */,
+				E24ADCC32BFB8B280053B39D /* AssetSectionViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -980,6 +983,7 @@
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
 				E2E9385B2ADA948D0045E20E /* UserDTO.swift in Sources */,
 				E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */,
+				E24ADCC42BFB8B280053B39D /* AssetSectionViewModel.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,
 				E2BCAC4C2A7B1C5000A14654 /* SetupPinView.swift in Sources */,
 				E2579D2129EDEDB1006ABEA8 /* Color+Extensions.swift in Sources */,
