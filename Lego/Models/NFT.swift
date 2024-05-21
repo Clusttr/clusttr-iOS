@@ -27,6 +27,7 @@ struct NFT: Identifiable, Codable {
     var bedroom: Double?
     var bathrooms: Double?
     var area: Double?
+    var isBookmarked: Bool
 }
 
 extension NFT {
@@ -45,6 +46,7 @@ extension NFT {
         self.assetModels = AssetModel.fakeData
         self.transactions = cTransaction.data
         self.valuations = Valuation.data
+        self.isBookmarked = false
     }
 
     init(_ asset: AssetDTO) {
@@ -65,6 +67,7 @@ extension NFT {
         self.bedroom = Double(asset.attribute.first(where: {$0.traitType == "bedroom"})?.value ?? "0")
         self.bathrooms = Double(asset.attribute.first(where: {$0.traitType == "bathrooms"})?.value ?? "0")
         self.area = Double(asset.attribute.first(where: {$0.traitType == "area"})?.value ?? "0")
+        self.isBookmarked = false
     }
 }
 
@@ -106,6 +109,7 @@ extension NFT {
                    createdAt: faker.date.backward(days: 12),
                    assetModels: AssetModel.fakeData,
                    transactions: cTransaction.data,
-                   valuations: Valuation.data)
+                   valuations: Valuation.data,
+                   isBookmarked: false)
     }
 }

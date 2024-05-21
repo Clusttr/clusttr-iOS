@@ -136,7 +136,7 @@ struct ProjectDetailsView: View {
 
                     PriceHistoryComponent(transactions: cTransaction.data, valuations: Valuation.data)
 
-                    NFTGrid(NFTs: nfts, showBidTime: true)
+                    NFTGrid(NFTs: nfts.map(\.id), showBidTime: true)
 
                 }
                 .padding(.top, 270)

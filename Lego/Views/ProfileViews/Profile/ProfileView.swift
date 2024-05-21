@@ -12,7 +12,7 @@ struct ProfileView: View {
     var onClickMenu: () -> Void
     @State private var scrollOffset: CGPoint = .zero
     @State private var headerHeight: CGFloat = 242
-    @FocusState private var searchBarIsFocused: Bool
+    @State private var searchBarIsFocused: Bool = false
     @StateObject var viewModel = ProfileViewModel()
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var accountManger: AccountManager
@@ -63,11 +63,7 @@ struct ProfileView: View {
 //                        }
                         AddressView(publicKey: accountManger.account.publicKey)
 
-                        searchBar
-                            .padding(20)
-
-                        NFTGrid(NFTs: viewModel.nfts, showBidTime: false)
-                            .padding(.bottom, 80)
+                        AssetSectionView(vm: AssetSectionViewModel()) { value in searchBarIsFocused = value }
                     }
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -94,7 +90,7 @@ struct ProfileView: View {
         }
         .task {
             viewModel.fetchUserProfile()
-            viewModel.fetchNFTs(userPublicKey: accountManger.account.publicKey)
+            
         }
     }
 
@@ -167,40 +163,13 @@ struct ProfileView: View {
             }
     }
 
-    var searchBar: some View {
-        HStack {
-            HStack {
-                Image(systemName: "magnifyingglass")
-                TextField("Search", text: $viewModel.searchWord)
-                    .focused($searchBarIsFocused)
-                    .placeholder(when: viewModel.searchWord.isEmpty) {
-                        Text("Search")
-                            .foregroundColor(.white.opacity(0.7))
-                    }
-                    .accentColor(.red)
-                    .foregroundColor(.white)
-            }
-            .foregroundColor(Color.white.opacity(0.7))
-            .padding(.horizontal, 20)
-            .padding(.vertical, 12)
-            .frame(height: 48)
-            .background(.white.opacity(0.07))
-            .cornerRadius(6)
-            .overlay {
-                RoundedRectangle(cornerRadius: 6)
-                    .stroke(Color.white.opacity(0.3))
-            }
-
-            Image(systemName: "slider.horizontal.3")
-                .foregroundColor(.white.opacity(0.7))
-        }
-    }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(onClickMenu: {}, viewModel: ProfileViewModel(userService: UserServiceDouble(),
-                                                                 nftService: NFTServiceDouble()))
+        ProfileView(onClickMenu: {},
+                    viewModel: ProfileViewModel(userService: UserServiceDouble(),
+                                                nftService: NFTServiceDouble()))
             .environmentObject(AppState())
             .environmentObject(AccountManager.mock())
     }

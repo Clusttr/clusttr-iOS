@@ -22,9 +22,15 @@ struct ClusttrAPIs {
     //MARK: ACCOUNT
     static let registerAccount = "/account/register"
 
+    //MARK: ASSET
+    static let asset = "/asset"
+
     //MARK: TOKEN
     static let recentAsset = "/token/recent/asset"
 
     //MARK: USER
     static let user = "/user"
+
+    //MARK: BOOKMARK
+    static let bookmark = "/bookmark"
 }

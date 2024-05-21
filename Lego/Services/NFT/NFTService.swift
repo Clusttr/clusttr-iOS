@@ -32,7 +32,7 @@ struct NFTService: INFTService {
 struct NFTServiceDouble: INFTService {
     var mintSuccess: Bool?
     func mintNFT(createNFTParams: CreateNFTParams) async -> Result<Void, Error> {
-        let result = Bool.random()
+        let _ = Bool.random()
         try? await Task.sleep(for: .seconds(5))
         return (mintSuccess ?? Bool.random()) ? .success(()) : .failure(APIError.unknown)
     }
