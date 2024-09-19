@@ -48,7 +48,7 @@ struct ReceiveTokenView: View {
             Button {
                 //request airdrop
             } label: {
-                Text("Click to request $10 airdrop")
+                Text("Click to request $100 airdrop")
                     .font(.footnote)
                     .bold()
                     .foregroundStyle(Color._grey2)

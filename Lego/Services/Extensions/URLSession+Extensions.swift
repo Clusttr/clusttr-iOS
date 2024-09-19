@@ -34,6 +34,7 @@ extension URLSession {
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.addValue("Bearer \(ClusttrAPIs.getAccessToken())", forHTTPHeaderField: "Authorization")
         urlRequest.httpBody = body
+        print("access token: \(ClusttrAPIs.getAccessToken())")
 
         do {
             let (data, urlResponse) = try await data(for: urlRequest)

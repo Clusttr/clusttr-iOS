@@ -42,7 +42,7 @@ struct NFTDetailsView: View {
                             }
                             .frame(width: UIScreen.screenWidth * 2/3, alignment: .leading)
 
-                            Link(destination: accountManager.assetURL(mintHash: nft.mintHash), label: {
+                            Link(destination: nft.mintHash.assetURL, label: {
                                 Text(" #\(nft.mintHash.short(numOfSymbolsRevealed: 4)) view on solscan")
                                     .font(.caption2)
                                     .fontWeight(.medium)

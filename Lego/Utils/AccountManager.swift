@@ -11,70 +11,106 @@ import Solana
 import InventoryProgram
 import struct Solana.Transaction
 
+enum SupportedFungibleToken: CaseIterable {
+    case usdc
+
+    var pubkey: PublicKey {
+        switch self {
+            case .usdc: return PublicKey.USDC
+        }
+    }
+}
+
 class AccountManager: ObservableObject {
     @Published var user: User!
     @Published var account: HotAccount
     @Published var solana: Solana
     @Published var balance: Lamports = Lamports(0)
-    @Published var usdcPubKey = PublicKey(string: "9831HW6Ljt8knNaN6r6JEzyiey939A2me3JsdMymmz5J")!
+    @Published var usdcBalance: TokenAccountBalance?
     @Published var error: Error?
-
     @Published var cancelBag = Set<AnyCancellable>()
+    @Published var tokenBalances: [String: TokenAccountBalance] = [:]
 
     var transactionManager: ITransactionUtility
     var accountUtility: IAccountUtility
 
-    var publicKeyURL: URL {
-        URL(string: "https://solscan.io/account/\(account.publicKey.base58EncodedString)=devnet")!
+    var usdcPubKey: PublicKey {
+        try! PublicKey.associatedTokenAddress(
+            walletAddress: account.publicKey,
+            tokenMintAddress: PublicKey.USDC
+        ).get()
     }
 
-    func assetURL(mintHash: PublicKey) -> URL {
-        URL(string: "https://solscan.io/token/\(mintHash.base58EncodedString)?cluster=devnet")!
-    }
-
-    func txURL(tx: String) -> URL {
-        URL(string: "https://solscan.io/tx/\(tx)?cluster=devnet")!
-    }
+    lazy var accountATAs: [PublicKey] = {
+        SupportedFungibleToken.allCases.map { token in
+            try! PublicKey.associatedTokenAddress(
+                walletAddress: account.publicKey,
+                tokenMintAddress: token.pubkey
+            ).get()
+        }
+    }()
 
     enum env {
         case dev
         case prod
     }
 
-    init(accountFactory: IAccountFactory, transactionUtility: ITransactionUtility, accountUtility: IAccountUtility) {
-        account = try! accountFactory.getAccount()
+    var usdcSubId = ""
+    var solSubId = ""
+
+    private init(accountFactory: IAccountFactory, transactionUtility: ITransactionUtility, accountUtility: IAccountUtility) {
+        let account = try! accountFactory.getAccount()
+        self.account = account
         self.solana = Self.getSolana()
         self.transactionManager = transactionUtility
         self.accountUtility = accountUtility
 
-        observeAccount()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+            self.solana.socket.start(delegate: self)
+
+        }
+
+        Task {
+            let balances = await self.getTokenBalances(tokens: SupportedFungibleToken.allCases.map(\.pubkey))
+            DispatchQueue.main.async {
+                self.tokenBalances = balances
+                self.usdcBalance = balances[PublicKey.USDC.base58EncodedString]
+            }
+        }
     }
+
+    static func create() -> AccountManager {
+        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
+            AccountManager.mock()
+        } else {
+            AccountManager(
+                accountFactory: try! AccountFactory(),
+                transactionUtility: TransactionUtility(),
+                accountUtility: AccountUtility()
+            )
+        }
+    }
+
     static func getSolana() -> Solana {
-        let endpoint = RPCEndpoint.devnetSolana
+        let endpoint = RPCEndpoint(
+            url: URL(string: "https://devnet.helius-rpc.com/?api-key=d2a5d651-c00a-4072-a7d8-9e760f9666e6")!,
+            urlWebSocket: URL(string: "wss://devnet.helius-rpc.com/?api-key=d2a5d651-c00a-4072-a7d8-9e760f9666e6")!,
+            network: .devnet
+        ) //RPCEndpoint.devnetSolana
         let router = NetworkingRouter(endpoint: endpoint)
         return Solana(router: router)
     }
 
-    func setHotAccount() {
-        
-    }
-
-    func observeAccount() {
-        $account
-            .sink { account in
-                self.setBalance()
-                self.setUSDCAssociateAccount()
-            }.store(in: &cancelBag)
-    }
-
     //MARK: Set Sol Balance
-    func setBalance() {
+    private func setBalances() {
         Task {
             do {
                 let balance = try await solana.api.getBalance(account: account.publicKey.base58EncodedString)
                 let lamports = Lamports(balance)
+                let balances = await getTokenBalances(tokens: SupportedFungibleToken.allCases.map(\.pubkey))
                 DispatchQueue.main.async {
                     self.balance = lamports
+                    self.tokenBalances = balances
                 }
             } catch {
                 print(error)
@@ -82,38 +118,31 @@ class AccountManager: ObservableObject {
         }
     }
 
-    //MARK: Associate Token Account
-    func setUSDCAssociateAccount() {
-        Task {
-            do {
-                let (_, publicKey) = try await solana.action.getOrCreateAssociatedTokenAccount(owner: account.publicKey,
-                                                                                               tokenMint: PublicKey.USDC,
-                                                                                               payer: account)
-                DispatchQueue.main.async {
-                    self.usdcPubKey = publicKey
-                    self.setUSDCBalance()
+    //MARK: get token account Balances
+    func getTokenBalances(tokens: [PublicKey]) async -> [String: TokenAccountBalance] {
+        await withTaskGroup(of: (String, TokenAccountBalance)?.self) { group in
+            var balances: [String: TokenAccountBalance] = [:]
+            for token in SupportedFungibleToken.allCases.map(\.pubkey) {
+                group.addTask {
+                    let ata = try! PublicKey.associatedTokenAddress(
+                        walletAddress: self.account.publicKey,
+                        tokenMintAddress: token
+                    ).get()
+                    let balance = try! await self.solana.api.getTokenAccountBalance(pubkey: ata.base58EncodedString)
+                    return (token.base58EncodedString, balance)
                 }
-            } catch {
-                print(error.localizedDescription)
-                self.setUSDCBalance()
             }
+
+            for await balance in group {
+                if let balance {
+                    balances[balance.0] = balance.1
+                }
+            }
+
+            return balances
         }
     }
 
-    //MARK: Set usdc Balance
-    @Published var usdcBalance: TokenAccountBalance?
-    func setUSDCBalance() {
-        Task {
-            do {
-                let balance = try await solana.api.getTokenAccountBalance(pubkey: usdcPubKey.base58EncodedString)
-                DispatchQueue.main.async {
-                    self.usdcBalance = balance
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
 
     //MARK: get sol balance
     func getSolBalance() async throws -> Lamports {
@@ -129,14 +158,17 @@ class AccountManager: ObservableObject {
     }
 
     func sendUSDC(to destination: PublicKey, amount: Double) async throws -> String {
-        guard let usdcBalance = usdcBalance, let decimals = usdcBalance.decimals else { return "fail"} // throw error instead
+        guard let usdcBalance = tokenBalances[PublicKey.USDC.base58EncodedString],
+              let decimals = usdcBalance.decimals else { return "fail"}
         let amount = amount * (pow(10, Double(decimals)))
-        return try await transactionManager.sendToken(from: usdcPubKey,
-                                                      to: destination,
-                                                      amount: amount,
-                                                      decimals: decimals,
-                                                      mint: PublicKey.USDC,
-                                                      payer: account)
+        return try await transactionManager.sendToken(
+            from: usdcPubKey,
+            to: destination,
+            amount: amount,
+            decimals: decimals,
+            mint: PublicKey.USDC,
+            payer: account
+        )
     }
 
 
@@ -155,13 +187,8 @@ class AccountManager: ObservableObject {
     }
 }
 
-extension PublicKey {
-    static let USDC = PublicKey(string: "3es74o8wDr3e78opFkQttaaAbnjsUewM62QLPx2cxZmM")!
-}
-
-
-@available(iOS 13.0, *)
-@available(macOS 10.15, *)
+//@available(iOS 13.0, *)
+//@available(macOS 10.15, *)
 public extension Action {
     func sendSPLTokens(
         mintAddress: String,

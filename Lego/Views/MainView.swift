@@ -12,13 +12,9 @@ struct MainView: View {
     @State var isHidden = false
     @AppStorage("activeMenu") var activeMenu: NavBarMenu = .home
     @EnvironmentObject var appState: AppState
-    let accountManager: AccountManager
+    @StateObject var accountManager = AccountManager.create()
 
-    init(accountManger: AccountManager = AccountManager(accountFactory: try! AccountFactory(),
-                                                        transactionUtility: TransactionUtility(),
-                                                        accountUtility: AccountUtility())) 
-    {
-        self.accountManager = accountManger
+    init() {
         UITabBar.appearance().isHidden = true
     }
 
@@ -47,7 +43,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(accountManger: AccountManager.mock())
+        MainView()
             .environmentObject(AppState())
 //            .environmentObject(AccountManager.mock())
     }

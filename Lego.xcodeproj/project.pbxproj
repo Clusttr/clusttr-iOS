@@ -11,6 +11,8 @@
 		E20DC3F92AA0D0D2001BBD61 /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20DC3F82AA0D0D2001BBD61 /* AccountError.swift */; };
 		E20DC3FC2AA0D12B001BBD61 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20DC3FB2AA0D12B001BBD61 /* Data+Extensions.swift */; };
 		E20DC4002AA0DF73001BBD61 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20DC3FF2AA0DF73001BBD61 /* AuthService.swift */; };
+		E20F8CCE2C99E96800320958 /* AccountManager+Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F8CCD2C99E95500320958 /* AccountManager+Socket.swift */; };
+		E20F8CD02C99E9F100320958 /* PublicKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F8CCF2C99E9EA00320958 /* PublicKey+Extensions.swift */; };
 		E217D0B129EEB4B900DE5C5F /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B029EEB4B900DE5C5F /* AssetModel.swift */; };
 		E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B229EEB77800DE5C5F /* AssetModelType.swift */; };
 		E217D0B529F054C100DE5C5F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B429F054C100DE5C5F /* AppState.swift */; };
@@ -159,6 +161,8 @@
 		E20DC3F82AA0D0D2001BBD61 /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		E20DC3FB2AA0D12B001BBD61 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		E20DC3FF2AA0DF73001BBD61 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		E20F8CCD2C99E95500320958 /* AccountManager+Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountManager+Socket.swift"; sourceTree = "<group>"; };
+		E20F8CCF2C99E9EA00320958 /* PublicKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PublicKey+Extensions.swift"; sourceTree = "<group>"; };
 		E217D0B029EEB4B900DE5C5F /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 		E217D0B229EEB77800DE5C5F /* AssetModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModelType.swift; sourceTree = "<group>"; };
 		E217D0B429F054C100DE5C5F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 		E217D0D029F7C03400DE5C5F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		E217D0D229F80C1400DE5C5F /* PriceHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistoryComponent.swift; sourceTree = "<group>"; };
 		E217D0D429F9C07800DE5C5F /* PurchaseNFTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNFTView.swift; sourceTree = "<group>"; };
+		E22103172C6B9484002EF1FF /* Lego.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lego.entitlements; sourceTree = "<group>"; };
 		E22483242A801FD000AF893C /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		E22483292A804C8900AF893C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		E2290DB22B42E05200D5A403 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -366,6 +371,7 @@
 		E22C58D829E8167F0065EEE2 /* Lego */ = {
 			isa = PBXGroup;
 			children = (
+				E22103172C6B9484002EF1FF /* Lego.entitlements */,
 				E2A7D2692A90202300F885C3 /* LottieFiles */,
 				E295D6852A8E8020006C26EC /* Services */,
 				E2579D1229ED8B62006ABEA8 /* Info.plist */,
@@ -401,8 +407,10 @@
 				E2579CF229EBEC3A006ABEA8 /* Views */,
 				E217D0B429F054C100DE5C5F /* AppState.swift */,
 				E295A20D2A8A956700DCDC64 /* AccountManager.swift */,
-				E24FAA342BA32BFD003CF17B /* TransactionUtility.swift */,
+				E20F8CCD2C99E95500320958 /* AccountManager+Socket.swift */,
 				E24FAA362BA349FF003CF17B /* AccountUtility.swift */,
+				E24FAA342BA32BFD003CF17B /* TransactionUtility.swift */,
+				E20F8CCF2C99E9EA00320958 /* PublicKey+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -896,6 +904,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20F8CD02C99E9F100320958 /* PublicKey+Extensions.swift in Sources */,
 				E2E938612ADAA3640045E20E /* TokenService.swift in Sources */,
 				E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */,
 				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
@@ -923,6 +932,7 @@
 				E2C3278B2BA6D4F00010E14B /* ReceiveTokenView.swift in Sources */,
 				E2BC01FE2A90B09100337693 /* CreateNFTParams.swift in Sources */,
 				E295D6942A8F55FE006C26EC /* DeveloperView.swift in Sources */,
+				E20F8CCE2C99E96800320958 /* AccountManager+Socket.swift in Sources */,
 				E24FAA3D2BA373CC003CF17B /* ErrorModifier.swift in Sources */,
 				E2579D1D29EDEBA0006ABEA8 /* NavigationBar.swift in Sources */,
 				E2579CF029EB46CA006ABEA8 /* AdjustableBannerShape.swift in Sources */,
@@ -1153,6 +1163,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Lego/Lego.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Lego/Preview Content\"";
@@ -1186,6 +1197,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Lego/Lego.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Lego/Preview Content\"";

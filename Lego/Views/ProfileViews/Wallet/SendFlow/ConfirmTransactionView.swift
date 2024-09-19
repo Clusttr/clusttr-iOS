@@ -66,7 +66,7 @@ struct ConfirmTransactionView: View {
             VStack {
                 Text("Transaction Successful")
 
-                Link(destination: accountManager.txURL(tx: sendTx ?? ""), label: {
+                Link(destination: PublicKey.txURL(tx: sendTx ?? ""), label: {
                     Text("View tx:" + getShort(address: sendTx) + "on Solscan")
 
                 })
@@ -102,7 +102,6 @@ struct ConfirmTransactionView: View {
                 let tx = try await accountManager.sendUSDC(to: destination, amount: amount)
                 sendTx = tx
                 isLoading = false
-                accountManager.setUSDCBalance()
             } catch {
                 self.error = ClusttrError.failedTransaction
                 isLoading = false
