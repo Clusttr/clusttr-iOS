@@ -30,6 +30,7 @@ struct ClusttrAPIs {
 
     //MARK: USER
     static let user = "/user"
+    static let airdrop = "/user/airdrop"
 
     //MARK: BOOKMARK
     static let bookmark = "/bookmark"

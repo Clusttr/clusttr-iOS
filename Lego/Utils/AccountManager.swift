@@ -65,18 +65,18 @@ class AccountManager: ObservableObject {
         self.transactionManager = transactionUtility
         self.accountUtility = accountUtility
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
-            self.solana.socket.start(delegate: self)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+//            self.solana.socket.start(delegate: self)
+//
+//        }
 
-        }
-
-        Task {
-            let balances = await self.getTokenBalances(tokens: SupportedFungibleToken.allCases.map(\.pubkey))
-            DispatchQueue.main.async {
-                self.tokenBalances = balances
-                self.usdcBalance = balances[PublicKey.USDC.base58EncodedString]
-            }
-        }
+//        Task {
+//            let balances = await self.accountUtility.getTokenBalances(account: account.publicKey, tokens: SupportedFungibleToken.allCases.map(\.pubkey))
+//            DispatchQueue.main.async {
+//                self.tokenBalances = balances
+//                self.usdcBalance = balances[PublicKey.USDC.base58EncodedString]
+//            }
+//        }
     }
 
     static func create() -> AccountManager {
@@ -107,7 +107,7 @@ class AccountManager: ObservableObject {
             do {
                 let balance = try await solana.api.getBalance(account: account.publicKey.base58EncodedString)
                 let lamports = Lamports(balance)
-                let balances = await getTokenBalances(tokens: SupportedFungibleToken.allCases.map(\.pubkey))
+                let balances = await accountUtility.getTokenBalances(account: account.publicKey, tokens: SupportedFungibleToken.allCases.map(\.pubkey))
                 DispatchQueue.main.async {
                     self.balance = lamports
                     self.tokenBalances = balances
@@ -117,32 +117,6 @@ class AccountManager: ObservableObject {
             }
         }
     }
-
-    //MARK: get token account Balances
-    func getTokenBalances(tokens: [PublicKey]) async -> [String: TokenAccountBalance] {
-        await withTaskGroup(of: (String, TokenAccountBalance)?.self) { group in
-            var balances: [String: TokenAccountBalance] = [:]
-            for token in SupportedFungibleToken.allCases.map(\.pubkey) {
-                group.addTask {
-                    let ata = try! PublicKey.associatedTokenAddress(
-                        walletAddress: self.account.publicKey,
-                        tokenMintAddress: token
-                    ).get()
-                    let balance = try! await self.solana.api.getTokenAccountBalance(pubkey: ata.base58EncodedString)
-                    return (token.base58EncodedString, balance)
-                }
-            }
-
-            for await balance in group {
-                if let balance {
-                    balances[balance.0] = balance.1
-                }
-            }
-
-            return balances
-        }
-    }
-
 
     //MARK: get sol balance
     func getSolBalance() async throws -> Lamports {
@@ -170,7 +144,6 @@ class AccountManager: ObservableObject {
             payer: account
         )
     }
-
 
     func getATA(tokenMint: PublicKey, user: PublicKey? = nil) async throws -> PublicKey {
         try await accountUtility.getATA(tokenMint: tokenMint, user: user, userAccount: account)
@@ -213,26 +186,26 @@ public extension Action {
     }
 }
 
-public extension TokenAccountBalance {
-    init() {
-        let balance = TokenAmountBal(amount: "100_000_000", decimals: 6)
-        let encoder = JSONEncoder()
-        let value = try! encoder.encode(balance)
-        try! self.init(from: value as! Decoder)
-    }
-}
+//public extension TokenAccountBalance {
+//    init() {
+//        let balance = TokenAmountBal(amount: "100_000_000", decimals: 6)
+//        let encoder = JSONEncoder()
+//        let value = try! encoder.encode(balance)
+//        try! self.init(from: value as! Decoder)
+//    }
+//}
 
-struct TokenAmountBal: Codable, Hashable, Equatable {
-    let uiAmount: Float64?
-    let amount: String
-    let decimals: UInt8?
-    let uiAmountString: String?
-
-    init(amount: String, decimals: UInt8?) {
-        self.amount = amount
-        self.decimals = decimals
-        let amountUI = Double(amount)! / (pow(10, Double(decimals!)))
-        self.uiAmount = amountUI
-        self.uiAmountString = "\(amountUI)"
-    }
-}
+//struct TokenAmountBal: Codable, Hashable, Equatable {
+//    let uiAmount: Float64?
+//    let amount: String
+//    let decimals: UInt8?
+//    let uiAmountString: String?
+//
+//    init(amount: String, decimals: UInt8?) {
+//        self.amount = amount
+//        self.decimals = decimals
+//        let amountUI = Double(amount)! / (pow(10, Double(decimals!)))
+//        self.uiAmount = amountUI
+//        self.uiAmountString = "\(amountUI)"
+//    }
+//}
