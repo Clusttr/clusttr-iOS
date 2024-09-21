@@ -132,6 +132,7 @@
 		E2BC02002A90B21000337693 /* NFTStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC01FF2A90B21000337693 /* NFTStatus.swift */; };
 		E2BC02032A90CC5B00337693 /* CreateNFTViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC02022A90CC5B00337693 /* CreateNFTViewModel.swift */; };
 		E2BC511F2C9CD8C000E36064 /* AirdropDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC511E2C9CD8B400E36064 /* AirdropDTO.swift */; };
+		E2BC51212C9E768C00E36064 /* AccountManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC51202C9E768000E36064 /* AccountManager+Extension.swift */; };
 		E2BCAC352A77E06900A14654 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC342A77E06900A14654 /* Developer.swift */; };
 		E2BCAC372A77E08900A14654 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC362A77E08900A14654 /* Project.swift */; };
 		E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC382A7821E700A14654 /* MenuItemView.swift */; };
@@ -281,6 +282,7 @@
 		E2BC01FF2A90B21000337693 /* NFTStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTStatus.swift; sourceTree = "<group>"; };
 		E2BC02022A90CC5B00337693 /* CreateNFTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNFTViewModel.swift; sourceTree = "<group>"; };
 		E2BC511E2C9CD8B400E36064 /* AirdropDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirdropDTO.swift; sourceTree = "<group>"; };
+		E2BC51202C9E768000E36064 /* AccountManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountManager+Extension.swift"; sourceTree = "<group>"; };
 		E2BCAC342A77E06900A14654 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		E2BCAC362A77E08900A14654 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		E2BCAC382A7821E700A14654 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				E2579CF229EBEC3A006ABEA8 /* Views */,
 				E217D0B429F054C100DE5C5F /* AppState.swift */,
 				E295A20D2A8A956700DCDC64 /* AccountManager.swift */,
+				E2BC51202C9E768000E36064 /* AccountManager+Extension.swift */,
 				E20F8CCD2C99E95500320958 /* AccountManager+Socket.swift */,
 				E24FAA362BA349FF003CF17B /* AccountUtility.swift */,
 				E24FAA342BA32BFD003CF17B /* TransactionUtility.swift */,
@@ -1004,6 +1007,7 @@
 				E2BCAC352A77E06900A14654 /* Developer.swift in Sources */,
 				E236D9E12B2CAA630073BD38 /* SetupPinAndAccountViewModel.swift in Sources */,
 				E295A20C2A8A94AA00DCDC64 /* HotAccount+Extensions.swift in Sources */,
+				E2BC51212C9E768C00E36064 /* AccountManager+Extension.swift in Sources */,
 				E295A2102A8B5B6600DCDC64 /* AccountInfoView.swift in Sources */,
 				E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */,
 				E2B3CC472A9F5B1A00CDAD94 /* User.swift in Sources */,

@@ -65,23 +65,17 @@ class AccountManager: ObservableObject {
         self.transactionManager = transactionUtility
         self.accountUtility = accountUtility
 
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
-//            self.solana.socket.start(delegate: self)
-//
-//        }
-
-//        Task {
-//            let balances = await self.accountUtility.getTokenBalances(account: account.publicKey, tokens: SupportedFungibleToken.allCases.map(\.pubkey))
-//            DispatchQueue.main.async {
-//                self.tokenBalances = balances
-//                self.usdcBalance = balances[PublicKey.USDC.base58EncodedString]
-//            }
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+            self.solana.socket.start(delegate: self)
+        }
+        setBalances()
     }
 
     static func create() -> AccountManager {
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
-            AccountManager.mock()
+            AccountManager(accountFactory: AccountFactoryDemo(),
+                           transactionUtility: TransactionUtilityDouble(),
+                           accountUtility: AccountUtilityDouble())
         } else {
             AccountManager(
                 accountFactory: try! AccountFactory(),
@@ -91,38 +85,24 @@ class AccountManager: ObservableObject {
         }
     }
 
-    static func getSolana() -> Solana {
-        let endpoint = RPCEndpoint(
-            url: URL(string: "https://devnet.helius-rpc.com/?api-key=d2a5d651-c00a-4072-a7d8-9e760f9666e6")!,
-            urlWebSocket: URL(string: "wss://devnet.helius-rpc.com/?api-key=d2a5d651-c00a-4072-a7d8-9e760f9666e6")!,
-            network: .devnet
-        ) //RPCEndpoint.devnetSolana
-        let router = NetworkingRouter(endpoint: endpoint)
-        return Solana(router: router)
-    }
-
     //MARK: Set Sol Balance
     private func setBalances() {
         Task {
             do {
-                let balance = try await solana.api.getBalance(account: account.publicKey.base58EncodedString)
-                let lamports = Lamports(balance)
-                let balances = await accountUtility.getTokenBalances(account: account.publicKey, tokens: SupportedFungibleToken.allCases.map(\.pubkey))
+                let solBalance = try await self.accountUtility.getSolBalance(account: account.publicKey)
+                let balances = await self.accountUtility.getTokenBalances(account: account.publicKey, tokens: SupportedFungibleToken.allCases.map(\.pubkey))
                 DispatchQueue.main.async {
-                    self.balance = lamports
+                    self.balance = solBalance
                     self.tokenBalances = balances
+                    self.usdcBalance = balances[PublicKey.USDC.base58EncodedString]
                 }
             } catch {
                 print(error)
+                //TODO: If this fails app shouldn't open
             }
         }
     }
 
-    //MARK: get sol balance
-    func getSolBalance() async throws -> Lamports {
-        let accountInfo: BufferInfo<AccountInfo> = try await solana.api.getAccountInfo(account: account.publicKey.base58EncodedString)
-        return accountInfo.lamports
-    }
 
     //MARK: get account info
     static func getAccountInfo(publicKey: String) async throws -> AccountInfo? {
@@ -152,60 +132,4 @@ class AccountManager: ObservableObject {
     func sendTransaction(transaction: TransactionInstruction) async throws -> String {
         try await transactionManager.sendTransaction(transaction, userAccount: account)
     }
-
-    static func mock() -> AccountManager {
-        AccountManager(accountFactory: AccountFactoryDemo(),
-                       transactionUtility: TransactionUtilityDouble(),
-                       accountUtility: AccountUtilityDouble())
-    }
 }
-
-//@available(iOS 13.0, *)
-//@available(macOS 10.15, *)
-public extension Action {
-    func sendSPLTokens(
-        mintAddress: String,
-        decimals: Decimals,
-        from fromPublicKey: String,
-        to destinationAddress: String,
-        amount: UInt64,
-        allowUnfundedRecipient: Bool = false,
-        payer: Account
-    ) async throws -> TransactionID {
-        try await withCheckedThrowingContinuation { c in
-            self.sendSPLTokens(
-                mintAddress: mintAddress,
-                from: fromPublicKey,
-                to: destinationAddress,
-                amount: amount,
-                allowUnfundedRecipient: allowUnfundedRecipient,
-                payer: payer,
-                onComplete: c.resume(with:)
-            )
-        }
-    }
-}
-
-//public extension TokenAccountBalance {
-//    init() {
-//        let balance = TokenAmountBal(amount: "100_000_000", decimals: 6)
-//        let encoder = JSONEncoder()
-//        let value = try! encoder.encode(balance)
-//        try! self.init(from: value as! Decoder)
-//    }
-//}
-
-//struct TokenAmountBal: Codable, Hashable, Equatable {
-//    let uiAmount: Float64?
-//    let amount: String
-//    let decimals: UInt8?
-//    let uiAmountString: String?
-//
-//    init(amount: String, decimals: UInt8?) {
-//        self.amount = amount
-//        self.decimals = decimals
-//        let amountUI = Double(amount)! / (pow(10, Double(decimals!)))
-//        self.uiAmount = amountUI
-//        self.uiAmountString = "\(amountUI)"
-//    }
-//}

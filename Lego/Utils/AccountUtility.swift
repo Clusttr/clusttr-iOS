@@ -10,6 +10,7 @@ import Solana
 
 protocol IAccountUtility {
     func getATA(tokenMint: PublicKey, user: PublicKey?, userAccount: HotAccount) async throws -> PublicKey
+    func getSolBalance(account: PublicKey) async throws -> Lamports
     func getTokenBalances(account: PublicKey, tokens: [PublicKey]) async -> [String: TokenAccountBalance]
 }
 
@@ -23,6 +24,12 @@ class AccountUtility: IAccountUtility {
                 tokenMint: tokenMint,
                 payer: userAccount)
         return result.associatedTokenAddress
+    }
+
+    func getSolBalance(account: PublicKey) async throws -> Lamports {
+        let solana = AccountManager.getSolana()
+        let balance = try await solana.api.getBalance(account: account.base58EncodedString)
+        return Lamports(balance)
     }
 
     func getTokenBalances(account: PublicKey, tokens: [PublicKey]) async -> [String : TokenAccountBalance] {
@@ -50,12 +57,17 @@ class AccountUtility: IAccountUtility {
 
 class AccountUtilityDouble: IAccountUtility {
     func getATA(tokenMint: PublicKey, user: PublicKey?, userAccount: HotAccount) async throws -> PublicKey {
-        try? await Task.sleep(for: .seconds(3))
+        try? await Task.sleep(for: .seconds(1))
         return PublicKey(string: "9831HW6Ljt8knNaN6r6JEzyiey939A2me3JsdMymmz5J")!
     }
 
+    func getSolBalance(account: PublicKey) async throws -> Lamports {
+        try? await Task.sleep(for: .seconds(1))
+        return Lamports(100500000000)
+    }
+
     func getTokenBalances(account: PublicKey, tokens: [PublicKey]) async -> [String : TokenAccountBalance] {
-        try? await Task.sleep(for: .seconds(3))
+        try? await Task.sleep(for: .seconds(1))
         return tokens.reduce(into: [:]) { result, pubkey in
             result[pubkey.base58EncodedString] = TokenAccountBalance.create(
                 uiAmount: 100.5,
@@ -72,10 +84,10 @@ extension TokenAccountBalance {
     static func create(uiAmount: Double, amount: String, decimals: Int, uiAmountString: String) -> TokenAccountBalance?  {
         let jsonData = """
         {
-            "uiAmount": \(uiAmount), 
-            "amount": \(amount),
-            "decimals": \(decimals),
-            "uiAmountString": \(uiAmountString)
+            "uiAmount": 100.5,
+            "amount": "100500",
+            "decimals": 2,
+            "uiAmountString": "100.5"
         }
         """.data(using: .utf8)!
         return try! JSONDecoder().decode(TokenAccountBalance.self, from: jsonData)
