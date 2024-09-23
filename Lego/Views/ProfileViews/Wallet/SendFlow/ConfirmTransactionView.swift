@@ -127,5 +127,5 @@ struct ConfirmTransactionView: View {
                            amount: 100.07,
                            destination: PublicKey(string:"DEVwHJ57QMPPArD2CyjboMbdWvjEMjXRigYpaUNDTD7o")!
     )
-    .environmentObject(AccountManager.mock())
+    .environmentObject(AccountManager.create())
 }

@@ -106,7 +106,7 @@ struct ReceiveTokenView: View {
 
 #Preview {
     ReceiveTokenView(isShowing: .constant(true), userService: UserServiceDouble())
-        .environmentObject(AccountManager.mock())
+        .environmentObject(AccountManager.create())
 }
 
 class ReceiveTokenViewModel: ObservableObject {

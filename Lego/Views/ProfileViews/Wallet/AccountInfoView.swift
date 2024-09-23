@@ -40,6 +40,6 @@ struct AccountInfoView_Previews: PreviewProvider {
     static var previews: some View {
         AccountInfoView()
             .background(Color._background)
-            .environmentObject(AccountManager.mock())
+            .environmentObject(AccountManager.create())
     }
 }

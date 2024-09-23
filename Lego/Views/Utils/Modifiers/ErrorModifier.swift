@@ -72,11 +72,14 @@ extension View {
 
 enum ClusttrError: Error, LocalizedError {
     case failedTransaction
+    case UserNotFound
 
     var errorDescription: String? {
         switch self {
         case .failedTransaction:
             "Transaction Failed"
+        case .UserNotFound:
+            "Can't find user"
         }
     }
 }

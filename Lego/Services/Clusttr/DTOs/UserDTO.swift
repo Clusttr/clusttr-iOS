@@ -13,7 +13,7 @@ struct UserDTO: Codable {
     let name: String
     let email: String
     let profileImage: String
-    let publicKey: String
+    let pubkey: String
 }
 
 extension UserDTO {
@@ -23,6 +23,6 @@ extension UserDTO {
                        name: faker.name.name(),
                        email: faker.internet.email(),
                        profileImage: faker.internet.image(),
-                       publicKey: "HkkVS92U3WwxZz1VKJ2ocD4S4prjHiKz9EBCaGD2s8Fb")
+                       pubkey: "HkkVS92U3WwxZz1VKJ2ocD4S4prjHiKz9EBCaGD2s8Fb")
     }
 }

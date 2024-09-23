@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct BenefactorRow: View {
+    @State var isSheetPresented = false
+    @State private var fullSheetExpanded: Bool = false
+
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 18) {
-                Image(systemName: "plus")
-                    .font(.system(size: 24, design: .rounded))
-                    .fontWeight(.semibold)
-                    .frame(width: 45, height: 45)
-                    .foregroundColor(._grey100)
-                    .background {
-                        LinearGradient(colors: [Color._accent.opacity(0.7), .pink.opacity(0.4)], startPoint: .topTrailing, endPoint: .bottomLeading)
-                    }
-                    .clipShape(Circle())
-                    .padding(.leading, 16)
+                
+                Button(action: addBenefactor) {
+                    addButton
+                }
 
                 ForEach(0 ..< 5) { item in
                     benefactor()
@@ -29,6 +26,27 @@ struct BenefactorRow: View {
             }
             .padding(.trailing, 16)
         }
+        .sheet(isPresented: $isSheetPresented) {
+            AddBenefactorView(userService: UserServiceDouble(), isSheetPresented: $isSheetPresented, fullSheetExpanded: $fullSheetExpanded)
+                .presentationDetents([.height(fullSheetExpanded ? .infinity : 250)])
+        }
+    }
+
+    func addBenefactor() {
+        isSheetPresented = true
+    }
+
+    var addButton: some View {
+        Image(systemName: "plus")
+            .font(.system(size: 24, design: .rounded))
+            .fontWeight(.semibold)
+            .frame(width: 45, height: 45)
+            .foregroundColor(._grey100)
+            .background {
+                LinearGradient(colors: [Color._accent.opacity(0.7), .pink.opacity(0.4)], startPoint: .topTrailing, endPoint: .bottomLeading)
+            }
+            .clipShape(Circle())
+            .padding(.leading, 16)
     }
 
     func benefactor() -> some View {

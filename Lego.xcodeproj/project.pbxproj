@@ -133,6 +133,7 @@
 		E2BC02032A90CC5B00337693 /* CreateNFTViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC02022A90CC5B00337693 /* CreateNFTViewModel.swift */; };
 		E2BC511F2C9CD8C000E36064 /* AirdropDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC511E2C9CD8B400E36064 /* AirdropDTO.swift */; };
 		E2BC51212C9E768C00E36064 /* AccountManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC51202C9E768000E36064 /* AccountManager+Extension.swift */; };
+		E2BC51252C9E7CF600E36064 /* AddBenefactorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC51242C9E7CF600E36064 /* AddBenefactorView.swift */; };
 		E2BCAC352A77E06900A14654 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC342A77E06900A14654 /* Developer.swift */; };
 		E2BCAC372A77E08900A14654 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC362A77E08900A14654 /* Project.swift */; };
 		E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC382A7821E700A14654 /* MenuItemView.swift */; };
@@ -283,6 +284,7 @@
 		E2BC02022A90CC5B00337693 /* CreateNFTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNFTViewModel.swift; sourceTree = "<group>"; };
 		E2BC511E2C9CD8B400E36064 /* AirdropDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirdropDTO.swift; sourceTree = "<group>"; };
 		E2BC51202C9E768000E36064 /* AccountManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountManager+Extension.swift"; sourceTree = "<group>"; };
+		E2BC51242C9E7CF600E36064 /* AddBenefactorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBenefactorView.swift; sourceTree = "<group>"; };
 		E2BCAC342A77E06900A14654 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		E2BCAC362A77E08900A14654 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		E2BCAC382A7821E700A14654 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -744,6 +746,7 @@
 				E24FAA402BA485EA003CF17B /* SendFlow */,
 				E2A8847A2A65D5AF00B68A93 /* WalletView.swift */,
 				E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */,
+				E2BC51242C9E7CF600E36064 /* AddBenefactorView.swift */,
 				E295A20F2A8B5B6600DCDC64 /* AccountInfoView.swift */,
 			);
 			path = Wallet;
@@ -961,6 +964,7 @@
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
 				E263122D2AB06D10000FCEB4 /* TokenCategoryPicker.swift in Sources */,
+				E2BC51252C9E7CF600E36064 /* AddBenefactorView.swift in Sources */,
 				E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */,
 				E2BC511F2C9CD8C000E36064 /* AirdropDTO.swift in Sources */,
 				E29C72392AA4F39D00C05222 /* RegisterAccountView.swift in Sources */,
