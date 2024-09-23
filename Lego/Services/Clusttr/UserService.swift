@@ -41,7 +41,7 @@ struct UserServiceDouble: IUserService {
     }
 
     func find(by pubkey: String) async throws -> UserDTO {
-        try? await Task.sleep(for: .seconds(1))
+        try? await Task.sleep(for: .seconds(3))
         return .demo()
     }
 
@@ -51,7 +51,7 @@ struct UserServiceDouble: IUserService {
     }
 
     func addBenefactor(id: String) async throws -> UserDTO {
-        try? await Task.sleep(for: .seconds(1))
+        try? await Task.sleep(for: .seconds(3))
         return .demo()
     }
 }

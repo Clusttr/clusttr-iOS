@@ -7,30 +7,28 @@
 
 import SwiftUI
 import Solana
+import AlertToast
 
 struct AddBenefactorView: View {
     var userService: IUserService = UserService()
     @Binding var isSheetPresented: Bool
     @Binding var fullSheetExpanded: Bool
-    @State private var searchWord: String = ""
-    @State private var isPubkeyValid: Bool = false
+    @State private var addressText: String = ""
     @State private var isLoading = false
-    @State private var rotationAngle: Double = 0
-    @State private var hearthBeat = false
-    @State private var isRotating = true
     @State private var user: User?
     @State private var error: ClusttrError?
+    @State private var showingSuccess: Bool = false
 
     var pubkey: PublicKey? {
-        PublicKey(string: searchWord)
+        PublicKey(string: addressText)
     }
 
     var actionButtonTitle: String {
-        pubkey == nil ? "Find" : "Add Benefactor"
+        user == nil ? "Find" : "Add Benefactor"
     }
 
     var actionButtonDisabled: Bool {
-        pubkey == nil && isLoading
+        pubkey == nil || isLoading
     }
     var body: some View {
         VStack {
@@ -43,7 +41,9 @@ struct AddBenefactorView: View {
 
             Spacer()
 
-            UserView(user)
+            if let user = user {
+                BenefactorInfoView(user: user)
+            }
 
             Spacer()
 
@@ -58,6 +58,14 @@ struct AddBenefactorView: View {
         }
         .padding(16)
         .background(Color._background.opacity(0.95))
+        .sensoryFeedback(.success, trigger: showingSuccess)
+        .toast(isPresenting: $showingSuccess) {
+            AlertToast(
+                displayMode: .banner(.pop),
+                type: .complete(Color.green),
+                title: "Benefactor added"
+            )
+        }
         .error($error)
 
     }
@@ -65,8 +73,8 @@ struct AddBenefactorView: View {
     var searchBar: some View {
         HStack {
             HStack {
-                TextField("Search", text: $searchWord)
-                    .placeholder(when: searchWord.isEmpty) {
+                TextField("Search", text: $addressText)
+                    .placeholder(when: addressText.isEmpty) {
                         Text("Enter Address")
                             .foregroundColor(.white.opacity(0.7))
                     }
@@ -89,61 +97,6 @@ struct AddBenefactorView: View {
         }
     }
 
-    let gradient = AngularGradient(
-        colors: [._accent, .white, ._accent.opacity(0.6)],
-        center: .center,
-        startAngle: .degrees(270),
-        endAngle: .degrees(0)
-    )
-
-    @ViewBuilder
-    func UserView(_ user: User?) -> some View {
-        if let user = user {
-            VStack {
-                Image.ape
-                    .resizable()
-                    .frame(width: 300, height: 300)
-                    .clipShape(Circle())
-                    .overlay {
-                        Circle()
-                            .stroke(gradient, lineWidth:  6)
-                            .blur(radius: 16)
-                            .scaleEffect(hearthBeat ? 1.1 : 0.9)
-                            .animation(
-                                isRotating ? Animation.linear(duration: 1.0)
-                                    .repeatForever(autoreverses: true) : .default,
-                                value: rotationAngle
-                            )
-                            .rotationEffect(.degrees(rotationAngle))
-                            .animation(
-                                isRotating ? Animation.linear(duration: 2.0)
-                                    .repeatForever(autoreverses: false) : .default,
-                                value: rotationAngle
-                            )
-                            .onAppear {
-                                rotationAngle = 360
-                                hearthBeat = true
-                            }
-                    }
-
-                Text("@\(user.name)")
-                    .font(.headline)
-                    .foregroundColor(._grey100)
-                    .padding(.top, 24)
-
-                Text("HKz1...i8Op")
-                    .font(.caption)
-                    .foregroundColor(._grey2)
-            }
-        } else {
-            VStack { EmptyView() }
-        }
-    }
-
-    func onSearchBarFocused(_ value: Bool) {
-
-    }
-
     func buttonAction() {
         if let user = user {
             addBenefactor(user.id)
@@ -154,31 +107,41 @@ struct AddBenefactorView: View {
     }
 
     func findUser(_ pubkey: PublicKey) {
+        isLoading = true
         Task {
             do {
                 let user = try await userService.find(by: pubkey.base58EncodedString)
                 DispatchQueue.main.async {
                     self.fullSheetExpanded = true
                     self.user = User(user)
+                    self.isLoading = false
                 }
             } catch {
                 DispatchQueue.main.async {
                     self.error = ClusttrError.UserNotFound
+                    self.isLoading = false
                 }
             }
         }
     }
 
     func addBenefactor(_ id: String) {
+        isLoading = true
         Task {
             do {
-                let _ = try await userService.addBenefactor(id: id) //persist benefactor
+                let _ = try await userService.addBenefactor(id: id)
                 DispatchQueue.main.async{
-                    self.isSheetPresented = false
+                    self.showingSuccess = true
+                    self.isLoading = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                        self.fullSheetExpanded = false
+                        self.isSheetPresented = false
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {
                     self.error = ClusttrError.UserNotFound
+                    self.isLoading = false
                 }
             }
         }

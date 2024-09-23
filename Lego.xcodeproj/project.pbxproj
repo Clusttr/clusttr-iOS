@@ -13,6 +13,8 @@
 		E20DC4002AA0DF73001BBD61 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20DC3FF2AA0DF73001BBD61 /* AuthService.swift */; };
 		E20F8CCE2C99E96800320958 /* AccountManager+Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F8CCD2C99E95500320958 /* AccountManager+Socket.swift */; };
 		E20F8CD02C99E9F100320958 /* PublicKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F8CCF2C99E9EA00320958 /* PublicKey+Extensions.swift */; };
+		E2155B942CA110AF000121A5 /* BenefactorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155B932CA110AF000121A5 /* BenefactorCard.swift */; };
+		E2155B962CA1123B000121A5 /* BenefactorInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155B952CA1123B000121A5 /* BenefactorInfoView.swift */; };
 		E217D0B129EEB4B900DE5C5F /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B029EEB4B900DE5C5F /* AssetModel.swift */; };
 		E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B229EEB77800DE5C5F /* AssetModelType.swift */; };
 		E217D0B529F054C100DE5C5F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B429F054C100DE5C5F /* AppState.swift */; };
@@ -166,6 +168,8 @@
 		E20DC3FF2AA0DF73001BBD61 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E20F8CCD2C99E95500320958 /* AccountManager+Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountManager+Socket.swift"; sourceTree = "<group>"; };
 		E20F8CCF2C99E9EA00320958 /* PublicKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PublicKey+Extensions.swift"; sourceTree = "<group>"; };
+		E2155B932CA110AF000121A5 /* BenefactorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorCard.swift; sourceTree = "<group>"; };
+		E2155B952CA1123B000121A5 /* BenefactorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorInfoView.swift; sourceTree = "<group>"; };
 		E217D0B029EEB4B900DE5C5F /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 		E217D0B229EEB77800DE5C5F /* AssetModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModelType.swift; sourceTree = "<group>"; };
 		E217D0B429F054C100DE5C5F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -346,6 +350,17 @@
 				E2E938602ADAA3640045E20E /* TokenService.swift */,
 			);
 			path = Clusttr;
+			sourceTree = "<group>";
+		};
+		E2155B922CA10E05000121A5 /* Benefator */ = {
+			isa = PBXGroup;
+			children = (
+				E2BC51242C9E7CF600E36064 /* AddBenefactorView.swift */,
+				E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */,
+				E2155B932CA110AF000121A5 /* BenefactorCard.swift */,
+				E2155B952CA1123B000121A5 /* BenefactorInfoView.swift */,
+			);
+			path = Benefator;
 			sourceTree = "<group>";
 		};
 		E22483262A80237200AF893C /* Storage */ = {
@@ -742,11 +757,10 @@
 		E2A884792A65D57D00B68A93 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				E2C3278A2BA6D4F00010E14B /* ReceiveTokenView.swift */,
+				E2155B922CA10E05000121A5 /* Benefator */,
 				E24FAA402BA485EA003CF17B /* SendFlow */,
 				E2A8847A2A65D5AF00B68A93 /* WalletView.swift */,
-				E2DED9F62A65EA35002399A8 /* BenefactorRowView.swift */,
-				E2BC51242C9E7CF600E36064 /* AddBenefactorView.swift */,
+				E2C3278A2BA6D4F00010E14B /* ReceiveTokenView.swift */,
 				E295A20F2A8B5B6600DCDC64 /* AccountInfoView.swift */,
 			);
 			path = Wallet;
@@ -965,6 +979,7 @@
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
 				E263122D2AB06D10000FCEB4 /* TokenCategoryPicker.swift in Sources */,
 				E2BC51252C9E7CF600E36064 /* AddBenefactorView.swift in Sources */,
+				E2155B942CA110AF000121A5 /* BenefactorCard.swift in Sources */,
 				E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */,
 				E2BC511F2C9CD8C000E36064 /* AirdropDTO.swift in Sources */,
 				E29C72392AA4F39D00C05222 /* RegisterAccountView.swift in Sources */,
@@ -972,6 +987,7 @@
 				E2BC02032A90CC5B00337693 /* CreateNFTViewModel.swift in Sources */,
 				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
 				E217D0B729F0550B00DE5C5F /* LoginStatus.swift in Sources */,
+				E2155B962CA1123B000121A5 /* BenefactorInfoView.swift in Sources */,
 				E2A509BB2AA2400000C10E56 /* SetupPinAndAccountView.swift in Sources */,
 				E2579CF829ED195C006ABEA8 /* AdjustableBannerShapeViewModel.swift in Sources */,
 				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
