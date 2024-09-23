@@ -11,6 +11,7 @@ protocol IUserService {
     func fetchUser() async throws -> UserDTO
     func find(by pubkey: String) async throws -> UserDTO
     func airdrop() async throws -> AirdropDTO
+    func fetchBenefactors() async throws -> [UserDTO]
     func addBenefactor(id: String) async throws -> UserDTO
 }
 
@@ -28,8 +29,12 @@ struct UserService: IUserService {
         return try await URLSession.shared.request(path: ClusttrAPIs.airdrop, httpMethod: .post)
     }
 
+    func fetchBenefactors() async throws -> [UserDTO] {
+        return try await URLSession.shared.request(path: ClusttrAPIs.benefactor, httpMethod: .get)
+    }
+
     func addBenefactor(id: String) async throws -> UserDTO {
-        let fullPath = ClusttrAPIs.user + "?id=\(id)"
+        let fullPath = ClusttrAPIs.benefactor + "?id=\(id)"
         return try await URLSession.shared.request(path: fullPath, httpMethod: .post)
     }
 }
@@ -48,6 +53,11 @@ struct UserServiceDouble: IUserService {
     func airdrop() async throws -> AirdropDTO {
         try? await Task.sleep(for: .seconds(3))
         return .demo()
+    }
+
+    func fetchBenefactors() async throws -> [UserDTO] {
+        try? await Task.sleep(for: .seconds(2))
+        return [.demo(), .demo(), .demo(), .demo(), .demo()]
     }
 
     func addBenefactor(id: String) async throws -> UserDTO {

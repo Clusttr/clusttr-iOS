@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BenefactorCard: View {
+    var user: User
+
     var body: some View {
         VStack(spacing: 6) {
             Image.ape
@@ -16,9 +18,9 @@ struct BenefactorCard: View {
                 .clipShape(Circle())
 
             VStack(spacing: 0) {
-                Text("Mike")
+                Text("@\(user.name)")
                     .fontWeight(.black)
-                Text("0x123A...456x")
+                Text(getShort(address: user.pubkey))
                     .fontWeight(.bold)
             }
             .font(.caption2)
@@ -34,8 +36,15 @@ struct BenefactorCard: View {
                 .stroke(Color._grey700, lineWidth: 1)
         }
     }
+
+    private func getShort(address: String?) -> String {
+        guard let address = address else { return "..."}
+        let prefix = address.prefix(5)
+        let suffix = address.suffix(5)
+        return "\(prefix)...\(suffix)"
+    }
 }
 
 #Preview {
-    BenefactorCard()
+    BenefactorCard(user: User.demo())
 }

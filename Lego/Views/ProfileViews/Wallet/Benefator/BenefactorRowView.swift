@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct BenefactorRow: View {
+    var userService: IUserService = UserService()
+    @State var benefactors: [User] = []
     @State var isSheetPresented = false
     @State private var fullSheetExpanded: Bool = false
+    @State private var error: ClusttrError?
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 18) {
                 
-                Button(action: addBenefactor) {
+                Button(action: presentAddBenefactorSheet) {
                     Image(systemName: "plus")
                         .font(.system(size: 24, design: .rounded))
                         .fontWeight(.semibold)
@@ -28,13 +31,14 @@ struct BenefactorRow: View {
                         .padding(.leading, 16)
                 }
 
-                ForEach(0 ..< 5) { item in
-                    BenefactorCard()
+                ForEach(benefactors) { user in
+                    BenefactorCard(user: user)
                         .padding(.vertical, 4)
                 }
             }
             .padding(.trailing, 16)
         }
+        .frame(height: 100)
         .sheet(isPresented: $isSheetPresented) {
             AddBenefactorView(
                 isSheetPresented: $isSheetPresented,
@@ -42,16 +46,35 @@ struct BenefactorRow: View {
             )
             .presentationDetents([.height(fullSheetExpanded ? .infinity : 250)])
         }
+        .task {
+            getBenefactors()
+        }
     }
 
-    func addBenefactor() {
+    private func getBenefactors() {
+        Task {
+            do {
+                let benefactors = try await userService.fetchBenefactors()
+                DispatchQueue.main.async {
+                    self.benefactors = benefactors.map(User.init)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.error = ClusttrError.UserNotFound
+//                    self.isLoading = false
+                }
+            }
+        }
+    }
+
+    private func presentAddBenefactorSheet() {
         isSheetPresented = true
     }
 }
 
 struct BenefactorRow_Previews: PreviewProvider {
     static var previews: some View {
-        BenefactorRow()
+        BenefactorRow(userService: UserServiceDouble())
             .background(Color._background)
     }
 }

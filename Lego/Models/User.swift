@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable, CustomStringConvertible {
+struct User: Codable, CustomStringConvertible, Identifiable {
     var id: String
     var name: String
     var email: String

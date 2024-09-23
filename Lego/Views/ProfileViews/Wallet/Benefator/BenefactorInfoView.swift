@@ -46,7 +46,9 @@ struct BenefactorInfoView: View {
                 .foregroundColor(._grey100)
                 .padding(.top, 24)
 
-            AddressView(user.pubkey)
+            Text(getShort(address: user.pubkey))
+                .font(.caption)
+                .foregroundColor(._grey2)
         }
     }
 
@@ -56,6 +58,13 @@ struct BenefactorInfoView: View {
         startAngle: .degrees(270),
         endAngle: .degrees(0)
     )
+
+    private func getShort(address: String?) -> String {
+        guard let address = address else { return "..."}
+        let prefix = address.prefix(5)
+        let suffix = address.suffix(5)
+        return "\(prefix)...\(suffix)"
+    }
 }
 
 #Preview {
