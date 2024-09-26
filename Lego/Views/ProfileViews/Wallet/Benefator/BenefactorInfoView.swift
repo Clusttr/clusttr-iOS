@@ -12,36 +12,41 @@ struct BenefactorInfoView: View {
     @State private var rotationAngle: Double = 0
     @State private var hearthBeat = false
     @State private var isRotating = true
-    
+
     var body: some View {
         VStack {
-            Image.ape
-                .resizable()
-                .frame(width: 300, height: 300)
-                .clipShape(Circle())
-                .overlay {
-                    Circle()
-                        .stroke(gradient, lineWidth:  6)
-                        .blur(radius: 16)
-                        .scaleEffect(hearthBeat ? 1.1 : 0.9)
-                        .animation(
-                            isRotating ? Animation.linear(duration: 1.0)
-                                .repeatForever(autoreverses: true) : .default,
-                            value: rotationAngle
-                        )
-                        .rotationEffect(.degrees(rotationAngle))
-                        .animation(
-                            isRotating ? Animation.linear(duration: 2.0)
-                                .repeatForever(autoreverses: false) : .default,
-                            value: rotationAngle
-                        )
-                        .onAppear {
-                            rotationAngle = 360
-                            hearthBeat = true
-                        }
-                }
+            AsyncImage(url: user.profileImageURL, content: { image in
+                image
+                    .resizable()
+                    .frame(width: 300, height: 300)
+                    .clipShape(Circle())
+                    .overlay {
+                        Circle()
+                            .stroke(gradient, lineWidth:  6)
+                            .blur(radius: 16)
+                            .scaleEffect(hearthBeat ? 1.1 : 0.9)
+                            .animation(
+                                isRotating ? Animation.linear(duration: 1.0)
+                                    .repeatForever(autoreverses: true) : .default,
+                                value: rotationAngle
+                            )
+                            .rotationEffect(.degrees(rotationAngle))
+                            .animation(
+                                isRotating ? Animation.linear(duration: 2.0)
+                                    .repeatForever(autoreverses: false) : .default,
+                                value: rotationAngle
+                            )
+                            .onAppear {
+                                rotationAngle = 360
+                                hearthBeat = true
+                            }
+                    }
+            }, placeholder: {
+                Spacer()
+                    .frame(width: 300, height: 300)
+            })
 
-            Text("@\(user.name)")
+            Text("@\(user.username)")
                 .font(.headline)
                 .foregroundColor(._grey100)
                 .padding(.top, 24)

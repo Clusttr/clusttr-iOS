@@ -11,9 +11,10 @@ import Fakery
 struct UserDTO: Codable {
     let id: String
     let name: String
+    let username: String
     let email: String
     let profileImage: String
-    let pubkey: String
+    let publicKey: String
 }
 
 extension UserDTO {
@@ -21,8 +22,9 @@ extension UserDTO {
         let faker = Faker()
         return UserDTO(id: UUID().uuidString,
                        name: faker.name.name(),
+                       username: faker.name.firstName(),
                        email: faker.internet.email(),
                        profileImage: faker.internet.image(),
-                       pubkey: "HkkVS92U3WwxZz1VKJ2ocD4S4prjHiKz9EBCaGD2s8Fb")
+                       publicKey: "HkkVS92U3WwxZz1VKJ2ocD4S4prjHiKz9EBCaGD2s8Fb")
     }
 }

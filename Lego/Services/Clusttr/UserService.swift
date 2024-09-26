@@ -21,8 +21,11 @@ struct UserService: IUserService {
     }
 
     func find(by pubkey: String) async throws -> UserDTO {
-        let fullPath = ClusttrAPIs.findUser + "?pubkey=\(pubkey)"
-        return try await URLSession.shared.request(path: fullPath, httpMethod: .get)
+        return try await URLSession.shared.request(
+            path: ClusttrAPIs.findUser,
+            httpMethod: .get,
+            queryItems: [URLQueryItem(name: "publicKey", value: pubkey)]
+        )
     }
 
     func airdrop() async throws -> AirdropDTO {
@@ -34,8 +37,10 @@ struct UserService: IUserService {
     }
 
     func addBenefactor(id: String) async throws -> UserDTO {
-        let fullPath = ClusttrAPIs.benefactor + "?id=\(id)"
-        return try await URLSession.shared.request(path: fullPath, httpMethod: .post)
+        return try await URLSession.shared.request(
+            path: ClusttrAPIs.benefactor + "/\(id)",
+            httpMethod: .post
+        )
     }
 }
 

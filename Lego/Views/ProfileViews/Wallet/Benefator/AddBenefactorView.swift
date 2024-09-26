@@ -11,6 +11,7 @@ import AlertToast
 
 struct AddBenefactorView: View {
     var userService: IUserService = UserService()
+    @Binding var benefactors: [User]
     @Binding var isSheetPresented: Bool
     @Binding var fullSheetExpanded: Bool
     @State private var addressText: String = ""
@@ -129,11 +130,12 @@ struct AddBenefactorView: View {
         isLoading = true
         Task {
             do {
-                let _ = try await userService.addBenefactor(id: id)
+                let user = try await userService.addBenefactor(id: id)
                 DispatchQueue.main.async{
                     self.showingSuccess = true
                     self.isLoading = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                        self.benefactors.append(User(user))
                         self.fullSheetExpanded = false
                         self.isSheetPresented = false
                     }
@@ -151,6 +153,7 @@ struct AddBenefactorView: View {
 #Preview {
     AddBenefactorView(
         userService: UserServiceDouble(),
+        benefactors: .constant([]),
         isSheetPresented: .constant(true),
         fullSheetExpanded: .constant(true)
     )

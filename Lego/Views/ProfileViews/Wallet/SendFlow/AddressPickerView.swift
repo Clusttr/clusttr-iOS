@@ -57,7 +57,9 @@ struct AddressPickerView: View {
                     Text("Benefactors")
                         .font(.footnote)
                         .foregroundColor(Color._grey100)
-                    BenefactorRow()
+                    BenefactorRow(){ user in
+
+                    }
                 }
                 .padding(.top, 32)
 

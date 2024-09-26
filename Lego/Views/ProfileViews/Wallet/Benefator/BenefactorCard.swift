@@ -12,14 +12,20 @@ struct BenefactorCard: View {
 
     var body: some View {
         VStack(spacing: 6) {
-            Image.ape
-                .resizable()
-                .frame(width: 30, height: 30)
-                .clipShape(Circle())
+            AsyncImage(url: user.profileImageURL, content: { image in
+                image
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .clipShape(Circle())
+            }, placeholder: {
+                Spacer()
+                    .frame(width: 30, height: 30)
+            })
 
             VStack(spacing: 0) {
-                Text("@\(user.name)")
+                Text(user.displayName)
                     .fontWeight(.black)
+                    .multilineTextAlignment(.center)
                 Text(getShort(address: user.pubkey))
                     .fontWeight(.bold)
             }

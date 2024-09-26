@@ -34,7 +34,6 @@ class ProfileViewModel: ObservableObject {
             do {
                 let res = try await userService.fetchUser()
                 self.user = User(res)
-                print(user)
             } catch {
                 print(error.localizedDescription)
             }

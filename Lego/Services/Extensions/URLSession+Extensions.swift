@@ -23,10 +23,11 @@ extension URLSession {
         case unknown
     }
 
-    public func request<T: Codable>(path: String, httpMethod: HttpMethod, body: Data? = nil) async throws -> T {
-        guard let url = ClusttrAPIs.baseURL?.appending(path: path) else {
+    public func request<T: Codable>(path: String, httpMethod: HttpMethod, body: Data? = nil, queryItems: [URLQueryItem] = []) async throws -> T {
+        guard var url = ClusttrAPIs.baseURL?.appending(path: path) else {
             throw APIError.invalidURL
         }
+        url = url.appending(queryItems: queryItems)
 
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue

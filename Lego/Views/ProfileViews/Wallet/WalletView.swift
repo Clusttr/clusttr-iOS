@@ -81,7 +81,9 @@ struct WalletView: View {
                 .foregroundColor(._grey100)
                 .padding(.horizontal)
 
-                BenefactorRow()
+                BenefactorRow() {user in
+                    
+                }
             }
             .padding(.top, 45)
 

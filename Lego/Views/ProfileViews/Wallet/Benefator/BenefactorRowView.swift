@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BenefactorRow: View {
     var userService: IUserService = UserService()
+    var onSelect: (_ user: User) -> Void
     @State var benefactors: [User] = []
     @State var isSheetPresented = false
     @State private var fullSheetExpanded: Bool = false
@@ -35,12 +36,14 @@ struct BenefactorRow: View {
                     BenefactorCard(user: user)
                         .padding(.vertical, 4)
                 }
+
             }
             .padding(.trailing, 16)
         }
         .frame(height: 100)
         .sheet(isPresented: $isSheetPresented) {
             AddBenefactorView(
+                benefactors: $benefactors,
                 isSheetPresented: $isSheetPresented,
                 fullSheetExpanded: $fullSheetExpanded
             )
@@ -60,8 +63,8 @@ struct BenefactorRow: View {
                 }
             } catch {
                 DispatchQueue.main.async {
+                    print(error.localizedDescription)
                     self.error = ClusttrError.UserNotFound
-//                    self.isLoading = false
                 }
             }
         }
@@ -74,7 +77,9 @@ struct BenefactorRow: View {
 
 struct BenefactorRow_Previews: PreviewProvider {
     static var previews: some View {
-        BenefactorRow(userService: UserServiceDouble())
-            .background(Color._background)
+        BenefactorRow(userService: UserServiceDouble()) { user in
+            print(user)
+        }
+        .background(Color._background)
     }
 }
