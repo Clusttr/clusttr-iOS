@@ -33,8 +33,14 @@ struct BenefactorRow: View {
                 }
 
                 ForEach(benefactors) { user in
-                    BenefactorCard(user: user)
-                        .padding(.vertical, 4)
+                    Button(
+                        action: {
+                            onSelect(user)
+                        }
+                    ) {
+                        BenefactorCard(user: user)
+                            .padding(.vertical, 4)
+                    }
                 }
 
             }

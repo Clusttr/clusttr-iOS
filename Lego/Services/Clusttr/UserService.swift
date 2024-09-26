@@ -15,6 +15,16 @@ protocol IUserService {
     func addBenefactor(id: String) async throws -> UserDTO
 }
 
+extension IUserService {
+    static func create() -> IUserService {
+        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
+            UserServiceDouble()
+        } else {
+            UserService()
+        }
+    }
+}
+
 struct UserService: IUserService {
     func fetchUser() async throws -> UserDTO {
         return try await URLSession.shared.request(path: ClusttrAPIs.user, httpMethod: .get)

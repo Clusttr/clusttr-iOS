@@ -50,7 +50,8 @@ struct EnterAmountView: View {
                     .focused($focusedField, equals: .amount)
                     .keyboardType(.decimalPad)
                     .multilineTextAlignment(.trailing)
-                    
+                    .foregroundColor(Color._grey100)
+
                     Text("USD")
                         .multilineTextAlignment(.leading)
                         .foregroundStyle(Color._grey400)
