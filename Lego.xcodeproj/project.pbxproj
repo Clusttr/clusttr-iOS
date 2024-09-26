@@ -15,6 +15,11 @@
 		E20F8CD02C99E9F100320958 /* PublicKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F8CCF2C99E9EA00320958 /* PublicKey+Extensions.swift */; };
 		E2155B942CA110AF000121A5 /* BenefactorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155B932CA110AF000121A5 /* BenefactorCard.swift */; };
 		E2155B962CA1123B000121A5 /* BenefactorInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155B952CA1123B000121A5 /* BenefactorInfoView.swift */; };
+		E2155B992CA51113000121A5 /* BanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155B982CA51113000121A5 /* BanksView.swift */; };
+		E2155B9B2CA5163A000121A5 /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155B9A2CA5163A000121A5 /* BankCard.swift */; };
+		E2155B9D2CA521A8000121A5 /* DeleteConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155B9C2CA521A8000121A5 /* DeleteConfirmationView.swift */; };
+		E2155B9F2CA5B30F000121A5 /* BankAccountDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155B9E2CA5B30D000121A5 /* BankAccountDTO.swift */; };
+		E2155BA12CA5B5C0000121A5 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2155BA02CA5B5BE000121A5 /* BankAccount.swift */; };
 		E217D0B129EEB4B900DE5C5F /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B029EEB4B900DE5C5F /* AssetModel.swift */; };
 		E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B229EEB77800DE5C5F /* AssetModelType.swift */; };
 		E217D0B529F054C100DE5C5F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217D0B429F054C100DE5C5F /* AppState.swift */; };
@@ -170,6 +175,11 @@
 		E20F8CCF2C99E9EA00320958 /* PublicKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PublicKey+Extensions.swift"; sourceTree = "<group>"; };
 		E2155B932CA110AF000121A5 /* BenefactorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorCard.swift; sourceTree = "<group>"; };
 		E2155B952CA1123B000121A5 /* BenefactorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefactorInfoView.swift; sourceTree = "<group>"; };
+		E2155B982CA51113000121A5 /* BanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksView.swift; sourceTree = "<group>"; };
+		E2155B9A2CA5163A000121A5 /* BankCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCard.swift; sourceTree = "<group>"; };
+		E2155B9C2CA521A8000121A5 /* DeleteConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteConfirmationView.swift; sourceTree = "<group>"; };
+		E2155B9E2CA5B30D000121A5 /* BankAccountDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountDTO.swift; sourceTree = "<group>"; };
+		E2155BA02CA5B5BE000121A5 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
 		E217D0B029EEB4B900DE5C5F /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 		E217D0B229EEB77800DE5C5F /* AssetModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModelType.swift; sourceTree = "<group>"; };
 		E217D0B429F054C100DE5C5F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -361,6 +371,17 @@
 				E2155B952CA1123B000121A5 /* BenefactorInfoView.swift */,
 			);
 			path = Benefator;
+			sourceTree = "<group>";
+		};
+		E2155B972CA51051000121A5 /* Banks */ = {
+			isa = PBXGroup;
+			children = (
+				E2155BA02CA5B5BE000121A5 /* BankAccount.swift */,
+				E2155B982CA51113000121A5 /* BanksView.swift */,
+				E2155B9A2CA5163A000121A5 /* BankCard.swift */,
+				E2155B9C2CA521A8000121A5 /* DeleteConfirmationView.swift */,
+			);
+			path = Banks;
 			sourceTree = "<group>";
 		};
 		E22483262A80237200AF893C /* Storage */ = {
@@ -639,6 +660,7 @@
 				E2A884792A65D57D00B68A93 /* Wallet */,
 				E2BCAC382A7821E700A14654 /* MenuItemView.swift */,
 				E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */,
+				E2155B972CA51051000121A5 /* Banks */,
 			);
 			path = ProfileViews;
 			sourceTree = "<group>";
@@ -729,6 +751,7 @@
 			children = (
 				E2A509C32AA29C8A00C10E56 /* Results */,
 				E2BC511E2C9CD8B400E36064 /* AirdropDTO.swift */,
+				E2155B9E2CA5B30D000121A5 /* BankAccountDTO.swift */,
 				E2A509C62AA29D3700C10E56 /* TestDTO.swift */,
 				E2A509C82AA29D6C00C10E56 /* LoginDTO.swift */,
 				E2E9385A2ADA948C0045E20E /* UserDTO.swift */,
@@ -944,6 +967,7 @@
 				E2A509C12AA257F700C10E56 /* LoadingModifier.swift in Sources */,
 				E2579D0029ED8542006ABEA8 /* NFTCard.swift in Sources */,
 				E2A7D2632A8FE7AA00F885C3 /* NFTImagePicker.swift in Sources */,
+				E2155B9B2CA5163A000121A5 /* BankCard.swift in Sources */,
 				E2E938632ADADB570045E20E /* AssetDTO.swift in Sources */,
 				E217D0B929F06B5200DE5C5F /* ProfileViewModel.swift in Sources */,
 				E2579CF529EBEC94006ABEA8 /* OffsetObservingScrollView.swift in Sources */,
@@ -967,6 +991,7 @@
 				E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */,
 				E2BCAC4A2A7B17E900A14654 /* OTPFormFieldView.swift in Sources */,
 				E295D6902A8ED0B2006C26EC /* DeveloperWelcomeView.swift in Sources */,
+				E2155B9F2CA5B30F000121A5 /* BankAccountDTO.swift in Sources */,
 				E24FAA3B2BA350E5003CF17B /* SuccessModifier.swift in Sources */,
 				E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */,
 				E295D6922A8ED0C5006C26EC /* CreateNFTView.swift in Sources */,
@@ -1010,6 +1035,7 @@
 				E2579D1B29EDEB09006ABEA8 /* MainView.swift in Sources */,
 				E20DC4002AA0DF73001BBD61 /* AuthService.swift in Sources */,
 				E2579D1429ED8C9F006ABEA8 /* Font+Extensions.swift in Sources */,
+				E2155B9D2CA521A8000121A5 /* DeleteConfirmationView.swift in Sources */,
 				E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */,
 				E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */,
 				E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */,
@@ -1041,8 +1067,10 @@
 				E29C72372AA4E04500C05222 /* AccountService.swift in Sources */,
 				E24363EC2A75BDCD0053FD28 /* BaseView.swift in Sources */,
 				E217D0B329EEB77800DE5C5F /* AssetModelType.swift in Sources */,
+				E2155BA12CA5B5C0000121A5 /* BankAccount.swift in Sources */,
 				E2C3278D2BA6DE1D0010E14B /* QRCodeGenerator.swift in Sources */,
 				E2B3CC492A9F7F1D00CDAD94 /* LocalStorage.swift in Sources */,
+				E2155B992CA51113000121A5 /* BanksView.swift in Sources */,
 				E22C58E929E8185E0065EEE2 /* Image+Extensions.swift in Sources */,
 				E2E9385D2ADA95740045E20E /* UserService.swift in Sources */,
 				E295A20E2A8A956700DCDC64 /* AccountManager.swift in Sources */,

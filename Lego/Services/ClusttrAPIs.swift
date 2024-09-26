@@ -33,6 +33,7 @@ struct ClusttrAPIs {
     static let findUser = "/user/find"
     static let airdrop = "/user/airdrop"
     static let benefactor = "/user/benefactor"
+    static let banks = "/user/banks"
 
     //MARK: BOOKMARK
     static let bookmark = "/bookmark"
