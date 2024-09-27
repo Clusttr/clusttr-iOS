@@ -26,3 +26,10 @@ extension BankAccountDTO {
         )
     }
 }
+
+
+struct BankAccountReqDTO: Codable {
+    let name: String
+    let accountNumber: String
+    let bankName: String
+}

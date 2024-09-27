@@ -14,17 +14,7 @@ struct BankPicker: View {
     @State private var banks: [Bank] = [.mock(), .mock(), .mock()]
     var body: some View {
         VStack {
-            VStack(spacing: 0) {
-                HStack {
-                    Spacer()
-                    Text("Choose Bank")
-                        .font(.headline)
-                        .foregroundColor(._grey100)
-                    Spacer()
-                }
-                .frame(height: 50)
-                Divider()
-            }
+            Header(title: "Choose Bank")
 
             searchView
                 .padding(.horizontal, 16)

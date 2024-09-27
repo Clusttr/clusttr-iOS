@@ -9,25 +9,33 @@ import SwiftUI
 
 struct AddBankAccountView: View {
     @State var accountNumber: String = ""
+    @State var currentStep: Step = .pickBank
 
-    enum step {
+    enum Step {
         case pickBank
-        case enterAccountNuber
+        case enterAccountNumber(bank: Bank)
     }
 
     var body: some View {
-        VStack {
-            HStack {
-                Text("Add Bank Account")
+        switch currentStep {
+        case .pickBank:
+            BankPicker { bank in
+                currentStep = .enterAccountNumber(bank: bank)
             }
-            .font(.headline)
-            .foregroundColor(._grey100)
+        case .enterAccountNumber:
+            VStack {
+                HStack {
+                    Text("Add Bank Account")
+                }
+                .font(.headline)
+                .foregroundColor(._grey100)
 
-            TextField(text: $accountNumber) {
-                Text("Enter account number")
-                    .foregroundColor(._grey2)
+                TextField(text: $accountNumber) {
+                    Text("Enter account number")
+                        .foregroundColor(._grey2)
+                }
+                .foregroundColor(._grey100)
             }
-            .foregroundColor(._grey100)
         }
     }
 }
