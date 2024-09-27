@@ -54,6 +54,7 @@ struct BankAccountTextFieldView: View {
             }
             .padding(.horizontal)
         }
+        .background(Color._background)
         .loading(isLoading)
         .error($error)
     }

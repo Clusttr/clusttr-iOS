@@ -27,7 +27,7 @@ struct ProfileScreen: View {
                 .padding(.trailing)
 
                 ProfileMenuView(selectedMenu: $selectedMenu)
-                    .onChange(of: selectedMenu) { _ in
+                    .onChange(of: selectedMenu) { _, _ in
                         withAnimation(.spring().delay(0.15)) {
                             showMenu = false
                         }
@@ -67,7 +67,7 @@ struct ProfileScreen: View {
                 .opacity(opacity(menu: .wallet))
             profileView
                 .opacity(opacity(menu: .verifyIdentity))
-            profileView
+            BankAccountsView()
                 .opacity(opacity(menu: .banks))
             profileView
                 .opacity(opacity(menu: .security))
@@ -93,5 +93,6 @@ struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
         ProfileScreen()
             .environmentObject(AppState())
+            .environmentObject(AccountManager.create())
     }
 }

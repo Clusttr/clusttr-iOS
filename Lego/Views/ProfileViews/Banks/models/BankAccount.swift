@@ -30,7 +30,7 @@ extension BankAccount {
         return BankAccount(
             id: UUID().uuidString,
             name: faker.name.name(),
-            accountNumber: "\(6)",
+            accountNumber: "\(faker.number.randomInt(min: 1000000000, max: 9999999999))",
             bankName: faker.bank.name()
         )
     }

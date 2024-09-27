@@ -391,15 +391,11 @@
 		E2155B972CA51051000121A5 /* Banks */ = {
 			isa = PBXGroup;
 			children = (
-				E2BCA3AB2CA63D11001AA829 /* AddBankAccountView.swift */,
-				E2BCA3B12CA65A00001AA829 /* Bank.swift */,
-				E2155BA02CA5B5BE000121A5 /* BankAccount.swift */,
+				E2BCA3BD2CA7032B001AA829 /* models */,
+				E2BCA3BC2CA7025E001AA829 /* DeleteBankAccount */,
+				E2BCA3BB2CA7021D001AA829 /* AddBankAccount */,
 				E2155B9A2CA5163A000121A5 /* BankAccountCard.swift */,
 				E2155B982CA51113000121A5 /* BankAccountsView.swift */,
-				E2BCA3B32CA65EFF001AA829 /* BankAccountTextFieldView.swift */,
-				E2BCA3AF2CA64E50001AA829 /* BankCard.swift */,
-				E2BCA3AD2CA6467F001AA829 /* BankPicker.swift */,
-				E2155B9C2CA521A8000121A5 /* DeleteConfirmationView.swift */,
 			);
 			path = Banks;
 			sourceTree = "<group>";
@@ -824,6 +820,34 @@
 				E295D6862A8E8065006C26EC /* CrossMintAPIs.swift */,
 			);
 			path = APIs;
+			sourceTree = "<group>";
+		};
+		E2BCA3BB2CA7021D001AA829 /* AddBankAccount */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCA3AD2CA6467F001AA829 /* BankPicker.swift */,
+				E2BCA3AF2CA64E50001AA829 /* BankCard.swift */,
+				E2BCA3AB2CA63D11001AA829 /* AddBankAccountView.swift */,
+				E2BCA3B32CA65EFF001AA829 /* BankAccountTextFieldView.swift */,
+			);
+			path = AddBankAccount;
+			sourceTree = "<group>";
+		};
+		E2BCA3BC2CA7025E001AA829 /* DeleteBankAccount */ = {
+			isa = PBXGroup;
+			children = (
+				E2155B9C2CA521A8000121A5 /* DeleteConfirmationView.swift */,
+			);
+			path = DeleteBankAccount;
+			sourceTree = "<group>";
+		};
+		E2BCA3BD2CA7032B001AA829 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCA3B12CA65A00001AA829 /* Bank.swift */,
+				E2155BA02CA5B5BE000121A5 /* BankAccount.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		E2BCAC3A2A78247F00A14654 /* Menu */ = {

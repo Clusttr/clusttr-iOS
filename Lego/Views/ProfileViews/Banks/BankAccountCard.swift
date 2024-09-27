@@ -15,16 +15,16 @@ struct BankAccountCard: View {
     @State var error: ClusttrError?
 
     var body: some View {
-        HStack{
+        HStack(alignment: .center){
             VStack(alignment: .leading) {
-                Text("0025635480")
+                Text(bankAccount.accountNumber)
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundColor(Color._grey100)
-                Text("Matthew Chukwuemeka")
+                Text(bankAccount.name)
                     .font(.footnote)
                     .foregroundColor(._grey2)
-                Text("Access Bank")
+                Text(bankAccount.bankName)
                     .font(.caption)
                     .foregroundColor(._grey100)
             }
@@ -55,6 +55,7 @@ struct BankAccountCard: View {
         .error($error)
 
     }
+
 }
 
 #Preview {

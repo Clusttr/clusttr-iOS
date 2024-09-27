@@ -11,7 +11,10 @@ struct BankPicker: View {
     var onSelect: (Bank) -> Void
     @State private var addressText: String = ""
     @State private var selectedBank: Bank?
-    @State private var banks: [Bank] = [.mock(), .mock(), .mock()]
+    @State private var banks: [Bank] = []
+
+    @State private var listOfBanks: [Bank] = []
+
     var body: some View {
         VStack {
             Header(title: "Choose Bank")
@@ -38,7 +41,10 @@ struct BankPicker: View {
             }
 
         }
-
+        .background(Color._background)
+        .task {
+            fetchBanks()
+        }
     }
 
     var searchView: some View {
@@ -47,13 +53,19 @@ struct BankPicker: View {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.white.opacity(0.7))
 
-                TextField("Search", text: $addressText)
-                    .placeholder(when: addressText.isEmpty) {
-                        Text("Search for a bank")
-                            .foregroundColor(.white.opacity(0.7))
-                    }
-                    .accentColor(.red)
-                    .foregroundColor(.white)
+                TextField(
+                    "Search",
+                    text: $addressText
+                )
+                .placeholder(when: addressText.isEmpty) {
+                    Text("Search for a bank")
+                        .foregroundColor(.white.opacity(0.7))
+                }
+                .onChange(of: addressText, initial: false) { oldValue, newValue in
+                    searchBank(value: newValue)
+                }
+                .accentColor(.red)
+                .foregroundColor(.white)
             }
             .foregroundColor(Color.white.opacity(0.7))
             .padding(.horizontal, 20)
@@ -66,6 +78,21 @@ struct BankPicker: View {
                     .stroke(Color.white.opacity(0.3))
             }
         }
+    }
+
+    @MainActor
+    func fetchBanks() {
+        let result: [Bank] = [.mock(), .mock(), .mock()]
+        banks = result
+        listOfBanks = result
+    }
+
+    func searchBank(value: String) {
+        guard !value.isEmpty else {
+            banks = listOfBanks
+            return
+        }
+        banks = listOfBanks.filter() { $0.name.contains(addressText) }
     }
 
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct BankAccountsView: View {
     var userService = UserService.create()
     @State var bankAccounts: [BankAccount] = []
+    @State var presentingAddBankAccount: Bool = false
     @State var error: ClusttrError?
 
     @State var cardToDeleteId: String?
@@ -23,7 +24,7 @@ struct BankAccountsView: View {
                 Spacer()
 
                 Button("", systemImage: "plus") {
-
+                    presentingAddBankAccount = true
                 }
                 .foregroundColor(._grey100)
                 .fontWeight(.bold)
@@ -39,7 +40,14 @@ struct BankAccountsView: View {
                 }
             }
         }
+        .padding(.top, 50)
         .background(Color._background)
+        .sheet(isPresented: $presentingAddBankAccount, content: {
+            AddBankAccountView() { bankAccount in
+                bankAccounts.append(bankAccount)
+                presentingAddBankAccount = false
+            }
+        })
         .task {
             await fetchBankAccounts()
         }
