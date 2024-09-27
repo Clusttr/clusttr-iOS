@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct BankCard: View {
+    var userService: IUserService
     var bankAccount: BankAccount
-    var onDelete: (_ bankAccount: BankAccount) -> Void
+    var onDelete: (_ bankAccountId: String) -> Void
+    @State var presentDeleteDialog = false
+    @State var error: ClusttrError?
 
     var body: some View {
         HStack{
@@ -29,7 +32,7 @@ struct BankCard: View {
             Spacer()
 
             Button(action: {
-                onDelete(bankAccount)
+                presentDeleteDialog = true
             }) {
                 Image(systemName: "trash")
                     .fontWeight(.bold)
@@ -40,15 +43,28 @@ struct BankCard: View {
         .padding(.horizontal, 16)
         .background(Color._grey800)
         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .sheet(isPresented: $presentDeleteDialog) {
+            DeleteConfirmationView(userService: userService,bankAccountId: bankAccount.id) {
+                presentDeleteDialog = false
+            } onProceed: { bankAccountId in
+                presentDeleteDialog = false
+                onDelete(bankAccountId)
+            }
+            .presentationDetents([.height(250)])
+        }
+        .error($error)
 
     }
 }
 
 #Preview {
-    BankCard(bankAccount: .mock()) { bankAccount in
+    BankCard(
+        userService: UserService.create(),
+        bankAccount: .mock()
+    ) { bankAccountId in
 
     }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color._background)
+    .padding()
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .background(Color._background)
 }

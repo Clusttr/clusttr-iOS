@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct DeleteConfirmationView: View {
+    var userService: IUserService
     var bankAccountId: String
-    var dismiss: () -> Void
-    var proceed: (_ bankAccountId: String, _ pin: String) -> Void
+    var onDismiss: () -> Void
+    var onProceed: (_ bankAccountId: String) -> Void
     @State private var pin = ""
+    @State var isLoading: Bool = false
+    @State var error: ClusttrError?
+
     var body: some View {
         VStack {
             VStack(spacing: 16) {
@@ -34,22 +38,44 @@ struct DeleteConfirmationView: View {
             Spacer()
 
             HStack(spacing: 16) {
-                OutlineButton(title: "Cancel", action: dismiss)
+                OutlineButton(title: "Cancel", action: onDismiss)
                 ActionButton(title: "Proceed") {
-                    proceed(bankAccountId, pin)
+                    Task {
+                        await deleteAccount(id: bankAccountId, pin: pin)
+                    }
                 }
             }
         }
         .padding()
         .background(Color._background.opacity(0.9))
+        .loading(isLoading)
+    }
+
+    @MainActor
+    func deleteAccount(id bankAccountId: String, pin: String) async {
+        isLoading = true
+        do {
+            let bankAccount = try await userService.deleteBankAccount(
+                id: bankAccountId,
+                pin: pin
+            )
+            isLoading = false
+            onProceed(bankAccount.id)
+
+        } catch {
+            self.error = ClusttrError.networkError
+            isLoading = false
+        }
     }
 }
 
 #Preview {
-    DeleteConfirmationView(bankAccountId: UUID().uuidString) {
+    DeleteConfirmationView(
+        userService: UserService.create(),
+        bankAccountId: UUID().uuidString
+    ) {
 
-    } proceed: { bankAccountId, pin in
+    } onProceed: { bankAccountId in
 
     }
-
 }
