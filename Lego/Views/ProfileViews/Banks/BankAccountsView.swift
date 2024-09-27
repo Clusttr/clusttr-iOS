@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BanksView: View {
+struct BankAccountsView: View {
     var userService = UserService.create()
     @State var bankAccounts: [BankAccount] = []
     @State var error: ClusttrError?
@@ -31,7 +31,7 @@ struct BanksView: View {
             ScrollView {
                 VStack {
                     ForEach(bankAccounts) { bankAccount in
-                        BankCard(userService: userService, bankAccount: bankAccount) { bankAccountId in
+                        BankAccountCard(userService: userService, bankAccount: bankAccount) { bankAccountId in
                             bankAccounts.removeAll(where: { $0.id == bankAccountId })
                         }
                         .padding(.horizontal, 8)
@@ -57,5 +57,5 @@ struct BanksView: View {
 }
 
 #Preview {
-    BanksView()
+    BankAccountsView()
 }
