@@ -17,8 +17,7 @@ struct BankPicker: View {
 
     var body: some View {
         VStack {
-            Header(title: "Choose Bank")
-
+            Header<Text, Text>(title: "Choose Bank", leadingView: {Text("")}, trailingView: {Text("")})
             searchView
                 .padding(.horizontal, 16)
                 .padding(.top, 24)

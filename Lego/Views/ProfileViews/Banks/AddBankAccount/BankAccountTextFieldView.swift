@@ -19,7 +19,7 @@ struct BankAccountTextFieldView: View {
 
     var body: some View {
         VStack {
-            Header(title: "Account Details")
+            Header<EmptyView, EmptyView>(title: "Account Details")
 
             VStack(alignment: .leading, spacing: 24) {
                 VStack(alignment: .leading) {

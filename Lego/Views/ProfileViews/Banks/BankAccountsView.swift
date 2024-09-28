@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BankAccountsView: View {
+    var onClickMenu: () -> Void
     var userService = UserService.create()
     @State var bankAccounts: [BankAccount] = []
     @State var presentingAddBankAccount: Bool = false
@@ -17,18 +18,18 @@ struct BankAccountsView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Text("Bank Accounts")
-                    .foregroundColor(Color._grey100)
-                Spacer()
-
+            Header(title: "Bank Accounts") {
                 Button("", systemImage: "plus") {
                     presentingAddBankAccount = true
                 }
                 .foregroundColor(._grey100)
                 .fontWeight(.bold)
+            } trailingView: {
+                Button("", systemImage: "line.3.horizontal", action: onClickMenu)
+                .foregroundColor(._grey100)
+                .fontWeight(.bold)
             }
+
             ScrollView {
                 VStack {
                     ForEach(bankAccounts) { bankAccount in
@@ -65,5 +66,5 @@ struct BankAccountsView: View {
 }
 
 #Preview {
-    BankAccountsView()
+    BankAccountsView() { }
 }
