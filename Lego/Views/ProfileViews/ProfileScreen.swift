@@ -63,19 +63,27 @@ struct ProfileScreen: View {
         BankAccountsView(onClickMenu: toggleMenu)
     }
 
+    var verifyIdentityView: VerifyIdentityView {
+        VerifyIdentityView(onClickMenu: toggleMenu)
+    }
+
+    var referralView: ReferralView {
+        ReferralView(onClickMenu: toggleMenu)
+    }
+
     var mainView: some View {
         ZStack {
             profileView
                 .opacity(opacity(menu: .profile))
             walletView
                 .opacity(opacity(menu: .wallet))
-            profileView
+            verifyIdentityView
                 .opacity(opacity(menu: .verifyIdentity))
             bankAccountsView
                 .opacity(opacity(menu: .banks))
             profileView
                 .opacity(opacity(menu: .security))
-            profileView
+            referralView
                 .opacity(opacity(menu: .referralAndEarn))
             profileView
                 .opacity(opacity(menu: .security))

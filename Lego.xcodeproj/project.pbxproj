@@ -148,6 +148,10 @@
 		E2BCA3B42CA65EFF001AA829 /* BankAccountTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3B32CA65EFF001AA829 /* BankAccountTextFieldView.swift */; };
 		E2BCA3B62CA65FD1001AA829 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3B52CA65FD1001AA829 /* Header.swift */; };
 		E2BCA3B82CA672F3001AA829 /* BankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3B72CA672EC001AA829 /* BankService.swift */; };
+		E2BCA3BF2CA8E6A8001AA829 /* coming_soon.json in Resources */ = {isa = PBXBuildFile; fileRef = E2BCA3BE2CA8E6A8001AA829 /* coming_soon.json */; };
+		E2BCA3C12CA8E765001AA829 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C02CA8E765001AA829 /* ComingSoonView.swift */; };
+		E2BCA3C42CA8EDEC001AA829 /* VerifyIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C32CA8EDEC001AA829 /* VerifyIdentityView.swift */; };
+		E2BCA3C72CA906C2001AA829 /* ReferralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C62CA906C2001AA829 /* ReferralView.swift */; };
 		E2BCAC352A77E06900A14654 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC342A77E06900A14654 /* Developer.swift */; };
 		E2BCAC372A77E08900A14654 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC362A77E08900A14654 /* Project.swift */; };
 		E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC382A7821E700A14654 /* MenuItemView.swift */; };
@@ -313,6 +317,10 @@
 		E2BCA3B32CA65EFF001AA829 /* BankAccountTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountTextFieldView.swift; sourceTree = "<group>"; };
 		E2BCA3B52CA65FD1001AA829 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		E2BCA3B72CA672EC001AA829 /* BankService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankService.swift; sourceTree = "<group>"; };
+		E2BCA3BE2CA8E6A8001AA829 /* coming_soon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coming_soon.json; sourceTree = "<group>"; };
+		E2BCA3C02CA8E765001AA829 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
+		E2BCA3C32CA8EDEC001AA829 /* VerifyIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityView.swift; sourceTree = "<group>"; };
+		E2BCA3C62CA906C2001AA829 /* ReferralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralView.swift; sourceTree = "<group>"; };
 		E2BCAC342A77E06900A14654 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		E2BCAC362A77E08900A14654 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		E2BCAC382A7821E700A14654 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -620,6 +628,7 @@
 				E2290DB22B42E05200D5A403 /* RoundButton.swift */,
 				E2C3278C2BA6DE1D0010E14B /* QRCodeGenerator.swift */,
 				E2BCA3B52CA65FD1001AA829 /* Header.swift */,
+				E2BCA3C02CA8E765001AA829 /* ComingSoonView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -673,11 +682,14 @@
 		E282BA022A095BF6005C9F01 /* ProfileViews */ = {
 			isa = PBXGroup;
 			children = (
-				E2BEDEA42BF82D6500CFCC07 /* Profile */,
-				E2A884792A65D57D00B68A93 /* Wallet */,
-				E2BCAC382A7821E700A14654 /* MenuItemView.swift */,
 				E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */,
+				E2BCAC382A7821E700A14654 /* MenuItemView.swift */,
+				E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */,
 				E2155B972CA51051000121A5 /* Banks */,
+				E2BEDEA42BF82D6500CFCC07 /* Profile */,
+				E2BCA3C52CA90679001AA829 /* Referral */,
+				E2BCA3C22CA8ED52001AA829 /* VerifyIdentity */,
+				E2A884792A65D57D00B68A93 /* Wallet */,
 			);
 			path = ProfileViews;
 			sourceTree = "<group>";
@@ -790,6 +802,7 @@
 			children = (
 				E2A509BE2AA24BF200C10E56 /* loading.json */,
 				E27445A92A9022910092C6AD /* construction_progress.json */,
+				E2BCA3BE2CA8E6A8001AA829 /* coming_soon.json */,
 			);
 			path = LottieFiles;
 			sourceTree = "<group>";
@@ -850,6 +863,22 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		E2BCA3C22CA8ED52001AA829 /* VerifyIdentity */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCA3C32CA8EDEC001AA829 /* VerifyIdentityView.swift */,
+			);
+			path = VerifyIdentity;
+			sourceTree = "<group>";
+		};
+		E2BCA3C52CA90679001AA829 /* Referral */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCA3C62CA906C2001AA829 /* ReferralView.swift */,
+			);
+			path = Referral;
+			sourceTree = "<group>";
+		};
 		E2BCAC3A2A78247F00A14654 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,7 +918,6 @@
 		E2BEDEA42BF82D6500CFCC07 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */,
 				E2A5DDFB2A51AC1200E8E930 /* ProfileMenuView.swift */,
 				E22C58EB29E81A880065EEE2 /* ProfileView.swift */,
 				E217D0B829F06B5200DE5C5F /* ProfileViewModel.swift */,
@@ -984,6 +1012,7 @@
 				E24363F52A7644920053FD28 /* Pacifico-Regular.ttf in Resources */,
 				E22C58E129E816810065EEE2 /* Preview Assets.xcassets in Resources */,
 				E27445AA2A9022910092C6AD /* construction_progress.json in Resources */,
+				E2BCA3BF2CA8E6A8001AA829 /* coming_soon.json in Resources */,
 				E22C58DE29E816810065EEE2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1042,6 +1071,7 @@
 				E24FAA3B2BA350E5003CF17B /* SuccessModifier.swift in Sources */,
 				E2BCAC422A7AC83E00A14654 /* AddressView.swift in Sources */,
 				E295D6922A8ED0C5006C26EC /* CreateNFTView.swift in Sources */,
+				E2BCA3C72CA906C2001AA829 /* ReferralView.swift in Sources */,
 				E217D0C529F53A3C00DE5C5F /* ProjectCarousel.swift in Sources */,
 				E2A3E3992A0BE9FF009C710C /* ProjectDetailsView.swift in Sources */,
 				E24363E72A7557E10053FD28 /* AuthHeaderView.swift in Sources */,
@@ -1089,6 +1119,7 @@
 				E217D0CB29F694D500DE5C5F /* PropertyFeatureFullList.swift in Sources */,
 				E2579D1F29EDEBC2006ABEA8 /* NavBarMenu.swift in Sources */,
 				E28BDA122A9E6B5F0083EF0B /* ActionButtonModifier.swift in Sources */,
+				E2BCA3C42CA8EDEC001AA829 /* VerifyIdentityView.swift in Sources */,
 				E295A20A2A8761FA00DCDC64 /* AccountFactory.swift in Sources */,
 				E24363E52A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift in Sources */,
 				E2BEDEA62BF8328B00CFCC07 /* AssetSectionView.swift in Sources */,
@@ -1104,6 +1135,7 @@
 				E295A20C2A8A94AA00DCDC64 /* HotAccount+Extensions.swift in Sources */,
 				E2BC51212C9E768C00E36064 /* AccountManager+Extension.swift in Sources */,
 				E295A2102A8B5B6600DCDC64 /* AccountInfoView.swift in Sources */,
+				E2BCA3C12CA8E765001AA829 /* ComingSoonView.swift in Sources */,
 				E2A3E3972A0B8D50009C710C /* TransactionItem.swift in Sources */,
 				E2B3CC472A9F5B1A00CDAD94 /* User.swift in Sources */,
 				E217D0CD29F70FB000DE5C5F /* cTransaction.swift in Sources */,
