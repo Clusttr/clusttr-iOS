@@ -68,7 +68,7 @@ struct SupportView: View {
                     Spacer()
                     ForEach(Socials.allCases) { social in
                         Button {
-
+                            openApp(url: social.url)
                         } label: {
                             Image(social.logoName)
                                 .resizable()
@@ -117,6 +117,10 @@ struct SupportView: View {
     func callAdmin() {
         let tel = "tel://+2348153132446"
         guard let url = URL(string: tel) else { return }
+        UIApplication.shared.open(url)
+    }
+
+    func openApp(url: URL) {
         UIApplication.shared.open(url)
     }
 }
