@@ -71,6 +71,10 @@ struct ProfileScreen: View {
         ReferralView(onClickMenu: toggleMenu)
     }
 
+    var supportView: SupportView {
+        SupportView(onClickMenu: toggleMenu)
+    }
+
     var mainView: some View {
         ZStack {
             profileView
@@ -85,8 +89,8 @@ struct ProfileScreen: View {
                 .opacity(opacity(menu: .security))
             referralView
                 .opacity(opacity(menu: .referralAndEarn))
-            profileView
-                .opacity(opacity(menu: .security))
+            supportView
+                .opacity(opacity(menu: .support))
         }
     }
 

@@ -152,6 +152,8 @@
 		E2BCA3C12CA8E765001AA829 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C02CA8E765001AA829 /* ComingSoonView.swift */; };
 		E2BCA3C42CA8EDEC001AA829 /* VerifyIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C32CA8EDEC001AA829 /* VerifyIdentityView.swift */; };
 		E2BCA3C72CA906C2001AA829 /* ReferralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C62CA906C2001AA829 /* ReferralView.swift */; };
+		E2BCA3CA2CA9EC94001AA829 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C92CA9EC94001AA829 /* SupportView.swift */; };
+		E2BCA3CC2CA9F501001AA829 /* Socials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3CB2CA9F4E2001AA829 /* Socials.swift */; };
 		E2BCAC352A77E06900A14654 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC342A77E06900A14654 /* Developer.swift */; };
 		E2BCAC372A77E08900A14654 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC362A77E08900A14654 /* Project.swift */; };
 		E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC382A7821E700A14654 /* MenuItemView.swift */; };
@@ -321,6 +323,8 @@
 		E2BCA3C02CA8E765001AA829 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
 		E2BCA3C32CA8EDEC001AA829 /* VerifyIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityView.swift; sourceTree = "<group>"; };
 		E2BCA3C62CA906C2001AA829 /* ReferralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralView.swift; sourceTree = "<group>"; };
+		E2BCA3C92CA9EC94001AA829 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
+		E2BCA3CB2CA9F4E2001AA829 /* Socials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socials.swift; sourceTree = "<group>"; };
 		E2BCAC342A77E06900A14654 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		E2BCAC362A77E08900A14654 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		E2BCAC382A7821E700A14654 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -682,6 +686,7 @@
 		E282BA022A095BF6005C9F01 /* ProfileViews */ = {
 			isa = PBXGroup;
 			children = (
+				E2BCA3C82CA9E5E7001AA829 /* Support */,
 				E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */,
 				E2BCAC382A7821E700A14654 /* MenuItemView.swift */,
 				E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */,
@@ -877,6 +882,15 @@
 				E2BCA3C62CA906C2001AA829 /* ReferralView.swift */,
 			);
 			path = Referral;
+			sourceTree = "<group>";
+		};
+		E2BCA3C82CA9E5E7001AA829 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCA3CB2CA9F4E2001AA829 /* Socials.swift */,
+				E2BCA3C92CA9EC94001AA829 /* SupportView.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		E2BCAC3A2A78247F00A14654 /* Menu */ = {
@@ -1097,6 +1111,7 @@
 				E2DED9F72A65EA35002399A8 /* BenefactorRowView.swift in Sources */,
 				E295D6872A8E8065006C26EC /* CrossMintAPIs.swift in Sources */,
 				E263122B2AB069DA000FCEB4 /* TokenCard.swift in Sources */,
+				E2BCA3CA2CA9EC94001AA829 /* SupportView.swift in Sources */,
 				E2C327892BA5EB450010E14B /* OutlineButton.swift in Sources */,
 				E28BDA0C2A9E52D30083EF0B /* Web3AuthLoginView.swift in Sources */,
 				E24AE4CE2A7ECE6900FE2903 /* OTPField.swift in Sources */,
@@ -1125,6 +1140,7 @@
 				E2BEDEA62BF8328B00CFCC07 /* AssetSectionView.swift in Sources */,
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
 				E2E9385B2ADA948D0045E20E /* UserDTO.swift in Sources */,
+				E2BCA3CC2CA9F501001AA829 /* Socials.swift in Sources */,
 				E2A3E3952A0B8B56009C710C /* TransactionList.swift in Sources */,
 				E24ADCC42BFB8B280053B39D /* AssetSectionViewModel.swift in Sources */,
 				E217D0B529F054C100DE5C5F /* AppState.swift in Sources */,
