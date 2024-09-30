@@ -36,11 +36,11 @@ struct SupportView: View {
 
             VStack(spacing: 24) {
                 listItem(title: "Call us") {
-
+                    callAdmin()
                 }
 
                 listItem(title: "Email us") {
-
+                    openEmailApp(toEmail: "matthew.chukwuemeka40@gmail.com", subject: "Some Complaint", body: "Here we go")
                 }
 
                 listItem(title: "FAQs") {
@@ -92,10 +92,32 @@ struct SupportView: View {
         Button (action: action) {
             VStack(alignment: .leading) {
                 Text(title)
+                    .font(.callout)
                 Divider()
             }
             .padding(.horizontal, 16)
         }
+    }
+
+    func openEmailApp(toEmail: String, subject: String, body: String) {
+        guard
+            let subject = subject.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
+            let body = "Just testing ...".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        else {
+            print("Error: Can't encode subject or body.")
+            return
+        }
+
+        let urlString = "mailto:\(toEmail)?subject=\(subject)&body=\(body)"
+        let url = URL(string:urlString)!
+
+        UIApplication.shared.open(url)
+    }
+
+    func callAdmin() {
+        let tel = "tel://+2348153132446"
+        guard let url = URL(string: tel) else { return }
+        UIApplication.shared.open(url)
     }
 }
 
