@@ -11,11 +11,15 @@ protocol IUserService {
     func fetchUser() async throws -> UserDTO
     func find(by pubkey: String) async throws -> UserDTO
     func airdrop() async throws -> AirdropDTO
+
     func fetchBenefactors() async throws -> [UserDTO]
     func addBenefactor(id: String) async throws -> UserDTO
+
     func fetchBankAccounts() async throws -> [BankAccountDTO]
     func addBankAccount() async throws -> BankAccountDTO
     func deleteBankAccount(id: String, pin: String) async throws -> BankAccountDTO
+
+    func resetPin(pin: String, newPin: String) async throws -> DTO
 }
 
 extension IUserService {
@@ -67,6 +71,10 @@ struct UserService: IUserService {
     func deleteBankAccount(id: String, pin: String) async throws -> BankAccountDTO {
         return try await URLSession.shared.request(path: ClusttrAPIs.banks, httpMethod: .delete)
     }
+
+    func resetPin(pin: String, newPin: String) async throws -> DTO {
+        return try await URLSession.shared.request(path: ClusttrAPIs.banks, httpMethod: .put)
+    }
 }
 
 struct UserServiceDouble: IUserService {
@@ -108,5 +116,10 @@ struct UserServiceDouble: IUserService {
     func deleteBankAccount(id: String, pin: String) async throws -> BankAccountDTO {
         try? await Task.sleep(for: .seconds(1))
         return .mock(id: id)
+    }
+
+    func resetPin(pin: String, newPin: String) async throws -> DTO {
+        try? await Task.sleep(for: .seconds(3))
+        return .mock()
     }
 }

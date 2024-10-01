@@ -75,6 +75,10 @@ struct ProfileScreen: View {
         SupportView(onClickMenu: toggleMenu)
     }
 
+    var securityView: SecurityView {
+        SecurityView(onClickMenu: toggleMenu)
+    }
+
     var mainView: some View {
         ZStack {
             profileView
@@ -85,7 +89,7 @@ struct ProfileScreen: View {
                 .opacity(opacity(menu: .verifyIdentity))
             bankAccountsView
                 .opacity(opacity(menu: .banks))
-            profileView
+            securityView
                 .opacity(opacity(menu: .security))
             referralView
                 .opacity(opacity(menu: .referralAndEarn))

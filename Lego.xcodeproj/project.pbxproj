@@ -154,6 +154,11 @@
 		E2BCA3C72CA906C2001AA829 /* ReferralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C62CA906C2001AA829 /* ReferralView.swift */; };
 		E2BCA3CA2CA9EC94001AA829 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3C92CA9EC94001AA829 /* SupportView.swift */; };
 		E2BCA3CC2CA9F501001AA829 /* Socials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3CB2CA9F4E2001AA829 /* Socials.swift */; };
+		E2BCA3CF2CAAEE07001AA829 /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3CE2CAAEE07001AA829 /* SecurityView.swift */; };
+		E2BCA3D12CABAE4D001AA829 /* EnterPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3D02CABAE4D001AA829 /* EnterPinView.swift */; };
+		E2BCA3D42CABB620001AA829 /* EnterNewPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3D32CABB620001AA829 /* EnterNewPinView.swift */; };
+		E2BCA3D62CABB7BC001AA829 /* ResetPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3D52CABB7BC001AA829 /* ResetPinView.swift */; };
+		E2BCA3D92CABC234001AA829 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCA3D82CABC22F001AA829 /* DTO.swift */; };
 		E2BCAC352A77E06900A14654 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC342A77E06900A14654 /* Developer.swift */; };
 		E2BCAC372A77E08900A14654 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC362A77E08900A14654 /* Project.swift */; };
 		E2BCAC392A7821E700A14654 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC382A7821E700A14654 /* MenuItemView.swift */; };
@@ -325,6 +330,11 @@
 		E2BCA3C62CA906C2001AA829 /* ReferralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralView.swift; sourceTree = "<group>"; };
 		E2BCA3C92CA9EC94001AA829 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		E2BCA3CB2CA9F4E2001AA829 /* Socials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socials.swift; sourceTree = "<group>"; };
+		E2BCA3CE2CAAEE07001AA829 /* SecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
+		E2BCA3D02CABAE4D001AA829 /* EnterPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinView.swift; sourceTree = "<group>"; };
+		E2BCA3D32CABB620001AA829 /* EnterNewPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNewPinView.swift; sourceTree = "<group>"; };
+		E2BCA3D52CABB7BC001AA829 /* ResetPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPinView.swift; sourceTree = "<group>"; };
+		E2BCA3D82CABC22F001AA829 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
 		E2BCAC342A77E06900A14654 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		E2BCAC362A77E08900A14654 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		E2BCAC382A7821E700A14654 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -686,13 +696,14 @@
 		E282BA022A095BF6005C9F01 /* ProfileViews */ = {
 			isa = PBXGroup;
 			children = (
-				E2BCA3C82CA9E5E7001AA829 /* Support */,
 				E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */,
 				E2BCAC382A7821E700A14654 /* MenuItemView.swift */,
 				E2A5DDF92A519E1600E8E930 /* ProfileScreen.swift */,
 				E2155B972CA51051000121A5 /* Banks */,
 				E2BEDEA42BF82D6500CFCC07 /* Profile */,
 				E2BCA3C52CA90679001AA829 /* Referral */,
+				E2BCA3CD2CAAEDE1001AA829 /* Security */,
+				E2BCA3C82CA9E5E7001AA829 /* Support */,
 				E2BCA3C22CA8ED52001AA829 /* VerifyIdentity */,
 				E2A884792A65D57D00B68A93 /* Wallet */,
 			);
@@ -783,6 +794,7 @@
 		E2A509C22AA29BF200C10E56 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				E2BCA3D82CABC22F001AA829 /* DTO.swift */,
 				E2A509C32AA29C8A00C10E56 /* Results */,
 				E2BC511E2C9CD8B400E36064 /* AirdropDTO.swift */,
 				E2155B9E2CA5B30D000121A5 /* BankAccountDTO.swift */,
@@ -891,6 +903,25 @@
 				E2BCA3C92CA9EC94001AA829 /* SupportView.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		E2BCA3CD2CAAEDE1001AA829 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCA3D22CABB5FE001AA829 /* ResetPin */,
+				E2BCA3CE2CAAEE07001AA829 /* SecurityView.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		E2BCA3D22CABB5FE001AA829 /* ResetPin */ = {
+			isa = PBXGroup;
+			children = (
+				E2BCA3D52CABB7BC001AA829 /* ResetPinView.swift */,
+				E2BCA3D02CABAE4D001AA829 /* EnterPinView.swift */,
+				E2BCA3D32CABB620001AA829 /* EnterNewPinView.swift */,
+			);
+			path = ResetPin;
 			sourceTree = "<group>";
 		};
 		E2BCAC3A2A78247F00A14654 /* Menu */ = {
@@ -1079,6 +1110,7 @@
 				E2579CFE29ED4F23006ABEA8 /* View+TextFiled.swift in Sources */,
 				E217D0BB29F17FC700DE5C5F /* ModelSceneView.swift in Sources */,
 				E24363EE2A75BE350053FD28 /* OnboardingView.swift in Sources */,
+				E2BCA3D42CABB620001AA829 /* EnterNewPinView.swift in Sources */,
 				E2BCAC4A2A7B17E900A14654 /* OTPFormFieldView.swift in Sources */,
 				E295D6902A8ED0B2006C26EC /* DeveloperWelcomeView.swift in Sources */,
 				E2155B9F2CA5B30F000121A5 /* BankAccountDTO.swift in Sources */,
@@ -1095,6 +1127,7 @@
 				E217D0BD29F192C800DE5C5F /* TinyNFTCards.swift in Sources */,
 				E24363E12A753B7D0053FD28 /* SignUpView.swift in Sources */,
 				E263122D2AB06D10000FCEB4 /* TokenCategoryPicker.swift in Sources */,
+				E2BCA3D92CABC234001AA829 /* DTO.swift in Sources */,
 				E2BC51252C9E7CF600E36064 /* AddBenefactorView.swift in Sources */,
 				E2155B942CA110AF000121A5 /* BenefactorCard.swift in Sources */,
 				E2BCA3B02CA64E50001AA829 /* BankCard.swift in Sources */,
@@ -1123,6 +1156,7 @@
 				E217D0C129F40FB000DE5C5F /* DeveloperCard.swift in Sources */,
 				E2BCAC402A7AC50200A14654 /* CreateWalletView.swift in Sources */,
 				E217D0D529F9C07800DE5C5F /* PurchaseNFTView.swift in Sources */,
+				E2BCA3D62CABB7BC001AA829 /* ResetPinView.swift in Sources */,
 				E24FAA372BA349FF003CF17B /* AccountUtility.swift in Sources */,
 				E2A509C72AA29D3700C10E56 /* TestDTO.swift in Sources */,
 				E2BCAC3E2A7824BD00A14654 /* ProfileMenu.swift in Sources */,
@@ -1156,6 +1190,7 @@
 				E2B3CC472A9F5B1A00CDAD94 /* User.swift in Sources */,
 				E217D0CD29F70FB000DE5C5F /* cTransaction.swift in Sources */,
 				E20DC3F72AA0D082001BBD61 /* IAccountFactory.swift in Sources */,
+				E2BCA3D12CABAE4D001AA829 /* EnterPinView.swift in Sources */,
 				E2579D1929ED99F4006ABEA8 /* NFTGrid.swift in Sources */,
 				E2BCAC372A77E08900A14654 /* Project.swift in Sources */,
 				E24363EA2A7567D10053FD28 /* ActionButton.swift in Sources */,
@@ -1184,6 +1219,7 @@
 				E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */,
 				E2A5DDFC2A51AC1200E8E930 /* ProfileMenuView.swift in Sources */,
 				E22C58DA29E8167F0065EEE2 /* LegoApp.swift in Sources */,
+				E2BCA3CF2CAAEE07001AA829 /* SecurityView.swift in Sources */,
 				E22483252A801FD000AF893C /* KeyChain.swift in Sources */,
 				E2A8847B2A65D5AF00B68A93 /* WalletView.swift in Sources */,
 				E2C327872BA5E83A0010E14B /* ConfirmTransactionView.swift in Sources */,
