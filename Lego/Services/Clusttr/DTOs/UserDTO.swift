@@ -18,7 +18,7 @@ struct UserDTO: Codable {
 }
 
 extension UserDTO {
-    static func demo() -> UserDTO {
+    static func mock() -> UserDTO {
         let faker = Faker()
         return UserDTO(id: UUID().uuidString,
                        name: faker.name.name(),

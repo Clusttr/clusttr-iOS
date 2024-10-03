@@ -67,8 +67,12 @@ struct EnterNewPinView: View {
 
                 Spacer()
 
-                ActionButton(title: buttonTitle, disabled: isButtonDisabled)
-                    .padding(.horizontal)
+                ActionButton(
+                    title: buttonTitle,
+                    disabled: isButtonDisabled,
+                    action: next
+                )
+                .padding(.horizontal)
             }
         }
         .background(Color._background)
@@ -87,6 +91,7 @@ struct EnterNewPinView: View {
         switch step {
         case .newPassword:
             step = .confirmNewPassword(newPin)
+            newPin = ""
         case .confirmNewPassword(let oldPin):
             guard oldPin == newPin else {
                 return

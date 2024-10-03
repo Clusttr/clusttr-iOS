@@ -19,7 +19,7 @@ protocol IUserService {
     func addBankAccount() async throws -> BankAccountDTO
     func deleteBankAccount(id: String, pin: String) async throws -> BankAccountDTO
 
-    func resetPin(pin: String, newPin: String) async throws -> DTO
+    func resetPin(pin: String, newPin: String) async throws -> UserDTO
 }
 
 extension IUserService {
@@ -72,20 +72,22 @@ struct UserService: IUserService {
         return try await URLSession.shared.request(path: ClusttrAPIs.banks, httpMethod: .delete)
     }
 
-    func resetPin(pin: String, newPin: String) async throws -> DTO {
-        return try await URLSession.shared.request(path: ClusttrAPIs.banks, httpMethod: .put)
+    func resetPin(pin: String, newPin: String) async throws -> UserDTO {
+        let req = ResetPinReqDTO(oldPin: pin, newPin: newPin)
+        let data = try JSONEncoder().encode(req)
+        return try await URLSession.shared.request(path: ClusttrAPIs.pin, httpMethod: .post, body: data)
     }
 }
 
 struct UserServiceDouble: IUserService {
     func fetchUser() async throws -> UserDTO {
         try? await Task.sleep(for: .seconds(3))
-        return .demo()
+        return .mock()
     }
 
     func find(by pubkey: String) async throws -> UserDTO {
         try? await Task.sleep(for: .seconds(3))
-        return .demo()
+        return .mock()
     }
 
     func airdrop() async throws -> AirdropDTO {
@@ -95,12 +97,12 @@ struct UserServiceDouble: IUserService {
 
     func fetchBenefactors() async throws -> [UserDTO] {
         try? await Task.sleep(for: .seconds(2))
-        return [.demo(), .demo(), .demo(), .demo(), .demo()]
+        return [.mock(), .mock(), .mock(), .mock(), .mock()]
     }
 
     func addBenefactor(id: String) async throws -> UserDTO {
         try? await Task.sleep(for: .seconds(3))
-        return .demo()
+        return .mock()
     }
 
     func fetchBankAccounts() async throws -> [BankAccountDTO] {
@@ -118,7 +120,7 @@ struct UserServiceDouble: IUserService {
         return .mock(id: id)
     }
 
-    func resetPin(pin: String, newPin: String) async throws -> DTO {
+    func resetPin(pin: String, newPin: String) async throws -> UserDTO {
         try? await Task.sleep(for: .seconds(3))
         return .mock()
     }
