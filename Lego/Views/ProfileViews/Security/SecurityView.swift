@@ -5,11 +5,13 @@
 //  Created by Matthew Chukwuemeka on 30/09/2024.
 //
 
+import AlertToast
 import SwiftUI
 
 struct SecurityView: View {
     var onClickMenu: ()-> Void
     @State private var presentPin: Bool = false
+    @State private var isPresentingSuccess: Bool = false
 
     var body: some View {
         VStack {
@@ -32,8 +34,14 @@ struct SecurityView: View {
         .padding(.top, 50)
         .background(Color._background)
         .sheet(isPresented: $presentPin) {
-            ResetPinView()
-                .presentationDetents([.height(250)])
+            ResetPinView() {
+                presentPin = false
+                isPresentingSuccess = true
+            }
+            .presentationDetents([.height(250)])
+        }
+        .toast(isPresenting: $isPresentingSuccess) {
+            AlertToast(displayMode: .banner(.pop), type: .complete(Color.green), title: "Pin successfully updated")
         }
     }
 }

@@ -13,6 +13,7 @@ struct ResetPinView: View {
         case enterNewPin(String)
     }
 
+    var onSuccess: () -> Void
     @State var step: Step = .enterPin
     private let pinSize = 4
 
@@ -23,11 +24,11 @@ struct ResetPinView: View {
                 step = .enterNewPin(pin)
             }
         case .enterNewPin(let pin):
-            EnterNewPinView(pin: pin) { }
+            EnterNewPinView(pin: pin, action: onSuccess)
         }
     }
 }
 
 #Preview {
-    ResetPinView()
+    ResetPinView() { }
 }

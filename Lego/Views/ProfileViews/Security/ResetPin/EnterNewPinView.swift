@@ -101,6 +101,7 @@ struct EnterNewPinView: View {
                 do {
                     _ = try await userService.resetPin(pin: pin, newPin: newPin)
                     isLoading = false
+                    action()
                 } catch {
                     self.error = ClusttrError.networkError
                     isLoading = false

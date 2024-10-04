@@ -49,20 +49,9 @@ struct ReceiveTokenView: View {
             Spacer()
 
             Button {
-                isLoading = true
-                Task {
-                    do {
-                        _ = try await userService.airdrop()
-                        DispatchQueue.main.async {
-                            showingAirdropToast = true
-                            isLoading = false
-                        }
-                    } catch {
-                        self.error = ClusttrError.failedTransaction
-                    }
-                }
+                requestAirdrop()
             } label: {
-                Text("Click to request $100 airdrop")
+                Text("Click to request $10 airdrop")
                     .font(.footnote)
                     .bold()
                     .foregroundStyle(Color._grey2)
@@ -99,7 +88,24 @@ struct ReceiveTokenView: View {
             AlertToast(displayMode: .banner(.pop), type: .complete(Color.green), title: "Copied Address")
         }
         .toast(isPresenting: $showingAirdropToast) {
-            AlertToast(displayMode: .banner(.pop), type: .complete(Color.green), title: "You've received $100")
+            AlertToast(displayMode: .banner(.pop), type: .complete(Color.green), title: "You've received $10")
+        }
+    }
+
+    @MainActor
+    func requestAirdrop() {
+        isLoading = true
+        Task {
+            do {
+                _ = try await userService.airdrop()
+                DispatchQueue.main.async {
+                    showingAirdropToast = true
+                    isLoading = false
+                }
+            } catch {
+                self.error = ClusttrError.failedTransaction
+                isLoading = false
+            }
         }
     }
 }
