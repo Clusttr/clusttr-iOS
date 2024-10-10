@@ -17,10 +17,12 @@ extension URLSession {
     }
 
     public enum APIError: Error {
+        case clientError(String)
+        case networkError(Error)
+        case invalidResponse
         case invalidURL
         case invalidData
-        case httpError(Int)
-        case unknown
+        case serverError(statusCode: Int)
     }
 
     public func request<T: Codable>(path: String, httpMethod: HttpMethod, body: Data? = nil, queryItems: [URLQueryItem] = []) async throws -> T {
@@ -35,23 +37,40 @@ extension URLSession {
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.addValue("Bearer \(ClusttrAPIs.getAccessToken())", forHTTPHeaderField: "Authorization")
         urlRequest.httpBody = body
-        print("access token: \(ClusttrAPIs.getAccessToken())")
+        //print("access token: \(ClusttrAPIs.getAccessToken())")
 
-        do {
-            let (data, urlResponse) = try await data(for: urlRequest)
-            try manageHttpResponse(urlResponse)
-            let result = try JSONDecoder().decode(T.self, from: data)
-            return result
+        let (data, urlResponse) = try await data(for: urlRequest)
+        try manageHttpResponse(urlResponse, data: data)
+        let result = try JSONDecoder().decode(T.self, from: data)
+        return result
 
-        } catch DecodingError.dataCorrupted {
-            throw APIError.invalidData
-        } catch {
-            throw error
+    }
+
+    func manageHttpResponse(_ urlResponse: URLResponse, data: Data) throws {
+        guard let httpResponse = urlResponse as? HTTPURLResponse else {
+            throw APIError.invalidResponse
+        }
+
+        let statusCode = httpResponse.statusCode
+
+        switch statusCode {
+        case 200...299:
+            return
+        case 400...499:
+            let errorMessage = try JSONDecoder().decode(ClusttrErrorDto.self, from: data)
+            let firstMessage = errorMessage.message.first ?? "No error message found"
+            throw APIError.clientError(firstMessage)
+        case 500...599:
+            throw APIError.serverError(statusCode: statusCode)
+
+        default:
+            throw APIError.invalidResponse
         }
     }
+}
 
-    func manageHttpResponse(_ urlResponse: URLResponse) throws {
-        guard let statusCode = (urlResponse as? HTTPURLResponse)?.statusCode else { throw APIError.unknown }
-        guard statusCode >= 200 && statusCode<300 else { throw APIError.httpError(statusCode) }
-    }
+struct ClusttrErrorDto: Decodable {
+    let message: [String]
+    let error: String
+    let statusCode: Int
 }

@@ -61,15 +61,15 @@ struct UserService: IUserService {
     }
 
     func fetchBankAccounts() async throws -> [BankAccountDTO] {
-        return try await URLSession.shared.request(path: ClusttrAPIs.banks, httpMethod: .get)
+        return try await URLSession.shared.request(path: ClusttrAPIs.bank, httpMethod: .get)
     }
 
     func addBankAccount() async throws -> BankAccountDTO {
-        return try await URLSession.shared.request(path: ClusttrAPIs.banks, httpMethod: .post)
+        return try await URLSession.shared.request(path: ClusttrAPIs.bank, httpMethod: .post)
     }
 
     func deleteBankAccount(id: String, pin: String) async throws -> BankAccountDTO {
-        return try await URLSession.shared.request(path: ClusttrAPIs.banks, httpMethod: .delete)
+        return try await URLSession.shared.request(path: ClusttrAPIs.bank, httpMethod: .delete)
     }
 
     func resetPin(pin: String, newPin: String) async throws -> UserDTO {

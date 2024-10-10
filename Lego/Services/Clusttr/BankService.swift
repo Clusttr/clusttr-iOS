@@ -8,8 +8,8 @@
 import SwiftUI
 
 protocol IBankService {
-    func getBankAccount(for accountNumber: String, bank: String) async throws -> BankAccountDTO
-    func addBankAccount(_ bankAccount: BankAccountReqDTO) async throws -> BankAccountDTO
+    func getBankAccountDetails(for accountNumber: String, bank: String) async throws -> BankAccountDTO
+    func addBankAccount(_ bankAccount: AddBankAccountReqDTO) async throws -> BankAccountDTO
 }
 
 extension IBankService {
@@ -22,23 +22,33 @@ extension IBankService {
     }
 }
 
+
 struct BankService: IBankService {
-    func getBankAccount(for accountNumber: String, bank: String) async throws -> BankAccountDTO {
-        return try await URLSession.shared.request(path: ClusttrAPIs.bankDetails, httpMethod: .get)
+    func getBankAccountDetails(for accountNumber: String, bank: String) async throws -> BankAccountDTO {
+        let query = [
+            URLQueryItem(name: "bank", value: bank),
+            URLQueryItem(name: "accountNumber", value: accountNumber)
+        ]
+        return try await URLSession.shared.request(
+            path: ClusttrAPIs.bankDetails,
+            httpMethod: .get,
+            queryItems: query
+        )
     }
 
-    func addBankAccount(_ bankAccount: BankAccountReqDTO) async throws -> BankAccountDTO {
-        return try await URLSession.shared.request(path: ClusttrAPIs.banks, httpMethod: .post)
+    func addBankAccount(_ bankAccount: AddBankAccountReqDTO) async throws -> BankAccountDTO {
+        let data = try JSONEncoder().encode(bankAccount)
+        return try await URLSession.shared.request(path: ClusttrAPIs.bank, httpMethod: .post, body: data)
     }
 }
 
 struct BankServiceDouble: IBankService {
-    func getBankAccount(for accountNumber: String, bank: String) async throws -> BankAccountDTO {
+    func getBankAccountDetails(for accountNumber: String, bank: String) async throws -> BankAccountDTO {
         try? await Task.sleep(for: .seconds(3))
         return BankAccountDTO.mock()
     }
 
-    func addBankAccount(_ bankAccount: BankAccountReqDTO) async throws -> BankAccountDTO {
+    func addBankAccount(_ bankAccount: AddBankAccountReqDTO) async throws -> BankAccountDTO {
         try? await Task.sleep(for: .seconds(3))
         return BankAccountDTO.mock()
     }

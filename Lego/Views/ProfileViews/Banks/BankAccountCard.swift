@@ -21,10 +21,10 @@ struct BankAccountCard: View {
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundColor(Color._grey100)
-                Text(bankAccount.name)
+                Text(bankAccount.accountName)
                     .font(.footnote)
                     .foregroundColor(._grey2)
-                Text(bankAccount.bankName)
+                Text(bankAccount.bank)
                     .font(.caption)
                     .foregroundColor(._grey100)
             }

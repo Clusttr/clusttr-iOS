@@ -451,19 +451,19 @@
 		E22C58D829E8167F0065EEE2 /* Lego */ = {
 			isa = PBXGroup;
 			children = (
-				E22103172C6B9484002EF1FF /* Lego.entitlements */,
-				E2A7D2692A90202300F885C3 /* LottieFiles */,
-				E295D6852A8E8020006C26EC /* Services */,
-				E2579D1229ED8B62006ABEA8 /* Info.plist */,
-				E2579D0B29ED8AE3006ABEA8 /* Fonts */,
-				E2579D0329ED8611006ABEA8 /* Models */,
-				E2579CF629ED191D006ABEA8 /* Shapes */,
-				E22C58EA29E8197F0065EEE2 /* Views */,
-				E22C58E729E818460065EEE2 /* Utils */,
-				E22C58D929E8167F0065EEE2 /* LegoApp.swift */,
-				E22C58DB29E8167F0065EEE2 /* ContentView.swift */,
 				E22C58DD29E816810065EEE2 /* Assets.xcassets */,
+				E22C58DB29E8167F0065EEE2 /* ContentView.swift */,
+				E2579D0B29ED8AE3006ABEA8 /* Fonts */,
+				E2579D1229ED8B62006ABEA8 /* Info.plist */,
+				E22103172C6B9484002EF1FF /* Lego.entitlements */,
+				E22C58D929E8167F0065EEE2 /* LegoApp.swift */,
+				E2A7D2692A90202300F885C3 /* LottieFiles */,
+				E2579D0329ED8611006ABEA8 /* Models */,
 				E22C58DF29E816810065EEE2 /* Preview Content */,
+				E295D6852A8E8020006C26EC /* Services */,
+				E2579CF629ED191D006ABEA8 /* Shapes */,
+				E22C58E729E818460065EEE2 /* Utils */,
+				E22C58EA29E8197F0065EEE2 /* Views */,
 			);
 			path = Lego;
 			sourceTree = "<group>";

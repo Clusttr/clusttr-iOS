@@ -9,27 +9,29 @@ import Foundation
 import Fakery
 
 struct BankAccountDTO: Codable {
-    let id: String
-    let name: String
+    let accountName: String
     let accountNumber: String
-    let bankName: String
+    let bank: String
+
+    var id: String {
+        accountNumber + "-" + bank
+    }
 }
 
 extension BankAccountDTO {
     static func mock(id: String = UUID().uuidString) -> BankAccountDTO {
         let faker = Faker()
         return BankAccountDTO(
-            id: id,
-            name: faker.name.name(),
+            accountName: faker.name.name(),
             accountNumber: "\(faker.number.randomInt(min: 1000000000, max: 9999999999))",
-            bankName: faker.bank.name()
+            bank: faker.bank.name()
         )
     }
 }
 
-
-struct BankAccountReqDTO: Codable {
-    let name: String
+struct AddBankAccountReqDTO: Codable {
+    let accountName: String
     let accountNumber: String
-    let bankName: String
+    let bank: String
+    let pin: String
 }

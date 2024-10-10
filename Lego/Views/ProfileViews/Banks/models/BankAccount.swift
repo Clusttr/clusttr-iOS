@@ -10,17 +10,17 @@ import Foundation
 
 struct BankAccount: Identifiable {
     var id: String
-    var name: String
+    var accountName: String
     var accountNumber: String
-    var bankName: String
+    var bank: String
 }
 
 extension BankAccount {
     init(_ dto: BankAccountDTO) {
         self.id = dto.id
-        self.name = dto.name
+        self.accountName = dto.accountName
         self.accountNumber = dto.accountNumber
-        self.bankName = dto.bankName
+        self.bank = dto.bank
     }
 }
 
@@ -29,9 +29,9 @@ extension BankAccount {
         let faker = Faker()
         return BankAccount(
             id: UUID().uuidString,
-            name: faker.name.name(),
+            accountName: faker.name.name(),
             accountNumber: "\(faker.number.randomInt(min: 1000000000, max: 9999999999))",
-            bankName: faker.bank.name()
+            bank: faker.bank.name()
         )
     }
 }

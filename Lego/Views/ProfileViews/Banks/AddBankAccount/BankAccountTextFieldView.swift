@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct BankAccountTextFieldView: View {
+    enum Step {
+        case enterAccountNumber
+        case enterPin(account: BankAccount)
+        case submit(account: BankAccount, pin: String)
+    }
+
     var bankService: IBankService = BankService.create()
     var bank: Bank
     var onAccountAdded: (BankAccount) -> Void
 
     @State var accountNumber: String = ""
     @State var isLoading: Bool = false
-    @State var bankAccount: BankAccount? = nil
+    @State var step: Step = .enterAccountNumber
     @State var error: ClusttrError? = nil
+    @State private var presentPinView = false
+
+    var buttonTitle: String {
+        switch step {
+        case .enterAccountNumber: return "Next"
+        case .enterPin: return "Enter Pin"
+        case .submit: return "Add Account"
+        }
+    }
 
     var body: some View {
         VStack {
@@ -38,8 +53,8 @@ struct BankAccountTextFieldView: View {
                     accountField
                 }
 
-                if bankAccount != nil {
-                    Text(bankAccount!.name)
+                if case let .enterPin(bankAccount) = step {
+                    Text(bankAccount.accountName)
                         .font(.footnote)
                         .fontWeight(.bold)
                         .foregroundColor(._grey100)
@@ -49,12 +64,18 @@ struct BankAccountTextFieldView: View {
             .padding(.top, 24)
             Spacer()
 
-            ActionButton(title: bankAccount == nil ? "Proceed" : "Add Account") {
-                bankAccount == nil ? proceed(accountNumber: accountNumber) : addAccount(bankAccount!)
-            }
+            ActionButton(title: buttonTitle, action: action)
             .padding(.horizontal)
         }
         .background(Color._background)
+        .sheet(isPresented: $presentPinView, content: {
+            EnterPinView { pin in
+                guard case let .enterPin(bankAccount) = step else { return }
+                step = .submit(account: bankAccount, pin: pin)
+                action()
+            }
+            .presentationDetents([.height(250)])
+        })
         .loading(isLoading)
         .error($error)
     }
@@ -85,16 +106,27 @@ struct BankAccountTextFieldView: View {
         }
     }
 
+    func action() {
+        switch step {
+        case .enterAccountNumber:
+            proceed(accountNumber: accountNumber)
+        case .enterPin(_):
+            showPinView()
+        case .submit(let account, let pin):
+            addAccount(account, pin: pin)
+        }
+    }
+
     @MainActor
     func proceed(accountNumber: String) {
         isLoading = true
         Task {
             do {
-                let bankAccount = try await bankService.getBankAccount(
+                let bankAccount = try await bankService.getBankAccountDetails(
                     for: accountNumber,
-                    bank: bank.id
+                    bank: bank.name
                 )
-                self.bankAccount = BankAccount(bankAccount)
+                self.step = .enterPin(account: BankAccount(bankAccount))
                 self.isLoading = false
             } catch {
                 self.error = ClusttrError.networkError
@@ -103,20 +135,29 @@ struct BankAccountTextFieldView: View {
         }
     }
 
+    func showPinView() {
+        presentPinView.toggle()
+    }
+
     @MainActor
-    func addAccount(_ bankAccount: BankAccount) {
+    func addAccount(_ bankAccount: BankAccount, pin: String) {
+        presentPinView = false
         isLoading = true
         Task {
             do {
                 let bankAccount = try await bankService.addBankAccount(
-                    BankAccountReqDTO(
-                        name: bankAccount.name,
+                    AddBankAccountReqDTO(
+                        accountName: bankAccount.accountName,
                         accountNumber: bankAccount.accountNumber,
-                        bankName: bankAccount.bankName
+                        bank: bankAccount.bank,
+                        pin: pin
                     )
                 )
                 self.isLoading = false
                 onAccountAdded(BankAccount(bankAccount))
+            } catch let error as URLSession.APIError {
+                self.error = ClusttrError.networkError2(error)
+                self.isLoading = false
             } catch {
                 self.error = ClusttrError.networkError
                 self.isLoading = false
