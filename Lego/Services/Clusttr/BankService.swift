@@ -10,6 +10,7 @@ import SwiftUI
 protocol IBankService {
     func getBankAccountDetails(for accountNumber: String, bank: String) async throws -> BankAccountDTO
     func addBankAccount(_ bankAccount: AddBankAccountReqDTO) async throws -> BankAccountDTO
+    func deleteBankAccount(accountNumber: String, bank: String, pin: String) async throws -> BankAccountDTO
 }
 
 extension IBankService {
@@ -40,6 +41,12 @@ struct BankService: IBankService {
         let data = try JSONEncoder().encode(bankAccount)
         return try await URLSession.shared.request(path: ClusttrAPIs.bank, httpMethod: .post, body: data)
     }
+
+    func deleteBankAccount(accountNumber: String, bank: String, pin: String) async throws -> BankAccountDTO {
+        let dto = DeleteBankAccountReqDto(accountNumber: accountNumber, bank: bank, pin: pin)
+        let data = try JSONEncoder().encode(dto)
+        return try await URLSession.shared.request(path: ClusttrAPIs.bank, httpMethod: .delete, body: data)
+    }
 }
 
 struct BankServiceDouble: IBankService {
@@ -51,5 +58,10 @@ struct BankServiceDouble: IBankService {
     func addBankAccount(_ bankAccount: AddBankAccountReqDTO) async throws -> BankAccountDTO {
         try? await Task.sleep(for: .seconds(3))
         return BankAccountDTO.mock()
+    }
+
+    func deleteBankAccount(accountNumber: String, bank: String, pin: String) async throws -> BankAccountDTO {
+        try? await Task.sleep(for: .seconds(1))
+        return .mock()
     }
 }

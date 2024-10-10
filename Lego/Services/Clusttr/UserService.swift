@@ -17,7 +17,6 @@ protocol IUserService {
 
     func fetchBankAccounts() async throws -> [BankAccountDTO]
     func addBankAccount() async throws -> BankAccountDTO
-    func deleteBankAccount(id: String, pin: String) async throws -> BankAccountDTO
 
     func resetPin(pin: String, newPin: String) async throws -> UserDTO
 }
@@ -68,10 +67,6 @@ struct UserService: IUserService {
         return try await URLSession.shared.request(path: ClusttrAPIs.bank, httpMethod: .post)
     }
 
-    func deleteBankAccount(id: String, pin: String) async throws -> BankAccountDTO {
-        return try await URLSession.shared.request(path: ClusttrAPIs.bank, httpMethod: .delete)
-    }
-
     func resetPin(pin: String, newPin: String) async throws -> UserDTO {
         let req = ResetPinReqDTO(oldPin: pin, newPin: newPin)
         let data = try JSONEncoder().encode(req)
@@ -113,11 +108,6 @@ struct UserServiceDouble: IUserService {
     func addBankAccount() async throws -> BankAccountDTO {
         try? await Task.sleep(for: .seconds(1))
         return .mock()
-    }
-
-    func deleteBankAccount(id: String, pin: String) async throws -> BankAccountDTO {
-        try? await Task.sleep(for: .seconds(1))
-        return .mock(id: id)
     }
 
     func resetPin(pin: String, newPin: String) async throws -> UserDTO {

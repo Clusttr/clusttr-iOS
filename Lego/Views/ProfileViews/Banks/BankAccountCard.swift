@@ -10,7 +10,7 @@ import SwiftUI
 struct BankAccountCard: View {
     var userService: IUserService
     var bankAccount: BankAccount
-    var onDelete: (_ bankAccountId: String) -> Void
+    var onDelete: (_ bankAccount: BankAccount) -> Void
     @State var presentDeleteDialog = false
     @State var error: ClusttrError?
 
@@ -44,11 +44,11 @@ struct BankAccountCard: View {
         .background(Color._grey800)
         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         .sheet(isPresented: $presentDeleteDialog) {
-            DeleteConfirmationView(userService: userService,bankAccountId: bankAccount.id) {
+            DeleteConfirmationView(bankAccount: bankAccount) {
                 presentDeleteDialog = false
-            } onProceed: { bankAccountId in
+            } onProceed: { bankAccount in
                 presentDeleteDialog = false
-                onDelete(bankAccountId)
+                onDelete(bankAccount)
             }
             .presentationDetents([.height(250)])
         }

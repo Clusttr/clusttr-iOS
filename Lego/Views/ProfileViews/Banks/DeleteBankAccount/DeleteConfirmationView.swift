@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct DeleteConfirmationView: View {
-    var userService: IUserService
-    var bankAccountId: String
+    var bankService: IBankService = BankService.create()
+    var bankAccount: BankAccount
     var onDismiss: () -> Void
-    var onProceed: (_ bankAccountId: String) -> Void
+    var onProceed: (_ bankAccount: BankAccount) -> Void
     @State private var pin = ""
-    @State var isLoading: Bool = false
-    @State var error: ClusttrError?
+    @State private var isLoading: Bool = false
+    @State private var error: ClusttrError?
 
     var body: some View {
         VStack {
@@ -41,7 +41,7 @@ struct DeleteConfirmationView: View {
                 OutlineButton(title: "Cancel", action: onDismiss)
                 ActionButton(title: "Proceed") {
                     Task {
-                        await deleteAccount(id: bankAccountId, pin: pin)
+                        await deleteAccount()
                     }
                 }
             }
@@ -49,20 +49,26 @@ struct DeleteConfirmationView: View {
         .padding()
         .background(Color._background.opacity(0.9))
         .loading(isLoading)
+        .error($error)
     }
 
     @MainActor
-    func deleteAccount(id bankAccountId: String, pin: String) async {
+    func deleteAccount() async {
         isLoading = true
         do {
-            let bankAccount = try await userService.deleteBankAccount(
-                id: bankAccountId,
-                pin: pin
-            )
+            let bankAccount = try await bankService
+                .deleteBankAccount(
+                    accountNumber: bankAccount.accountNumber,
+                    bank: bankAccount.bank,
+                    pin: pin
+                )
             isLoading = false
-            onProceed(bankAccount.id)
+            onProceed(BankAccount(bankAccount))
 
-        } catch {
+        } catch let error as URLSession.APIError {
+           self.error = ClusttrError.networkError2(error)
+           isLoading = false
+       } catch {
             self.error = ClusttrError.networkError
             isLoading = false
         }
@@ -71,8 +77,8 @@ struct DeleteConfirmationView: View {
 
 #Preview {
     DeleteConfirmationView(
-        userService: UserService.create(),
-        bankAccountId: UUID().uuidString
+        bankService: BankService.create(),
+        bankAccount: BankAccount.mock()
     ) {
 
     } onProceed: { bankAccountId in

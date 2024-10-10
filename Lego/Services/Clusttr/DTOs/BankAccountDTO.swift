@@ -19,7 +19,7 @@ struct BankAccountDTO: Codable {
 }
 
 extension BankAccountDTO {
-    static func mock(id: String = UUID().uuidString) -> BankAccountDTO {
+    static func mock() -> BankAccountDTO {
         let faker = Faker()
         return BankAccountDTO(
             accountName: faker.name.name(),
@@ -31,6 +31,12 @@ extension BankAccountDTO {
 
 struct AddBankAccountReqDTO: Codable {
     let accountName: String
+    let accountNumber: String
+    let bank: String
+    let pin: String
+}
+
+struct DeleteBankAccountReqDto: Codable {
     let accountNumber: String
     let bank: String
     let pin: String
