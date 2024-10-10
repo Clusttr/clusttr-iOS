@@ -29,7 +29,7 @@ struct AccountFactoryDemo: IAccountFactory {
     init(secretKey: String = "") {
         var secret: String = secretKey
         #if DEBUG
-            secret = ProcessInfo.processInfo.environment["SECRET_KEY"] ?? ""
+            secret = ProcessInfo.processInfo.environment["SECRET_KEY"] ?? "3VXnem4KDbvF1Z7eCZuF7z5sVrmWwTvUkVW1Est9YXjvzZmoNKA8BxVq6z5bQgFbYJFw6hVa8TWxrVT8TpS4osyo"
         #endif
         print(secretKey)
         self.secretKey = secret.base58EncodedData

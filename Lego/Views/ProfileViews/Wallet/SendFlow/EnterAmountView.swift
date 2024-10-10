@@ -50,7 +50,8 @@ struct EnterAmountView: View {
                     .focused($focusedField, equals: .amount)
                     .keyboardType(.decimalPad)
                     .multilineTextAlignment(.trailing)
-                    
+                    .foregroundColor(Color._grey100)
+
                     Text("USD")
                         .multilineTextAlignment(.leading)
                         .foregroundStyle(Color._grey400)
@@ -108,6 +109,6 @@ struct EnterAmountView: View {
     EnterAmountView(navPath: .constant(NavigationPath()),
                     isShowing: .constant(true),
                     pubKey: PublicKey(string: "9831HW6Ljt8knNaN6r6JEzyiey939A2me3JsdMymmz5J")!)
-    .environmentObject(AccountManager.mock())
+    .environmentObject(AccountManager.create())
 }
 

@@ -10,8 +10,12 @@ import SwiftUI
 
 struct ReceiveTokenView: View {
     @Binding var isShowing: Bool
+    @State var isLoading: Bool = false
     @State var showingCopyToast = false
+    @State var showingAirdropToast = false
+    @State var error: ClusttrError?
     @EnvironmentObject var accountManager: AccountManager
+    var userService: IUserService = UserService()
 
     var body: some View {
         VStack {
@@ -42,16 +46,19 @@ struct ReceiveTokenView: View {
             }
             .offset(y: -50)
 
-
             Spacer()
 
             Button {
-                //request airdrop
+                requestAirdrop()
             } label: {
                 Text("Click to request $10 airdrop")
                     .font(.footnote)
                     .bold()
                     .foregroundStyle(Color._grey2)
+                    .padding()
+                    .shadow(color: Color.blue.opacity(0.8), radius: 10, x: 0, y: 0)
+                    .shadow(color: Color.blue.opacity(0.5), radius: 20, x: 0, y: 0)
+                    .shadow(color: Color.blue.opacity(0.3), radius: 30, x: 0, y: 0)
             }
 
             HStack(spacing: 24) {
@@ -75,15 +82,37 @@ struct ReceiveTokenView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .foregroundColor(._grey100)
         .background(Color._background)
+        .loading(isLoading)
+        .error($error)
         .toast(isPresenting: $showingCopyToast) {
             AlertToast(displayMode: .banner(.pop), type: .complete(Color.green), title: "Copied Address")
+        }
+        .toast(isPresenting: $showingAirdropToast) {
+            AlertToast(displayMode: .banner(.pop), type: .complete(Color.green), title: "You've received $10")
+        }
+    }
+
+    @MainActor
+    func requestAirdrop() {
+        isLoading = true
+        Task {
+            do {
+                _ = try await userService.airdrop()
+                DispatchQueue.main.async {
+                    showingAirdropToast = true
+                    isLoading = false
+                }
+            } catch {
+                self.error = ClusttrError.failedTransaction
+                isLoading = false
+            }
         }
     }
 }
 
 #Preview {
-    ReceiveTokenView(isShowing: .constant(true))
-        .environmentObject(AccountManager.mock())
+    ReceiveTokenView(isShowing: .constant(true), userService: UserServiceDouble())
+        .environmentObject(AccountManager.create())
 }
 
 class ReceiveTokenViewModel: ObservableObject {

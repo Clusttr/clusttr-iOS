@@ -13,7 +13,7 @@ struct ClusttrAPIs {
         accessToken ?? KeyChain.get(key: .ACCESS_TOKEN) ?? ""
     }
 
-    static let baseURL = URL(string: "https://clusttr.up.railway.app")
+    static let baseURL = URL(string: "https://3cc8-2c0f-2a80-52-ea00-589-990d-28e2-30b9.ngrok-free.app")//"https://clusttr.up.railway.app")
     static let hello = ""
 
     //MARK: AUTH
@@ -30,6 +30,14 @@ struct ClusttrAPIs {
 
     //MARK: USER
     static let user = "/user"
+    static let findUser = "/user/find"
+    static let airdrop = "/user/airdrop"
+    static let benefactor = "/user/benefactor"
+    static let pin = "/user/pin"
+
+    //MARK: BANK
+    static let bank = "/bank"
+    static let bankDetails = "/bank/details"
 
     //MARK: BOOKMARK
     static let bookmark = "/bookmark"

@@ -171,6 +171,6 @@ struct ProfileView_Previews: PreviewProvider {
                     viewModel: ProfileViewModel(userService: UserServiceDouble(),
                                                 nftService: NFTServiceDouble()))
             .environmentObject(AppState())
-            .environmentObject(AccountManager.mock())
+            .environmentObject(AccountManager.create())
     }
 }

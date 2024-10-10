@@ -46,8 +46,7 @@ struct SetupPinAndAccountView: View {
     func login() {
         Task {
             do {
-                guard let idToken = viewModel.user.idToken else { return }
-                let result = try await viewModel.login(idToken: idToken)
+                let result = try await viewModel.login(idToken: viewModel.user.id)
 
                 if (result.isNewUser) {
                     appState.authPath.append(.registerAccount(secretKey: viewModel.secretKey, user: viewModel.user))

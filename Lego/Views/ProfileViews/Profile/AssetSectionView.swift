@@ -86,5 +86,5 @@ struct AssetSectionView: View {
     AssetSectionView(vm: AssetSectionViewModel(nftService: NFTServiceDouble(),
                                                assetService: AssetServiceDouble())) {_ in }
         .background(Color._grey800)
-        .environmentObject(AccountManager.mock())
+        .environmentObject(AccountManager.create())
 }

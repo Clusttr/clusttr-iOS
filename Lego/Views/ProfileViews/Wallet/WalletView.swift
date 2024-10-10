@@ -81,7 +81,9 @@ struct WalletView: View {
                 .foregroundColor(._grey100)
                 .padding(.horizontal)
 
-                BenefactorRow()
+                BenefactorRow() {user in
+                    
+                }
             }
             .padding(.top, 45)
 
@@ -129,6 +131,6 @@ struct WalletView_Previews: PreviewProvider {
         WalletView(isActive: true, onClickMenu: {})
             .background(Color._background)
             .ignoresSafeArea()
-            .environmentObject(AccountManager.mock())
+            .environmentObject(AccountManager.create())
     }
 }

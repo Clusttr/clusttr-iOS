@@ -72,11 +72,33 @@ extension View {
 
 enum ClusttrError: Error, LocalizedError {
     case failedTransaction
+    case UserNotFound
+    case networkError
+    case networkError2(URLSession.APIError)
 
     var errorDescription: String? {
         switch self {
         case .failedTransaction:
             "Transaction Failed"
+        case .UserNotFound:
+            "Can't find user"
+        case .networkError:
+            "Please check your internet connection"
+        case .networkError2(let apiError):
+            switch apiError {
+            case .clientError(let string):
+                string
+            case .networkError(_):
+                "Please check your internet connection"
+            case .invalidResponse:
+                "Unknown error"
+            case .invalidURL:
+                "Please contact Clusttr Admin"
+            case .invalidData:
+                "Please contact Clusttr Admin"
+            case .serverError(_):
+                "Please contact Clusttr Admin"
+            }
         }
     }
 }

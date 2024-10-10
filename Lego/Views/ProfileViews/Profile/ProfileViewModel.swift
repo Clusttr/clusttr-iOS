@@ -33,8 +33,7 @@ class ProfileViewModel: ObservableObject {
         Task {
             do {
                 let res = try await userService.fetchUser()
-                self.user = User(name: res.name, email: res.email, profileImage: res.profileImage)
-                print(user)
+                self.user = User(res)
             } catch {
                 print(error.localizedDescription)
             }

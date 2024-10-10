@@ -12,7 +12,11 @@ struct AddressPickerView: View {
     @Binding var isShowing: Bool
     @State var pubkey = ""
     @State private var navPath = NavigationPath()
-    
+
+    var publicKey: PublicKey? {
+        PublicKey(string: pubkey)
+    }
+
     var body: some View {
         NavigationStack(path: $navPath) {
             VStack {
@@ -36,6 +40,7 @@ struct AddressPickerView: View {
                             Text("Enter address")
                                 .foregroundStyle(Color._grey400)
                         }
+                        .foregroundColor(Color._grey100)
 
                         Button(action: openQRScanner) {
                             Image(systemName: "qrcode.viewfinder")
@@ -57,7 +62,9 @@ struct AddressPickerView: View {
                     Text("Benefactors")
                         .font(.footnote)
                         .foregroundColor(Color._grey100)
-                    BenefactorRow()
+                    BenefactorRow(userService: UserService.create()){ user in
+                        pubkey = user.pubkey
+                    }
                 }
                 .padding(.top, 32)
 
@@ -68,12 +75,12 @@ struct AddressPickerView: View {
                             .foregroundColor(Color._grey100)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 16)
+                    .padding(.horizontal, 0)
                 }
                 .padding(.top, 32)
 
                 .padding(.horizontal, 24)
-                ActionButton(title: "Continue") {
+                ActionButton(title: "Continue", disabled: publicKey == nil) {
                     guard let pubkey = PublicKey(string: pubkey) else {
                         print("Not working")
                         return

@@ -24,7 +24,7 @@ struct AccountInfoView: View {
 
             HStack(spacing: 4) {
                 Text("View account on")
-                Link("SolarScan", destination: accountManager.publicKeyURL)
+                Link("SolarScan", destination: accountManager.account.publicKey.accountURL)
                     .foregroundColor(Color._accent.opacity(0.75))
                     .fontWeight(.bold)
             }
@@ -40,6 +40,6 @@ struct AccountInfoView_Previews: PreviewProvider {
     static var previews: some View {
         AccountInfoView()
             .background(Color._background)
-            .environmentObject(AccountManager.mock())
+            .environmentObject(AccountManager.create())
     }
 }

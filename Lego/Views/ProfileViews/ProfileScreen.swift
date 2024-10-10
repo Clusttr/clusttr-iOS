@@ -27,7 +27,7 @@ struct ProfileScreen: View {
                 .padding(.trailing)
 
                 ProfileMenuView(selectedMenu: $selectedMenu)
-                    .onChange(of: selectedMenu) { _ in
+                    .onChange(of: selectedMenu) { _, _ in
                         withAnimation(.spring().delay(0.15)) {
                             showMenu = false
                         }
@@ -59,22 +59,42 @@ struct ProfileScreen: View {
         WalletView(isActive: !showMenu, onClickMenu: toggleMenu)
     }
 
+    var bankAccountsView: BankAccountsView {
+        BankAccountsView(onClickMenu: toggleMenu)
+    }
+
+    var verifyIdentityView: VerifyIdentityView {
+        VerifyIdentityView(onClickMenu: toggleMenu)
+    }
+
+    var referralView: ReferralView {
+        ReferralView(onClickMenu: toggleMenu)
+    }
+
+    var supportView: SupportView {
+        SupportView(onClickMenu: toggleMenu)
+    }
+
+    var securityView: SecurityView {
+        SecurityView(onClickMenu: toggleMenu)
+    }
+
     var mainView: some View {
         ZStack {
             profileView
                 .opacity(opacity(menu: .profile))
             walletView
                 .opacity(opacity(menu: .wallet))
-            profileView
+            verifyIdentityView
                 .opacity(opacity(menu: .verifyIdentity))
-            profileView
+            bankAccountsView
                 .opacity(opacity(menu: .banks))
-            profileView
+            securityView
                 .opacity(opacity(menu: .security))
-            profileView
+            referralView
                 .opacity(opacity(menu: .referralAndEarn))
-            profileView
-                .opacity(opacity(menu: .security))
+            supportView
+                .opacity(opacity(menu: .support))
         }
     }
 
@@ -93,5 +113,6 @@ struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
         ProfileScreen()
             .environmentObject(AppState())
+            .environmentObject(AccountManager.create())
     }
 }
