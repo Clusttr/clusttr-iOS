@@ -37,7 +37,7 @@ extension User {
 import Web3Auth
 extension User {
     init(user: Web3AuthUserInfo) {
-        self.id = ""
+        self.id = user.idToken ?? ""
         self.name = user.name ?? ""
         self.username = user.name ?? "" //TODO: pass actual username here
         self.email = user.email ?? ""
