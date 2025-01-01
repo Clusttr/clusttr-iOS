@@ -75,14 +75,6 @@ struct TokenCard_Previews: PreviewProvider {
     }
 }
 
-extension Double {
-    /// Rounds the double to decimal places value
-    func rounded(_ places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
-}
-
 import Combine
 class TokenCardViewModel: ObservableObject {
     @Published var name: String

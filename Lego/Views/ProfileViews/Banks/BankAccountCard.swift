@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct BankAccountCard: View {
-    var userService: IUserService
+    var userService: IUserService = UserService.create()
     var bankAccount: BankAccount
-    var onDelete: (_ bankAccount: BankAccount) -> Void
+    var onDelete: ((_ bankAccount: BankAccount) -> Void)? = nil
     @State var presentDeleteDialog = false
     @State var error: ClusttrError?
 
@@ -31,12 +31,14 @@ struct BankAccountCard: View {
 
             Spacer()
 
-            Button(action: {
-                presentDeleteDialog = true
-            }) {
-                Image(systemName: "trash")
-                    .fontWeight(.bold)
-                    .foregroundColor(.red)
+            if onDelete != nil {
+                Button(action: {
+                    presentDeleteDialog = true
+                }) {
+                    Image(systemName: "trash")
+                        .fontWeight(.bold)
+                        .foregroundColor(.red)
+                }
             }
         }
         .padding(.vertical, 8)
@@ -48,7 +50,7 @@ struct BankAccountCard: View {
                 presentDeleteDialog = false
             } onProceed: { bankAccount in
                 presentDeleteDialog = false
-                onDelete(bankAccount)
+                onDelete?(bankAccount)
             }
             .presentationDetents([.height(250)])
         }

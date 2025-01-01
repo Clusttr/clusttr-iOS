@@ -27,6 +27,15 @@ extension BankAccountDTO {
             bank: faker.bank.name()
         )
     }
+
+    static func mock(accountNumber: String, bank: String) -> BankAccountDTO {
+        let faker = Faker()
+        return BankAccountDTO(
+            accountName: faker.name.name(),
+            accountNumber: accountNumber,
+            bank: bank
+        )
+    }
 }
 
 struct AddBankAccountReqDTO: Codable {

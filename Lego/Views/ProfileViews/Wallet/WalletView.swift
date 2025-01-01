@@ -13,6 +13,7 @@ struct WalletView: View {
     var onClickMenu: () -> Void
     @State var showAccountInfo = false
     @State var showSendScreen = false
+    @State var showWithdrawScreen = false
     @State var showReceiveScreen = false
     @EnvironmentObject var accountManager: AccountManager
     @State private var navPath = NavigationPath()
@@ -53,7 +54,7 @@ struct WalletView: View {
                     showReceiveScreen = true
                 }
                 transactionButton(systemName: "square.and.arrow.up", title: "Withdraw") {
-                    navPath.append("Hello World")
+                    showWithdrawScreen = true
                 }
                 transactionButton(systemName: "rectangle.portrait.and.arrow.right", title: "Send") {
                     showSendScreen = true
@@ -65,6 +66,9 @@ struct WalletView: View {
                 AddressPickerView(isShowing: $showSendScreen)
                     .environmentObject(accountManager)
             })
+            .popover(isPresented: $showWithdrawScreen) {
+                WithdrawView()
+            }
             .popover(isPresented: $showReceiveScreen) {
                 ReceiveTokenView(isShowing: $showReceiveScreen)
             }

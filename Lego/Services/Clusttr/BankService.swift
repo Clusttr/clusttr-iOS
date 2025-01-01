@@ -62,6 +62,6 @@ struct BankServiceDouble: IBankService {
 
     func deleteBankAccount(accountNumber: String, bank: String, pin: String) async throws -> BankAccountDTO {
         try? await Task.sleep(for: .seconds(1))
-        return .mock()
+        return .mock(accountNumber: accountNumber, bank: bank)
     }
 }

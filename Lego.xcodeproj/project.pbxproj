@@ -132,6 +132,7 @@
 		E2A7D2682A901D8500F885C3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7D2672A901D8500F885C3 /* LottieView.swift */; };
 		E2A884782A65CE5700B68A93 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = E2A884772A65CE5700B68A93 /* Solana */; };
 		E2A8847B2A65D5AF00B68A93 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8847A2A65D5AF00B68A93 /* WalletView.swift */; };
+		E2AE39102CBE9EB300182407 /* RampingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE390F2CBE9EA600182407 /* RampingService.swift */; };
 		E2B3CC472A9F5B1A00CDAD94 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3CC462A9F5B1A00CDAD94 /* User.swift */; };
 		E2B3CC492A9F7F1D00CDAD94 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3CC482A9F7F1D00CDAD94 /* LocalStorage.swift */; };
 		E2BC01FB2A902CBF00337693 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = E2BC01FA2A902CBF00337693 /* AlertToast */; };
@@ -170,6 +171,7 @@
 		E2BCAC4C2A7B1C5000A14654 /* SetupPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */; };
 		E2BCAC4F2A7B1DC000A14654 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */; };
 		E2BD9F312CACC79000C8F0AD /* ResetPinReqDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD9F302CACC77A00C8F0AD /* ResetPinReqDTO.swift */; };
+		E2BD9F352CB991CF00C8F0AD /* WithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD9F342CB991CF00C8F0AD /* WithdrawView.swift */; };
 		E2BEDEA32BF7F4DE00CFCC07 /* NFTGridTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BEDEA22BF7F4DE00CFCC07 /* NFTGridTabBar.swift */; };
 		E2BEDEA62BF8328B00CFCC07 /* AssetSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BEDEA52BF8328A00CFCC07 /* AssetSectionView.swift */; };
 		E2C327872BA5E83A0010E14B /* ConfirmTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C327862BA5E83A0010E14B /* ConfirmTransactionView.swift */; };
@@ -309,6 +311,7 @@
 		E2A7D2622A8FE7AA00F885C3 /* NFTImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTImagePicker.swift; sourceTree = "<group>"; };
 		E2A7D2672A901D8500F885C3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		E2A8847A2A65D5AF00B68A93 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		E2AE390F2CBE9EA600182407 /* RampingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampingService.swift; sourceTree = "<group>"; };
 		E2B3CC462A9F5B1A00CDAD94 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E2B3CC482A9F7F1D00CDAD94 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		E2BC01FD2A90B09100337693 /* CreateNFTParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNFTParams.swift; sourceTree = "<group>"; };
@@ -346,6 +349,7 @@
 		E2BCAC4B2A7B1C5000A14654 /* SetupPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPinView.swift; sourceTree = "<group>"; };
 		E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
 		E2BD9F302CACC77A00C8F0AD /* ResetPinReqDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPinReqDTO.swift; sourceTree = "<group>"; };
+		E2BD9F342CB991CF00C8F0AD /* WithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawView.swift; sourceTree = "<group>"; };
 		E2BEDEA22BF7F4DE00CFCC07 /* NFTGridTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTGridTabBar.swift; sourceTree = "<group>"; };
 		E2BEDEA52BF8328A00CFCC07 /* AssetSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSectionView.swift; sourceTree = "<group>"; };
 		E2C327862BA5E83A0010E14B /* ConfirmTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionView.swift; sourceTree = "<group>"; };
@@ -389,6 +393,7 @@
 		E20DC3FD2AA0DF18001BBD61 /* Clusttr */ = {
 			isa = PBXGroup;
 			children = (
+				E2AE390F2CBE9EA600182407 /* RampingService.swift */,
 				E2A509C22AA29BF200C10E56 /* DTOs */,
 				E20DC3FF2AA0DF73001BBD61 /* AuthService.swift */,
 				E29C72362AA4E04500C05222 /* AccountService.swift */,
@@ -413,11 +418,11 @@
 		E2155B972CA51051000121A5 /* Banks */ = {
 			isa = PBXGroup;
 			children = (
-				E2BCA3BD2CA7032B001AA829 /* models */,
-				E2BCA3BC2CA7025E001AA829 /* DeleteBankAccount */,
-				E2BCA3BB2CA7021D001AA829 /* AddBankAccount */,
 				E2155B9A2CA5163A000121A5 /* BankAccountCard.swift */,
 				E2155B982CA51113000121A5 /* BankAccountsView.swift */,
+				E2BCA3BB2CA7021D001AA829 /* AddBankAccount */,
+				E2BCA3BC2CA7025E001AA829 /* DeleteBankAccount */,
+				E2BCA3BD2CA7032B001AA829 /* models */,
 			);
 			path = Banks;
 			sourceTree = "<group>";
@@ -827,6 +832,7 @@
 		E2A884792A65D57D00B68A93 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				E2BD9F322CB9902100C8F0AD /* withdraw */,
 				E2155B922CA10E05000121A5 /* Benefator */,
 				E24FAA402BA485EA003CF17B /* SendFlow */,
 				E2A8847A2A65D5AF00B68A93 /* WalletView.swift */,
@@ -968,6 +974,14 @@
 			path = Req;
 			sourceTree = "<group>";
 		};
+		E2BD9F322CB9902100C8F0AD /* withdraw */ = {
+			isa = PBXGroup;
+			children = (
+				E2BD9F342CB991CF00C8F0AD /* WithdrawView.swift */,
+			);
+			path = withdraw;
+			sourceTree = "<group>";
+		};
 		E2BEDEA42BF82D6500CFCC07 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1079,6 +1093,7 @@
 			files = (
 				E20F8CD02C99E9F100320958 /* PublicKey+Extensions.swift in Sources */,
 				E2E938612ADAA3640045E20E /* TokenService.swift in Sources */,
+				E2BD9F352CB991CF00C8F0AD /* WithdrawView.swift in Sources */,
 				E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */,
 				E2579CFA29ED199F006ABEA8 /* BannerShape.swift in Sources */,
 				E24AE4D02A7ED33800FE2903 /* OTPView.swift in Sources */,
@@ -1180,6 +1195,7 @@
 				E24363E52A7554D00053FD28 /* RegisterWalletWithMnemonicView.swift in Sources */,
 				E2BEDEA62BF8328B00CFCC07 /* AssetSectionView.swift in Sources */,
 				E2579D2329EDEEF5006ABEA8 /* HomeView.swift in Sources */,
+				E2AE39102CBE9EB300182407 /* RampingService.swift in Sources */,
 				E2BD9F312CACC79000C8F0AD /* ResetPinReqDTO.swift in Sources */,
 				E2E9385B2ADA948D0045E20E /* UserDTO.swift in Sources */,
 				E2BCA3CC2CA9F501001AA829 /* Socials.swift in Sources */,
