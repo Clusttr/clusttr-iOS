@@ -92,6 +92,7 @@
 		E2579D2829EEAA18006ABEA8 /* NFTDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */; };
 		E2579D2B29EEACA0006ABEA8 /* House.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2A29EEACA0006ABEA8 /* House.usdz */; };
 		E2579D2D29EEACB2006ABEA8 /* Kitchen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */; };
+		E25E862E2D29E8E500FE0216 /* OTPBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E862D2D29E8E500FE0216 /* OTPBoxView.swift */; };
 		E263122B2AB069DA000FCEB4 /* TokenCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263122A2AB069DA000FCEB4 /* TokenCard.swift */; };
 		E263122D2AB06D10000FCEB4 /* TokenCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263122C2AB06D10000FCEB4 /* TokenCategoryPicker.swift */; };
 		E27445AA2A9022910092C6AD /* construction_progress.json in Resources */ = {isa = PBXBuildFile; fileRef = E27445A92A9022910092C6AD /* construction_progress.json */; };
@@ -274,6 +275,7 @@
 		E2579D2729EEAA18006ABEA8 /* NFTDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailsView.swift; sourceTree = "<group>"; };
 		E2579D2A29EEACA0006ABEA8 /* House.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = House.usdz; sourceTree = "<group>"; };
 		E2579D2C29EEACB2006ABEA8 /* Kitchen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Kitchen.usdz; sourceTree = "<group>"; };
+		E25E862D2D29E8E500FE0216 /* OTPBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPBoxView.swift; sourceTree = "<group>"; };
 		E263122A2AB069DA000FCEB4 /* TokenCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCard.swift; sourceTree = "<group>"; };
 		E263122C2AB06D10000FCEB4 /* TokenCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCategoryPicker.swift; sourceTree = "<group>"; };
 		E27445A92A9022910092C6AD /* construction_progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = construction_progress.json; sourceTree = "<group>"; };
@@ -958,6 +960,7 @@
 		E2BCAC4D2A7B1DA400A14654 /* OTP */ = {
 			isa = PBXGroup;
 			children = (
+				E25E862D2D29E8E500FE0216 /* OTPBoxView.swift */,
 				E2BCAC492A7B17E900A14654 /* OTPFormFieldView.swift */,
 				E2BCAC4E2A7B1DC000A14654 /* OTPModifier.swift */,
 				E24AE4CD2A7ECE6900FE2903 /* OTPField.swift */,
@@ -1157,6 +1160,7 @@
 				E2BC511F2C9CD8C000E36064 /* AirdropDTO.swift in Sources */,
 				E29C72392AA4F39D00C05222 /* RegisterAccountView.swift in Sources */,
 				E217D0D329F80C1400DE5C5F /* PriceHistoryComponent.swift in Sources */,
+				E25E862E2D29E8E500FE0216 /* OTPBoxView.swift in Sources */,
 				E2BC02032A90CC5B00337693 /* CreateNFTViewModel.swift in Sources */,
 				E22C58EC29E81A880065EEE2 /* ProfileView.swift in Sources */,
 				E217D0B729F0550B00DE5C5F /* LoginStatus.swift in Sources */,
@@ -1381,7 +1385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Lego/Lego.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"Lego/Preview Content\"";
 				DEVELOPMENT_TEAM = STBR373K7A;
 				ENABLE_PREVIEWS = YES;
@@ -1415,7 +1419,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Lego/Lego.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"Lego/Preview Content\"";
 				DEVELOPMENT_TEAM = STBR373K7A;
 				ENABLE_PREVIEWS = YES;

@@ -47,6 +47,6 @@ struct SetupPinView: View {
 struct SetupPinView_Previews: PreviewProvider {
     static var previews: some View {
         SetupPinView()
-            .environmentObject(AppState())
+            .environmentObject(AppState.init())
     }
 }
