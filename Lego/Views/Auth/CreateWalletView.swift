@@ -81,9 +81,9 @@ struct CreateWalletView: View {
             return
 
         }
-        let secretKeyData = Data(hexString: secretKey)
-        guard let hotAccount = HotAccount(secretKey: secretKeyData) else { return }
-        viewModel.account = hotAccount
+//        let secretKeyData = Data(hexString: secretKey)
+//        guard let hotAccount = HotAccount(secretKey: secretKeyData) else { return }
+//        viewModel.account = hotAccount
     }
 
     func next() {

@@ -99,7 +99,6 @@
 		E282BA012A0949B0005C9F01 /* DeveloperProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA002A0949B0005C9F01 /* DeveloperProfileView.swift */; };
 		E282BA042A095E33005C9F01 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E282BA032A095E33005C9F01 /* DismissButton.swift */; };
 		E28BDA0C2A9E52D30083EF0B /* Web3AuthLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BDA0B2A9E52D30083EF0B /* Web3AuthLoginView.swift */; };
-		E28BDA0F2A9E5BFC0083EF0B /* Web3Auth in Frameworks */ = {isa = PBXBuildFile; productRef = E28BDA0E2A9E5BFC0083EF0B /* Web3Auth */; };
 		E28BDA122A9E6B5F0083EF0B /* ActionButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BDA112A9E6B5F0083EF0B /* ActionButtonModifier.swift */; };
 		E295A20A2A8761FA00DCDC64 /* AccountFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295A2092A8761FA00DCDC64 /* AccountFactory.swift */; };
 		E295A20C2A8A94AA00DCDC64 /* HotAccount+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295A20B2A8A94AA00DCDC64 /* HotAccount+Extensions.swift */; };
@@ -185,6 +184,7 @@
 		E2E9385F2ADAA1650045E20E /* HomeViewModelV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E9385E2ADAA1650045E20E /* HomeViewModelV2.swift */; };
 		E2E938612ADAA3640045E20E /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938602ADAA3640045E20E /* TokenService.swift */; };
 		E2E938632ADADB570045E20E /* AssetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E938622ADADB570045E20E /* AssetDTO.swift */; };
+		E2F166822D5C17F8008FEC6C /* Web3Auth in Frameworks */ = {isa = PBXBuildFile; productRef = E2F166812D5C17F8008FEC6C /* Web3Auth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -372,8 +372,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E224832D2A8077FF00AF893C /* KeychainSwift in Frameworks */,
-				E28BDA0F2A9E5BFC0083EF0B /* Web3Auth in Frameworks */,
 				E2A884782A65CE5700B68A93 /* Solana in Frameworks */,
+				E2F166822D5C17F8008FEC6C /* Web3Auth in Frameworks */,
 				E2579D0829ED86F7006ABEA8 /* Fakery in Frameworks */,
 				E2BC01FB2A902CBF00337693 /* AlertToast in Frameworks */,
 				E24FAA272BA17542003CF17B /* InventoryProgram in Frameworks */,
@@ -1020,8 +1020,8 @@
 				E224832C2A8077FF00AF893C /* KeychainSwift */,
 				E2A7D2652A9010E600F885C3 /* Lottie */,
 				E2BC01FA2A902CBF00337693 /* AlertToast */,
-				E28BDA0E2A9E5BFC0083EF0B /* Web3Auth */,
 				E24FAA262BA17542003CF17B /* InventoryProgram */,
+				E2F166812D5C17F8008FEC6C /* Web3Auth */,
 			);
 			productName = Lego;
 			productReference = E22C58D629E8167F0065EEE2 /* Lego.app */;
@@ -1057,7 +1057,7 @@
 				E224832B2A8077FF00AF893C /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				E2A7D2642A9010E600F885C3 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */,
-				E28BDA0D2A9E5BFC0083EF0B /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */,
+				E2F166802D5C17F8008FEC6C /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */,
 			);
 			productRefGroup = E22C58D729E8167F0065EEE2 /* Products */;
 			projectDirPath = "";
@@ -1492,14 +1492,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		E28BDA0D2A9E5BFC0083EF0B /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Web3Auth/web3auth-swift-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
 		E2A7D2642A9010E600F885C3 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -1524,6 +1516,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		E2F166802D5C17F8008FEC6C /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Web3Auth/web3auth-swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1541,11 +1541,6 @@
 			package = E2579D0629ED86F7006ABEA8 /* XCRemoteSwiftPackageReference "Fakery" */;
 			productName = Fakery;
 		};
-		E28BDA0E2A9E5BFC0083EF0B /* Web3Auth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E28BDA0D2A9E5BFC0083EF0B /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */;
-			productName = Web3Auth;
-		};
 		E2A7D2652A9010E600F885C3 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E2A7D2642A9010E600F885C3 /* XCRemoteSwiftPackageReference "lottie-ios" */;
@@ -1560,6 +1555,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E2BC01F92A902CBF00337693 /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		E2F166812D5C17F8008FEC6C /* Web3Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2F166802D5C17F8008FEC6C /* XCRemoteSwiftPackageReference "web3auth-swift-sdk" */;
+			productName = Web3Auth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

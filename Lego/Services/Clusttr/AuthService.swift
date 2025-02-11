@@ -25,10 +25,11 @@ struct AuthService: IAuthService {
     }
 
     func web3Login() async throws -> (secretKey: Data, user: User) {
-        let web3Auth = await Web3Auth(
+        let web3Auth = try await Web3Auth(
             W3AInitParams(
                 clientId: "BEhMD-p5PB698Z1pqW_5yAyIitFw5XbmzuHVojraZ6N2XKdtmbLiGZ_O0A5rv0kOyFX5DqvYf7MvClCt6LZ75qQ",
-                network: .testnet
+                network: .testnet,
+                redirectUrl: "io.clusttr.app://auth"
             )
         )
 
